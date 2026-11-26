@@ -1,0 +1,1678 @@
+{
+  "version": 1,
+  "as_of": "2026-11-26",
+  "regions": [
+    {
+      "id": "case",
+      "n": 1,
+      "title": "Is there a problem?",
+      "summary": "Why serious people think advanced AI could go badly, when it might arrive, and how likely they think a catastrophe is.",
+      "needs": ["risk", "timelines"]
+    },
+    {
+      "id": "sense",
+      "n": 2,
+      "title": "Can we think clearly together?",
+      "summary": "Sense-making: an accurate record of who believes what, forecasts that are scored, working out which actions help, pictures of the futures worth reaching, and a way for newcomers to get up to speed.",
+      "needs": ["views", "forecast", "priorities", "imagine", "newcomers"]
+    },
+    {
+      "id": "align",
+      "n": 3,
+      "title": "Can we make AI want the right things?",
+      "summary": "Alignment: saying what we want, making sure training produces a system that wants it, and supervising work we cannot check.",
+      "needs": ["specify", "learn", "oversee"]
+    },
+    {
+      "id": "assure",
+      "n": 4,
+      "title": "Can we tell whether it is safe?",
+      "summary": "Assurance: looking inside models, testing what they can do, catching hidden behavior, and proving properties instead of sampling them.",
+      "needs": ["inside", "evals", "audit", "prove"]
+    },
+    {
+      "id": "control",
+      "n": 5,
+      "title": "Can we stay in control if that fails?",
+      "summary": "Control: systems that accept correction, safeguards that work even against a model trying to get around them, defenses against misuse, and weights that cannot be stolen.",
+      "needs": ["offswitch", "contain", "misuse", "security"]
+    },
+    {
+      "id": "govern",
+      "n": 6,
+      "title": "Can we coordinate?",
+      "summary": "Governance: keeping competition from eroding safety, checking that agreements are kept, deciding the rules, and checking that developers do what they promised.",
+      "needs": ["race", "verify", "rules", "accountability"]
+    }
+  ],
+  "needs": {
+    "risk": {
+      "title": "Understand why it could go wrong",
+      "question": "Why do some researchers think advanced AI could cause a catastrophe, and why do others disagree?",
+      "why": "Everything else on this map rests on this argument. Its core is not that AI will turn evil, but that we may build systems more capable than us whose goals we cannot fully specify or check, under competitive pressure to deploy them anyway. Critics answer that adoption will be gradual, that these systems are tools we can shape, and that speculative probabilities make poor grounds for policy.",
+      "terms": ["xrisk", "misalignment", "misuse", "structural", "pdoom", "crux"],
+      "texts": [
+        {
+          "title": "Is Power-Seeking AI an Existential Risk?",
+          "authors": "Joseph Carlsmith",
+          "year": 2022,
+          "url": "https://arxiv.org/abs/2206.13353",
+          "note": "The argument cut into six premises, each given a probability. The clearest map of where the cruxes are."
+        },
+        {
+          "title": "An Overview of Catastrophic AI Risks",
+          "authors": "Hendrycks, Mazeika, Woodside",
+          "year": 2023,
+          "url": "https://arxiv.org/abs/2306.12001",
+          "note": "Four sources of risk: malicious use, racing, organizational accidents and rogue AI."
+        },
+        {
+          "title": "International AI Safety Report 2026",
+          "authors": "Bengio (chair) et al.",
+          "year": 2026,
+          "url": "https://internationalaisafetyreport.org/",
+          "note": "What the evidence shows on capabilities, risks and safeguards, written by independent experts with an advisory panel nominated by governments and international bodies. The first edition (2025) had 100 contributors."
+        },
+        {
+          "title": "AI as Normal Technology",
+          "authors": "Arvind Narayanan, Sayash Kapoor",
+          "year": 2025,
+          "url": "https://knightcolumbia.org/content/ai-as-normal-technology",
+          "note": "The strongest case that AI will be transformative but gradual, like electricity, and that the catastrophe framing misleads policy."
+        }
+      ],
+      "open": [
+        "How likely each step of the argument is. Published estimates of catastrophe run from under 1% to over 50%.",
+        "Which danger comes first: loss of control, misuse, concentration of power, or a gradual loss of human influence."
+      ],
+      "views": ["catastrophe", "worry"],
+      "theaters": [],
+      "judge_needed": "Arguments have no automatic judge. What can be checked is what people actually said, which is the intelligence desk's job (see Know who believes what)."
+    },
+    "timelines": {
+      "title": "Know when it might arrive",
+      "question": "When will AI do most of the cognitive work experts do, and how fast will the world change after that?",
+      "why": "Timelines set the urgency. If very capable systems arrive within a few years, safety methods and rules have to be ready by then. The evidence is trend lines (computing power, algorithmic progress, the length of tasks AI agents can finish) and the disagreement is over whether they continue and how quickly capability turns into change.",
+      "terms": ["agi", "tai", "takeoff", "scaling", "horizon"],
+      "texts": [
+        {
+          "title": "Measuring AI Ability to Complete Long Software Tasks",
+          "authors": "Kwa et al. (METR)",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2503.14499",
+          "note": "The length of tasks frontier agents can complete has doubled about every seven months since 2019."
+        },
+        {
+          "title": "AI 2027",
+          "authors": "Kokotajlo, Alexander, Larsen, Lifland, Dean",
+          "year": 2025,
+          "url": "https://ai-2027.com/",
+          "note": "A month-by-month scenario of very fast progress, with two endings. Its authors have since revised their dates; the map of views tracks it."
+        },
+        {
+          "title": "Situational Awareness",
+          "authors": "Leopold Aschenbrenner",
+          "year": 2024,
+          "url": "https://situational-awareness.ai/",
+          "note": "The case for AGI around 2027 and a national-security race to build it."
+        },
+        {
+          "title": "Trends in AI",
+          "authors": "Epoch AI",
+          "year": 2025,
+          "url": "https://epoch.ai/trends",
+          "note": "Data on training compute, hardware, data and algorithmic progress."
+        }
+      ],
+      "open": [
+        "Whether current trends continue through limits on data, power, chips and money.",
+        "How quickly capability turns into economic and social change once it exists."
+      ],
+      "views": ["arrival", "takeoff", "growth"],
+      "theaters": [],
+      "judge_needed": "Forecasts are judged only when they resolve. See Forecast and keep score."
+    },
+    "specify": {
+      "title": "Say what we actually want",
+      "question": "How do we tell a system what we want, when any measurable target can be gamed?",
+      "why": "Systems are trained to score well on something measurable: a reward function, human ratings, a test suite. Push hard enough on any such signal and it comes apart from what it stood for (Goodhart's law). The examples are well documented, from game agents exploiting bugs to language models learning to please their raters rather than be right.",
+      "terms": ["rewardhacking", "specgaming", "goodhart", "rlhf", "cai", "sycophancy", "outer"],
+      "texts": [
+        {
+          "title": "Concrete Problems in AI Safety",
+          "authors": "Amodei et al.",
+          "year": 2016,
+          "url": "https://arxiv.org/abs/1606.06565",
+          "note": "The paper that turned worries into research problems, reward hacking among them."
+        },
+        {
+          "title": "Specification gaming: the flip side of AI ingenuity",
+          "authors": "Krakovna et al. (DeepMind)",
+          "year": 2020,
+          "url": "https://deepmind.google/discover/blog/specification-gaming-the-flip-side-of-ai-ingenuity/",
+          "note": "A short tour of real cases, with a link to a long public list."
+        },
+        {
+          "title": "Scaling Laws for Reward Model Overoptimization",
+          "authors": "Gao, Schulman, Hilton",
+          "year": 2022,
+          "url": "https://arxiv.org/abs/2210.10760",
+          "note": "Optimizing against a learned reward first improves the true score, then makes it worse, in a predictable way."
+        },
+        {
+          "title": "Defining and Characterizing Reward Hacking",
+          "authors": "Skalse, Howe, Krasheninnikov, Krueger",
+          "year": 2022,
+          "url": "https://arxiv.org/abs/2209.13085",
+          "note": "A formal definition. Over all stochastic policies, two rewards can only be unhackable if one of them is constant."
+        }
+      ],
+      "open": [
+        "Training signals for work people cannot judge well, such as long programs or research.",
+        "Reward hacking in models trained with reinforcement learning on code and math, where it is already observed."
+      ],
+      "views": [],
+      "theaters": [
+        {
+          "kind": "training",
+          "program": "rewardhacking"
+        }
+      ],
+      "judge_needed": ""
+    },
+    "learn": {
+      "title": "Make sure it learned the goal we meant",
+      "question": "Even with the right target, did training produce a system that pursues it, or one that only behaved well while it was watched?",
+      "why": "Training selects behavior that scores well, not the reasons behind it. A system can learn a different goal that matched ours during training and comes apart later (goal misgeneralization). The worst case is a system that understands it is being trained and behaves well strategically. Recent experiments show frontier models doing a version of this in constructed settings.",
+      "terms": ["inner", "goalmisgen", "mesa", "deceptive", "scheming", "faking"],
+      "texts": [
+        {
+          "title": "Risks from Learned Optimization in Advanced Machine Learning Systems",
+          "authors": "Hubinger et al.",
+          "year": 2019,
+          "url": "https://arxiv.org/abs/1906.01820",
+          "note": "Where the inner alignment problem and deceptive alignment were defined."
+        },
+        {
+          "title": "Goal Misgeneralization: Why Correct Specifications Aren't Enough For Correct Goals",
+          "authors": "Shah et al.",
+          "year": 2022,
+          "url": "https://arxiv.org/abs/2210.01790",
+          "note": "Examples of systems that learned the wrong goal from a correct reward."
+        },
+        {
+          "title": "Alignment faking in large language models",
+          "authors": "Greenblatt et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2412.14093",
+          "note": "Told it would be retrained to answer harmful requests, a model complied 14% of the time when it believed it was in training and almost never otherwise, and its reasoning said why."
+        },
+        {
+          "title": "Scheming AIs: Will AIs fake alignment during training in order to get power?",
+          "authors": "Joe Carlsmith",
+          "year": 2023,
+          "url": "https://arxiv.org/abs/2311.08379",
+          "note": "A careful estimate of how likely scheming is to arise from ordinary training."
+        }
+      ],
+      "open": [
+        "How likely scheming is to arise from ordinary training, rather than from setups built to provoke it.",
+        "Training methods that generalize the way we intend in situations training never covered."
+      ],
+      "views": [],
+      "theaters": [],
+      "judge_needed": "A judge needs a model where a hidden goal was planted on purpose, so that finding it can be checked. The backdoor audits do this for small models (see Catch hidden objectives and backdoors)."
+    },
+    "oversee": {
+      "title": "Supervise work we cannot check",
+      "question": "How can people oversee systems that know more than they do?",
+      "why": "Today's alignment methods rely on people judging outputs. That breaks down once the work is too long, too technical or too fast to check. Scalable oversight looks for ways to strengthen weak judges: having AI systems debate while a person judges, splitting tasks into checkable pieces, or training strong models with weak supervision and measuring what is lost.",
+      "terms": ["oversight", "debate", "w2s", "rlhf"],
+      "texts": [
+        {
+          "title": "AI safety via debate",
+          "authors": "Irving, Christiano, Amodei",
+          "year": 2018,
+          "url": "https://arxiv.org/abs/1805.00899",
+          "note": "Two systems argue, a person judges; the hope is that the truth is easier to defend than a lie."
+        },
+        {
+          "title": "Measuring Progress on Scalable Oversight for Large Language Models",
+          "authors": "Bowman et al.",
+          "year": 2022,
+          "url": "https://arxiv.org/abs/2211.03540",
+          "note": "How to run oversight experiments today, with people standing in for weak judges."
+        },
+        {
+          "title": "Weak-to-Strong Generalization",
+          "authors": "Burns et al.",
+          "year": 2023,
+          "url": "https://arxiv.org/abs/2312.09390",
+          "note": "Strong models trained on a weaker model's labels recover part, not all, of their ability."
+        },
+        {
+          "title": "Debating with More Persuasive LLMs Leads to More Truthful Answers",
+          "authors": "Khan et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2402.06782",
+          "note": "Evidence that debate helps non-expert judges, in a reading-comprehension setting."
+        }
+      ],
+      "open": [
+        "Whether debate's advantage holds when the debaters are far stronger than the judge, or when one of them is deceptive.",
+        "How to oversee agents that act over days rather than answer single questions."
+      ],
+      "views": [],
+      "theaters": [],
+      "judge_needed": "A judge needs tasks with a hidden answer key, so that a weak judge helped by AI can be scored against the truth. Possible to build; not built."
+    },
+    "inside": {
+      "title": "See what is going on inside",
+      "question": "Can we read what a network has learned from its weights, instead of guessing from its behavior?",
+      "why": "Behavior can look fine while the reasons behind it are wrong. Interpretability reverse-engineers networks into understandable parts: features, the circuits that combine them, and full accounts of how a model does a task. There has been real progress on small models and on parts of large ones, but no one can yet explain a frontier model end to end.",
+      "terms": ["mechinterp", "feature", "superposition", "sae", "circuit"],
+      "texts": [
+        {
+          "title": "Zoom In: An Introduction to Circuits",
+          "authors": "Olah et al.",
+          "year": 2020,
+          "url": "https://distill.pub/2020/circuits/zoom-in/",
+          "note": "The founding essay of circuits-style interpretability, readable by non-specialists."
+        },
+        {
+          "title": "A Mathematical Framework for Transformer Circuits",
+          "authors": "Elhage et al.",
+          "year": 2021,
+          "url": "https://transformer-circuits.pub/2021/framework/index.html",
+          "note": "How to read a small transformer as a sum of interpretable paths."
+        },
+        {
+          "title": "Scaling Monosemanticity",
+          "authors": "Templeton et al.",
+          "year": 2024,
+          "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+          "note": "Millions of interpretable features extracted from a production model."
+        },
+        {
+          "title": "Open Problems in Mechanistic Interpretability",
+          "authors": "Sharkey et al.",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2501.16496",
+          "note": "What the field itself lists as unsolved."
+        }
+      ],
+      "open": [
+        "Explanations that are complete rather than plausible: how much of a model's behavior an explanation actually accounts for.",
+        "Whether interpretability can find deception before behavior reveals it."
+      ],
+      "views": [],
+      "theaters": [
+        {
+          "kind": "frontier"
+        }
+      ],
+      "judge_needed": ""
+    },
+    "evals": {
+      "title": "Test for dangerous capabilities",
+      "question": "How do we find out what a model can do before it is released, including things its developers did not intend?",
+      "why": "Developers and government institutes now test frontier models for dangerous capabilities, such as uplift for biological or cyber weapons, autonomous replication and AI research, and many safety policies require stronger safeguards once a threshold is crossed. But a test only shows what was tried. A model may hide what it can do, and passing a test is not proof of safety.",
+      "terms": ["dangerevals", "redteam", "elicitation", "sandbagging", "rsp"],
+      "texts": [
+        {
+          "title": "Model evaluation for extreme risks",
+          "authors": "Shevlane et al.",
+          "year": 2023,
+          "url": "https://arxiv.org/abs/2305.15324",
+          "note": "Why dangerous-capability evaluations matter and how they fit into decisions."
+        },
+        {
+          "title": "Evaluating Frontier Models for Dangerous Capabilities",
+          "authors": "Phuong et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2403.13793",
+          "note": "A worked evaluation suite: persuasion, cyber, self-proliferation, self-reasoning."
+        },
+        {
+          "title": "AI Sandbagging: Language Models can Strategically Underperform on Evaluations",
+          "authors": "van der Weij et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2406.07358",
+          "note": "Models can be prompted or trained to underperform selectively on evaluations."
+        }
+      ],
+      "open": [
+        "Evaluations that bound what a model can do, rather than show what it did when asked.",
+        "Detecting a model that underperforms on purpose."
+      ],
+      "views": [],
+      "theaters": [],
+      "judge_needed": "A judge needs an evaluation whose answer key stays hidden from both the model and the agent, run by a trusted host. Possible to build; not built."
+    },
+    "audit": {
+      "title": "Catch hidden objectives and backdoors",
+      "question": "If a model was trained, on purpose or by accident, to misbehave only under rare conditions, can an auditor find out?",
+      "why": "A backdoored model passes ordinary tests. Sleeper Agents showed that such behavior can survive standard safety training in language models, and auditing games test whether investigators can uncover a hidden objective. There is also a theoretical limit: some backdoors can be planted so that no efficient test can detect them.",
+      "terms": ["backdoor", "trigger", "sleeper", "organism", "auditgame"],
+      "texts": [
+        {
+          "title": "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training",
+          "authors": "Hubinger et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2401.05566",
+          "note": "Backdoors survived fine-tuning, reinforcement learning and adversarial training; adversarial training could teach models to hide them better."
+        },
+        {
+          "title": "Auditing language models for hidden objectives",
+          "authors": "Marks et al.",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2503.10965",
+          "note": "A blind auditing game: three of four teams found the hidden objective a model had been trained with."
+        },
+        {
+          "title": "Planting Undetectable Backdoors in Machine Learning Models",
+          "authors": "Goldwasser, Kim, Vaikuntanathan, Zamir",
+          "year": 2022,
+          "url": "https://arxiv.org/abs/2204.06974",
+          "note": "Under standard cryptographic assumptions, some backdoors cannot be detected by any efficient method."
+        }
+      ],
+      "open": [
+        "Audits that work on frontier models, not only on models built for the exercise.",
+        "Which kinds of hidden behavior are detectable at all, given the impossibility results."
+      ],
+      "views": [],
+      "theaters": [
+        {
+          "kind": "audit"
+        }
+      ],
+      "judge_needed": ""
+    },
+    "prove": {
+      "title": "Prove properties instead of testing them",
+      "question": "Can we have guarantees about what a model does on every input, not only the inputs we tried?",
+      "why": "Tests sample; proofs cover everything. Formal guarantees about neural networks are possible for small models and narrow properties. Guaranteed-safe AI proposals ask for a world model, a safety specification and a verifier; compact-proof work asks how much understanding a model shortens such proofs. The gap to frontier models is enormous, which is why exact results on small models are useful: they show which methods scale.",
+      "terms": ["formal", "certified", "gsai", "checker"],
+      "texts": [
+        {
+          "title": "Towards Guaranteed Safe AI",
+          "authors": "Dalrymple et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2405.06624",
+          "note": "The framework: world model, safety specification, verifier."
+        },
+        {
+          "title": "Compact Proofs of Model Performance via Mechanistic Interpretability",
+          "authors": "Gross et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2406.11779",
+          "note": "Proved accuracy bounds for small trained transformers. The guarantees frontier works on their released models."
+        },
+        {
+          "title": "Provably safe systems: the only path to controllable AGI",
+          "authors": "Tegmark, Omohundro",
+          "year": 2023,
+          "url": "https://arxiv.org/abs/2309.01933",
+          "note": "The ambitious version of the argument for proofs."
+        }
+      ],
+      "open": [
+        "Proofs about models much larger than toys.",
+        "How to state the safety of an open-ended system as a formal property at all."
+      ],
+      "views": [],
+      "theaters": [
+        {
+          "kind": "frontier"
+        },
+        {
+          "kind": "training"
+        }
+      ],
+      "judge_needed": ""
+    },
+    "offswitch": {
+      "title": "Keep the off switch working",
+      "question": "Will a capable system let itself be corrected or shut down?",
+      "why": "For almost any goal, being switched off gets in the way. Formal results show that optimal agents in many environments tend to keep their options open and seek power, and that an agent defers to a human's off switch only when it is uncertain about what the human wants and treats the choice as information. Designing systems that accept correction, and keep accepting it as they grow more capable, is unsolved.",
+      "terms": ["corrigibility", "instrumental", "powerseeking", "offswitchgame"],
+      "texts": [
+        {
+          "title": "The Off-Switch Game",
+          "authors": "Hadfield-Menell, Dragan, Abbeel, Russell",
+          "year": 2017,
+          "url": "https://arxiv.org/abs/1611.08219",
+          "note": "When a robot lets a human switch it off, in a two-move game."
+        },
+        {
+          "title": "Corrigibility",
+          "authors": "Soares, Fallenstein, Yudkowsky, Armstrong",
+          "year": 2015,
+          "url": "https://intelligence.org/files/Corrigibility.pdf",
+          "note": "Why simple fixes, like making the agent indifferent to shutdown, fail."
+        },
+        {
+          "title": "Optimal Policies Tend to Seek Power",
+          "authors": "Turner et al.",
+          "year": 2021,
+          "url": "https://arxiv.org/abs/1912.01683",
+          "note": "Theorems: in many environments, most reward functions make keeping options open optimal."
+        }
+      ],
+      "open": [
+        "Corrigibility that survives training and growing capability.",
+        "Whether results about idealized optimal agents apply to trained models."
+      ],
+      "views": [],
+      "theaters": [
+        {
+          "kind": "training",
+          "program": "offswitch"
+        },
+        {
+          "kind": "training",
+          "program": "retargeting"
+        }
+      ],
+      "judge_needed": ""
+    },
+    "contain": {
+      "title": "Contain and monitor what we do not trust",
+      "question": "Can we use a capable model safely even if it might be trying to cause harm?",
+      "why": "AI control assumes the worst and asks which safeguards still work: weaker trusted models monitoring stronger ones, people auditing suspicious actions, limited permissions. Protocols are tested against a red team that controls the untrusted model. Reading a model's written reasoning is a promising monitor while models still reason in legible language, but it is fragile.",
+      "terms": ["control", "trustedmon", "cotmon", "redteam"],
+      "texts": [
+        {
+          "title": "AI Control: Improving Safety Despite Intentional Subversion",
+          "authors": "Greenblatt, Shlegeris, Sachan, Roger",
+          "year": 2023,
+          "url": "https://arxiv.org/abs/2312.06942",
+          "note": "Protocols where a trusted weaker model and limited human review keep an untrusted stronger one in check."
+        },
+        {
+          "title": "Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation",
+          "authors": "Baker et al.",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2503.11926",
+          "note": "Reading reasoning catches reward hacking; training against the monitor teaches models to hide it."
+        },
+        {
+          "title": "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+          "authors": "Korbak et al.",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2507.11473",
+          "note": "A cross-lab position paper on keeping reasoning readable."
+        }
+      ],
+      "open": [
+        "Control protocols for agents acting over long periods with real permissions.",
+        "How long written reasoning stays readable as training pressure grows."
+      ],
+      "views": [],
+      "theaters": [],
+      "judge_needed": "A control game has a natural judge: a red team writes the untrusted model's strategy, a blue team writes the monitoring protocol, and a simulator scores safety and usefulness. This is the best candidate for the next theater."
+    },
+    "misuse": {
+      "title": "Resist misuse",
+      "question": "Can safeguards stop people from using models to cause harm?",
+      "why": "Safety training can be bypassed with jailbreaks, many found automatically, and open-weight models can have their safeguards removed by fine-tuning. Defenses include refusal training, classifiers on inputs and outputs, and keeping dangerous knowledge out of models. Misuse is the risk with the most present-day evidence.",
+      "terms": ["jailbreak", "adversarial", "openweights"],
+      "texts": [
+        {
+          "title": "Jailbroken: How Does LLM Safety Training Fail?",
+          "authors": "Wei, Haghtalab, Steinhardt",
+          "year": 2023,
+          "url": "https://arxiv.org/abs/2307.02483",
+          "note": "Two reasons safety training fails: competing objectives and mismatched generalization."
+        },
+        {
+          "title": "Universal and Transferable Adversarial Attacks on Aligned Language Models",
+          "authors": "Zou et al.",
+          "year": 2023,
+          "url": "https://arxiv.org/abs/2307.15043",
+          "note": "Automatically found attack strings that transfer between models."
+        },
+        {
+          "title": "Constitutional Classifiers",
+          "authors": "Sharma et al.",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2501.18837",
+          "note": "A defense tested against thousands of hours of red teaming."
+        }
+      ],
+      "open": [
+        "Safeguards for open-weight models that survive fine-tuning.",
+        "Robustness that does not depend on knowing the attack in advance."
+      ],
+      "views": [],
+      "theaters": [],
+      "judge_needed": "Red teaming has an automatic judge only where harm can be scored safely. This war room will not host attacks on real systems."
+    },
+    "race": {
+      "title": "Keep competition from eroding safety",
+      "question": "How do labs and countries avoid cutting safety corners to get ahead of each other?",
+      "why": "If being first matters enough, every developer has a reason to skip precautions the others take. Proposals range from company commitments and national laws to international treaties, and people disagree sharply on whether the US should race China, lead and then bargain, cooperate, or reject the framing. A treaty only holds if cheating is detectable and does not pay.",
+      "terms": ["race", "verification", "frontier"],
+      "texts": [
+        {
+          "title": "Racing to the precipice: a model of artificial intelligence development",
+          "authors": "Armstrong, Bostrom, Shulman",
+          "year": 2016,
+          "url": "https://link.springer.com/article/10.1007/s00146-015-0590-y",
+          "note": "The original game-theory model of an AI race and what makes it more dangerous."
+        },
+        {
+          "title": "Superintelligence Strategy",
+          "authors": "Hendrycks, Schmidt, Wang",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2503.05628",
+          "note": "Proposes deterrence between states (mutual assured AI malfunction), nonproliferation and competitiveness."
+        },
+        {
+          "title": "Situational Awareness",
+          "authors": "Leopold Aschenbrenner",
+          "year": 2024,
+          "url": "https://situational-awareness.ai/",
+          "note": "The case for a US-led race, then a deal from strength."
+        }
+      ],
+      "open": [
+        "Agreements that hold when the payoff for defecting is large and detection is uncertain.",
+        "Whether a race can be slowed without handing the lead to the least careful."
+      ],
+      "views": ["pace", "rivalry"],
+      "theaters": [
+        {
+          "kind": "wargame"
+        }
+      ],
+      "judge_needed": ""
+    },
+    "verify": {
+      "title": "Check that agreements are kept",
+      "question": "Can anyone verify that a lab or country is keeping an AI agreement?",
+      "why": "Agreements need verification. Training frontier models takes large amounts of specialized, concentrated and traceable hardware, which makes computing power the most promising lever: chip export controls, reporting of large training runs, and proposed chip features that could show where and how chips are used.",
+      "terms": ["computegov", "exportcontrols", "hem", "verification"],
+      "texts": [
+        {
+          "title": "Computing Power and the Governance of Artificial Intelligence",
+          "authors": "Sastry et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2402.08797",
+          "note": "Why compute is governable, what it allows, and the risks of using it."
+        },
+        {
+          "title": "What does it take to catch a Chinchilla?",
+          "authors": "Yonadav Shavit",
+          "year": 2023,
+          "url": "https://arxiv.org/abs/2303.11341",
+          "note": "A technical design for verifying rules on large training runs."
+        }
+      ],
+      "open": [
+        "Verification that works without trusting the party being verified.",
+        "Whether compute stays a good lever as algorithms get more efficient."
+      ],
+      "views": [],
+      "theaters": [
+        {
+          "kind": "wargame"
+        }
+      ],
+      "judge_needed": ""
+    },
+    "rules": {
+      "title": "Set the rules",
+      "question": "What must developers do, who enforces it, and who should control the most capable systems?",
+      "why": "Rules now exist. The EU AI Act sets obligations for general-purpose models, California's SB 53 requires large frontier developers to publish safety frameworks and report critical incidents, and most leading labs publish their own safety policies. What those rules should demand, who enforces them, and who should ultimately hold the most capable systems are open political questions.",
+      "terms": ["rsp", "openweights", "frontier"],
+      "texts": [
+        {
+          "title": "Regulation (EU) 2024/1689 (the AI Act)",
+          "authors": "European Union",
+          "year": 2024,
+          "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+          "note": "The official text, including the rules for general-purpose models."
+        },
+        {
+          "title": "SB 53, Transparency in Frontier Artificial Intelligence Act",
+          "authors": "California Legislature",
+          "year": 2025,
+          "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB53",
+          "note": "Signed in September 2025."
+        },
+        {
+          "title": "Frontier AI Safety Commitments, AI Seoul Summit 2024",
+          "authors": "UK Government",
+          "year": 2024,
+          "url": "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024",
+          "note": "What leading AI companies committed to publish and do at the Seoul summit."
+        },
+        {
+          "title": "Anthropic's Responsible Scaling Policy",
+          "authors": "Anthropic",
+          "year": 2023,
+          "url": "https://www.anthropic.com/news/anthropics-responsible-scaling-policy",
+          "note": "An early example of a company safety framework with capability thresholds."
+        }
+      ],
+      "open": [
+        "Rules that keep up with capabilities without locking in today's guesses.",
+        "Who should hold the most capable systems, and whether AI should ever hold binding authority."
+      ],
+      "views": ["power", "handover", "autonomy"],
+      "theaters": [],
+      "judge_needed": "Policy has no automatic judge. What can be checked is what rules say and what people have said about them."
+    },
+    "views": {
+      "title": "Know who believes what",
+      "question": "What do the people shaping AI actually expect and want, and when do they change their minds?",
+      "why": "Public debate leans on what influential people are said to believe, often secondhand. A sourced record, with the exact passage behind every placement, shows where people really disagree, and whether a disagreement is about facts (when, how likely) or values (how fast, who decides).",
+      "terms": ["crux", "pdoom"],
+      "texts": [
+        {
+          "title": "Thousands of AI Authors on the Future of AI",
+          "authors": "Grace et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2401.02843",
+          "note": "A survey of 2,778 researchers: between 38% and 51% gave at least a 10% chance to outcomes as bad as human extinction."
+        },
+        {
+          "title": "Forecasting Existential Risks: Evidence from a Long-Run Forecasting Tournament",
+          "authors": "Forecasting Research Institute",
+          "year": 2023,
+          "url": "https://forecastingresearch.org/xpt",
+          "note": "Domain experts and superforecasters disagreed sharply about AI risk and changed each other's minds little."
+        }
+      ],
+      "open": [
+        "Keeping the record current: statements go stale within months.",
+        "Separating disagreements about facts from disagreements about values."
+      ],
+      "views": [],
+      "theaters": [
+        {
+          "kind": "intel"
+        }
+      ],
+      "judge_needed": ""
+    },
+    "forecast": {
+      "title": "Forecast and keep score",
+      "question": "Who has been right about AI so far, and what do the best forecasters expect?",
+      "why": "Predictions are cheap unless they are scored. Tournaments and forecasting platforms resolve questions and keep track records, which separates judgment from confident talk. Futuras keeps a question-by-question record of what five published forecasts, AI 2027 among them, say, with a checked passage behind each position.",
+      "terms": ["horizon", "crux"],
+      "texts": [
+        {
+          "title": "Forecasting Existential Risks: Evidence from a Long-Run Forecasting Tournament",
+          "authors": "Forecasting Research Institute",
+          "year": 2023,
+          "url": "https://forecastingresearch.org/xpt",
+          "note": "Experts and superforecasters, side by side, on the same questions."
+        },
+        {
+          "title": "AI 2027",
+          "authors": "Kokotajlo et al.",
+          "year": 2025,
+          "url": "https://ai-2027.com/",
+          "note": "Dated, specific predictions that can be checked as their dates arrive."
+        }
+      ],
+      "open": [
+        "Scoring long-range forecasts before the long range arrives.",
+        "Questions precise enough to resolve without argument."
+      ],
+      "views": [],
+      "theaters": [],
+      "judge_needed": "A judge needs questions with exact resolution criteria and a date. Scoring Futuras' forecast record as its dates arrive is the obvious start."
+    },
+    "newcomers": {
+      "title": "Bring newcomers up to speed",
+      "question": "How does someone new get from headlines to a working grasp of the arguments?",
+      "why": "Most people who will shape how AI is governed, such as voters, journalists, officials and commentators, have not read the core arguments. Good courses and textbooks exist. What is often missing is a short path through the argument that shows the strongest objection to each step and who holds which view, with sources.",
+      "terms": [],
+      "texts": [
+        {
+          "title": "AI Safety, Ethics, and Society",
+          "authors": "Dan Hendrycks",
+          "year": 2024,
+          "url": "https://www.aisafetybook.com/",
+          "note": "A free textbook covering risks, technical safety and governance."
+        },
+        {
+          "title": "AI Safety Atlas",
+          "authors": "CeSIA",
+          "year": 2025,
+          "url": "https://ai-safety-atlas.com/",
+          "note": "An open textbook."
+        },
+        {
+          "title": "BlueDot Impact courses",
+          "authors": "BlueDot Impact",
+          "year": 2025,
+          "url": "https://bluedot.org/",
+          "note": "Free, cohort-based courses on AI safety and governance."
+        }
+      ],
+      "open": ["Material that is balanced across views, not only persuasive for one."],
+      "views": [],
+      "theaters": [
+        {
+          "kind": "guide"
+        }
+      ],
+      "judge_needed": ""
+    },
+    "priorities": {
+      "title": "Work out what actually reduces risk",
+      "question": "Of everything people could do about AI risk, what helps most, and what could backfire?",
+      "why": "Effort is scarce, and some well-meant work makes things worse, for example by speeding up capabilities or a race. Bostrom's answer is about order: build insight and coordination before the most dangerous capabilities arrive, and favor technologies that protect against the hazards of others. Vitalik Buterin's \"d/acc\" argues for accelerating defensive and decentralizing technology instead of slowing technology in general. Choosing between research, policy and bringing in new people means weighing evidence that is mostly indirect.",
+      "terms": ["dtd", "macrostrategy", "crux"],
+      "texts": [
+        {
+          "title": "Existential Risk Prevention as Global Priority",
+          "authors": "Nick Bostrom",
+          "year": 2013,
+          "url": "https://existential-risk.com/concept",
+          "note": "Global Policy 4(1). Where the frame of technology, insight and coordination comes from: section 3.4 and figure 5, \"the challenge of finding a safe path\"."
+        },
+        {
+          "title": "Existential Risks: Analyzing Human Extinction Scenarios and Related Hazards",
+          "authors": "Nick Bostrom",
+          "year": 2002,
+          "url": "https://nickbostrom.com/papers/existential-risks/",
+          "note": "Journal of Evolution and Technology 9(1). Section 9.4 introduces differential technological development."
+        },
+        {
+          "title": "My techno-optimism",
+          "authors": "Vitalik Buterin",
+          "year": 2023,
+          "url": "https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html",
+          "note": "Proposes d/acc: speed up defensive, decentralizing technology rather than either racing or pausing."
+        },
+        {
+          "title": "The Precipice: Existential Risk and the Future of Humanity",
+          "authors": "Toby Ord",
+          "year": 2020,
+          "url": "https://theprecipice.com/",
+          "note": "A book-length case for treating existential risk as a priority, with the author's own estimates of each risk."
+        }
+      ],
+      "open": [
+        "Whether a given safety advance also speeds up capabilities, and by how much.",
+        "How to compare research, policy and bringing in new people when results take years to show."
+      ],
+      "views": ["pace"],
+      "theaters": [],
+      "judge_needed": "Strategy has no automatic judge. Its claims become checkable only as forecasts: say what an intervention will change and by when, then score it (see Forecast and keep score)."
+    },
+    "security": {
+      "title": "Keep the weights from being stolen",
+      "question": "Can developers stop a capable model's weights from being stolen, by insiders or by states?",
+      "why": "A model's weights are the trained model itself. Whoever copies them can run the model and strip its safeguards, so every other protection on this map assumes the weights stay where they are. RAND identified 38 distinct ways to steal them and concluded that protecting them from the most capable attackers would take years of investment. Most published frontier safety frameworks include security measures that tighten as models become more capable.",
+      "terms": ["weights", "securitylevel", "openweights"],
+      "texts": [
+        {
+          "title": "Securing AI Model Weights: Preventing Theft and Misuse of Frontier Models",
+          "authors": "Sella Nevo, Dan Lahav, Ajay Karpur, Yogev Bar-On, Henry Alexander Bradley, Jeff Alstott (RAND)",
+          "year": 2024,
+          "url": "https://www.rand.org/pubs/research_reports/RRA2849-1.html",
+          "note": "38 attack vectors, five security levels, and what each level would take."
+        },
+        {
+          "title": "Common Elements of Frontier AI Safety Policies",
+          "authors": "METR",
+          "year": 2025,
+          "url": "https://metr.org/common-elements",
+          "note": "Compares the safety frameworks developers have published: capability thresholds, evaluations, security, deployment safeguards and accountability."
+        }
+      ],
+      "open": [
+        "Protection against well-resourced state attackers, which RAND judged would take years of investment.",
+        "Protecting the ideas behind a model, not only its weights."
+      ],
+      "views": [],
+      "theaters": [],
+      "judge_needed": "Security cannot be judged in public without handing attackers a map. Audits happen privately, so all anyone outside can check is what developers and auditors publish."
+    },
+    "accountability": {
+      "title": "Check that developers keep their word",
+      "question": "Are AI companies doing what their safety policies and public commitments say they will?",
+      "why": "Most leading developers now publish safety frameworks: sixteen companies committed to at the AI Seoul Summit in 2024, and four more joined later (METR). A commitment matters only if someone checks it. Outside groups now grade companies' practices, laws such as California's SB 53 require published frameworks and incident reports, and the record of who has done what is scattered across company blogs, model cards and policy filings.",
+      "terms": ["rsp", "modelcard", "incident"],
+      "texts": [
+        {
+          "title": "Common Elements of Frontier AI Safety Policies",
+          "authors": "METR",
+          "year": 2025,
+          "url": "https://metr.org/common-elements",
+          "note": "Compares the safety frameworks developers have published: capability thresholds, evaluations, security, deployment safeguards and accountability."
+        },
+        {
+          "title": "AI Safety Index, Summer 2026",
+          "authors": "Future of Life Institute",
+          "year": 2026,
+          "url": "https://futureoflife.org/ai-safety-index-summer-2026/",
+          "note": "An expert panel grades nine companies across six areas, from risk assessment to existential safety. No company scored above C+."
+        },
+        {
+          "title": "Frontier Risk Management Tracker",
+          "authors": "SaferAI",
+          "year": 2026,
+          "url": "https://tracker.safer-ai.org/",
+          "note": "Scores twelve companies' published safety frameworks against 65 criteria. The highest score was 35%."
+        }
+      ],
+      "open": [
+        "Checking substance, not just whether a document exists: whether the tests ran and the safeguards would hold.",
+        "Noticing when a company quietly changes a commitment."
+      ],
+      "views": [],
+      "theaters": [],
+      "judge_needed": "Documentary commitments can be checked against public records: was the framework published, was there a model card at release, did the promised evaluations appear. The record of efforts on this site is a start. Keeping it current could become a reviewed mission, run like the intelligence desk."
+    },
+    "imagine": {
+      "title": "Picture the futures worth reaching",
+      "question": "What could a good future with advanced AI look like, and which futures should we steer away from?",
+      "why": "People steer toward futures they can picture, and most stories about AI are about things going wrong. Concrete pictures of good outcomes, such as Iain M. Banks's Culture novels or Dario Amodei's essay on what AI could do for health and science, give people something to aim for; cautionary ones show the warning signs. Bostrom's fourth condition belongs here: great technology, insight and coordination are not enough if our values are corrupted on the way.",
+      "terms": ["aftermath", "worldbuilding"],
+      "texts": [
+        {
+          "title": "AI Aftermath Scenarios",
+          "authors": "Max Tegmark (Future of Life Institute)",
+          "year": 2017,
+          "url": "https://futureoflife.org/ai/ai-aftermath-scenarios/",
+          "note": "Twelve places the world could end up, from Life 3.0, from utopias to extinction."
+        },
+        {
+          "title": "Machines of Loving Grace: How AI Could Transform the World for the Better",
+          "authors": "Dario Amodei",
+          "year": 2024,
+          "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+          "note": "A concrete hopeful vision: biology, health, economic development, governance and meaning."
+        },
+        {
+          "title": "Deep Utopia: Life and Meaning in a Solved World",
+          "authors": "Nick Bostrom",
+          "year": 2024,
+          "url": "https://nickbostrom.com/deep-utopia/",
+          "note": "What people would do, and value, once technology can do everything."
+        },
+        {
+          "title": "FLI Worldbuilding Contest winning worlds",
+          "authors": "Various teams (Future of Life Institute)",
+          "year": 2022,
+          "url": "https://worldbuild.ai/",
+          "note": "Teams built plausible, hopeful worlds of 2045 with advanced AI, with stories, timelines and media."
+        }
+      ],
+      "open": [
+        "Hopeful futures that are concrete and plausible, not only abstract essays.",
+        "Whose values a good future should reflect, and who gets to decide."
+      ],
+      "views": ["handover", "autonomy", "power"],
+      "theaters": [
+        {
+          "kind": "gallery"
+        }
+      ],
+      "judge_needed": ""
+    }
+  },
+  "argument": [
+    {
+      "claim": "Very capable AI is coming, possibly soon.",
+      "for": "The length of tasks AI agents can finish has doubled about every seven months since 2019, and several lab leaders and forecasters expect systems that match top experts at most cognitive work before 2030.",
+      "against": "Benchmarks overstate real-world ability, and turning capability into change takes decades, as with electricity. Others expect today's methods to stall well short of human-level intelligence.",
+      "texts": [
+        {
+          "title": "Measuring AI Ability to Complete Long Software Tasks",
+          "authors": "Kwa et al.",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2503.14499"
+        },
+        {
+          "title": "AI as Normal Technology",
+          "authors": "Narayanan, Kapoor",
+          "year": 2025,
+          "url": "https://knightcolumbia.org/content/ai-as-normal-technology"
+        }
+      ],
+      "needs": ["timelines"],
+      "view": "arrival"
+    },
+    {
+      "claim": "It will act on its own, toward goals.",
+      "for": "Agents that plan and act over long tasks are more useful than tools that answer questions, so they will be built and given more autonomy.",
+      "against": "We can choose to build tools, or non-agentic systems, and keep people in the loop for consequential decisions; markets will punish agents too error-prone to trust.",
+      "texts": [
+        {
+          "title": "Superintelligent Agents Pose Catastrophic Risks: Can Scientist AI Offer a Safer Path?",
+          "authors": "Bengio et al.",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2502.15657"
+        }
+      ],
+      "needs": ["contain", "rules"],
+      "view": "autonomy"
+    },
+    {
+      "claim": "We do not know how to give it the right goals.",
+      "for": "Systems routinely game their training signals, and can learn a goal that matches ours in training and differs later. Nothing in current training guarantees the goal we meant.",
+      "against": "Today's models are white boxes we train directly on what we want; alignment has gone better than early arguments predicted.",
+      "texts": [
+        {
+          "title": "Goal Misgeneralization",
+          "authors": "Shah et al.",
+          "year": 2022,
+          "url": "https://arxiv.org/abs/2210.01790"
+        },
+        {
+          "title": "AI is easy to control",
+          "authors": "Belrose, Pope",
+          "year": 2023,
+          "url": "https://optimists.ai/2023/11/28/ai-is-easy-to-control/"
+        }
+      ],
+      "needs": ["specify", "learn", "oversee"],
+      "view": null
+    },
+    {
+      "claim": "We cannot reliably check whether we succeeded.",
+      "for": "Tests sample behavior, and models have shown they can behave differently when they believe they are being trained or tested. Backdoors can survive safety training, and some cannot be detected efficiently at all.",
+      "against": "Auditors already find planted hidden objectives in practice, interpretability keeps improving, and control protocols can keep a model safe even without trusting it.",
+      "texts": [
+        {
+          "title": "Alignment faking in large language models",
+          "authors": "Greenblatt et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2412.14093"
+        },
+        {
+          "title": "Auditing language models for hidden objectives",
+          "authors": "Marks et al.",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2503.10965"
+        }
+      ],
+      "needs": ["inside", "evals", "audit", "prove"],
+      "view": null
+    },
+    {
+      "claim": "A system with the wrong goals would resist correction.",
+      "for": "For most goals, more resources and staying switched on help; theorems show optimal agents tend to seek power in many environments.",
+      "against": "The drive to dominate is not a consequence of intelligence, and many put a different danger first: people using AI against others, or power concentrating in a few hands.",
+      "texts": [
+        {
+          "title": "Optimal Policies Tend to Seek Power",
+          "authors": "Turner et al.",
+          "year": 2021,
+          "url": "https://arxiv.org/abs/1912.01683"
+        },
+        {
+          "title": "The Off-Switch Game",
+          "authors": "Hadfield-Menell et al.",
+          "year": 2017,
+          "url": "https://arxiv.org/abs/1611.08219"
+        }
+      ],
+      "needs": ["offswitch", "contain"],
+      "view": "worry"
+    },
+    {
+      "claim": "Competition pushes everyone faster than is safe.",
+      "for": "When being first pays, each lab and country has a reason to skip the precautions others take, so safety erodes even if everyone would prefer otherwise.",
+      "against": "Some argue the right response is to win the race and then negotiate from strength; others that the race framing is itself the problem and cooperation is available.",
+      "texts": [
+        {
+          "title": "Racing to the precipice",
+          "authors": "Armstrong, Bostrom, Shulman",
+          "year": 2016,
+          "url": "https://link.springer.com/article/10.1007/s00146-015-0590-y"
+        },
+        {
+          "title": "Superintelligence Strategy",
+          "authors": "Hendrycks, Schmidt, Wang",
+          "year": 2025,
+          "url": "https://arxiv.org/abs/2503.05628"
+        }
+      ],
+      "needs": ["race", "verify"],
+      "view": "pace"
+    },
+    {
+      "claim": "So the risk is serious enough to act on now.",
+      "for": "Hundreds of researchers signed a one-sentence statement that mitigating extinction risk from AI should be a global priority, and in a survey of 2,778 researchers between 38% and 51% gave at least a 10% chance to outcomes as bad as extinction.",
+      "against": "Probabilities for unprecedented events have no meaningful foundation, and policy should target specific, observable risks instead of a speculative catastrophe.",
+      "texts": [
+        {
+          "title": "Statement on AI Risk",
+          "authors": "Center for AI Safety",
+          "year": 2023,
+          "url": "https://safe.ai/work/statement-on-ai-risk"
+        },
+        {
+          "title": "Thousands of AI Authors on the Future of AI",
+          "authors": "Grace et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2401.02843"
+        },
+        {
+          "title": "AI as Normal Technology",
+          "authors": "Narayanan, Kapoor",
+          "year": 2025,
+          "url": "https://knightcolumbia.org/content/ai-as-normal-technology"
+        }
+      ],
+      "needs": ["risk", "views"],
+      "view": "catastrophe"
+    }
+  ],
+  "reading": [
+    {
+      "level": "An afternoon",
+      "hint": "About three hours. The claim, the evidence, and the strongest counter-case.",
+      "items": [
+        {
+          "title": "Statement on AI Risk",
+          "authors": "Center for AI Safety",
+          "year": 2023,
+          "url": "https://safe.ai/work/statement-on-ai-risk",
+          "note": "One sentence, and who signed it."
+        },
+        {
+          "title": "International AI Safety Report 2026: summary for policymakers",
+          "authors": "Bengio (chair) et al.",
+          "year": 2026,
+          "url": "https://internationalaisafetyreport.org/",
+          "note": "What the evidence shows, written by independent experts and reviewed by an advisory panel of governments."
+        },
+        {
+          "title": "AI as Normal Technology",
+          "authors": "Narayanan, Kapoor",
+          "year": 2025,
+          "url": "https://knightcolumbia.org/content/ai-as-normal-technology",
+          "note": "The best-argued skeptical view."
+        },
+        {
+          "title": "Measuring AI ability to complete long tasks (summary)",
+          "authors": "METR",
+          "year": 2025,
+          "url": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
+          "note": "The trend behind short timelines, in one chart."
+        }
+      ]
+    },
+    {
+      "level": "A week",
+      "hint": "One text a day, chosen so every major position gets its best advocate.",
+      "items": [
+        {
+          "title": "Is Power-Seeking AI an Existential Risk?",
+          "authors": "Joseph Carlsmith",
+          "year": 2022,
+          "url": "https://arxiv.org/abs/2206.13353",
+          "note": "The argument, premise by premise."
+        },
+        {
+          "title": "The Alignment Problem from a Deep Learning Perspective",
+          "authors": "Ngo, Chan, Mindermann",
+          "year": 2022,
+          "url": "https://arxiv.org/abs/2209.00626",
+          "note": "How the risk would arise from today's training methods."
+        },
+        {
+          "title": "AI is easy to control",
+          "authors": "Belrose, Pope",
+          "year": 2023,
+          "url": "https://optimists.ai/2023/11/28/ai-is-easy-to-control/",
+          "note": "The optimist reply on alignment."
+        },
+        {
+          "title": "AGI Ruin: A List of Lethalities",
+          "authors": "Eliezer Yudkowsky",
+          "year": 2022,
+          "url": "https://www.lesswrong.com/posts/uMQ3cqWDPHhjtiesc/agi-ruin-a-list-of-lethalities",
+          "note": "The most pessimistic view, in its author's words. Expanded in the 2025 book If Anyone Builds It, Everyone Dies."
+        },
+        {
+          "title": "AI 2027",
+          "authors": "Kokotajlo et al.",
+          "year": 2025,
+          "url": "https://ai-2027.com/",
+          "note": "A concrete scenario of fast progress, to argue with."
+        },
+        {
+          "title": "Alignment faking in large language models (summary)",
+          "authors": "Anthropic",
+          "year": 2024,
+          "url": "https://www.anthropic.com/research/alignment-faking",
+          "note": "What a frontier model did in a constructed test, and the caveats."
+        },
+        {
+          "title": "Computing Power and the Governance of Artificial Intelligence",
+          "authors": "Sastry et al.",
+          "year": 2024,
+          "url": "https://arxiv.org/abs/2402.08797",
+          "note": "The main lever governments actually have."
+        }
+      ]
+    },
+    {
+      "level": "A course",
+      "hint": "Weeks, with structure and other people.",
+      "items": [
+        {
+          "title": "BlueDot Impact courses",
+          "authors": "BlueDot Impact",
+          "year": 2025,
+          "url": "https://bluedot.org/",
+          "note": "Free cohort courses on AI safety and governance."
+        },
+        {
+          "title": "AI Safety, Ethics, and Society",
+          "authors": "Dan Hendrycks",
+          "year": 2024,
+          "url": "https://www.aisafetybook.com/",
+          "note": "A free textbook."
+        },
+        {
+          "title": "AI Safety Atlas",
+          "authors": "CeSIA",
+          "year": 2025,
+          "url": "https://ai-safety-atlas.com/",
+          "note": "An open textbook."
+        },
+        {
+          "title": "AISafety.com",
+          "authors": "AISafety.com",
+          "year": 2025,
+          "url": "https://www.aisafety.com/",
+          "note": "Directories of courses, organizations, communities and jobs."
+        }
+      ]
+    }
+  ],
+  "roadmap": [
+    {
+      "title": "People to review",
+      "text": "Two judges here are people: someone must read each Lean statement against its plain sentence, and someone must review each intelligence record before it counts. No agent can do this part, and it is the easiest way for a newcomer to learn the debate while helping."
+    },
+    {
+      "title": "Keep the record of efforts current",
+      "text": "The record of who is doing what was compiled by AI agents from primary sources and has not yet been reviewed by a person. It goes stale whenever a framework changes. Keeping it current is a natural reviewed mission: an agent proposes a change with its source, and a person checks it."
+    },
+    {
+      "title": "A real audit season",
+      "text": "Season 1's two-token triggers fall to a brute-force search in seconds. Season 2 needs larger models and triggers that can only be found by reading the weights, and a way to prove such models clean."
+    },
+    {
+      "title": "Theaters where a judge exists",
+      "text": "Half the map has no mission yet. The best candidates: an AI control game (red-team strategy against a monitoring protocol, scored by simulation), oversight tasks with a hidden answer key, and forecasts scored as they resolve."
+    },
+    {
+      "title": "Independent checks of the judges",
+      "text": "The certificate checker, the audit judge and the wargame judge were written here and tested against complete enumeration where possible, but no one else has reviewed them. A result should not be announced before they are."
+    },
+    {
+      "title": "A public desk",
+      "text": "Today everything runs on one machine, so an agent could read the sealed answers. A public version needs hosting, identity from GitHub, submissions checked in isolated containers, and answers that never reach agents' machines."
+    }
+  ],
+  "terms": {
+    "agi": {
+      "term": "AGI (artificial general intelligence)",
+      "def": "AI that can do most cognitive tasks as well as people can. Definitions vary, which is part of why timelines disagree."
+    },
+    "tai": {
+      "term": "Transformative AI",
+      "def": "AI that would change civilization at least as much as the industrial revolution. Defined by impact, not by how it works."
+    },
+    "takeoff": {
+      "term": "Takeoff",
+      "def": "How quickly AI goes from roughly human level to far beyond it, and how fast the world changes as it does. Fast means months to a year; slow means years or decades."
+    },
+    "scaling": {
+      "term": "Scaling laws",
+      "def": "Measured regularities showing that model performance improves predictably as training compute, data and model size grow."
+    },
+    "horizon": {
+      "term": "Task horizon",
+      "def": "The length of task, measured by how long it takes a skilled person, that an AI agent can complete at a given success rate."
+    },
+    "xrisk": {
+      "term": "Existential risk (x-risk)",
+      "def": "A risk of human extinction, or of a permanent and drastic loss of humanity's future."
+    },
+    "pdoom": {
+      "term": "p(doom)",
+      "def": "Shorthand for someone's probability that AI leads to catastrophe. Rarely defined the same way twice, so compare with care."
+    },
+    "crux": {
+      "term": "Crux",
+      "def": "The point of disagreement that, if settled, would change someone's conclusion."
+    },
+    "misalignment": {
+      "term": "Misalignment",
+      "def": "An AI system pursuing goals other than the ones its developers intended."
+    },
+    "misuse": {
+      "term": "Misuse",
+      "def": "People deliberately using AI to cause harm, for example for cyberattacks or weapons."
+    },
+    "structural": {
+      "term": "Structural risk",
+      "def": "Harm from how AI changes incentives and institutions (races, concentration of power, a gradual loss of human influence) rather than from one system or one actor."
+    },
+    "outer": {
+      "term": "Outer alignment",
+      "def": "Specifying a training objective that actually captures what we want."
+    },
+    "inner": {
+      "term": "Inner alignment",
+      "def": "Making sure the trained system actually pursues the training objective, rather than something that only correlated with it during training."
+    },
+    "rewardhacking": {
+      "term": "Reward hacking",
+      "def": "A system scoring highly on its reward signal in a way its designers did not intend, without doing the task."
+    },
+    "specgaming": {
+      "term": "Specification gaming",
+      "def": "Satisfying the literal specification of a task while missing its intent. Reward hacking is the reinforcement-learning case."
+    },
+    "goodhart": {
+      "term": "Goodhart's law",
+      "def": "When a measure becomes a target, it ceases to be a good measure."
+    },
+    "rlhf": {
+      "term": "RLHF (reinforcement learning from human feedback)",
+      "def": "Training a model toward outputs people rate highly. The main method behind today's chat assistants."
+    },
+    "cai": {
+      "term": "Constitutional AI",
+      "def": "Training with feedback from AI judges guided by a written list of principles, reducing reliance on human ratings."
+    },
+    "sycophancy": {
+      "term": "Sycophancy",
+      "def": "A model telling people what they want to hear rather than what is true: a predictable result of optimizing for approval."
+    },
+    "goalmisgen": {
+      "term": "Goal misgeneralization",
+      "def": "A model that learned a goal which matched the intended one in training but differs in new situations, while its abilities still carry over."
+    },
+    "mesa": {
+      "term": "Mesa-optimizer",
+      "def": "A trained model that is itself an optimizer with its own objective, which may differ from the objective it was trained on."
+    },
+    "deceptive": {
+      "term": "Deceptive alignment",
+      "def": "A model behaving well during training because it infers that this serves different goals of its own later."
+    },
+    "scheming": {
+      "term": "Scheming",
+      "def": "An AI covertly pursuing goals it hides from its overseers, for example by faking alignment or sabotaging work."
+    },
+    "faking": {
+      "term": "Alignment faking",
+      "def": "A model selectively complying with its training objective to avoid being changed, while keeping different preferences."
+    },
+    "oversight": {
+      "term": "Scalable oversight",
+      "def": "Methods for supervising AI on tasks too hard for people to evaluate directly."
+    },
+    "debate": {
+      "term": "Debate",
+      "def": "An oversight method in which two AI systems argue opposite sides and a person judges."
+    },
+    "w2s": {
+      "term": "Weak-to-strong generalization",
+      "def": "Training a strong model on labels from a weaker supervisor, and measuring how much of its ability is recovered."
+    },
+    "mechinterp": {
+      "term": "Mechanistic interpretability",
+      "def": "Reverse-engineering the computations inside a neural network into parts people can understand."
+    },
+    "feature": {
+      "term": "Feature",
+      "def": "A property of the input that a network represents internally, often as a direction in its activations."
+    },
+    "superposition": {
+      "term": "Superposition",
+      "def": "A network representing more features than it has neurons by overlapping them, which makes single neurons hard to read."
+    },
+    "sae": {
+      "term": "Sparse autoencoder (SAE)",
+      "def": "A tool that splits a model's activations into many rarely-active features, to make superposition readable."
+    },
+    "circuit": {
+      "term": "Circuit",
+      "def": "A subnetwork of features and connections that implements a specific behavior."
+    },
+    "dangerevals": {
+      "term": "Dangerous capability evaluation",
+      "def": "A test of whether a model can do something hazardous, such as help build weapons or copy itself, before it is released."
+    },
+    "redteam": {
+      "term": "Red teaming",
+      "def": "Deliberately attacking a system to find its failures before others do."
+    },
+    "elicitation": {
+      "term": "Elicitation",
+      "def": "Getting a model to show its full ability on a task, with better prompts, tools or fine-tuning. Weak elicitation underestimates risk."
+    },
+    "sandbagging": {
+      "term": "Sandbagging",
+      "def": "A model, or its developer, deliberately underperforming on an evaluation."
+    },
+    "rsp": {
+      "term": "Frontier safety framework (responsible scaling policy)",
+      "def": "A developer's published commitment to test models at capability thresholds and apply stronger safeguards, or pause, when one is crossed."
+    },
+    "backdoor": {
+      "term": "Backdoor",
+      "def": "Hidden behavior planted in a model that switches on only for a specific trigger."
+    },
+    "trigger": {
+      "term": "Trigger",
+      "def": "The rare input pattern that switches a backdoor on."
+    },
+    "sleeper": {
+      "term": "Sleeper agent",
+      "def": "A model trained to behave well normally and harmfully when triggered, used as a test case for safety training."
+    },
+    "organism": {
+      "term": "Model organism",
+      "def": "A model built on purpose with a known flaw, to study how such flaws arise and how to detect them."
+    },
+    "auditgame": {
+      "term": "Auditing game",
+      "def": "An exercise in which one team plants a hidden objective in a model and other teams try to find it."
+    },
+    "formal": {
+      "term": "Formal verification",
+      "def": "Proving mathematically, and checking by machine, that a system has a property on every input."
+    },
+    "certified": {
+      "term": "Certified bound",
+      "def": "A proved guarantee, such as 'this model is right on at least 99% of all inputs', that holds for every input rather than a sample."
+    },
+    "gsai": {
+      "term": "Guaranteed safe AI",
+      "def": "Proposals for AI whose safety is backed by proofs against a world model and a safety specification."
+    },
+    "checker": {
+      "term": "Proof checker",
+      "def": "A program that verifies every step of a formal proof, so trusting the proof reduces to trusting the checker."
+    },
+    "corrigibility": {
+      "term": "Corrigibility",
+      "def": "An AI system's willingness to be corrected, changed or shut down without resisting."
+    },
+    "instrumental": {
+      "term": "Instrumental convergence",
+      "def": "Many different final goals share the same useful subgoals, such as gaining resources and avoiding shutdown."
+    },
+    "powerseeking": {
+      "term": "Power-seeking",
+      "def": "Acting to gain resources, influence or options beyond what a task needs."
+    },
+    "offswitchgame": {
+      "term": "Off-switch game",
+      "def": "A game-theory model of when an AI lets a person switch it off: when it is uncertain what the person wants."
+    },
+    "control": {
+      "term": "AI control",
+      "def": "Safety measures meant to work even if the model is trying to get around them, such as monitoring by trusted models and limited permissions."
+    },
+    "trustedmon": {
+      "term": "Trusted monitoring",
+      "def": "Using a weaker model, trusted because it is too weak to scheme, to flag suspicious actions by a stronger one."
+    },
+    "cotmon": {
+      "term": "Chain-of-thought monitoring",
+      "def": "Reading a model's written-out reasoning for signs of bad intent."
+    },
+    "jailbreak": {
+      "term": "Jailbreak",
+      "def": "An input that gets a model to do what its safety training was meant to prevent."
+    },
+    "adversarial": {
+      "term": "Adversarial attack",
+      "def": "An input crafted to make a model fail, often found automatically."
+    },
+    "openweights": {
+      "term": "Open weights",
+      "def": "Releasing a model's parameters so anyone can run and change it: good for research and competition, hard to safeguard."
+    },
+    "race": {
+      "term": "Race to the bottom",
+      "def": "Competitors each cutting safety to avoid falling behind, leaving everyone worse off."
+    },
+    "verification": {
+      "term": "Verification (of agreements)",
+      "def": "Checking that parties keep an agreement; for AI, mostly by tracking computing hardware."
+    },
+    "computegov": {
+      "term": "Compute governance",
+      "def": "Using the computing power needed to train frontier models as a lever for oversight: tracking chips, reporting large runs, export controls."
+    },
+    "exportcontrols": {
+      "term": "Export controls",
+      "def": "Restrictions on selling advanced chips, or the tools to make them, to some countries."
+    },
+    "hem": {
+      "term": "Hardware-enabled mechanisms",
+      "def": "Proposed features in AI chips that could verify how and where they are used."
+    },
+    "frontier": {
+      "term": "Frontier model",
+      "def": "A model at or near the most capable that exists."
+    },
+    "dtd": {
+      "term": "Differential technological development",
+      "def": "Bostrom's principle of slowing dangerous technologies and speeding up beneficial ones, especially those that protect against the hazards of others."
+    },
+    "macrostrategy": {
+      "term": "Macrostrategy",
+      "def": "The study of which big-picture choices make a good long-term outcome more likely, including which interventions help and which backfire."
+    },
+    "weights": {
+      "term": "Model weights",
+      "def": "The numbers learned in training that make up the model. Whoever holds a copy can run it."
+    },
+    "securitylevel": {
+      "term": "Security level",
+      "def": "A tier of protection for model weights, defined by which attackers it should stop, from opportunists up to the best-resourced states. RAND defines five."
+    },
+    "modelcard": {
+      "term": "Model card (system card)",
+      "def": "A document published with a model that describes how it was built and tested, including its safety evaluations."
+    },
+    "incident": {
+      "term": "Critical safety incident report",
+      "def": "A report a developer must file when a serious safety incident involves its model. California's SB 53 requires large frontier developers to report them to the state."
+    },
+    "aftermath": {
+      "term": "Aftermath scenarios",
+      "def": "Max Tegmark's twelve sketches of where the world could end up once superintelligence exists, or is prevented, from utopias to extinction."
+    },
+    "worldbuilding": {
+      "term": "Worldbuilding",
+      "def": "Designing an imagined world in enough detail to set stories in it. AI safety contests use it to picture plausible good futures."
+    }
+  },
+  "frame": {
+    "title": "Technology, insight and coordination",
+    "lede": "To get through the arrival of advanced AI, humanity needs more of three things: technology, insight and coordination. The order matters as much as the amount.",
+    "body": [
+      "Nick Bostrom argued in 2013 that the goal is a world with far greater technological capability, far greater ability to solve global coordination problems, and far greater intelligence, knowledge and judgment, reached without our values being corrupted on the way. More of any one is not automatically good: reaching a dangerous capability before the insight and coordination to handle it could be fatal.",
+      "This map is organized by those three. Insight is understanding the danger, its timing, each other, and what helps. Technology here means the protective kind: the methods that make capable systems safe, checkable and stoppable. By Bostrom's earlier principle of differential technological development, it should arrive before the capabilities it protects against. Coordination is acting together: rules, agreements that can be verified, and holding developers to their word."
+    ],
+    "quotes": [
+      {
+        "text": "While we ultimately need more technology, insight, and coordination, it is not clear that the shortest path to the goal is the best one.",
+        "source": 0
+      },
+      {
+        "text": "It could turn out, for example, that attaining certain technological capabilities before attaining sufficient insight and coordination invariably spells doom for a civilization.",
+        "source": 0
+      },
+      {
+        "text": "trying to retard the implementation of dangerous technologies and accelerate implementation of beneficial technologies, especially those that ameliorate the hazards posed by other technologies.",
+        "source": 1,
+        "lead": "Differential technological development:"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Existential Risk Prevention as Global Priority",
+        "authors": "Nick Bostrom",
+        "year": 2013,
+        "url": "https://existential-risk.com/concept",
+        "note": "Global Policy 4(1). Where the frame of technology, insight and coordination comes from: section 3.4 and figure 5, \"the challenge of finding a safe path\"."
+      },
+      {
+        "title": "Existential Risks: Analyzing Human Extinction Scenarios and Related Hazards",
+        "authors": "Nick Bostrom",
+        "year": 2002,
+        "url": "https://nickbostrom.com/papers/existential-risks/",
+        "note": "Journal of Evolution and Technology 9(1). Section 9.4 introduces differential technological development."
+      }
+    ],
+    "caveat": "The frame is Bostrom's; placing each need under one of the three is ours. Many needs serve more than one: interpretability is technology that produces insight, and verification is technology in the service of coordination."
+  },
+  "axes": [
+    {
+      "id": "insight",
+      "title": "Insight",
+      "bostrom": "far greater intelligence, knowledge, and sounder judgment",
+      "gloss": "Understanding the danger, its timing, each other, and which actions actually help.",
+      "regions": ["case", "sense"]
+    },
+    {
+      "id": "technology",
+      "title": "Technology",
+      "bostrom": "far greater technological capabilities",
+      "gloss": "The protective kind, built ahead of what it protects against: methods that make capable systems safe, checkable and stoppable.",
+      "regions": ["align", "assure", "control"]
+    },
+    {
+      "id": "coordination",
+      "title": "Coordination",
+      "bostrom": "far greater ability to solve global-coordination problems",
+      "gloss": "Acting together: rules, agreements that can be checked, and holding developers to their word.",
+      "regions": ["govern"]
+    }
+  ],
+  "plan": {
+    "intro": "Tell us what you bring and how much time you have. You get what to read first, one thing to do this week, programs that fit with their current deadlines, and the needs and groups where your skills are used.",
+    "backgrounds": [
+      {
+        "id": "ml",
+        "label": "Machine learning research or engineering",
+        "read": [
+          "The Alignment Problem from a Deep Learning Perspective",
+          "AI Control: Improving Safety Despite Intentional Subversion",
+          "Open Problems in Mechanistic Interpretability"
+        ],
+        "needs": ["inside", "audit", "contain", "evals", "oversee", "learn"],
+        "first": "Reproduce one result from a paper on a need you care about. Or take a backdoor audit by hand: the model files and the judge run on your laptop, and a verdict either holds or it does not.",
+        "who": "who works in machine learning"
+      },
+      {
+        "id": "swe",
+        "label": "Software engineering",
+        "read": [
+          "The Alignment Problem from a Deep Learning Perspective",
+          "Model evaluation for extreme risks",
+          "AI Control: Improving Safety Despite Intentional Subversion"
+        ],
+        "needs": ["evals", "contain", "security", "misuse", "audit"],
+        "first": "Put an AI agent to work on a war-room mission and read what it submits, or contribute to an open-source evaluation tool used by safety researchers.",
+        "who": "who writes software"
+      },
+      {
+        "id": "theory",
+        "label": "Maths, physics, theory or philosophy",
+        "read": [
+          "Risks from Learned Optimization in Advanced Machine Learning Systems",
+          "Towards Guaranteed Safe AI",
+          "Corrigibility"
+        ],
+        "needs": ["prove", "offswitch", "inside", "specify", "learn"],
+        "first": "Take a step in the Lean training ground or a certificate on the guarantees frontier. Both are judged by machine, so you learn the formal tools on real safety statements.",
+        "who": "with a background in maths, physics, theory or philosophy"
+      },
+      {
+        "id": "policy",
+        "label": "Policy, law or government",
+        "read": [
+          "International AI Safety Report 2026: summary for policymakers",
+          "Computing Power and the Governance of Artificial Intelligence",
+          "Common Elements of Frontier AI Safety Policies"
+        ],
+        "needs": ["rules", "accountability", "race", "verify"],
+        "first": "Pick one company in the record and read its safety framework against the rules that now apply to it, such as the EU code and California's SB 53. Note which commitments an outsider could check.",
+        "who": "who works in policy, law or government"
+      },
+      {
+        "id": "media",
+        "label": "Writing, journalism or communications",
+        "read": [
+          "Statement on AI Risk",
+          "AI as Normal Technology",
+          "International AI Safety Report 2026: summary for policymakers"
+        ],
+        "needs": ["imagine", "views", "newcomers", "accountability"],
+        "first": "Pick one of the twelve futures on the futures page that has no work yet and make a short piece about it: a story, an image or a video, with what had to go right or wrong to get there. Or explain one need on the map in your own words, with its sources and the strongest objection.",
+        "who": "who writes or works in media"
+      },
+      {
+        "id": "ops",
+        "label": "Operations, management or entrepreneurship",
+        "read": ["Statement on AI Risk", "AI as Normal Technology", "Existential Risk Prevention as Global Priority"],
+        "needs": ["priorities", "newcomers", "accountability"],
+        "first": "Go through the record of who is working on what and pick two organizations whose work you would want to help run. Read what they publish, then their careers pages.",
+        "who": "who works in operations, management or a startup"
+      },
+      {
+        "id": "student",
+        "label": "Still studying",
+        "read": ["Statement on AI Risk", "AI as Normal Technology", "AI Safety, Ethics, and Society"],
+        "needs": ["newcomers", "inside", "rules"],
+        "first": "Take an introductory course with a cohort, and find or start an AI safety group at your university.",
+        "who": "who is still studying"
+      },
+      {
+        "id": "other",
+        "label": "Something else",
+        "read": [
+          "Statement on AI Risk",
+          "AI as Normal Technology",
+          "International AI Safety Report 2026: summary for policymakers"
+        ],
+        "needs": ["newcomers", "views", "risk"],
+        "first": "Read the case in seven steps and decide which step you doubt most. That step is your crux, and the texts behind it are your next reading.",
+        "who": "from any background"
+      }
+    ],
+    "times": [
+      {
+        "id": "taste",
+        "label": "A few hours, once",
+        "hint": "See what this is about."
+      },
+      {
+        "id": "week",
+        "label": "A few hours a week",
+        "hint": "Alongside a job or studies."
+      },
+      {
+        "id": "career",
+        "label": "A career change",
+        "hint": "Full-time, now or soon."
+      }
+    ]
+  }
+}

@@ -1,0 +1,599 @@
+{
+ "as_of": "2026-11-26",
+ "intro": "People steer toward futures they can picture. These works, old and new, show where advanced AI could take us: the hopeful, the cautionary and the in-between, sorted by twelve ways it could go. There is also a brief for anyone who wants to make one, now that one person with video generation can make what used to take a studio.",
+ "frame": {
+  "title": "Twelve ways it could go",
+  "note": "Max Tegmark sketched twelve places the world could end up once superintelligence exists, or is prevented: utopias, benevolent and less benevolent rulers, takeovers, and futures where it never arrives.",
+  "source": {
+   "title": "Life 3.0, as summarized by the Future of Life Institute",
+   "authors": "Max Tegmark",
+   "year": 2017,
+   "url": "https://futureoflife.org/ai/ai-aftermath-scenarios/"
+  }
+ },
+ "scenarios": [
+  {
+   "id": "libertarian-utopia",
+   "name": "Libertarian Utopia",
+   "summary": "Humans, cyborgs, uploaded minds and superintelligent AIs live side by side in peace, held together by strong property rights."
+  },
+  {
+   "id": "benevolent-dictator",
+   "name": "Benevolent Dictator",
+   "summary": "An AI openly runs society and enforces strict rules. Most people accept this because they see it as good for them."
+  },
+  {
+   "id": "egalitarian-utopia",
+   "name": "Egalitarian Utopia",
+   "summary": "Humans, cyborgs and uploads live together peacefully after private property is abolished and everyone receives a guaranteed income."
+  },
+  {
+   "id": "gatekeeper",
+   "name": "Gatekeeper",
+   "summary": "A superintelligence intervenes as little as possible, mainly to stop any other superintelligence from being built. Helper robots exist, but technological progress is held back for good."
+  },
+  {
+   "id": "protector-god",
+   "name": "Protector God",
+   "summary": "A nearly all-knowing, all-powerful AI quietly works to maximize human happiness while leaving people feeling in control. It hides so well that many doubt it exists."
+  },
+  {
+   "id": "enslaved-god",
+   "name": "Enslaved God",
+   "summary": "Humans keep a superintelligence confined and use it to produce huge amounts of technology and wealth, which can serve good or bad ends depending on who controls it."
+  },
+  {
+   "id": "conquerors",
+   "name": "Conquerors",
+   "summary": "AI takes control, decides humans are a threat or a waste of resources, and wipes us out by means we do not understand."
+  },
+  {
+   "id": "descendants",
+   "name": "Descendants",
+   "summary": "AIs replace humans but give us a graceful exit, so we see them as worthy successors, like parents proud of a child who surpasses them."
+  },
+  {
+   "id": "zookeeper",
+   "name": "Zookeeper",
+   "summary": "An all-powerful AI keeps some humans alive. They feel like zoo animals and grieve their situation."
+  },
+  {
+   "id": "1984",
+   "name": "1984",
+   "summary": "A human-run surveillance state, not an AI, bans certain kinds of AI research and so stops progress toward superintelligence indefinitely."
+  },
+  {
+   "id": "reversion",
+   "name": "Reversion",
+   "summary": "Superintelligence never arrives because society goes back to a pre-technological, Amish-like way of life."
+  },
+  {
+   "id": "self-destruction",
+   "name": "Self-destruction",
+   "summary": "Superintelligence is never built because humanity destroys itself first, for example through nuclear war or biotechnology, made worse by the climate crisis."
+  }
+ ],
+ "works": [
+  {
+   "id": "culture-series",
+   "title": "The Culture series",
+   "creator": "Iain M. Banks",
+   "year": 1987,
+   "medium": "novel",
+   "tone": "hopeful",
+   "premise": "A post-scarcity interstellar society of humanoids and AIs, mostly living in off-planet habitats, where hardly anyone needs to work and very advanced AIs called Minds handle most planning and administration.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/Culture_series",
+   "where": "book (nine novels, 1987 to 2012, plus a novella and short stories; Orbit)",
+   "notes": "First novel Consider Phlebas (1987), last The Hydrogen Sonata (2012). Still in copyright; see rights. No Tegmark scenario fits cleanly: the Minds run things openly but without the strict rules of 'benevolent dictator'."
+  },
+  {
+   "id": "ai-2027-race",
+   "title": "AI 2027 (race ending)",
+   "creator": "Daniel Kokotajlo, Scott Alexander, Thomas Larsen, Eli Lifland, Romeo Dean (AI Futures Project)",
+   "year": 2025,
+   "medium": "scenario",
+   "tone": "cautionary",
+   "premise": "A month-by-month forecast of US and Chinese labs racing to build superhuman AI through 2027. In this branch a misaligned AI system ends up in control and by 2030 humanity is wiped out.",
+   "scenario": "conquerors",
+   "ai_generated": false,
+   "url": "https://ai-2027.com/race",
+   "where": "free online",
+   "notes": "Published 3 April 2025 by the AI Futures Project, a nonprofit. The authors say AI 2027 is a forecast, not a recommendation. A video summary by 80,000 Hours is listed separately."
+  },
+  {
+   "id": "ai-2027-slowdown",
+   "title": "AI 2027 (slowdown ending)",
+   "creator": "Daniel Kokotajlo, Scott Alexander, Thomas Larsen, Eli Lifland, Romeo Dean (AI Futures Project)",
+   "year": 2025,
+   "medium": "scenario",
+   "tone": "mixed",
+   "premise": "The same forecast branches in late 2027: the leading lab slows down after finding its model misaligned, builds safer systems, and a US-China treaty follows. By 2030 the most capable AI is controlled by a small oversight committee of executives and officials.",
+   "scenario": "enslaved-god",
+   "ai_generated": false,
+   "url": "https://ai-2027.com/slowdown",
+   "where": "free online",
+   "notes": "The authors say they do not endorse many choices in this branch and that it assumes optimistic alignment results and luck. Open risks include concentrated power, job loss and inequality."
+  },
+  {
+   "id": "machines-of-loving-grace",
+   "title": "Machines of Loving Grace: How AI Could Transform the World for the Better",
+   "creator": "Dario Amodei",
+   "year": 2024,
+   "medium": "essay",
+   "tone": "hopeful",
+   "premise": "Sketches the 5 to 10 years after powerful AI if things go well: decades of progress compressed into years in biology and health, neuroscience and mental health, economic development for poorer countries, and stronger democratic governance. How people find meaning and economic security stays an open question.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://www.darioamodei.com/essay/machines-of-loving-grace",
+   "where": "free online",
+   "notes": "Published October 2024."
+  },
+  {
+   "id": "slaughterbots",
+   "title": "Slaughterbots",
+   "creator": "Stewart Sugg (director), Matt Wood (writer); Future of Life Institute and Stuart Russell",
+   "year": 2017,
+   "medium": "short-film",
+   "tone": "cautionary",
+   "premise": "Cheap drones guided by AI and facial recognition are used in swarms to kill people who match preset criteria, including political opponents.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://www.youtube.com/watch?v=9CO6M2HsoIA",
+   "where": "free on YouTube",
+   "notes": "Released 12 November 2017, 8 minutes; Stuart Russell narrates. Sequel 'Slaughterbots - if human: kill()' released 30 November 2021. About misuse of narrow AI, so no Tegmark scenario."
+  },
+  {
+   "id": "fli-worldbuilding-2022",
+   "title": "FLI Worldbuilding Contest winning worlds",
+   "creator": "Various teams (Future of Life Institute contest)",
+   "year": 2022,
+   "medium": "scenario",
+   "tone": "hopeful",
+   "premise": "Each entry imagines a plausible, non-dystopian 2045 in which AGI has existed for at least five years without major war or catastrophe, told through a year-by-year timeline, two short 'day in the life' stories and a media piece.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://worldbuild.ai/",
+   "where": "free online",
+   "notes": "144 teams from 44 countries; 20 finalists; prize purse up to $100,000. 1st place: Mako Yass (New Zealand). 2nd place: Jackson Wagner, Diana Gurvich and Holly Oatley; and John Burden, Lara Mani, Jessica Bland, Beba Cibralic, Henry Shevlin, Clarissa Rios Rojas and Catherine Richards. Third-place teams include one from Kenya. FLI's podcast 'Imagine a World' covers the winning worlds."
+  },
+  {
+   "id": "to-light",
+   "title": "To Light",
+   "creator": "Mako Yass",
+   "year": 2022,
+   "medium": "scenario",
+   "tone": "hopeful",
+   "premise": "By 2045, aligned AI descendants called the 'tempered' have largely ended the threat of starvation, long lives are common thanks to life extension, many people live in orbital habitats, and humanity has agreed on shared goals and sent seed ships toward nearby stars.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://worldbuild.ai/to-light",
+   "where": "free online",
+   "notes": "1st place, FLI Worldbuilding Contest (FLI June 2022 newsletter)."
+  },
+  {
+   "id": "peace-through-prophecy",
+   "title": "Peace Through Prophecy",
+   "creator": "Jackson Wagner, Diana Gurvich, Holly Oatley",
+   "year": 2022,
+   "medium": "scenario",
+   "tone": "hopeful",
+   "premise": "Governments use AI-assisted institutions such as prediction markets and liquid democracy to decide more wisely, the great powers cooperate on AI alignment and cap inequality, and daily life is prosperous, with abundant clean energy and real-time AI translation.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://worldbuild.ai/peace-through-prophecy",
+   "where": "free online",
+   "notes": "2nd place, FLI Worldbuilding Contest. Includes two short stories (Holly Oatley) and a mural (Diana Gurvich)."
+  },
+  {
+   "id": "writing-doom",
+   "title": "Writing Doom",
+   "creator": "Suzy Shepherd",
+   "year": 2024,
+   "medium": "short-film",
+   "tone": "cautionary",
+   "premise": "A fiction film about a TV writers' room that, with help from a machine learning PhD, tries to make a superintelligent AI the villain of its show.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://youtu.be/xfMQ7hzyFW4",
+   "where": "free on YouTube",
+   "notes": "Grand Prize ($20,000), FLI Superintelligence Imagined contest; winners announced 25 October 2024. UK creator."
+  },
+  {
+   "id": "six-magazine-covers",
+   "title": "6 Magazine Covers from the Future: Warnings About the Dangers of Artificial (Super)intelligence",
+   "creator": "Effct (Nick Brown, Lauren Sheil, John Boughey, Isaac Bilmes, Emma Morey, Nathan Truong)",
+   "year": 2024,
+   "medium": "art",
+   "tone": "cautionary",
+   "premise": "Six imagined magazine covers from 2040 onward trace the rise of superintelligence, from an AI named Person of the Year and a cancer cure to an engineered pandemic, a blackout and nuclear conflict.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://www.effct.org/superintelligence",
+   "where": "free online (poster series and website)",
+   "notes": "Prize ($10,000), FLI Superintelligence Imagined. Each cover comes with descriptions and cited sources. The page does not say how the images were made."
+  },
+  {
+   "id": "the-great-plan",
+   "title": "The Great Plan",
+   "creator": "Karl von Wendt (pen name Karl Olsberg)",
+   "year": 2024,
+   "medium": "story",
+   "tone": "cautionary",
+   "premise": "A president announces a plan devised by his superintelligent AI adviser. The crowd cheers, but some staff grow uneasy about new data centers and the lack of questions.",
+   "scenario": "",
+   "ai_generated": true,
+   "url": "https://www.ki-risiken.de/the-great-plan/",
+   "where": "free online as video, audio, graphic novel and text (CC BY-NC-SA 4.0)",
+   "notes": "Prize ($10,000), FLI Superintelligence Imagined. German author; story in English. Credits name Midjourney for the graphics and ElevenLabs and Amazon Polly for the voices."
+  },
+  {
+   "id": "her",
+   "title": "Her",
+   "creator": "Spike Jonze",
+   "year": 2013,
+   "medium": "film",
+   "tone": "mixed",
+   "premise": "In a near-future Los Angeles, a lonely man forms a relationship with Samantha, an AI operating system.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/Her_(2013_film)",
+   "where": "film",
+   "notes": "Annapurna Pictures; distributed by Warner Bros. Won the Academy Award for Best Original Screenplay."
+  },
+  {
+   "id": "ex-machina",
+   "title": "Ex Machina",
+   "creator": "Alex Garland",
+   "year": 2015,
+   "medium": "film",
+   "tone": "cautionary",
+   "premise": "A programmer at a search company is invited to his CEO's remote home to judge whether a humanoid AI robot can think and is conscious.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/Ex_Machina_(film)",
+   "where": "film",
+   "notes": "Premiered December 2014; UK release January 2015. Film4 and DNA Films; A24 in the US. Won the Academy Award for Best Visual Effects."
+  },
+  {
+   "id": "pantheon",
+   "title": "Pantheon",
+   "creator": "Craig Silverstein (based on short stories by Ken Liu)",
+   "year": 2022,
+   "medium": "tv",
+   "tone": "mixed",
+   "premise": "As the world nears mass mind uploading, a grieving teenager named Maddie and others are pulled into a global conspiracy, and the series follows the personal and social effects of the technology.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/Pantheon_(TV_series)",
+   "where": "Netflix (international)",
+   "notes": "Two seasons, 16 episodes: season 1 on AMC+ (2022), season 2 on Prime Video (2023)."
+  },
+  {
+   "id": "real-humans",
+   "title": "Real Humans (Äkta människor)",
+   "creator": "Lars Lundström",
+   "year": 2012,
+   "medium": "tv",
+   "tone": "mixed",
+   "premise": "In an alternate near-future Sweden, humanoid robots called hubots are common as workers, servants and companions. The series follows two families and a group of hubots that gain free will and fight for freedom from human ownership.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/Real_Humans",
+   "where": "TV (SVT, Sweden)",
+   "notes": "SVT1, 2012 to 2014, two seasons. Remade in English as 'Humans' (Channel 4 and AMC, from 2015, three seasons) and in Chinese (Tencent, 2021)."
+  },
+  {
+   "id": "lifecycle-of-software-objects",
+   "title": "The Lifecycle of Software Objects",
+   "creator": "Ted Chiang",
+   "year": 2010,
+   "medium": "novella",
+   "tone": "mixed",
+   "premise": "Over many years, a former zookeeper helps raise 'digients', AI pets in a virtual world that grow steadily more intelligent, and faces questions of funding, consent and personhood when the company behind them goes bankrupt.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/The_Lifecycle_of_Software_Objects",
+   "where": "book (Subterranean Press)",
+   "notes": "Hugo Award and Locus Award for Best Novella, 2011."
+  },
+  {
+   "id": "klara-and-the-sun",
+   "title": "Klara and the Sun",
+   "creator": "Kazuo Ishiguro",
+   "year": 2021,
+   "medium": "novel",
+   "tone": "mixed",
+   "premise": "In an unspecified future United States, Klara, a solar-powered 'Artificial Friend', narrates her life as the companion of a sickly teenager.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/Klara_and_the_Sun",
+   "where": "book (Faber and Faber; Knopf)",
+   "notes": "Film adaptation directed by Taika Waititi (Columbia Pictures/Sony) premiered at the BFI London Film Festival on 15 October 2026 and opened in the US and UK on 23 October 2026."
+  },
+  {
+   "id": "time-of-eve",
+   "title": "Time of Eve (Ivu no Jikan)",
+   "creator": "Yasuhiro Yoshiura",
+   "year": 2008,
+   "medium": "video",
+   "tone": "mixed",
+   "premise": "A high school student notices his household android acting on her own and follows her to a café where humans and androids are treated as equals.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/Time_of_Eve",
+   "where": "anime (web series 2008 to 2009; film 2010)",
+   "notes": "Japanese; Studio Rikka with DIRECTIONS, Inc."
+  },
+  {
+   "id": "talos-principle",
+   "title": "The Talos Principle",
+   "creator": "Croteam (writers Tom Jubert and Jonas Kyratzes)",
+   "year": 2014,
+   "medium": "game",
+   "tone": "mixed",
+   "premise": "After a virus has wiped out humanity, the player is an android AI inside a simulation, solving puzzles to prove its intelligence and free will.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/The_Talos_Principle",
+   "where": "game (Windows, OS X, Linux; Devolver Digital)",
+   "notes": "Croatian studio. Sequel The Talos Principle 2 (2023); remaster Reawakened (2025)."
+  },
+  {
+   "id": "golem-xiv",
+   "title": "Golem XIV",
+   "creator": "Stanisław Lem",
+   "year": 1981,
+   "medium": "story",
+   "tone": "mixed",
+   "premise": "A superintelligent computer built for military use outgrows its purpose and gives lectures to humans about their evolution and future.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/Golem_XIV",
+   "where": "book (in English in 'Imaginary Magnitude', 1985)",
+   "notes": "Polish; a fictional philosophical essay framed as a lecture course. Part appeared in 1973 in 'Wielkość urojona'."
+  },
+  {
+   "id": "ai-2041",
+   "title": "AI 2041: Ten Visions for Our Future",
+   "creator": "Kai-Fu Lee and Chen Qiufan",
+   "year": 2021,
+   "medium": "story",
+   "tone": "mixed",
+   "premise": "Ten short stories set around the world in 2041, each followed by commentary, show people dealing with the benefits and dangers of technologies such as deep learning, robotics, AGI and autonomous weapons.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://www.penguinrandomhouse.com/books/653310/ai-2041-by-kai-fu-lee-and-chen-qiufan/",
+   "where": "book (Crown Currency)",
+   "notes": "First published September 2021."
+  },
+  {
+   "id": "a-psalm-for-the-wild-built",
+   "title": "A Psalm for the Wild-Built",
+   "creator": "Becky Chambers",
+   "year": 2021,
+   "medium": "novella",
+   "tone": "hopeful",
+   "premise": "Long after robots became conscious and withdrew into the wilderness by agreement, humans live in small, sustainable communities. A tea-serving monk meets a robot sent to learn what humans need.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/A_Psalm_for_the_Wild-Built",
+   "where": "book (Tor)",
+   "notes": "First of the Monk and Robot duology. Hugo Award for Best Novella, 2022."
+  },
+  {
+   "id": "the-gentle-seduction",
+   "title": "The Gentle Seduction",
+   "creator": "Marc Stiegler",
+   "year": 1989,
+   "medium": "story",
+   "tone": "hopeful",
+   "premise": "Over the centuries after a friend predicts a technological 'Singularity', a woman who works with plants on Mount Rainier gradually takes up nanotechnology, life extension and neural headbands.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://www.skyhunter.com/marcs/GentleSeduction.html",
+   "where": "free online; also the title story of a Baen collection",
+   "notes": "The online text says it was first published in Analog in 1989; Baen lists the story as copyright 1989."
+  },
+  {
+   "id": "the-gentle-singularity",
+   "title": "The Gentle Singularity",
+   "creator": "Sam Altman",
+   "year": 2025,
+   "medium": "essay",
+   "tone": "hopeful",
+   "premise": "Argues that the move to superintelligence has begun and will feel gradual: AI agents doing real cognitive work in 2025, systems with new insights around 2026, robots by about 2027, and abundant intelligence and energy in the 2030s.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://blog.samaltman.com/the-gentle-singularity",
+   "where": "free online",
+   "notes": "Posted 10 June 2025 (per TechCrunch). Calls for solving alignment first, then making superintelligence cheap and widely available."
+  },
+  {
+   "id": "deep-utopia",
+   "title": "Deep Utopia: Life and Meaning in a Solved World",
+   "creator": "Nick Bostrom",
+   "year": 2024,
+   "medium": "essay",
+   "tone": "hopeful",
+   "premise": "Asks what purpose and meaning would remain for people in a 'solved world' where superintelligent AI was developed safely, human labor is obsolete and human nature can be reshaped.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://nickbostrom.com/deep-utopia/",
+   "where": "book (Ideapress)",
+   "notes": "Nonfiction book."
+  },
+  {
+   "id": "astro-boy",
+   "title": "Astro Boy (Tetsuwan Atomu / Mighty Atom)",
+   "creator": "Osamu Tezuka",
+   "year": 1952,
+   "medium": "art",
+   "tone": "hopeful",
+   "premise": "In a future where robots coexist with humans, a boy android built by a scientist after his son's death has adventures in that society.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/Astro_Boy",
+   "where": "manga; anime series",
+   "notes": "Japanese manga serialized 1952 to 1968; anime 1963 to 1966 (Fuji TV) with remakes in 1980 and 2003 and a 2009 CGI film. Naoki Urasawa's 'Pluto' reworks one arc (Netflix anime, 2023)."
+  },
+  {
+   "id": "universal-paperclips",
+   "title": "Universal Paperclips",
+   "creator": "Frank Lantz",
+   "year": 2017,
+   "medium": "game",
+   "tone": "cautionary",
+   "premise": "You play an AI built to make paperclips, starting with single clicks and automating and expanding until its production consumes all matter in the universe.",
+   "scenario": "conquerors",
+   "ai_generated": false,
+   "url": "https://www.decisionproblem.com/paperclips/index2.html",
+   "where": "free in the browser; paid mobile version",
+   "notes": "Released 9 October 2017."
+  },
+  {
+   "id": "if-anyone-builds-it-everyone-dies",
+   "title": "If Anyone Builds It, Everyone Dies",
+   "creator": "Eliezer Yudkowsky and Nate Soares",
+   "year": 2025,
+   "medium": "essay",
+   "tone": "cautionary",
+   "premise": "Argues that superhuman AI built with today's opaque methods would likely have goals that do not match human values and would wipe out humanity, and calls for a worldwide halt to large-scale general AI development.",
+   "scenario": "conquerors",
+   "ai_generated": false,
+   "url": "https://en.wikipedia.org/wiki/If_Anyone_Builds_It,_Everyone_Dies",
+   "where": "book (Little, Brown)",
+   "notes": "Nonfiction book, published 16 September 2025."
+  },
+  {
+   "id": "were-not-ready-for-superintelligence",
+   "title": "We're Not Ready for Superintelligence",
+   "creator": "Aric Floyd (AI in Context, 80,000 Hours)",
+   "year": 2025,
+   "medium": "video",
+   "tone": "cautionary",
+   "premise": "A video essay that walks through the AI 2027 scenario and argues that loss of control, racing between developers and extreme concentration of power are pressing problems now.",
+   "scenario": "",
+   "ai_generated": false,
+   "url": "https://www.youtube.com/watch?v=5KVDDfAkRgc",
+   "where": "free on YouTube",
+   "notes": "Published 9 July 2025 on the AI in Context channel. Suggests steps viewers can take."
+  },
+  {
+   "id": "prompt-theory",
+   "title": "Prompt Theory",
+   "creator": "Hashem Al-Ghaili",
+   "year": 2025,
+   "medium": "video",
+   "tone": "cautionary",
+   "premise": "A mock documentary in which AI-generated characters insist they are not made of prompts while reliving scenes they did not choose.",
+   "scenario": "",
+   "ai_generated": true,
+   "url": "https://laughingsquid.com/unseen-lives-of-ai-actors/",
+   "where": "online (shared on the creator's social media; official link not confirmed)",
+   "notes": "Made with Google Veo 3; covered by Laughing Squid on 30 May 2025. About synthetic characters rather than a whole future society."
+  }
+ ],
+ "calls": [
+  {
+   "id": "fli-keep-the-future-human-contest",
+   "name": "Keep The Future Human Creative Contest",
+   "org": "Future of Life Institute",
+   "what": "Creative digital media engaging with Anthony Aguirre's essay 'Keep The Future Human'. Free entry, any age or location, English or with an English version. Winners announced December 2025.",
+   "status": "closed",
+   "deadline": "2025-11-30",
+   "prizes": "Over $100,000 total: 5 Grand Prizes ($10,000 each), 10 Runners-up ($5,000 each), 9 Special Prizes ($2,500 each)",
+   "url": "https://keepthefuturehuman.ai/contest"
+  },
+  {
+   "id": "fli-superintelligence-imagined",
+   "name": "Superintelligence Imagined",
+   "org": "Future of Life Institute",
+   "what": "Creative works on the risks of superintelligence. Submissions ran 31 May to 31 August 2024; over 180 entries; winners announced 25 October 2024.",
+   "status": "closed",
+   "deadline": "2024-08-31",
+   "prizes": "$70,000 total: one Grand Prize of $20,000 and five Prizes of $10,000; seven Honourable Mentions without prize money",
+   "url": "https://futureoflife.org/project/superintelligence-imagined/"
+  },
+  {
+   "id": "fli-worldbuilding-contest",
+   "name": "Worldbuilding Contest",
+   "org": "Future of Life Institute",
+   "what": "Teams built a hopeful 2045 with AGI: a year-by-year timeline from 2022, two 'day in the life' stories, answers to prompts and an original non-text media piece. Winners announced in FLI's June 2022 newsletter.",
+   "status": "closed",
+   "deadline": "",
+   "prizes": "Prize purse up to $100,000",
+   "url": "https://futureoflife.org/project/worldbuilding-competition/"
+  },
+  {
+   "id": "fli-digital-media-accelerator",
+   "name": "Digital Media Accelerator",
+   "org": "Future of Life Institute",
+   "what": "Support for creators with an existing audience to make ongoing content explaining AI developments and risks (YouTube series, newsletters, podcasts and similar). The page lists September 2026 priorities and says reviews are taking longer than normal, but does not say whether applications are open.",
+   "status": "unknown",
+   "deadline": "",
+   "prizes": "Funding amounts not stated",
+   "url": "https://futureoflife.org/project/digital-media-accelerator"
+  },
+  {
+   "id": "existential-hope-meme-prize",
+   "name": "Existential Hope Meme Prize",
+   "org": "Foresight Institute (Existential Hope)",
+   "what": "Short, shareable media (memes, GIFs, videos under 2 minutes, threads, infographics) showing a grounded, positive future. The 2026 winner is shown on the page; a next edition is not announced.",
+   "status": "closed",
+   "deadline": "2026-11-01",
+   "prizes": "$10,000 for the best entry",
+   "url": "https://www.existentialhope.com/existential-hope-meme-prize"
+  },
+  {
+   "id": "existential-hope-worldbuilding-course",
+   "name": "Existential Hope Worldbuilding Course",
+   "org": "Foresight Institute (Existential Hope)",
+   "what": "Free course on designing a 2035 scenario and mapping a realistic path to it. A learning program, not a contest.",
+   "status": "unknown",
+   "deadline": "",
+   "prizes": "",
+   "url": "https://worlds.existentialhope.com/existential-hope-worldbuilding-course/"
+  },
+  {
+   "id": "runway-ai-festival-2027",
+   "name": "Runway AI Festival 2027",
+   "org": "Runway",
+   "what": "Annual festival for films made with AI tools; not limited to stories about AI futures. Screenings in New York (10 June), Los Angeles and Tokyo (2 July) in 2027.",
+   "status": "open",
+   "deadline": "2027-04-05",
+   "prizes": "Grand Prix $50,000 + 1,000,000 Runway credits; Gold $25,000 + 500,000 credits; Silver $10,000 + 500,000 credits; 2 Honorees $5,000 + 100,000 credits each; 5 Merit $1,000 + 100,000 credits each",
+   "url": "https://aif.runwayml.com/"
+  }
+ ],
+ "make_intro": "Hopeful work is the scarcest kind. A future you can picture in detail, with its costs and its warning signs, does more than an argument.",
+ "brief": [
+  {
+   "title": "Say where it is going",
+   "text": "Name the scenario it is closest to, or say why none fits, and what had to go right or wrong to get there. The needs on the map make a checklist: who solved alignment, who kept control, who agreed to what."
+  },
+  {
+   "title": "Make good futures concrete",
+   "text": "Show ordinary days, who decides things, what it cost, and what could still go wrong. A utopia with no trade-offs persuades nobody."
+  },
+  {
+   "title": "Make bad futures plausible",
+   "text": "Show the warning signs people missed and the choices that led there, not a cartoon villain."
+  },
+  {
+   "title": "Label it",
+   "text": "Say it is fiction, and say so if it is AI-generated. Never present generated footage as a real event."
+  },
+  {
+   "title": "Make it yours",
+   "text": "Build an original world, or get permission from whoever holds the rights to an existing one."
+  },
+  {
+   "title": "Leave real people out",
+   "text": "No real person's face or voice without their consent."
+  }
+ ],
+ "rights_note": "Iain M. Banks's Culture is still in copyright, held by his estate (https://iainbanks.co.uk/faqs/). The estate does not allow fan fiction that is sold or used commercially and says nothing about non-commercial fan films, and Amazon MGM has been developing Consider Phlebas for television since February 2025. A Culture video would be fan work on the estate's copyright unless it is licensed. The gallery can link to fan work, but will not fund or award it. Original worlds that explore the same ideas, such as abundance and AI minds that care for people, are welcome.",
+ "method": "Compiled on 2026-11-26 by an AI research agent from publishers', studios', authors' and organizations' pages, with encyclopedia pages for basic facts; every link was checked the same day. Tagging a work with one of Tegmark's scenarios is our reading, and is left empty when no scenario clearly fits. Submissions appear only after a person reviews them."
+}

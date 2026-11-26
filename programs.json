@@ -1,0 +1,3033 @@
+{
+ "as_of": "2026-11-26",
+ "method": "Compiled on 2026-11-26 by AI research agents from each program's own page. Dates are copied only when the page prints them for the current or next round; every link, deadline, opening date and start date was checked against its page the same day, and dates that could not be confirmed were left out. Status is worked out from today's date, so a deadline that has passed shows as closed. Dates change: confirm on the program's page before you plan around one. For the freshest lists, AISafety.com and the 80,000 Hours job board are kept current by their own teams.",
+ "programs": [
+  {
+   "id": "mats",
+   "name": "MATS (ML Alignment & Theory Scholars)",
+   "org": "MATS",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "swe",
+    "theory",
+    "policy",
+    "student"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "inside",
+    "contain"
+   ],
+   "format": "In person, Berkeley and London",
+   "length": "12 weeks, with a possible 6- or 12-month extension",
+   "commitment": "Full-time (40 hours a week; 20 hours possible case by case)",
+   "pay": "Stipend $19.2k ($1,600 a week), free housing and food, $24k compute",
+   "what": "Fellows do a research project with a mentor in one of seven tracks, including empirical, theory, policy and security. Most aim for a paper or other public output.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-01-19",
+    "note": "Winter 2027 cohort runs January 19 to April 10, 2027. Applications closed September 6. Dates for fellow applications to later 2027 cohorts are not posted yet."
+   },
+   "url": "https://www.matsprogram.org/apply",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "mats-residency",
+   "name": "MATS Residency",
+   "org": "MATS",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "theory",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Hybrid, London, Berkeley or Washington DC (at least a third of the time in the office)",
+   "length": "6 to 24 months, depending on track",
+   "commitment": "Full-time",
+   "pay": "Salaried: $155,000 to $285,000 gross, by track, experience and location",
+   "what": "Long-term support for experienced researchers who want to do independent AI safety research, or move into it. There are three tracks: Bridge, Anchor and Incubation.",
+   "dates": {
+    "status": "upcoming",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The Winter 2027 window closed October 31, 2026. MATS says the next application window opens in March 2027. Three intakes a year with rolling start dates."
+   },
+   "url": "https://matsprogram.org/residency/apply",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "anthropic-fellows",
+   "name": "Anthropic Fellows Program (AI Safety & Security)",
+   "org": "Anthropic",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "swe",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "oversee",
+    "contain",
+    "inside"
+   ],
+   "format": "Shared workspaces in the Bay Area, London and Toronto, or remote in the US, UK or Canada",
+   "length": "4 months, with possible extension",
+   "commitment": "Full-time (40 hours a week)",
+   "pay": "Stipend $4,615 a week (or GBP 3,440 / CAD 6,470), plus about $15k a month compute",
+   "what": "Fellows do empirical safety research with Anthropic mentors, in areas like scalable oversight, AI control, model organisms and interpretability. Most aim for a public paper. No PhD or prior ML experience is required.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The posting asked for applications by October 30 for the January cohort. Anthropic runs several cohorts a year and reviews applications on a rolling basis. You must have work authorization in the US, UK or Canada; no visa sponsorship."
+   },
+   "url": "https://job-boards.greenhouse.io/anthropic/jobs/5183044008",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "astra",
+   "name": "Astra Fellowship",
+   "org": "Constellation",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "swe",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "contain",
+    "evals",
+    "oversee"
+   ],
+   "format": "In person, Berkeley",
+   "length": "5 months",
+   "commitment": "Full-time",
+   "pay": "Stipend $8,400 a month; about $15k a month compute for empirical fellows",
+   "what": "Fellows work with senior advisors on technical safety, governance, strategy or field-building projects. It is meant as a route into a full-time AI safety role or a new organization. Prior AI safety experience is not required.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The current cohort runs September 2026 to February 2027. No date for the next cohort is posted; the page has an interest form."
+   },
+   "url": "https://constellation.org/programs/astra/empirical",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "constellation-visiting",
+   "name": "Constellation Visiting Fellowship",
+   "org": "Constellation",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "theory",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, Berkeley (at least 3 days a week on average)",
+   "length": "3 to 6 months",
+   "commitment": "Full-time",
+   "pay": "No stipend; housing, travel and meals covered",
+   "what": "A lightly structured stay at Constellation's research center for people already working full-time on AI safety, from nonprofits, universities, companies or governments.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Applications for the Spring 2027 cohort are open. No deadline is printed. A new cohort starts each quarter."
+   },
+   "url": "https://constellation.org/programs/visiting-fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "openai-safety-fellowship",
+   "name": "OpenAI Safety Fellowship",
+   "org": "OpenAI",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "swe"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Workspace in Berkeley (at Constellation), or remote",
+   "length": "About 5 months",
+   "commitment": "Full-time",
+   "pay": "Monthly stipend (amount not stated), compute support and API credits",
+   "what": "A pilot program for outside researchers and engineers to do independent safety and alignment research. Fellows do not get access to OpenAI's internal systems.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The pilot runs September 14, 2026 to February 5, 2027. Applications closed May 3. No next round is announced."
+   },
+   "url": "https://openai.com/index/introducing-openai-safety-fellowship/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "spar",
+   "name": "SPAR (Supervised Program for Alignment Research)",
+   "org": "SPAR",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "swe",
+    "theory",
+    "policy",
+    "student"
+   ],
+   "time": [
+    "week",
+    "career"
+   ],
+   "needs": [],
+   "format": "Remote",
+   "length": "3 months",
+   "commitment": "Part-time, 5 to 40 hours a week",
+   "pay": "Unpaid; approved project costs such as compute and API access are covered. Some host organizations pay a stipend.",
+   "what": "Students and professionals join a mentored project in AI safety, policy or field-building. The round ends with a virtual Demo Day.",
+   "dates": {
+    "status": "upcoming",
+    "deadline": "2027-01-13",
+    "opens": "2026-12-16",
+    "starts": "2027-02-08",
+    "note": "Spring 2027 round. Fellow applications run December 16 to January 13. Decisions February 1. Projects run February 8 to May 10; Demo Day May 15."
+   },
+   "url": "https://sparai.org/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "lasr-labs",
+   "name": "LASR Labs (London AI Safety Research Labs)",
+   "org": "Arcadia Impact",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "swe"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, London",
+   "length": "13 weeks",
+   "commitment": "Full-time (40 hours a week)",
+   "pay": "Stipend GBP 5,000 a month (GBP 15,000 in total); food, office and flights covered",
+   "what": "Teams of three to four work under a supervisor and must produce an academic-style AI safety paper. It asks for ML engineering experience and strong quantitative skills.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-01-11",
+    "note": "Winter 2027 cohort runs January 11 to April 9, 2027; applications closed. The page says the next cohorts run in Summer (about June to September) and Autumn (about September to December) 2027; no exact dates yet."
+   },
+   "url": "https://www.arcadiaimpact.org/lasr",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "era-cambridge",
+   "name": "ERA:AI Fellowship (Cambridge)",
+   "org": "ERA",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "policy",
+    "student",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "contain",
+    "evals",
+    "inside"
+   ],
+   "format": "In person, Cambridge, UK",
+   "length": "10 weeks",
+   "commitment": "Full-time",
+   "pay": "Stipend GBP 10,000; visa support, meals at work and travel covered; housing not provided",
+   "what": "Fellows do a research project in one of three streams: technical (evaluations, interpretability, robustness, alignment, control), governance, or technical AI governance. Anyone 18 or over can apply.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-01-18",
+    "note": "Winter 2027 runs January 18 to March 26, 2027. Applications have closed. No later round is announced; there is a mailing list."
+   },
+   "url": "https://erafellowship.org/fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "pivotal",
+   "name": "Pivotal Research AI Safety Fellowship",
+   "org": "Pivotal Research",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "policy",
+    "student",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, London (at LISA)",
+   "length": "15 weeks",
+   "commitment": "Full-time",
+   "pay": "Stipend GBP 15,000 to 18,000; travel, compute and housing (GBP 1,800 a month if based outside London) covered",
+   "what": "Fellows apply to a mentor and do a research project in technical AI safety, technical governance or policy. Anyone 18 or over can apply.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-01-18",
+    "note": "Next cohort runs January 18 to April 30, 2027. Applications are closed; final decisions expected by December 5, 2026."
+   },
+   "url": "https://www.pivotal-research.org/fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "arena",
+   "name": "ARENA (Alignment Research Engineer Accelerator)",
+   "org": "ARENA",
+   "kind": "bootcamp",
+   "for": [
+    "ml",
+    "swe"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "inside",
+    "evals"
+   ],
+   "format": "In person, London (at LISA)",
+   "length": "4 to 5 weeks",
+   "commitment": "Full-time",
+   "pay": "Free; travel, visa costs, accommodation and meals covered",
+   "what": "An ML engineering bootcamp: transformers and interpretability, reinforcement learning, model evaluations, then a one-week capstone project. It asks for good Python and some linear algebra, calculus and probability.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-03-01",
+    "note": "ARENA 10.0 runs March 1 to April 2, 2027. Applications are open; the deadline is on the application form."
+   },
+   "url": "https://www.arena.education/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "aisc",
+   "name": "AI Safety Camp",
+   "org": "AI Safety Camp",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "swe",
+    "theory",
+    "other"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [],
+   "format": "Remote",
+   "length": "About 15 weeks (January to April)",
+   "commitment": "Part-time, 10 hours a week plus weekly meetings",
+   "pay": "",
+   "what": "You join a project team run by a project lead and work on it part-time for about three months. Each project sets its own skill needs. It ends with an online conference.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-11-29",
+    "opens": "",
+    "starts": "2027-01-09",
+    "note": "12th edition (2027 program). Team applications close Sunday November 29. Opening weekend January 9 to 10; projects run January 12 to April 23; final presentations April 24 to 26."
+   },
+   "url": "https://www.aisafety.camp/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "mars",
+   "name": "MARS (Cambridge AI Safety Hub)",
+   "org": "Cambridge AI Safety Hub (CAISH)",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "swe",
+    "policy",
+    "student"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [],
+   "format": "Hybrid: one in-person kick-off week, then remote",
+   "length": "2 to 4 weeks of prework, 1 week kick-off, 8 to 10 weeks of research",
+   "commitment": "Part-time, 8 to 15+ hours a week",
+   "pay": "Free; unpaid",
+   "what": "Part-time technical safety and governance research with mentors from groups such as Redwood Research, IAPS and Google DeepMind. It welcomes people making a career change.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "No round is open and no dates are posted. The page says applicants will be contacted when applications open."
+   },
+   "url": "https://caish.org/mars",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "caish-hardware",
+   "name": "Hardware Assurance Programme",
+   "org": "Cambridge AI Safety Hub (CAISH)",
+   "kind": "bootcamp",
+   "for": [
+    "swe",
+    "ml",
+    "student"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "verify"
+   ],
+   "format": "In person, Cambridge, UK, with remote prep",
+   "length": "6 days, plus 4 weeks of light prep",
+   "commitment": "Full-time during the week",
+   "pay": "Stipend GBP 1,500; travel, accommodation and food covered",
+   "what": "Engineers and researchers build one project on hardware-enabled verification of what chips are computing. It asks for depth in an area like chip design, hardware security, cryptography, trusted execution, ML systems or networking.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Edition one ran in Cambridge in August 2026. Applications for the next edition have not opened; the page has an interest form."
+   },
+   "url": "https://caish.org/hardware",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "cbai-fellowship",
+   "name": "CBAI AI Safety Research Fellowship",
+   "org": "Cambridge Boston Alignment Initiative (CBAI)",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, Cambridge, Massachusetts",
+   "length": "10 weeks",
+   "commitment": "Full-time",
+   "pay": "Fully funded (amounts not stated)",
+   "what": "A research program for people who want to build a career in AI safety research.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The fall 2026 cohort runs October 13 to December 18. The page says the next cohort runs in summer 2027; applications are not open yet and there is a notify form."
+   },
+   "url": "https://www.cbai.ai/ais-research-fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "cambria",
+   "name": "CAMBRIA",
+   "org": "Cambridge Boston Alignment Initiative (CBAI)",
+   "kind": "bootcamp",
+   "for": [
+    "swe",
+    "theory",
+    "student",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "In person, Cambridge, Massachusetts",
+   "length": "3 weeks",
+   "commitment": "Full-time",
+   "pay": "Free; housing and meals provided; travel reimbursed up to $750",
+   "what": "A course in hands-on ML skills for AI safety research. It suits software engineers, maths or physics students and policy people who know Python, multivariable calculus and linear algebra.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-01-04",
+    "note": "Next run is January 4 to 22, 2027. Participant applications are closed; there is an interest form for future cohorts."
+   },
+   "url": "https://www.cbai.ai/cambria",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "apart-sprints",
+   "name": "Apart Research Sprints (hackathons) and Apart Fellowship",
+   "org": "Apart Research",
+   "kind": "event",
+   "for": [
+    "ml",
+    "swe",
+    "student",
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "Online, with some local in-person sites",
+   "length": "One weekend",
+   "commitment": "A weekend",
+   "pay": "Free; cash prizes for top teams",
+   "what": "Weekend research hackathons open to anyone. Teams submit a short research report. Standout teams can be invited to the Apart Fellowship: 6 to 16 weeks, remote, part-time (at least 10 hours a week), no default stipend.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-04",
+    "note": "Next sprints: Threat Intelligence and Threat Modelling Hackathon, December 4 to 6, 2026; Agent Attribution Hackathon, December 11 to 13, 2026."
+   },
+   "url": "https://apartresearch.com/sprints",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "iliad-fellowship",
+   "name": "Iliad Fellowship",
+   "org": "Iliad",
+   "kind": "fellowship",
+   "for": [
+    "theory",
+    "student"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, London or San Francisco Bay Area",
+   "length": "About 12 weeks of research; the month-long Iliad Intensive is a prerequisite from January 2027",
+   "commitment": "Full-time",
+   "pay": "Travel-and-housing allowance $6,000 a month",
+   "what": "Mentored research that helps people with technical backgrounds, such as PhD students and postdocs, move into mathematical AI alignment research. About half of fellows get a six-month extension.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-16",
+    "opens": "",
+    "starts": "2027-02-01",
+    "note": "February 2027 cohort runs February 1 to April 23, 2027. Applications close December 16, 2026. New cohorts start most months."
+   },
+   "url": "https://www.iliad.ac/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "pibbss",
+   "name": "PIBBSS Fellowship",
+   "org": "Principles of Intelligence (PIBBSS)",
+   "kind": "fellowship",
+   "for": [
+    "theory",
+    "student"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, Cape Town, South Africa",
+   "length": "About 3 months",
+   "commitment": "Full-time",
+   "pay": "Stipend $3,000 a month, accommodation provided",
+   "what": "Researchers from other fields, such as complex systems, are paired with AI safety mentors. It is aimed at PhD and postdoctoral researchers; no prior AI safety experience is needed.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The 2026-2027 Winter fellowship runs November 2026 to February 2027; applications closed July 20, 2026. No future round is dated; there is an interest form."
+   },
+   "url": "https://princint.ai/programs/fellowship/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "singapore-aisf",
+   "name": "Singapore AI Safety Fellowship",
+   "org": "Singapore AI Safety Hub (SASH)",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, Singapore",
+   "length": "3 months",
+   "commitment": "Full-time",
+   "pay": "Stipend SGD 5,000 a month, housing and travel covered; compute up to $30k per project",
+   "what": "A residential research fellowship for early-career researchers with a strong technical record, with a focus on international AI safety cooperation.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The 2026 cohort runs September 21 to December 4, 2026; applications closed. The page says the next cohort is expected in Spring/Summer 2027."
+   },
+   "url": "https://aisafety.sg/programs/singapore-ai-safety-fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "chai-internship",
+   "name": "CHAI Research Internship",
+   "org": "Center for Human-Compatible AI (UC Berkeley)",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "swe",
+    "theory",
+    "student"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person at UC Berkeley preferred; remote possible",
+   "length": "12 to 16 weeks",
+   "commitment": "Full-time",
+   "pay": "Stipend $5,000 a month in person, $3,500 a month remote",
+   "what": "Interns do a research project with a CHAI mentor. Open to students, researchers and software or ML engineers, including international applicants.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The page says applications for 2026 internships are closed. No next round is posted."
+   },
+   "url": "https://chai.berkeley.edu/jobs",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "xlab-srf",
+   "name": "XLab Summer Research Fellowship",
+   "org": "University of Chicago Existential Risk Laboratory (XLab)",
+   "kind": "fellowship",
+   "for": [
+    "student",
+    "ml",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, University of Chicago",
+   "length": "10 weeks",
+   "commitment": "Full-time",
+   "pay": "Stipend $10,000, dorm housing and meals; $4,000 compute for technical fellows",
+   "what": "Students and early-career researchers do a summer project in AI safety and security, nuclear security, or both. US work authorization is required.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The page still shows the 2026 round (June 15 to August 22, 2026). No 2027 dates are posted."
+   },
+   "url": "https://xrisk.uchicago.edu/fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "clr-srf",
+   "name": "CLR Summer Research Fellowship",
+   "org": "Center on Long-Term Risk",
+   "kind": "fellowship",
+   "for": [
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, London",
+   "length": "8 weeks",
+   "commitment": "Full-time",
+   "pay": "Paid (amount not stated)",
+   "what": "Fellows do mentored research on reducing risks of severe suffering from AI (s-risks). It runs each summer.",
+   "dates": {
+    "status": "upcoming",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Applications are closed. The page says applications for 2027 open in March 2027."
+   },
+   "url": "https://longtermrisk.org/opportunities/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "ml4good",
+   "name": "ML4Good Technical Bootcamp",
+   "org": "ML4Good",
+   "kind": "bootcamp",
+   "for": [
+    "ml",
+    "swe",
+    "student"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, residential (locations vary)",
+   "length": "8 days",
+   "commitment": "Full-time",
+   "pay": "Free; food and accommodation provided; travel may be reimbursed",
+   "what": "An intensive course: building transformers, LLM agents, interpretability, RLHF and evaluations, plus strategy and technical governance, ending with a two-day project. Some coding is required.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "No bootcamps are listed. The page says new cohorts are coming soon and has a sign-up to be notified."
+   },
+   "url": "https://www.ml4good.org/technical-track/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "aisb",
+   "name": "AI Security Bootcamp (AISB)",
+   "org": "AISB",
+   "kind": "bootcamp",
+   "for": [
+    "swe"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "security"
+   ],
+   "format": "In person, London",
+   "length": "7 days",
+   "commitment": "Full-time, plus pre-reading",
+   "pay": "Free; tuition, meals, materials and London accommodation covered; need-based travel support",
+   "what": "A week on AI security for experienced security professionals: threat modelling, adversarial attacks, LLM security, weight security, and AI control and hardware governance. It asks for 7+ years of hands-on security work; no ML background needed.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-13",
+    "opens": "",
+    "starts": "2027-02-07",
+    "note": "London cohort runs February 7 to 13, 2027. Apply by December 13, 2026, 11:59pm anywhere on Earth. Later applications go to the next cohort."
+   },
+   "url": "https://aisb.dev/2027/feb/london",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "goodfire-fellow",
+   "name": "Goodfire Research Fellow",
+   "org": "Goodfire",
+   "kind": "fellowship",
+   "for": [
+    "ml"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "inside"
+   ],
+   "format": "In person, San Francisco",
+   "length": "About 3 months",
+   "commitment": "Full-time",
+   "pay": "Paid (amount not stated); compute and API costs covered",
+   "what": "Early-career researchers or engineers with ML research experience carry out an interpretability project with a mentor and write a research report. US work authorization is required.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The job posting is live. No deadline or start date is given."
+   },
+   "url": "https://job-boards.greenhouse.io/goodfire/jobs/4499053008",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "coop-ai-phd",
+   "name": "Cooperative AI PhD Fellowship",
+   "org": "Cooperative AI Foundation",
+   "kind": "grant",
+   "for": [
+    "student",
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Any university, any country",
+   "length": "1 year, renewable each year",
+   "commitment": "Alongside a PhD",
+   "pay": "Grant: $7,000 a year for conferences and compute, $600 a year wellbeing budget, small equipment grants; no tuition or living stipend",
+   "what": "Support for current PhD students, or those starting in 2027, whose research is on cooperative AI. Students with other funding can apply.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-20",
+    "opens": "",
+    "starts": "",
+    "note": "2027 fellowship. Deadline December 20, 2026, 23:59 anywhere on Earth. Decisions expected by end of January 2027."
+   },
+   "url": "https://www.cooperativeai.com/phd-fellowship/2027",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-future-of-ai",
+   "name": "The Future of AI (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "course",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "newcomers",
+    "risk"
+   ],
+   "format": "Online, self-paced",
+   "length": "About 90 minutes",
+   "commitment": "One sitting or several short sessions",
+   "pay": "Free",
+   "what": "A short introduction to what AI is, what it can do and where it may be heading, with videos and browser demos. No technical background needed. Certificate on completion.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "No cohorts and no application. Start any time."
+   },
+   "url": "https://bluedot.org/courses/future-of-ai",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-agi-strategy",
+   "name": "AGI Strategy (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "course",
+   "for": [
+    "other",
+    "policy",
+    "ops"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [
+    "newcomers",
+    "priorities"
+   ],
+   "format": "Online, small groups of about 8 with an expert facilitator",
+   "length": "25 hours: 5 days (intensive) or 5 weeks (part-time)",
+   "commitment": "5 hours a day or 5 hours a week (3 hours reading and writing, 2-hour Zoom discussion)",
+   "pay": "Free",
+   "what": "An introduction to how AI is developing, the good and bad outcomes it could lead to, and what could be done to steer it. Aimed at domain experts in policy, security, operations or engineering, and serious newcomers. Certificate on completion.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-11-29",
+    "opens": "",
+    "starts": "2026-12-07",
+    "note": "Several rounds. Intensive: 7-11 Dec (apply by 29 Nov), 28 Dec-1 Jan (apply by 20 Dec), 11-15 Jan (apply by 3 Jan). Part-time: 28 Dec-31 Jan (apply by 20 Dec), 1 Feb-7 Mar (apply by 24 Jan), 8 Mar-11 Apr (apply by 28 Feb). The page prints day and month only."
+   },
+   "url": "https://bluedot.org/courses/agi-strategy",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-frontier-ai-governance",
+   "name": "Frontier AI Governance (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "course",
+   "for": [
+    "policy"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [
+    "rules",
+    "race"
+   ],
+   "format": "Online, small cohort led by a Teaching Fellow",
+   "length": "About 40 hours over six units: 6 days (intensive) or 6 weeks (part-time)",
+   "commitment": "About 6-7 hours a day (intensive) or a week (part-time)",
+   "pay": "Free",
+   "what": "Covers policy, coordination and institutional decisions about how frontier AI is built and deployed. Not about corporate compliance. For technical people exploring governance and for people with policy, law or national security experience. No earlier BlueDot course required.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-06",
+    "opens": "",
+    "starts": "2026-12-14",
+    "note": "Intensive: 14-19 Dec (apply by 6 Dec) and 4-9 Jan (apply by 27 Dec). Part-time: 4 Jan-14 Feb (apply by 27 Dec). The page prints day and month only."
+   },
+   "url": "https://bluedot.org/courses/ai-governance",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-technical-ai-safety",
+   "name": "Technical AI Safety (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "course",
+   "for": [
+    "ml",
+    "swe",
+    "theory",
+    "student"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [
+    "inside",
+    "evals",
+    "contain"
+   ],
+   "format": "Online, small groups of about 9 with an expert facilitator",
+   "length": "About 30 hours: 6 days (intensive) or 6 weeks (part-time)",
+   "commitment": "5 hours a day or 5 hours a week",
+   "pay": "Free",
+   "what": "Covers alignment and RLHF, interpretability, evaluations and red-teaming, AI control and scalable oversight. For people with ML, CS, maths or similar backgrounds. Assumes a basic idea of how LLMs are trained.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-11-29",
+    "opens": "",
+    "starts": "2026-12-07",
+    "note": "Part-time: 7 Dec-17 Jan (apply by 29 Nov) and 18 Jan-28 Feb (apply by 10 Jan). Intensive: 14-19 Dec (apply by 6 Dec) and 4-9 Jan (apply by 27 Dec). The page prints day and month only."
+   },
+   "url": "https://bluedot.org/courses/technical-ai-safety",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-technical-ai-safety-project",
+   "name": "Technical AI Safety Project Sprint (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "course",
+   "for": [
+    "ml",
+    "swe",
+    "student"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [],
+   "format": "Online, small groups of about 8 with an expert facilitator",
+   "length": "5 weeks (25 hours of project work)",
+   "commitment": "5 hours a week plus a 1-hour weekly check-in",
+   "pay": "Free",
+   "what": "Participants extend a paper or improve research code, then publish a write-up. Coding ability expected; graduates of the Technical AI Safety course get priority. Non-coders can propose a written project. Rapid Grants may cover compute.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-27",
+    "opens": "",
+    "starts": "2027-01-04",
+    "note": "Part-time round 4 Jan-7 Feb, apply by 27 Dec. The page prints day and month only."
+   },
+   "url": "https://bluedot.org/courses/technical-ai-safety-project",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-biosecurity",
+   "name": "Biosecurity (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "course",
+   "for": [
+    "policy",
+    "ops",
+    "other"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [
+    "misuse"
+   ],
+   "format": "Online, small groups of about 8 with a biosecurity expert",
+   "length": "30 hours: 6 days (intensive) or 6 weeks (part-time)",
+   "commitment": "5 hours a day or 5 hours a week",
+   "pay": "Free",
+   "what": "An overview of how to prevent, detect and respond to pandemics as AI raises the risk. Assumes no biology background. Open to people from any field, including policy professionals and entrepreneurs.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-27",
+    "opens": "",
+    "starts": "2027-01-04",
+    "note": "Part-time: 4 Jan-14 Feb (apply by 27 Dec). Intensive: 11-16 Jan (apply by 3 Jan). The page prints day and month only."
+   },
+   "url": "https://bluedot.org/courses/biosecurity",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-deep-field",
+   "name": "Deep Field Fellowship (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "fellowship",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "In person, San Francisco",
+   "length": "8 weeks",
+   "commitment": "Full-time",
+   "pay": "Free; flights, housing and food covered; $10,000 stipend for US citizens, green-card holders and people already in the US on a visa",
+   "what": "Weekly expert seminars, reading and small discussion groups across the whole AI safety field. Fellows publish a blog post each week. For people new to the field who want to move into full-time AI safety work soon. No technical background needed.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-02-01",
+    "note": "Rounds listed: 1 Feb-26 Mar 2027, 8 Mar-30 Apr 2027, 12 Apr-4 Jun 2027. Applications not open yet; express-interest form on the page."
+   },
+   "url": "https://bluedot.org/programs/deep-field",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-incubator-week",
+   "name": "Incubator Week (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "bootcamp",
+   "for": [
+    "ops"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, San Francisco",
+   "length": "5 days",
+   "commitment": "Full-time",
+   "pay": "All expenses paid; grants up to $200k if the pitch succeeds",
+   "what": "A trial week of co-founding. You come with a partner, work on a real AI safety problem, and pitch for funding at the end. For people in or near AI safety, biosecurity or cyber who are ready to leave their current work.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Next round to be announced. Express-interest form on the page."
+   },
+   "url": "https://bluedot.org/courses/incubator-week",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-career-transition-grants",
+   "name": "Career Transition Grants (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "grant",
+   "for": [
+    "media",
+    "ml",
+    "ops",
+    "other",
+    "policy",
+    "swe",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "Remote application",
+   "length": "Agreed per plan",
+   "commitment": "Full-time",
+   "pay": "Grant $20k-$200k",
+   "what": "Funds a person to work full-time for a set period on moving into AI safety or biosecurity work, such as producing research or policy work or closing a skill gap. Needs recent relevant work and a plausible plan. No BlueDot course required. Some countries are excluded.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Applications open continuously. Application takes about 45 minutes; decision in about 2 weeks."
+   },
+   "url": "https://bluedot.org/grants/career-transition",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-media-grants",
+   "name": "Media Grants (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "grant",
+   "for": [
+    "media"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Remote application",
+   "length": "6-12 months",
+   "commitment": "",
+   "pay": "Grant $20k-$200k",
+   "what": "Funds creators, writers and journalists making videos, podcasts, writing or journalism on AI and biological risks. Covers living and production costs. Needs a track record and an audience you built yourself. People just starting out are pointed to Rapid Grants.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Applications open continuously. Application takes about 30 minutes; decision in about 4 weeks."
+   },
+   "url": "https://bluedot.org/grants/media",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-seed-grants",
+   "name": "Seed Grants (BlueDot Impact)",
+   "org": "BlueDot Impact",
+   "kind": "grant",
+   "for": [
+    "media",
+    "ml",
+    "ops",
+    "other",
+    "policy",
+    "swe"
+   ],
+   "time": [
+    "week",
+    "career"
+   ],
+   "needs": [],
+   "format": "Remote application",
+   "length": "Covers the first 6-12 months",
+   "commitment": "Full-time",
+   "pay": "Grant $20k-$200k",
+   "what": "Funds the first 6-12 months of a new AI safety or biosecurity project or organization.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Applications open continuously. Decision in about 4 weeks."
+   },
+   "url": "https://bluedot.org/grants",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "govai-uk-summer-2027",
+   "name": "GovAI UK Summer Fellowship 2027 (Research and Applied tracks)",
+   "org": "Centre for the Governance of AI (GovAI)",
+   "kind": "fellowship",
+   "for": [
+    "policy",
+    "ops",
+    "media"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "In person, London",
+   "length": "3 months",
+   "commitment": "Full-time",
+   "pay": "Salary £14,000 plus travel support",
+   "what": "Fellows do an AI governance project with a supervisor, plus seminars and workshops. The Research Track suits people who produce or use research. The Applied Track suits comms, policy, operations, events and fundraising roles. GovAI can sponsor temporary work visas.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-06-07",
+    "note": "Runs 7 June-27 August 2027. Applications for this round have closed."
+   },
+   "url": "https://www.governance.ai/post/uk-summer-fellowship-2027-research-track",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "govai-dc-summer-2027",
+   "name": "GovAI DC Summer Fellowship 2027",
+   "org": "Centre for the Governance of AI (GovAI)",
+   "kind": "fellowship",
+   "for": [
+    "policy",
+    "student"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "In person, Washington, DC",
+   "length": "3 months",
+   "commitment": "Full-time (pro-rated part-time possible for some DC-based professionals)",
+   "pay": "Stipend $24,500 plus travel support",
+   "what": "A bipartisan program for people entering US AI policy. Fellows do an independent research project with a supervisor. Open to early-career people, professionals from nearby fields and strong undergraduates. US work authorization required; no visa sponsorship.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-06-07",
+    "note": "Runs 7 June-27 August 2027. Applications have closed."
+   },
+   "url": "https://www.governance.ai/post/dc-summer-fellowship-2027",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "govai-uk-winter-2027",
+   "name": "GovAI UK Winter Fellowship 2027",
+   "org": "Centre for the Governance of AI (GovAI)",
+   "kind": "fellowship",
+   "for": [
+    "policy",
+    "ops",
+    "media"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "In person, London",
+   "length": "3 months",
+   "commitment": "Full-time",
+   "pay": "Salary £12,000 plus travel support (Research Track page)",
+   "what": "Same structure as the summer fellowship, with Research and Applied tracks. Fellows do a project with a supervisor and join seminars and workshops.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-01-18",
+    "note": "Runs 18 January-9 April 2027. Applications have closed."
+   },
+   "url": "https://www.governance.ai/post/winter-fellowship-2027-research-track",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "govai-dc-winter-2027",
+   "name": "GovAI DC Winter Fellowship 2027",
+   "org": "Centre for the Governance of AI (GovAI)",
+   "kind": "fellowship",
+   "for": [
+    "policy",
+    "student"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "In person, Washington, DC",
+   "length": "3 months",
+   "commitment": "Full-time (pro-rated part-time possible for some DC-based professionals)",
+   "pay": "Stipend $21,000 plus travel support",
+   "what": "A bipartisan program for people entering US AI policy and professionals moving from nearby fields. No set degree required. US work authorization required; no visa sponsorship.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-01-18",
+    "note": "Runs 18 January-9 April 2027. Applications have closed."
+   },
+   "url": "https://www.governance.ai/post/dc-winter-fellowship-2027",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "govai-us-ai-policy-program",
+   "name": "GovAI U.S. AI Policy Program",
+   "org": "Centre for the Governance of AI (GovAI)",
+   "kind": "course",
+   "for": [
+    "policy"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "Part-time, with an in-person option",
+   "length": "12 weeks",
+   "commitment": "About 5 hours a week",
+   "pay": "Free",
+   "what": "A part-time program for US policy professionals in government and think tanks.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The 2026 round ran early September to early December 2026. No next round listed."
+   },
+   "url": "https://www.governance.ai/opportunities",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "govai-entrepreneur-in-residence",
+   "name": "GovAI Entrepreneur-in-Residence",
+   "org": "Centre for the Governance of AI (GovAI)",
+   "kind": "fellowship",
+   "for": [
+    "ops",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "London, Washington, DC or Bay Area preferred; agreed case by case",
+   "length": "12 months",
+   "commitment": "Full-time",
+   "pay": "Salaried (London £70,000-£113,500; DC $80,000-$180,000) plus about $150k seed funding through partner funders",
+   "what": "A salaried year to start a new AI governance or safety organization or project, for-profit or non-profit. GovAI takes no equity. For operators and practitioners with a track record and some AI governance context. No visa sponsorship.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Expressions of interest reviewed on a rolling basis. Posted 20 July 2026."
+   },
+   "url": "https://www.governance.ai/post/eir",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "iaps-ai-policy-fellowship",
+   "name": "IAPS AI Policy Fellowship",
+   "org": "Institute for AI Policy and Strategy (IAPS)",
+   "kind": "fellowship",
+   "for": [
+    "policy",
+    "other"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "Washington, DC, London or remote; two weeks in person in DC at the start",
+   "length": "About 3 months",
+   "commitment": "Full-time (part-time possible in rare cases)",
+   "pay": "Stipend $18,000 (Fellows) or $24,000 (Senior Fellows), plus $3,000 for DC or London; healthcare and $500 development stipend",
+   "what": "Fellows do a policy project with a mentor, on a Research track or an Applied track. No technical or policy experience required. The DC track needs US work rights.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-02-22",
+    "note": "Spring 2027 runs 22 February-14 May 2027. Applications for this round have closed."
+   },
+   "url": "https://www.iaps.ai/fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "horizon-fellowship",
+   "name": "Horizon Fellowship",
+   "org": "Horizon Institute for Public Service",
+   "kind": "fellowship",
+   "for": [
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "Part-time remote training, then a full-time placement in the Washington, DC area",
+   "length": "12-month placement, renewable (junior think tank fellows: 6 months, renewable)",
+   "commitment": "Full-time placement after 10 weeks of part-time training",
+   "pay": "Salaried: $78,000 (junior), $130,000 (fellow), $190,000+ (senior) a year, plus a $17,000 benefits stipend",
+   "what": "Places people with expertise in AI, biotech or related areas in US executive branch offices, Congress or think tanks. Most tracks need several years of experience. US work eligibility required; no visa sponsorship.",
+   "dates": {
+    "status": "closed",
+    "deadline": "2026-08-30",
+    "opens": "",
+    "starts": "",
+    "note": "Deadline shown was for the 2027 cohort. The page says applications usually open around July and close around September."
+   },
+   "url": "https://horizonpublicservice.org/programs/become-a-fellow/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "techcongress-cif",
+   "name": "TechCongress Congressional Innovation Fellowship",
+   "org": "TechCongress",
+   "kind": "fellowship",
+   "for": [
+    "swe",
+    "ml",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "In person, Washington, DC",
+   "length": "January-October (about 10 months)",
+   "commitment": "Full-time",
+   "pay": "Stipend $78,000 a year equivalent, plus health supplement and relocation help",
+   "what": "Places early-career technologists (2-6 years of experience) with a Member of Congress or a committee. US citizens and DACA recipients can apply.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "January 2027 cohort is closed. The page says applications for January 2028 open in summer 2027."
+   },
+   "url": "https://www.techcongress.io/congressional-innovation-fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "techcongress-senior-cif",
+   "name": "TechCongress Senior Congressional Innovation Fellowship",
+   "org": "TechCongress",
+   "kind": "fellowship",
+   "for": [
+    "swe",
+    "ml",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "In person, Washington, DC",
+   "length": "January-December (12 months)",
+   "commitment": "Full-time",
+   "pay": "Stipend $100,600 a year, plus benefits",
+   "what": "Places mid-career technology professionals (8+ years) with a Member of Congress or a committee. No government experience needed. US citizens and DACA recipients can apply.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "January 2027 cohort is closed. The page says applications for January 2028 open in summer 2027."
+   },
+   "url": "https://www.techcongress.io/senior-congressional-innovation-fellows",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "tarbell-fellowship",
+   "name": "Tarbell Fellowship",
+   "org": "Tarbell Center for AI Journalism",
+   "kind": "fellowship",
+   "for": [
+    "media"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "accountability"
+   ],
+   "format": "Remote training, in-person summit, then a newsroom placement",
+   "length": "1 year: 3 months of training and a 9-month placement",
+   "commitment": "Full-time",
+   "pay": "Salaried: $75,000-$120,000 (senior fellows $115,000-$135,000)",
+   "what": "Trains journalists and AI experts to report on AI, then places them as AI reporters in partner newsrooms. Needs experience in journalism or AI. Right to work in the US, UK or Hong Kong expected.",
+   "dates": {
+    "status": "closed",
+    "deadline": "2026-11-22",
+    "opens": "",
+    "starts": "2027-06-07",
+    "note": "2027-28 cohort. Training 7 June-6 August 2027; most placements September 2027-May 2028."
+   },
+   "url": "https://tarbellcenter.org/fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "tarbell-institutional-grants",
+   "name": "Tarbell Institutional Grants",
+   "org": "Tarbell Center for AI Journalism",
+   "kind": "grant",
+   "for": [
+    "media",
+    "ops"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "accountability"
+   ],
+   "format": "Remote application; for news outlets worldwide",
+   "length": "Mostly 1 year",
+   "commitment": "",
+   "pay": "Grant $50K-$500K+",
+   "what": "Grants to news outlets to build AI reporting teams, verticals or series. Focus areas include accountability reporting on frontier AI companies, AI policy, AI in China and AI incidents. Outlets keep editorial control.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-11",
+    "opens": "",
+    "starts": "",
+    "note": "This round closes 11 December 2026."
+   },
+   "url": "https://tarbellcenter.org/institutional-grants",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "tarbell-reporting-grants",
+   "name": "Tarbell Reporting Grants",
+   "org": "Tarbell Center for AI Journalism",
+   "kind": "grant",
+   "for": [
+    "media"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [
+    "accountability"
+   ],
+   "format": "Remote application; staff or freelance",
+   "length": "Per story or series",
+   "commitment": "",
+   "pay": "Grant $1,000-$20,000",
+   "what": "Funds original reporting on AI and its impacts, mainly written, published in established outlets. Covers the journalist's time and costs such as travel and data. Needs at least one similar published piece.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The last round closed July 12 (year not printed). Not rolling; sign up on the page for future rounds."
+   },
+   "url": "https://tarbellcenter.org/grants",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "caidp-ai-policy-clinic",
+   "name": "CAIDP AI Policy Clinic (Spring 2027)",
+   "org": "Center for AI and Digital Policy (CAIDP)",
+   "kind": "course",
+   "for": [
+    "policy",
+    "student",
+    "other"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "Online, weekly Zoom lecture and small-group discussion",
+   "length": "One semester (about 12 weeks)",
+   "commitment": "About 6 hours a week",
+   "pay": "Free",
+   "what": "A semester course on AI policy with weekly assignments. Participants who complete it get an AI Policy certificate. An Advanced clinic and policy groups follow for graduates.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-11-30",
+    "opens": "2026-10-12",
+    "starts": "2027-01-25",
+    "note": "Deadline 30 November 2026, 11:59 pm ET. Admissions announced 4 January 2027. Runs 25 January-16 April 2027."
+   },
+   "url": "https://www.caidp.org/global-academic-network/ai-policy-clinic/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "talos-fellowship",
+   "name": "Talos Fellowship (Spring 2027)",
+   "org": "Talos Network",
+   "kind": "fellowship",
+   "for": [
+    "policy",
+    "student"
+   ],
+   "time": [
+    "week",
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "Remote training, one-week summit in Brussels, optional in-person placement (mostly Brussels)",
+   "length": "7 weeks of training plus a 1-week summit; optional 6-month placement",
+   "commitment": "10 hours a week during training; placement is full-time",
+   "pay": "Training unpaid; summit travel and housing covered; placement stipend about €3,000 a month",
+   "what": "Training for recent graduates and early-career people who want to work in European AI governance. Fellows publish a policy piece. Needs an undergraduate degree; EU or UK work rights needed for a placement.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-06",
+    "opens": "2026-11-06",
+    "starts": "2027-02-24",
+    "note": "Training 24 Feb-10 Apr 2027; summit 10-16 Apr 2027 in Brussels; placements Apr-Sep 2027."
+   },
+   "url": "https://www.talosnetwork.org/talos-fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "talos-policy-leaders",
+   "name": "Talos Policy Leaders Programme (Spring 2027)",
+   "org": "Talos Network",
+   "kind": "fellowship",
+   "for": [
+    "policy"
+   ],
+   "time": [
+    "week",
+    "career"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "Remote training with weekday evening calls (CET), then an in-person summit in Brussels",
+   "length": "7 weeks of training plus a 1-week summit; optional placement up to a year",
+   "commitment": "About 8 hours a week during training",
+   "pay": "Training unpaid; summit costs covered; placement stipend €5,000 a month",
+   "what": "For professionals with 8+ years in policy, law, defence, diplomacy, regulation or safety-critical fields who want to work on European frontier AI governance. Not for people new to both AI and policy.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-06",
+    "opens": "2026-11-06",
+    "starts": "2027-02-23",
+    "note": "Training 23 Feb-10 Apr 2027; summit 10-16 Apr 2027 in Brussels; optional placements May 2027-May 2028."
+   },
+   "url": "https://www.talosnetwork.org/policy-leaders-programme",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "talos-incubator-europe",
+   "name": "Talos Incubator Europe",
+   "org": "Talos Network",
+   "kind": "fellowship",
+   "for": [
+    "ops",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Mostly remote; in-person sprint in Brussels and showcase in London",
+   "length": "About 3 months of building plus a 2-month funding runway",
+   "commitment": "Part-time for the first 4 weeks, then full-time",
+   "pay": "Stipend €4,000 a month; seed grants possible but not guaranteed",
+   "what": "A cohort of 10-14 founders find co-founders and build a new AI governance organization in Europe, then pitch for seed funding. Needs a record of building or leading something and European work rights or a clear path to them.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-12-06",
+    "opens": "",
+    "starts": "2027-03-08",
+    "note": "Remote matching 8 Mar-4 Apr 2027; Brussels sprint 5-16 Apr; showcase 31 May-1 Jun; runway mid-June to mid-August 2027."
+   },
+   "url": "https://www.talosnetwork.org/talos-incubator-europe",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "successif-advising",
+   "name": "Successif Career Advising",
+   "org": "Successif",
+   "kind": "advising",
+   "for": [
+    "other",
+    "policy",
+    "ops"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "One-on-one advising",
+   "length": "",
+   "commitment": "",
+   "pay": "Free",
+   "what": "Advising for mid-career and experienced professionals moving into AI risk work. Includes career-fit advice, help with CVs and mock interviews, training, introductions to AI risk organizations and a peer community.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Applications reviewed on a rolling basis."
+   },
+   "url": "https://successif.org/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "successif-ai-policy-strategy-fellowship",
+   "name": "Successif AI Policy Strategy Fellowship",
+   "org": "Successif",
+   "kind": "fellowship",
+   "for": [
+    "policy",
+    "media",
+    "ops"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "Remote",
+   "length": "About 17 weeks (10 weeks of workshops, 7-week capstone)",
+   "commitment": "About 4 hours a week",
+   "pay": "Free",
+   "what": "Helps people already working full-time in AI safety, including researchers, leaders, and operations or communications staff, turn their expertise into policy influence. Includes op-ed writing and a capstone project.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The 2026 cohort started the week of 25 May 2026. The page says an interest form for future cohorts will open later."
+   },
+   "url": "https://successif.org/fellowship",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "80k-advising",
+   "name": "80,000 Hours one-on-one advising",
+   "org": "80,000 Hours",
+   "kind": "advising",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "taste",
+    "career"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "Video call",
+   "length": "One call",
+   "commitment": "About 10 minutes to apply",
+   "pay": "Free",
+   "what": "A free call with an advisor about using your career to reduce risks from AI or other pressing problems. Most useful for people who can make a difference soon, often with 5+ years of work experience; students and people without AI background can apply. Not everyone gets a call.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "No rounds or deadline printed; application form is on the page. Reply in about 2-3 weeks."
+   },
+   "url": "https://80000hours.org/speak-with-us/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "80k-job-board",
+   "name": "80,000 Hours Job Board",
+   "org": "80,000 Hours",
+   "kind": "job-board",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Online",
+   "length": "",
+   "commitment": "",
+   "pay": "",
+   "what": "A hand-picked list of jobs on pressing global problems, including AI safety and policy. Filter by salary and other options; sign up for daily email alerts.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Updated as new roles are posted."
+   },
+   "url": "https://jobs.80000hours.org/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "aisafety-com-training",
+   "name": "AISafety.com training programs list",
+   "org": "AISafety.com",
+   "kind": "community",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "Online directory",
+   "length": "",
+   "commitment": "",
+   "pay": "Free",
+   "what": "A list of AI safety fellowships, bootcamps and courses, grouped by whether applications are open. Filters for type, focus, entry bar, stipend, length and location. Showed 64 upcoming programs on 26 November 2026.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Always available; weekly newsletter option."
+   },
+   "url": "https://www.aisafety.com/training",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "aisafety-com-events",
+   "name": "AISafety.com events list",
+   "org": "AISafety.com",
+   "kind": "community",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "taste",
+    "week"
+   ],
+   "needs": [],
+   "format": "Online directory",
+   "length": "",
+   "commitment": "",
+   "pay": "Free",
+   "what": "A list of AI safety conferences, talks, workshops, meetups and hackathons, online and in person, grouped by month. Filters for type and cost.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Always available; weekly email option."
+   },
+   "url": "https://www.aisafety.com/events",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "aisafety-com-jobs",
+   "name": "AISafety.com jobs board",
+   "org": "AISafety.com",
+   "kind": "job-board",
+   "for": [
+    "other",
+    "policy",
+    "ops",
+    "media"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Online",
+   "length": "",
+   "commitment": "",
+   "pay": "Free",
+   "what": "AI safety and governance jobs at labs, nonprofits, think tanks, governments and universities. Filter by skill set (including policy, operations, communications and legal), experience level, location and remote. Listed 594 jobs on 26 November 2026.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Updated continuously."
+   },
+   "url": "https://www.aisafety.com/jobs",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "aisafety-com-funding",
+   "name": "AISafety.com funding list",
+   "org": "AISafety.com",
+   "kind": "community",
+   "for": [
+    "other",
+    "ops",
+    "media"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Online directory",
+   "length": "",
+   "commitment": "",
+   "pay": "Free",
+   "what": "A list of 55 funders of AI safety work, with what each funds, who can apply, grant size and whether it is taking applications.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Always available."
+   },
+   "url": "https://www.aisafety.com/funding",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "aisafety-com-communities",
+   "name": "AISafety.com communities list",
+   "org": "AISafety.com",
+   "kind": "community",
+   "for": [
+    "other",
+    "student"
+   ],
+   "time": [
+    "taste",
+    "week"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "Online directory",
+   "length": "",
+   "commitment": "",
+   "pay": "Free",
+   "what": "A list of 274 online and local AI safety groups, with platform, activity level and focus. Filter by country and platform.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Always available."
+   },
+   "url": "https://www.aisafety.com/communities",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "aisafety-com-advisors",
+   "name": "AISafety.com advisors list",
+   "org": "AISafety.com",
+   "kind": "advising",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "Online directory",
+   "length": "",
+   "commitment": "",
+   "pay": "Free",
+   "what": "A list of free one-on-one advising services, such as career advice for newcomers, experienced professionals, consultants and people seeking UK government roles.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Always available."
+   },
+   "url": "https://www.aisafety.com/advisors",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "ai-safety-quest",
+   "name": "AI Safety Quest navigation calls",
+   "org": "AI Safety Quest",
+   "kind": "advising",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "taste",
+    "week"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "Video call",
+   "length": "30-45 minutes",
+   "commitment": "One call",
+   "pay": "Free",
+   "what": "A volunteer-run call that points you to courses, communities and opportunities that fit your background. For people at any career stage who have a basic grasp of AI safety and plan to work or volunteer in it.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Application form on the page; the page does not say whether calls are being booked now."
+   },
+   "url": "https://aisafety.quest/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "fig-fellowship",
+   "name": "FIG Fellowship (Future Impact Group)",
+   "org": "Future Impact Group",
+   "kind": "fellowship",
+   "for": [
+    "policy",
+    "theory",
+    "student"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "Remote",
+   "length": "12 weeks",
+   "commitment": "Part-time, 8+ hours a week",
+   "pay": "",
+   "what": "Part-time research on project teams in AI policy, philosophy for safe AI, or AI sentience. Open to students, researchers and early- to mid-career professionals moving into the field.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "No round dates printed; mailing list for the next round."
+   },
+   "url": "https://futureimpact.group/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "constellation-founders-residency",
+   "name": "Constellation Founders Residency",
+   "org": "Constellation",
+   "kind": "fellowship",
+   "for": [
+    "ops"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "In person, Berkeley (at least 3 days a week on site)",
+   "length": "6 months",
+   "commitment": "Full-time",
+   "pay": "Free; no stipend; no equity taken",
+   "what": "Desk space, a partner and funder introductions for founders turning a settled idea into an AI safety or security organization. Teams up to four people; solo founders welcome.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-01-11",
+    "note": "January 2027 cohort runs 11 January-2 July; applications have closed. Interest form on the page."
+   },
+   "url": "https://constellation.org/programs/incubator",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "catalyze-impact",
+   "name": "Catalyze Impact incubator",
+   "org": "Catalyze Impact",
+   "kind": "fellowship",
+   "for": [
+    "ops",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "",
+   "length": "",
+   "commitment": "Full-time",
+   "pay": "",
+   "what": "An incubator for experienced founders, operators and domain experts (security, biotech, law, policy, government) starting a company or nonprofit on AI safety and security. Offers help choosing a problem, funding to go full-time, investor introductions and coaching.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "No rounds or deadlines printed; contact form on the apply page."
+   },
+   "url": "https://www.catalyze-impact.org/apply",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "seldon-lab",
+   "name": "Seldon Lab accelerator",
+   "org": "Seldon Lab",
+   "kind": "fellowship",
+   "for": [
+    "ops",
+    "swe"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "security"
+   ],
+   "format": "In person, San Francisco (per the AISafety.com founder list)",
+   "length": "12 weeks (per the AISafety.com founder list)",
+   "commitment": "Full-time",
+   "pay": "",
+   "what": "Invests in founders building AI security and AGI deployment startups, in batches. Batch #2 held its demo day on 20 April 2026.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "No next batch dates or deadline printed."
+   },
+   "url": "https://seldonlab.com/apply",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "steadrise-executive-catalyst",
+   "name": "SteadRise Executive Catalyst",
+   "org": "SteadRise",
+   "kind": "fellowship",
+   "for": [
+    "ops",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "",
+   "length": "",
+   "commitment": "",
+   "pay": "",
+   "what": "A route into frontier AI safety work for leaders who have built and scaled organizations.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Applications closed. Interest form to join a talent pool and hear when applications reopen."
+   },
+   "url": "https://www.steadrise.org/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "ea-funds-transformative-ai-fund",
+   "name": "Transformative AI Fund",
+   "org": "EA Funds",
+   "kind": "grant",
+   "for": [
+    "ml",
+    "swe",
+    "theory",
+    "policy",
+    "media",
+    "ops",
+    "student"
+   ],
+   "time": [
+    "week",
+    "career"
+   ],
+   "needs": [],
+   "format": "Apply online",
+   "length": "",
+   "commitment": "",
+   "pay": "Grant, typically $10k-$150k; rarely over $300k",
+   "what": "Grants to individuals, new organizations, and existing organizations with new projects. It funds early-stage work mainly aimed at reducing catastrophic risks from advanced AI, plus training and field-building. It does not fund biosecurity or nuclear work unless it intersects with AI.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The page says: \"We are always open to applications.\" No response time is stated."
+   },
+   "url": "https://funds.effectivealtruism.org/funds/transformative-ai",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "bluedot-rapid-grants",
+   "name": "Rapid Grants",
+   "org": "BlueDot Impact",
+   "kind": "grant",
+   "for": [
+    "ml",
+    "swe",
+    "theory",
+    "policy",
+    "media",
+    "ops",
+    "student",
+    "other"
+   ],
+   "time": [
+    "week",
+    "career"
+   ],
+   "needs": [],
+   "format": "Apply online",
+   "length": "",
+   "commitment": "",
+   "pay": "Grant up to $20k",
+   "what": "Small, fast grants for a next step in AI safety or biosecurity: research and learning, a project or experiment, an event or community work, or travel. BlueDot course participants, alumni and active community members are more likely to get one.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "\"Apply any time.\" The form takes about 15 minutes. Decisions take about 5 days on average. Paid as one lump sum."
+   },
+   "url": "https://bluedot.org/grants/rapid",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "sff-s-process",
+   "name": "Survival and Flourishing Fund grant rounds (S-Process)",
+   "org": "Survival and Flourishing Fund",
+   "kind": "grant",
+   "for": [
+    "ops",
+    "ml",
+    "policy"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Organizations apply online",
+   "length": "",
+   "commitment": "",
+   "pay": "Grants; $20M-$40M+ estimated across all 2026 rounds",
+   "what": "Recommends grants to charities, fiscally sponsored projects and some for-profit companies working on the long-term survival and flourishing of sentient life. Individuals are not eligible without a fiscal sponsor. Applications also go to a faster Speculation Grant track.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "All 2026 rounds are closed. The Main Round deadline was 22 April 2026; theme rounds closed by 8 July 2026. Late applications are held for \"the next grant round to be announced.\" No 2027 dates yet."
+   },
+   "url": "https://survivalandflourishing.fund/2026/application",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "schmidt-sciences-trustworthy-ai",
+   "name": "Science of Trustworthy AI",
+   "org": "Schmidt Sciences",
+   "kind": "grant",
+   "for": [
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Research grants to academic and nonprofit researchers",
+   "length": "",
+   "commitment": "",
+   "pay": "",
+   "what": "Funds basic technical research to understand, predict and control risks from frontier AI systems. Grants go to academic and nonprofit researchers. It publishes a 2026 research agenda.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The program page lists no open call, and the 2026 RFP link no longer loads. No next round is announced."
+   },
+   "url": "https://www.schmidtsciences.org/trustworthy-ai/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "caif-multi-agent-safety",
+   "name": "Scaling AI Safety for a Multi-Agent World",
+   "org": "Cooperative AI Foundation and Schmidt Sciences",
+   "kind": "grant",
+   "for": [
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Research grants",
+   "length": "1-2 years",
+   "commitment": "",
+   "pay": "Grant up to $1M (Tier 1 up to $300k; Tier 2 $300k-$1M)",
+   "what": "A $10m funding call for research on AI safety in settings where many AI agents interact.",
+   "dates": {
+    "status": "closed",
+    "deadline": "2026-08-08",
+    "opens": "",
+    "starts": "",
+    "note": "Deadline was 8 August 2026, 11:59pm AoE. Final decisions were expected in autumn 2026. The Cooperative AI Foundation's general research grants last ran in 2025. No new call is announced."
+   },
+   "url": "https://www.cooperativeai.com/calls-for-proposals/scaling-ai-safety-for-a-multi-agent-world",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "foresight-ai-safety-nodes",
+   "name": "AI for Science & Safety Nodes grants",
+   "org": "Foresight Institute",
+   "kind": "grant",
+   "for": [
+    "ml",
+    "swe",
+    "theory",
+    "ops"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [
+    "accountability"
+   ],
+   "format": "Grants; nodes in San Francisco and Berlin",
+   "length": "",
+   "commitment": "",
+   "pay": "Grant, typically $30k-$100k; larger possible",
+   "what": "Funds projects that use AI to help the AI transition go well and to advance science. Three calls: local compute, coordination and accountability, and AI-first science (bio, neuro, nano). Individuals, teams and organizations can apply. All work must be open-sourced. In-person contributors at a node are prioritized.",
+   "dates": {
+    "status": "closed",
+    "deadline": "2026-10-31",
+    "opens": "",
+    "starts": "",
+    "note": "Deadline was 31 October 2026, 23:59 PDT. Review takes about three months. Next round not announced."
+   },
+   "url": "https://foresight.org/grants/ai-science-safety-nodes-rfp/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "astralis-middle-powers-rfp",
+   "name": "Middle Powers and Transformative AI RFP",
+   "org": "Astralis Foundation with Macroscopic Ventures",
+   "kind": "grant",
+   "for": [
+    "policy",
+    "ops"
+   ],
+   "time": [
+    "career"
+   ],
+   "needs": [],
+   "format": "Grants",
+   "length": "6-24 months",
+   "commitment": "",
+   "pay": "Grant, mostly $100k-$2M",
+   "what": "A call of about $10M on the role of middle powers in the AI transition. Open to individuals, teams, universities, fiscally sponsored groups and nonprofits, mainly in listed countries such as the UK, Germany, Japan, Canada and the US. Astralis does not otherwise accept unsolicited grant requests.",
+   "dates": {
+    "status": "closed",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The page says applications are now closed. The deadline was Friday 23 October, 23:59 PT (no year printed). No next round announced."
+   },
+   "url": "https://middlepowers.ai/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "manifund",
+   "name": "Manifund",
+   "org": "Manifund",
+   "kind": "grant",
+   "for": [
+    "ml",
+    "swe",
+    "theory",
+    "policy",
+    "media",
+    "ops",
+    "student"
+   ],
+   "time": [
+    "week",
+    "career"
+   ],
+   "needs": [],
+   "format": "Online platform",
+   "length": "",
+   "commitment": "",
+   "pay": "",
+   "what": "A nonprofit platform where people post public funding proposals for charitable projects, like a Kickstarter for nonprofits. Regrantors with delegated budgets choose projects to fund.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "The pages we read show no application round or deadline."
+   },
+   "url": "https://manifund.org/about",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "ai-safety-career-fair-founders-summit-2026",
+   "name": "AI Safety Career Fair & Founders Summit",
+   "org": "aisafetysf.org",
+   "kind": "event",
+   "for": [
+    "other",
+    "ops",
+    "policy",
+    "ml",
+    "swe"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "newcomers"
+   ],
+   "format": "In person, Mission district, San Francisco",
+   "length": "2 days",
+   "commitment": "",
+   "pay": "",
+   "what": "Day 1 has talks, a panel and workshop on moving into AI safety, and a career fair with hiring teams. Day 2 is a founders summit with an attendee-led unconference, funder office hours and project demos. No technical background needed. Lunch and dinner included.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-04",
+    "note": "4-5 December 2026. Registration is open; no deadline shown. Ticket price not stated."
+   },
+   "url": "https://aisafetysf.org/summit",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "apart-threat-intel-hackathon-2026",
+   "name": "Threat Intelligence & Threat Modelling Hackathon",
+   "org": "Apart Research with SL5",
+   "kind": "event",
+   "for": [
+    "ml",
+    "swe",
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "security"
+   ],
+   "format": "Online, with an in-person hub in San Francisco and a local site in Bengaluru",
+   "length": "3 days",
+   "commitment": "Weekend",
+   "pay": "Free; $5,000 in prizes",
+   "what": "Teams of up to five build a pipeline, evaluation, benchmark or tool for threat intelligence or threat modelling, using public data only, and submit a short report. No background required. Solo entries allowed.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-04",
+    "note": "4-6 December 2026. Submissions close 6 December, 11:59pm AoE. No registration deadline shown."
+   },
+   "url": "https://apartresearch.com/sprints/threat-intelligence-threat-modelling-2026",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "neurips-2026",
+   "name": "NeurIPS 2026",
+   "org": "NeurIPS",
+   "kind": "event",
+   "for": [
+    "ml",
+    "theory",
+    "student"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [],
+   "format": "In person in Sydney (main), with satellites in Atlanta and Paris; virtual pass available",
+   "length": "Sydney: 6-12 December; workshops 11-12 December",
+   "commitment": "",
+   "pay": "Fee: conference or workshop registration (see pricing page)",
+   "what": "A major annual machine learning research conference. Its Sydney program includes several workshops on agent safety, interpretability, evaluation and alignment, listed separately here.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-06",
+    "note": "Sydney 6-12 December 2026; Atlanta and Paris satellites 9-13 December. Registration has reopened to the public for remaining spots in Sydney and Atlanta. Workshops need a \"Workshops & Competitions\" registration. Paris registration is at neurips-europe.cc."
+   },
+   "url": "https://neurips.cc/Conferences/2026",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "neurips-2026-priorities-ai-safety-security",
+   "name": "Priorities in AI Safety & Security (NeurIPS 2026 Expo Workshop)",
+   "org": "MATS Research",
+   "kind": "event",
+   "for": [
+    "ml",
+    "policy"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "priorities"
+   ],
+   "format": "In person, Sydney (Pyrmont Theatre)",
+   "length": "3 hours",
+   "commitment": "",
+   "pay": "",
+   "what": "Researchers and industry staff discuss the most urgent open problems in AI safety science, gaps in current research agendas, and where more research capacity would help. Covers cyber, biosecurity and loss-of-control risks.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-06",
+    "note": "Sunday 6 December 2026, 2-5pm AEDT. Part of the NeurIPS Sydney program. The page does not say how to register."
+   },
+   "url": "https://neurips.cc/virtual/2026/loc/sydney/180223",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "brazil-alignment-hackathon-2026",
+   "name": "AI Alignment Hackathon in Brazil",
+   "org": "AI Alignment Foundation with AE Studio",
+   "kind": "event",
+   "for": [
+    "ml",
+    "swe",
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [],
+   "format": "In person in Florianópolis, Brazil, or online",
+   "length": "6 days",
+   "commitment": "",
+   "pay": "Free; over $5,000 in prizes in person, $2,000 online",
+   "what": "Teams of one to three work on keeping AI aligned as it improves itself, then submit a video and a 2-page write-up. No alignment expertise needed. Work must be in English.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-07",
+    "note": "7-12 December (the page shows no year; its URL and the AISafety.com listing say 2026). Write-ups due the morning of 12 December. In-person seats are limited. No registration deadline shown."
+   },
+   "url": "https://aialignmentfoundation.org/hackathons/brazil-alignment-2026",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "neurips-2026-agents-in-the-wild",
+   "name": "Agents in the Wild: Safety, Security, and Beyond (NeurIPS 2026 workshop)",
+   "org": "NeurIPS 2026 workshop",
+   "kind": "event",
+   "for": [
+    "ml",
+    "swe",
+    "policy"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "security"
+   ],
+   "format": "In person, Sydney (Hall 5)",
+   "length": "1 day",
+   "commitment": "",
+   "pay": "Fee: NeurIPS Sydney workshop registration",
+   "what": "Brings together researchers from AI, security, systems and policy on the safety and security risks of autonomous AI agents that use external tools and persistent memory.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-11",
+    "note": "Friday 11 December 2026, 8am-5pm AEDT."
+   },
+   "url": "https://neurips.cc/virtual/2026/workshop/137500",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "neurips-2026-interpretability-as-a-science",
+   "name": "Interpretability as a Science (NeurIPS 2026 workshop)",
+   "org": "NeurIPS 2026 workshop",
+   "kind": "event",
+   "for": [
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "inside"
+   ],
+   "format": "In person, Sydney (Hall 2)",
+   "length": "1 day",
+   "commitment": "",
+   "pay": "Fee: NeurIPS Sydney workshop registration",
+   "what": "Researchers from machine learning, neuroscience, mathematics, statistics and physics discuss how to make interpretability of large language models a rigorous empirical science.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-11",
+    "note": "Friday 11 December 2026, 8am-5pm AEDT. Workshop site: interpscience.github.io."
+   },
+   "url": "https://neurips.cc/virtual/2026/workshop/137527",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "neurips-2026-dynamic-alignment",
+   "name": "Dynamic Alignment in Human-AI Coupled Systems (NeurIPS 2026 workshop)",
+   "org": "NeurIPS 2026 workshop",
+   "kind": "event",
+   "for": [
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [],
+   "format": "In person, Sydney (Cockle Bay Room 1)",
+   "length": "1 day",
+   "commitment": "",
+   "pay": "Fee: NeurIPS Sydney workshop registration",
+   "what": "Treats alignment as a changing property of combined human-AI systems, not a fixed property of a model.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-11",
+    "note": "Friday 11 December 2026, 8am-5pm AEDT."
+   },
+   "url": "https://neurips.cc/virtual/2026/workshop/137502",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "neurips-2026-breaking-silos-social",
+   "name": "Breaking Silos in AI Safety: Connecting Communities Across Domains (NeurIPS 2026 social)",
+   "org": "NeurIPS 2026 social",
+   "kind": "event",
+   "for": [
+    "ml",
+    "policy",
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [],
+   "format": "In person at NeurIPS (Room C205)",
+   "length": "2 hours",
+   "commitment": "",
+   "pay": "",
+   "what": "A social event at NeurIPS 2026 aimed at connecting AI safety communities across fields. The page gives no further description.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-11",
+    "note": "Friday 11 December 2026, 11am-1pm AEDT."
+   },
+   "url": "https://neurips.cc/virtual/2026/social/180839",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "apart-agent-attribution-hackathon-2026",
+   "name": "Agent Attribution Hackathon",
+   "org": "Apart Research",
+   "kind": "event",
+   "for": [
+    "ml",
+    "swe",
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "accountability"
+   ],
+   "format": "Online (Discord and Zoom), with some local groups",
+   "length": "3 days",
+   "commitment": "Weekend",
+   "pay": "Free; $500 in platform credits per participant, $1,000 per winning team member",
+   "what": "Teams work out whether a human or an autonomous agent is behind an AI agent's activity. They build a classifier, simulation or search for rogue agents and write a short report. Open to engineers, researchers and people from any field.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-11",
+    "note": "11-13 December 2026. Submissions close 13 December, 11:59pm AoE. No registration deadline shown."
+   },
+   "url": "https://apartresearch.com/sprints/agent-attribution-2026",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "neurips-2026-can-we-trust-ai-evaluation",
+   "name": "Can We Trust AI Evaluation? (NeurIPS 2026 workshop)",
+   "org": "NeurIPS 2026 workshop",
+   "kind": "event",
+   "for": [
+    "ml",
+    "policy"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "evals"
+   ],
+   "format": "In person, Sydney (C2.2-C2.3)",
+   "length": "1 day",
+   "commitment": "",
+   "pay": "Fee: NeurIPS Sydney workshop registration",
+   "what": "Asks when AI evaluation evidence is strong enough to guide deployment decisions. Covers robustness, causality and risk in AI assessment.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-12",
+    "note": "Saturday 12 December 2026, 8am-5pm AEDT. Workshop site: tai-eval.github.io."
+   },
+   "url": "https://neurips.cc/virtual/2026/workshop/137525",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "neurips-2026-who-verifies-the-agents",
+   "name": "Who Verifies the Agents? Toward Reliable Agent Development (NeurIPS 2026 workshop)",
+   "org": "NeurIPS 2026 workshop",
+   "kind": "event",
+   "for": [
+    "ml",
+    "swe"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "evals"
+   ],
+   "format": "In person, Sydney (Hall 5)",
+   "length": "1 day",
+   "commitment": "",
+   "pay": "Fee: NeurIPS Sydney workshop registration",
+   "what": "Aims to make verification a core discipline in AI agent development.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2026-12-12",
+    "note": "Saturday 12 December 2026, 8am-5pm AEDT."
+   },
+   "url": "https://neurips.cc/virtual/2026/workshop/137488",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "ai-horizons-forum-2026",
+   "name": "AI Horizons Forum",
+   "org": "Quorum",
+   "kind": "event",
+   "for": [
+    "ops",
+    "ml",
+    "policy",
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "priorities"
+   ],
+   "format": "In person, San Francisco Marriott Marquis",
+   "length": "2 days",
+   "commitment": "",
+   "pay": "Fee: $500 standard ticket; discounts available",
+   "what": "A gathering of about 1,000 people on the state of AI safety and where new effort is most needed. Talks, 1:1 meetings and networking on alignment, control and governance. For staff of AI safety organizations and people moving into AI safety roles, including mid-career professionals.",
+   "dates": {
+    "status": "open",
+    "deadline": "2026-11-30",
+    "opens": "",
+    "starts": "2026-12-12",
+    "note": "12-13 December 2026. Applications are reviewed on a rolling basis and close 30 November. Some accepted attendees get free on-site accommodation, first come first served."
+   },
+   "url": "https://www.aihorizonsforum.org/",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "tiap-brussels-2027",
+   "name": "Technical Innovations for AI Policy (TIAP) Brussels 2027",
+   "org": "FAR.AI",
+   "kind": "event",
+   "for": [
+    "policy",
+    "ml"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "In person, Brussels",
+   "length": "1 day",
+   "commitment": "",
+   "pay": "",
+   "what": "Connects EU policymakers, including the EU AI Office, with independent technical experts, think tanks and civil society to turn technical findings into policy. First European edition of the TIAP series.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-02-04",
+    "note": "4 February 2027. The page has an expression-of-interest form and does not say if attendance is by application or invitation. No deadline or price shown."
+   },
+   "url": "https://www.far.ai/events/tiap-brussels-2027",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "iaseai-27",
+   "name": "IASEAI '27",
+   "org": "International Association for Safe and Ethical AI (IASEAI)",
+   "kind": "event",
+   "for": [
+    "policy",
+    "ml",
+    "theory",
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "In person, Paris",
+   "length": "4 days",
+   "commitment": "",
+   "pay": "Fee (amount not listed); financial assistance available",
+   "what": "Annual conference of the International Association for Safe and Ethical AI.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "9-12 February 2027, per the AISafety.com events list. The official page did not load for us; check it for registration and fees."
+   },
+   "url": "https://www.iaseai.org/our-programs/iaseai27",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "eag-san-francisco-2027",
+   "name": "EA Global: San Francisco 2027",
+   "org": "Centre for Effective Altruism",
+   "kind": "event",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [],
+   "format": "In person, Hilton San Francisco Union Square",
+   "length": "3 days",
+   "commitment": "",
+   "pay": "Fee: default $500; reduced and free tickets available",
+   "what": "A conference for people with a solid grasp of effective altruism ideas who act on them through career, study or volunteering. Attendees must be 18 or older. Students and job seekers can request a free ticket. Limited travel support.",
+   "dates": {
+    "status": "open",
+    "deadline": "2027-02-28",
+    "opens": "",
+    "starts": "2027-03-19",
+    "note": "19-21 March 2027. Applications open; deadline 28 February 2027, 11:59pm PT. Responses by 4 March 2027 at the latest."
+   },
+   "url": "https://www.effectivealtruism.org/ea-global/events/ea-global-san-francisco-2027",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "tiap-dc-2027",
+   "name": "Technical Innovations for AI Policy (TIAP) DC 2027",
+   "org": "FAR.AI",
+   "kind": "event",
+   "for": [
+    "policy",
+    "ml"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [
+    "rules"
+   ],
+   "format": "In person, Washington, DC",
+   "length": "2 days",
+   "commitment": "",
+   "pay": "",
+   "what": "Third annual conference linking policymakers with technical experts from government, industry, think tanks, academia and civil society. Aims to inform policymakers about frontier AI capabilities and show researchers where their work can inform policy.",
+   "dates": {
+    "status": "unknown",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-04-15",
+    "note": "15-16 April 2027. Express interest via FAR.AI's form. The page does not say if attendance is by application or invitation. No deadline or price shown."
+   },
+   "url": "https://www.far.ai/events/tiap-dc-2027",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "sf-alignment-workshop-2027",
+   "name": "San Francisco Alignment Workshop 2027",
+   "org": "FAR.AI",
+   "kind": "event",
+   "for": [
+    "ml",
+    "theory",
+    "policy",
+    "student"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [],
+   "format": "In person, San Francisco",
+   "length": "2 days",
+   "commitment": "",
+   "pay": "Fee: ticketed (price not listed)",
+   "what": "Part of the Alignment Workshop series, for ML researchers and practitioners from industry, academia and government. Topics: evaluations, interpretability, robustness, scalable oversight and AI governance. Has a track for people new to AI safety. Held before ICLR.",
+   "dates": {
+    "status": "open",
+    "deadline": "",
+    "opens": "",
+    "starts": "2027-04-24",
+    "note": "24-25 April 2027. Application-based; apply via the page. No deadline shown."
+   },
+   "url": "https://far.ai/events/sf-aw-2027",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "eag-london-2027",
+   "name": "EA Global: London 2027",
+   "org": "Centre for Effective Altruism",
+   "kind": "event",
+   "for": [
+    "other"
+   ],
+   "time": [
+    "taste"
+   ],
+   "needs": [],
+   "format": "In person, InterContinental London - The O2",
+   "length": "3 days",
+   "commitment": "",
+   "pay": "Fee: default $500; reduced and free tickets available",
+   "what": "A conference for people with a solid grasp of effective altruism ideas who act on them. Students and job seekers can request a free ticket. Limited travel support.",
+   "dates": {
+    "status": "open",
+    "deadline": "2027-05-09",
+    "opens": "",
+    "starts": "2027-05-28",
+    "note": "28-30 May 2027. Applications open; deadline 9 May 2027, 11:59pm BST. Responses by 14 May 2027."
+   },
+   "url": "https://www.effectivealtruism.org/ea-global/events/ea-global-london-2027",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "alignment-forum",
+   "name": "AI Alignment Forum",
+   "org": "AI Alignment Forum (shares accounts with LessWrong)",
+   "kind": "community",
+   "for": [
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [],
+   "format": "Online forum",
+   "length": "",
+   "commitment": "",
+   "pay": "Free",
+   "what": "An online hub where researchers discuss AI alignment, from technical work to strategy. Only about 50-100 members post directly. Others post on LessWrong, where alignment posts can be promoted, or submit to a review queue with a decision within three days.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Free to read. Full membership is selective and offered by admins."
+   },
+   "url": "https://www.alignmentforum.org/about",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "lesswrong",
+   "name": "LessWrong",
+   "org": "LessWrong",
+   "kind": "community",
+   "for": [
+    "other",
+    "ml",
+    "theory"
+   ],
+   "time": [
+    "taste",
+    "week"
+   ],
+   "needs": [],
+   "format": "Online forum, plus a map of local meetups",
+   "length": "",
+   "commitment": "",
+   "pay": "Free",
+   "what": "A forum on reasoning and decision-making with a strong focus on AI alignment and safety. Newcomers are pointed to a New User's Guide and a monthly welcome thread. New users' first posts are moderated, and AI-written posts face strict rules. Its Community page maps local groups and events.",
+   "dates": {
+    "status": "rolling",
+    "deadline": "",
+    "opens": "",
+    "starts": "",
+    "note": "Open to read and join anytime."
+   },
+   "url": "https://www.lesswrong.com/about",
+   "checked": "2026-11-26"
+  },
+  {
+   "id": "kairos-pathfinder",
+   "name": "Pathfinder Fellowship (for university AI safety group organizers)",
+   "org": "Kairos",
+   "kind": "fellowship",
+   "for": [
+    "student"
+   ],
+   "time": [
+    "week"
+   ],
+   "needs": [],
+   "format": "Remote mentorship, online workshops and Slack",
+   "length": "",
+   "commitment": "",
+   "pay": "Funding for group activities; stipend for graduate students only",
+   "what": "Supports students who lead or plan to found a university AI safety or AI policy group. Gives funding for group activities, mentorship, workshops, a Slack community and access to the AI Safety Groups Resource Center. Open to groups anywhere. Funded by Coefficient Giving.",
+   "dates": {
+    "status": "closed",
+    "deadline": "2026-11-24",
+    "opens": "",
+    "starts": "2026-12-06",
+    "note": "Spring 2027 round: applications closed 24 November 2026 (11:59pm AoE); decisions 2 December 2026; mentee kickoff 6 December. The page calls these dates preliminary. Next round not announced."
+   },
+   "url": "https://pathfinder.kairos-project.org/",
+   "checked": "2026-11-26"
+  }
+ ]
+}
