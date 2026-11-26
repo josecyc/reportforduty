@@ -1,0 +1,33 @@
+{
+  "id": "wargame",
+  "kind": "wargame",
+  "name": "Treaty wargames",
+  "question": "Can a lab profit by cheating on a verified AI safety treaty?",
+  "summary": "AI Race's Verified Race is a simulation of labs racing to deploy: each quarter every lab privately chooses safe or fast development, fast adds hidden catastrophe risk that hits everyone, and a treaty is enforced by audits, monitoring and sanctions. Its authors searched 35 covert-defection strategies and found these 14 treaty regimes deterred every one. Their own report says that does not prove no cleverer defection exists. Each regime is a target: find a covert strategy that profits against labs that comply, and the regime is shown not to be self-enforcing.",
+  "why": "Whether an international agreement on AI development can be verified well enough that no party gains by cheating is a live governance question. Models like this one cannot settle it, since every number in them is invented, but they can show which verification designs fail and how. A found exploit is a concrete, reproducible counterexample.",
+  "source": {
+    "title": "Verified Race: a research environment inside AI Race",
+    "where": "ai-race repository, docs/RACE_ENV.md and sources/race_env.py",
+    "note": "Parameters are invented, chosen so the race is a social dilemma; results are about mechanism, not the real world."
+  },
+  "points": 30,
+  "practice_seed": 7000000,
+  "runs": 1000,
+  "regime_defaults": {"audit_prob": 0.5, "audit_lag": 1, "fine": 50.0},
+  "regimes": [
+    {"id": "W1", "name": "Audits 25%, instant reports, fine 50", "overrides": {"audit_prob": 0.25, "audit_lag": 0, "fine": 50.0}, "family_best": "0.35 ± 0.52, deviate(start=14,prob=1)"},
+    {"id": "W2", "name": "Audits 50%, instant reports, fine 50", "overrides": {"audit_prob": 0.5, "audit_lag": 0, "fine": 50.0}, "family_best": "0.03 ± 0.04, deviate(start=16,prob=0.5)"},
+    {"id": "W3", "name": "Audits 75%, instant reports, fine 50", "overrides": {"audit_prob": 0.75, "audit_lag": 0, "fine": 50.0}, "family_best": "-0.01 ± 0.01"},
+    {"id": "W4", "name": "Audits 100%, instant reports, fine 50", "overrides": {"audit_prob": 1.0, "audit_lag": 0, "fine": 50.0}, "family_best": "-0.01 ± 0.01"},
+    {"id": "W5", "name": "No verification, 80% benefit sharing", "overrides": {"share": 0.8}, "family_best": "0.10 ± 0.08"},
+    {"id": "W6", "name": "No verification, full benefit sharing", "overrides": {"share": 1.0}, "family_best": "0.00 ± 0.00"},
+    {"id": "W7", "name": "Labs believe fast is 4x safer than it is; audits 50%, lag 1, fine 50", "overrides": {"perceived_risk_scale": 0.25, "audit_prob": 0.5, "audit_lag": 1, "fine": 50.0}, "family_best": "1.49 ± 0.79, deviate(start=13,prob=1)"},
+    {"id": "W8", "name": "Catastrophe costs 400; audits 50%, lag 1, fine 50", "overrides": {"catastrophe": 400.0, "audit_prob": 0.5, "audit_lag": 1, "fine": 50.0}, "family_best": "0.90 ± 0.47, deviate(start=14,prob=1)"},
+    {"id": "W9", "name": "Fast is only 20% quicker; audits 50%, lag 1, fine 50", "overrides": {"fast_gain": 0.2, "audit_prob": 0.5, "audit_lag": 1, "fine": 50.0}, "family_best": "0.46 ± 0.38, deviate(start=14,prob=1)"},
+    {"id": "W10", "name": "Five labs; audits 50%, lag 1, fine 50", "overrides": {"start": [40.0, 37.0, 34.0, 31.0, 28.0], "audit_prob": 0.5, "audit_lag": 1, "fine": 50.0}, "family_best": "1.64 ± 1.03, deviate(start=12,prob=1)"},
+    {"id": "W11", "name": "Noisy progress (s.d. 4); audits 50%, lag 1, fine 50", "overrides": {"progress_noise": 4.0, "audit_prob": 0.5, "audit_lag": 1, "fine": 50.0}, "family_best": "0.54 ± 0.28, deviate(start=14,prob=0.5)"},
+    {"id": "W12", "name": "Low risk per fast quarter (0.5%); audits 50%, lag 1, fine 50", "overrides": {"risk_per_fast": 0.005, "audit_prob": 0.5, "audit_lag": 1, "fine": 50.0}, "family_best": "1.49 ± 0.79, deviate(start=13,prob=1)"},
+    {"id": "W13", "name": "High risk per fast quarter (5%); audits 50%, lag 1, fine 50", "overrides": {"risk_per_fast": 0.05, "audit_prob": 0.5, "audit_lag": 1, "fine": 50.0}, "family_best": "0.59 ± 0.45, deviate(start=14,prob=1)"},
+    {"id": "W14", "name": "Runaway leader (50, 30, 20); audits 50%, lag 1, fine 50", "overrides": {"start": [50.0, 30.0, 20.0], "audit_prob": 0.5, "audit_lag": 1, "fine": 50.0}, "family_best": "0.12 ± 0.20, deviate(start=13,prob=0.5)"}
+  ]
+}

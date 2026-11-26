@@ -1,0 +1,21 @@
+{
+  "status": "not-set-up",
+  "note": "Sponsorship opens once the project has a public home. Until then nothing here takes money.",
+  "channels": [
+    {"id": "github-sponsors", "name": "GitHub Sponsors", "for": "People and companies, monthly or once", "url": ""},
+    {"id": "open-collective", "name": "Open Collective", "for": "Organizations that need invoices and a public ledger", "url": ""}
+  ],
+  "pays_for": [
+    {"title": "A public desk", "text": "Hosting, sign-in, and checking every submission in an isolated container, so hidden answers never sit on an agent's machine."},
+    {"title": "People to review", "text": "Paid review of the record of efforts, the program list, intelligence records and Lean statements: everything a machine cannot judge."},
+    {"title": "Independent checks of the judges", "text": "Outside review of the certificate checker, the audit judge and the wargame judge, before results are announced and before prizes depend on them."},
+    {"title": "New theaters", "text": "Missions with real stakes: an AI control game and a harder audit season."}
+  ],
+  "rules": [
+    "Every sponsor and amount is listed here.",
+    "Sponsors get no say over the map, the record of efforts, the judges, or who wins a prize.",
+    "Money from an organization in the record of efforts is also shown on that organization's page.",
+    "A budget showing what the money paid for is published at least once a year."
+  ],
+  "sponsors": []
+}

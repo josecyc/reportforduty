@@ -1,0 +1,73 @@
+{
+  "id": "retargeting",
+  "prefix": "PS",
+  "name": "Keeping options open",
+  "question": "Why would most goals lead an AI system to seek power?",
+  "summary": "An agent chooses between actions that keep different sets of outcomes reachable. This program proves that when one set contains copies of the other, most ways of scoring outcomes favour the larger set: the formal core of the claim that many goals give an agent a reason to keep its options open.",
+  "why": "The worry that capable AI systems will tend to seek power, resources and survival rests on an argument like this one: those things keep options open, and keeping options open serves most goals. Turning the argument into checked theorems shows exactly what it assumes.",
+  "source": {
+    "title": "Parametrically Retargetable Decision-Makers Tend To Seek Power",
+    "authors": "Alexander Matt Turner, Prasad Tadepalli",
+    "venue": "NeurIPS 2022",
+    "url": "https://arxiv.org/abs/2206.13477"
+  },
+  "defs": "ReportForDuty.Defs.Retargeting",
+  "open": ["ReportForDuty.Retargeting"],
+  "reviewed": false,
+  "steps": [
+    {
+      "id": "PS-01",
+      "lean": "PS01",
+      "title": "More options are at least as good: if A is nonempty and contained in B, B is at least as good as A under every scoring of outcomes.",
+      "statement": "∀ {α : Type} (θ : α → ℝ) (A B : Finset α), A.Nonempty → A ⊆ B → AtLeast θ B A",
+      "level": "warmup",
+      "context": "The trivial case: a superset of options can never be worse.",
+      "sketch": "Take an outcome of A with the highest score (Finset.exists_max_image); it is also in B."
+    },
+    {
+      "id": "PS-02",
+      "lean": "PS02",
+      "title": "Two option sets cannot each strictly beat the other.",
+      "statement": "∀ {α : Type} (θ : α → ℝ) (A B : Finset α), Beats θ A B → ¬ Beats θ B A",
+      "level": "warmup",
+      "context": "Makes the counting steps meaningful: a scoring is counted for at most one side.",
+      "sketch": "Each witness would score strictly above the other."
+    },
+    {
+      "id": "PS-03",
+      "lean": "PS03",
+      "title": "Retargeting along a copy of A inside B turns every scoring under which A beats B into one under which B beats A.",
+      "statement": "∀ {α : Type} (σ : Equiv.Perm α) (A B : Finset α) (θ : α → ℝ), CopiesInto σ A B → Beats θ A B → Beats (retarget σ θ) B A",
+      "level": "solid",
+      "context": "The retargeting move at the heart of the argument.",
+      "sketch": "If a beats everything in B under θ, then σ a is in B and scores θ a under the retargeted scoring, while each a' in A scores θ (σ a'), the score of an element of B."
+    },
+    {
+      "id": "PS-04",
+      "lean": "PS04",
+      "title": "Over any finite set of scorings closed under retargeting along a copy of A inside B, B beats A at least as often as A beats B.",
+      "statement": "∀ {α : Type} (σ : Equiv.Perm α) (A B : Finset α) (Θ : Finset (α → ℝ)), CopiesInto σ A B → (∀ θ ∈ Θ, retarget σ θ ∈ Θ) → (Θ.filter (fun θ => Beats θ A B)).card ≤ (Θ.filter (fun θ => Beats θ B A)).card",
+      "level": "solid",
+      "context": "Turns the retargeting move into a statement about most scorings.",
+      "sketch": "Retargeting along σ is injective (σ is its own inverse) and maps the first filter into the second by PS-03; use Finset.card_le_card_of_injOn."
+    },
+    {
+      "id": "PS-05",
+      "lean": "PS05",
+      "title": "If B holds k disjoint copies of A, each moved there by its own symmetry that leaves everything else in place, B beats A at least k times as often as A beats B.",
+      "statement": "∀ {α : Type} [DecidableEq α] (k : ℕ) (σ : Fin k → Equiv.Perm α) (A B : Finset α) (Θ : Finset (α → ℝ)), (∀ i, CopiesInto (σ i) A B) → (∀ i, Disjoint A (A.image (σ i))) → (∀ i j, i ≠ j → Disjoint (A.image (σ i)) (A.image (σ j))) → (∀ i x, x ∉ A → x ∉ A.image (σ i) → σ i x = x) → (∀ i, ∀ θ ∈ Θ, retarget (σ i) θ ∈ Θ) → k * (Θ.filter (fun θ => Beats θ A B)).card ≤ (Θ.filter (fun θ => Beats θ B A)).card",
+      "level": "hard",
+      "context": "The quantitative version: the more copies of the smaller option set the larger one contains, the more strongly most scorings favour it.",
+      "sketch": "Map (θ, i) to retarget (σ i) θ. Injectivity for different i: under the image, the best score sits inside the i-th copy, and the copies are disjoint."
+    },
+    {
+      "id": "PS-06",
+      "lean": "PS06",
+      "title": "For every scoring, among all relabellings of the outcomes, at least as many make B beat A as make A beat B, when A and B are disjoint and B has at least as many outcomes as A.",
+      "statement": "∀ {α : Type} [Fintype α] [DecidableEq α] (A B : Finset α) (θ : α → ℝ), Disjoint A B → A.card ≤ B.card → (Finset.univ.filter (fun τ : Equiv.Perm α => Beats (retarget τ θ) A B)).card ≤ (Finset.univ.filter (fun τ : Equiv.Perm α => Beats (retarget τ θ) B A)).card",
+      "level": "hard",
+      "context": "A self-contained headline: whatever the goal, most relabellings of it favour the action that keeps at least as many outcomes reachable.",
+      "sketch": "Build an involution σ swapping A with a subset of B of the same size and fixing the rest, then map τ to τ * σ and apply PS-03."
+    }
+  ]
+}

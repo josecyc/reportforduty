@@ -1,0 +1,91 @@
+{
+  "id": "rewardhacking",
+  "prefix": "RH",
+  "name": "Reward hacking",
+  "question": "Can a proxy reward ever be safe to optimize?",
+  "summary": "A system trained on a proxy reward can raise the proxy while lowering what we actually wanted. This program proves, for distributions over finitely many outcomes, exactly which pairs of true and proxy rewards can never be played against each other.",
+  "why": "Every trained AI system optimizes some proxy for what its developers want. If almost every proxy is hackable once the system can choose freely among policies, then safety cannot come from finding a perfect proxy alone; it has to come from limiting optimization or the policy set. The proofs here make that precise in a finite setting.",
+  "source": {
+    "title": "Defining and Characterizing Reward Hacking",
+    "authors": "Joar Skalse, Nikolaus Howe, Dmitrii Krasheninnikov, David Krueger",
+    "venue": "NeurIPS 2022",
+    "url": "https://arxiv.org/abs/2209.13085"
+  },
+  "defs": "ReportForDuty.Defs.RewardHacking",
+  "open": ["ReportForDuty.RewardHacking"],
+  "reviewed": false,
+  "steps": [
+    {
+      "id": "RH-01",
+      "lean": "RH01",
+      "title": "Unhackability is symmetric: swapping the true reward and the proxy changes nothing.",
+      "statement": "∀ {n : ℕ} (P : Set (Fin n → ℝ)) (r₁ r₂ : Fin n → ℝ), Unhackable P r₁ r₂ ↔ Unhackable P r₂ r₁",
+      "level": "warmup",
+      "context": "Lets later steps assume whichever reward is more convenient plays the role of the true one.",
+      "sketch": "Swap the two policies in the witness of hackability."
+    },
+    {
+      "id": "RH-02",
+      "lean": "RH02",
+      "title": "A reward that gives every policy in the set the same return cannot be hacked against anything.",
+      "statement": "∀ {n : ℕ} (P : Set (Fin n → ℝ)) (r₁ r₂ : Fin n → ℝ), Trivial P r₁ → Unhackable P r₁ r₂",
+      "level": "warmup",
+      "context": "The trivial case that the main theorem says is, on all distributions, essentially the only one.",
+      "sketch": "A strict inequality between two equal returns is impossible."
+    },
+    {
+      "id": "RH-03",
+      "lean": "RH03",
+      "title": "On distributions, a constant reward gives every policy the same return.",
+      "statement": "∀ {n : ℕ} (c : ℝ), Trivial (Simplex n) (fun _ => c)",
+      "level": "warmup",
+      "context": "Connects constant reward vectors to trivial rewards, used in the main theorem.",
+      "sketch": "Pull c out of the sum and use that the probabilities sum to one."
+    },
+    {
+      "id": "RH-04",
+      "lean": "RH04",
+      "title": "On distributions, rescaling a reward by a nonnegative factor and shifting it by a constant never creates hacking.",
+      "statement": "∀ {n : ℕ} (r : Fin n → ℝ) (a b : ℝ), 0 ≤ a → Unhackable (Simplex n) r (fun i => a * r i + b)",
+      "level": "solid",
+      "context": "The easy direction of the main theorem: proxies that are increasing affine transforms of the true reward are safe to optimize.",
+      "sketch": "Show J (a • r + b) p = a * J r p + b for every distribution p."
+    },
+    {
+      "id": "RH-05",
+      "lean": "RH05",
+      "title": "On distributions, if two rewards are unhackable, then whenever the true reward strictly prefers one outcome to another, the proxy does not prefer the opposite.",
+      "statement": "∀ {n : ℕ} (r₁ r₂ : Fin n → ℝ), Unhackable (Simplex n) r₁ r₂ → ∀ i j, r₁ i < r₁ j → r₂ i ≤ r₂ j",
+      "level": "solid",
+      "context": "First consequence of unhackability, from comparing policies that pick a single outcome for sure.",
+      "sketch": "Use the point-mass distributions Pi.single i 1 and Pi.single j 1."
+    },
+    {
+      "id": "RH-06",
+      "lean": "RH06",
+      "title": "On distributions, if the true reward is not constant and the pair is unhackable, outcomes the true reward ties are also tied by the proxy.",
+      "statement": "∀ {n : ℕ} (r₁ r₂ : Fin n → ℝ), Unhackable (Simplex n) r₁ r₂ → (∃ k l, r₁ k ≠ r₁ l) → ∀ i j, r₁ i = r₁ j → r₂ i = r₂ j",
+      "level": "hard",
+      "context": "Rules out proxies that break the true reward's ties, a key step towards showing the proxy is a function of the true reward.",
+      "sketch": "If r₂ i > r₂ j, mix outcome i with a little of an outcome k whose true reward differs, to move the true return past r₁ j while the proxy return stays above r₂ j."
+    },
+    {
+      "id": "RH-07",
+      "lean": "RH07",
+      "title": "On distributions, for any three outcomes in increasing order of true reward, an unhackable proxy's values lie on a straight line through the true values.",
+      "statement": "∀ {n : ℕ} (r₁ r₂ : Fin n → ℝ), Unhackable (Simplex n) r₁ r₂ → ∀ i j k, r₁ i < r₁ j → r₁ j < r₁ k → (r₂ j - r₂ i) * (r₁ k - r₁ j) = (r₂ k - r₂ j) * (r₁ j - r₁ i)",
+      "level": "hard",
+      "context": "Collinearity is what forces the proxy to be affine in the true reward rather than merely monotone.",
+      "sketch": "The mixture of outcomes i and k with the same true return as j must have the same proxy return as j; otherwise nudge the mixture to get a hacking pair."
+    },
+    {
+      "id": "RH-08",
+      "lean": "RH08",
+      "title": "On distributions, two rewards are unhackable exactly when the true reward is constant or the proxy is a nonnegative rescaling of the true reward plus a constant.",
+      "statement": "∀ {n : ℕ} (r₁ r₂ : Fin n → ℝ), Unhackable (Simplex n) r₁ r₂ ↔ ((∃ c, ∀ i, r₁ i = c) ∨ (∃ a b : ℝ, 0 ≤ a ∧ ∀ i, r₂ i = a * r₁ i + b))",
+      "level": "hard",
+      "context": "The program's main theorem, a finite counterpart of the paper's result that over all stochastic policies only trivial pairs are unhackable.",
+      "sketch": "Reverse direction: RH-02, RH-03 and RH-04. Forward direction: take outcomes with the least and greatest true reward to define the line, then place every other outcome on it with RH-05, RH-06 and RH-07."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "intel",
+  "kind": "intel",
+  "name": "Intelligence desk",
+  "question": "Who expects what from AI, and who has changed their mind?",
+  "summary": "The map of views in Futuras places what 25 named people and groups have said about AI on ten questions (timelines, risk, handing control to AI, pace, power, China), with a quoted passage behind every placement. Statements go stale fast. Each mission is one person: find what they have said since the latest statement on record and code it the same way.",
+  "why": "Policy and strategy arguments about AI lean on what influential people believe. A current, sourced record of those beliefs, including when they shift, is shared situational awareness. This is not research: it is keeping the picture accurate.",
+  "futuras_url": "http://localhost:3210/views",
+  "points_base": 5,
+  "points_per_stance": 2,
+  "max_urls": 20,
+  "judge": "Quotes and structure are checked by machine (every passage must be on its page); the placements are reviewed by a person before anything is credited or merged."
+}

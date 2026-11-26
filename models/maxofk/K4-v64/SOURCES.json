@@ -1,0 +1,1367 @@
+{
+ "paper": "Gross et al., Compact Proofs of Model Performance via Mechanistic Interpretability, NeurIPS 2024, arXiv:2406.11779",
+ "code_license": "MIT, Copyright (c) 2024 Jason Gross; https://github.com/JasonGross/guarantees-based-mechanistic-interpretability",
+ "wandb_project": "gbmi/MaxOf4-3000-steps",
+ "vocab": 64,
+ "models": [
+  {
+   "seed": 50,
+   "file": "MaxOf4-3000-steps-00b031bea906c6204115706922fcfaf3-2024-07-18_02-01-35.pth",
+   "created": "2024-07-18T02:11:26Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00b031bea906c6204115706922fcfaf3:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284088616/993692067/560682e47c2f8e781c406300032037a2",
+   "sha256": "6087a2867279ca6a0f10ca222b955cb591ba725858993008240e8c8f5e4cee1c",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 104,
+   "file": "MaxOf4-3000-steps-0069ae353126f5348b7d46d1d236f0cc-2024-07-18_02-11-32.pth",
+   "created": "2024-07-18T02:21:29Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0069ae353126f5348b7d46d1d236f0cc:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284122635/993730486/43a98ea702f29354c703c225a52103fe",
+   "sha256": "a80be2fb1d2d56369a41828137621f3e4b24a28207deebbfb8fc21a7b8950bde",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 123,
+   "file": "MaxOf4-3000-steps-007d04746e94cda76ff1fef7add570f8-2024-07-18_02-21-36.pth",
+   "created": "2024-07-18T02:31:40Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-007d04746e94cda76ff1fef7add570f8:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284155508/993767275/a35a3be89adf6b1e36f944872e92e9da",
+   "sha256": "a19d935bf07304f979dfbb85aed5e79a1ed42858d8cb30affb673b0cd3ae8053",
+   "test_acc_reported": 0.99609375
+  },
+  {
+   "seed": 519,
+   "file": "MaxOf4-3000-steps-00e9b5d7385e440c6696d350f95216a8-2024-07-18_02-31-47.pth",
+   "created": "2024-07-18T02:41:32Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00e9b5d7385e440c6696d350f95216a8:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284199700/993815525/b3c25b2ffcbbb9f0f03ba853dc430b9c",
+   "sha256": "c579097bc680a98ee7a6309af379f78295a581e8fae38b0b9a0f45059732b412",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 742,
+   "file": "MaxOf4-3000-steps-00877646f126ac0730b6eeef09144abb-2024-07-18_02-41-38.pth",
+   "created": "2024-07-18T02:50:27Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00877646f126ac0730b6eeef09144abb:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284232285/993851780/b6aa8c3ed5b8e48caf0cd0f00e94ffef",
+   "sha256": "e5491baf0a0e0fb2ef1eb7bcd6fab28e4af81bbadb47795036c6665d3431e7fd",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 913,
+   "file": "MaxOf4-3000-steps-009dcab9ccf19ad15ece22e6e6e3e127-2024-07-18_02-50-32.pth",
+   "created": "2024-07-18T02:58:31Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-009dcab9ccf19ad15ece22e6e6e3e127:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284263801/993886623/ceef183b183903e679336e96f71fb882",
+   "sha256": "ecaa109d1e1df9e91111796850bd77b4ab2b460f3dca52d6657421bfa7653ef1",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 1185,
+   "file": "MaxOf4-3000-steps-00a798878cd8ee1a26c53d0568e7b5b7-2024-07-18_02-58-37.pth",
+   "created": "2024-07-18T03:06:24Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00a798878cd8ee1a26c53d0568e7b5b7:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284294927/993921234/c76726cb5d3f98fdba6831f78cebdd81",
+   "sha256": "a160a8e2fba4e78d1cfcc31c232f51d5f954e9342516b83d1a3b97b32b127411",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 1283,
+   "file": "MaxOf4-3000-steps-00474ecccbb6347ca8cd2774ae74b05b-2024-07-18_03-06-28.pth",
+   "created": "2024-07-18T03:14:39Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00474ecccbb6347ca8cd2774ae74b05b:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284322893/993952655/0ba9413d7d9c638a112fa616d584d8e0",
+   "sha256": "c67bc33aecf801baa8c36eef8573a3755465b713683c8d36e9e1856523998687",
+   "test_acc_reported": 0.998046875
+  },
+  {
+   "seed": 1412,
+   "file": "MaxOf4-3000-steps-002a8a3a1dbac59716f8e4b1502a23cf-2024-07-18_03-14-50.pth",
+   "created": "2024-07-18T03:22:00Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-002a8a3a1dbac59716f8e4b1502a23cf:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284349187/993981469/7a2c442bd50bfd7fa1b2f7f9b72c0537",
+   "sha256": "7d09be42cd816dc9bd7f53583c949372b5ca986f0b39441c1847b964244a8130",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 1490,
+   "file": "MaxOf4-3000-steps-00bc6a1690fe362772579fca1fdc46c8-2024-07-18_03-22-07.pth",
+   "created": "2024-07-18T03:28:59Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00bc6a1690fe362772579fca1fdc46c8:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284372539/994007470/1b0b063513c9bf548598d8cd01da88ff",
+   "sha256": "f64202b6a78c9be695ebf776b67ebee282681dcfe6e24af801255e7f60411e8f",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 1681,
+   "file": "MaxOf4-3000-steps-00446afb4fd83d63f6187f5a08ccba0b-2024-07-18_03-29-06.pth",
+   "created": "2024-07-18T03:37:15Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00446afb4fd83d63f6187f5a08ccba0b:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284402443/994040578/243e09a6c7e98ba048641e4879b59cf4",
+   "sha256": "f1f1a9d72ed7414d57d5eb9d1c92e21df56bbcdb5ed3f2919b7ec9c0121a162d",
+   "test_acc_reported": 0.9970703125
+  },
+  {
+   "seed": 1696,
+   "file": "MaxOf4-3000-steps-003a45588efe4be41d9fe1aa0e59ca21-2024-07-18_03-37-24.pth",
+   "created": "2024-07-18T03:45:39Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-003a45588efe4be41d9fe1aa0e59ca21:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284430944/994072210/104039f4985b8f23a51547452b02dd36",
+   "sha256": "549b43c1b786f313ffb7cb2306680aa17ab7c0765c4a2450ae8d129dfeced3f9",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 1895,
+   "file": "MaxOf4-3000-steps-0007058acf0dc50e516a295e5054d083-2024-07-18_03-45-46.pth",
+   "created": "2024-07-18T03:53:31Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0007058acf0dc50e516a295e5054d083:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284457768/994101867/6a1bf8e812e3ef86cd6f9131e775184b",
+   "sha256": "2e689d7f826fd0c6d945a8dfc0b757960b348a8b9dff34d9bd575aae674a6bf1",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 1951,
+   "file": "MaxOf4-3000-steps-00bfdbb7e821d8a7d1e175a55ba6c9b1-2024-07-18_03-53-43.pth",
+   "created": "2024-07-18T04:00:41Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00bfdbb7e821d8a7d1e175a55ba6c9b1:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284486036/994132908/d44575da04f8da13676bcf75a5a2350f",
+   "sha256": "2ec94192e2daee5557c8f3bade0ca3069665a0a1a1e0a149f9a58c6286012711",
+   "test_acc_reported": 0.994140625
+  },
+  {
+   "seed": 2236,
+   "file": "MaxOf4-3000-steps-0016b7c64bd1842104639f88c9212e80-2024-07-18_04-00-47.pth",
+   "created": "2024-07-18T04:08:44Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0016b7c64bd1842104639f88c9212e80:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284508024/994158219/694a8d35990c00fb09d89716b6ccf531",
+   "sha256": "a7f4a74e2df0b01e9bcd7950b603b8ef4e1083b31ccc8a0a9d33e93239c240f6",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 2306,
+   "file": "MaxOf4-3000-steps-002b9974c19a33b2fe24ae3f48a8fe0a-2024-07-18_04-08-55.pth",
+   "created": "2024-07-18T04:17:23Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-002b9974c19a33b2fe24ae3f48a8fe0a:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284539747/994193599/cdfa2dd60990c4e068c9914051e0e380",
+   "sha256": "b047738f24a6b52dca26f88421cc9c0bc70cdee0f971fd93053aada894724b3e",
+   "test_acc_reported": 0.9970703125
+  },
+  {
+   "seed": 2345,
+   "file": "MaxOf4-3000-steps-0016e5c0716638bea5bd14fdde3c046e-2024-07-18_04-17-28.pth",
+   "created": "2024-07-18T04:25:34Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0016e5c0716638bea5bd14fdde3c046e:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284560672/994217875/db8961f27d6124c81ee171b673bde21d",
+   "sha256": "52ea699bc0879ad68d6ddae59976cefe36a68d3a63df3a4bcd16273017ac4306",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 2549,
+   "file": "MaxOf4-3000-steps-00bdff128dfb3338a09df26c130834a1-2024-07-18_04-25-41.pth",
+   "created": "2024-07-18T04:34:07Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00bdff128dfb3338a09df26c130834a1:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284591043/994251926/78e9c2f577ce7d3277281b220df0530f",
+   "sha256": "88d1e9fa87f551f43f45adb014b3d0e719b840eeaaff1aba00b964b743a6ef6f",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 2743,
+   "file": "MaxOf4-3000-steps-0056242289adf4b249b018aa2acba9bc-2024-07-18_04-34-12.pth",
+   "created": "2024-07-18T04:42:23Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0056242289adf4b249b018aa2acba9bc:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284614343/994278673/71346c83ce466208c25a3974fd309275",
+   "sha256": "c3b9a1ed9cebf54f205da5d9808d5528d0885b3b4ff4ff5ed39f32580babbf7e",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 2773,
+   "file": "MaxOf4-3000-steps-00cd50aa84715cc2c2e0203b051e0a9d-2024-07-18_04-42-29.pth",
+   "created": "2024-07-18T04:49:52Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00cd50aa84715cc2c2e0203b051e0a9d:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284636414/994304217/287c2a84621f99467aaf040295460bbf",
+   "sha256": "e5cef7461f49fb6058ce3afff0d29d4d1e460af37be81a28fd84b988e94fb584",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 3175,
+   "file": "MaxOf4-3000-steps-00b7386ae9db37647b99b18c0948b65c-2024-07-18_04-49-58.pth",
+   "created": "2024-07-18T04:57:32Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00b7386ae9db37647b99b18c0948b65c:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284639938/994310979/48cd00e5c144116b8941f27ce09c53d7",
+   "sha256": "0ec89c5b962d3c82a86a0d585918be150550da74a77adeb27c650d0b21181e7a",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 3254,
+   "file": "MaxOf4-3000-steps-005fc89e0b2a42c496c97154192a7056-2024-07-18_04-57-38.pth",
+   "created": "2024-07-18T05:05:32Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-005fc89e0b2a42c496c97154192a7056:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284669990/994344147/ab1744a16bbcd1f9dcdacd52cb15f44d",
+   "sha256": "0584060bd558d777e87a0e989142b9b7a0c1358ed4deac611b0890431e1005e7",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 3284,
+   "file": "MaxOf4-3000-steps-00a48cf9371a3b8a2f9cfc5dd5d44427-2024-07-18_05-05-39.pth",
+   "created": "2024-07-18T05:13:37Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00a48cf9371a3b8a2f9cfc5dd5d44427:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284696980/994374667/ee342867ad4ad6ca309169a9fd825b6e",
+   "sha256": "4ddd9a2259c9a6904c8b3805c590b5e09ffcc1172a5bd709e9b820d20f486dec",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 4157,
+   "file": "MaxOf4-3000-steps-00b346099f971a35f1ca02a8066b71aa-2024-07-18_05-13-42.pth",
+   "created": "2024-07-18T05:21:37Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00b346099f971a35f1ca02a8066b71aa:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284717955/994399374/0bb0f3298cc802985019127c7f4d36ee",
+   "sha256": "7e7e40fd4708240ff27ceda67413ccd18cff516389d3a06440c57681591a112e",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 4305,
+   "file": "MaxOf4-3000-steps-006b2172bc9e817ae40b980faacb51d0-2024-07-18_05-21-41.pth",
+   "created": "2024-07-18T05:29:37Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-006b2172bc9e817ae40b980faacb51d0:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284740638/994425897/6631324e0130c33281872e8824788418",
+   "sha256": "9bcc2b2ff65193456ef9cc3d8382595dfb92aaa1e21809f7f324f34add2f450a",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 4430,
+   "file": "MaxOf4-3000-steps-004be014ff51f0a1d9988daa7ec0ef98-2024-07-18_05-29-43.pth",
+   "created": "2024-07-18T05:37:31Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-004be014ff51f0a1d9988daa7ec0ef98:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284770237/994459312/cce48ba3592a60e692e1e12817698f0f",
+   "sha256": "4af552e4d25563caa2dc6aa12757495bfbfcde1cf541e8f7e43374cdbf270651",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 4647,
+   "file": "MaxOf4-3000-steps-00459ccea6221cd8ce315dd6a4a04474-2024-07-18_05-37-38.pth",
+   "created": "2024-07-18T05:44:47Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00459ccea6221cd8ce315dd6a4a04474:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284799248/994491831/cd42dcb074783740fe764eebbddddbba",
+   "sha256": "b8584bde536101c7cc59fed9cff41574d0dbbbe02a8035995ca90a6a6ed1d435",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 4729,
+   "file": "MaxOf4-3000-steps-000d9bf0be2a7910850227bd6500efe8-2024-07-18_05-44-54.pth",
+   "created": "2024-07-18T05:52:49Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-000d9bf0be2a7910850227bd6500efe8:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284831774/994528233/c0cb5efe20034cf9f5c4fd1d29bcfbbe",
+   "sha256": "7d95f7af386a475b30b84be75fc54d3ed34188a9c415e278622d52a52104a886",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 4800,
+   "file": "MaxOf4-3000-steps-00d56a72495bb4864398d927cd50c870-2024-07-18_05-52-54.pth",
+   "created": "2024-07-18T06:00:42Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00d56a72495bb4864398d927cd50c870:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284863641/994563725/5f9595495b82819178eb8d7df4f74669",
+   "sha256": "2e611defe9fc115e8e5121ee10fff65c411025afe4b9114bae41277846a5ee87",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 4810,
+   "file": "MaxOf4-3000-steps-00741b28a3e8f7ca74aac883da8767bd-2024-07-18_06-00-46.pth",
+   "created": "2024-07-18T06:07:27Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00741b28a3e8f7ca74aac883da8767bd:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284882205/994585174/ffb8fdf369c99ee27439e97ddb0f232e",
+   "sha256": "315bc66249998791fb2707c881e38ad73014d1e316efa9209ac3e4a66f231127",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 5358,
+   "file": "MaxOf4-3000-steps-009612c03ce8fdf2219a0f680d4b732e-2024-07-18_06-07-38.pth",
+   "created": "2024-07-18T06:14:02Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-009612c03ce8fdf2219a0f680d4b732e:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284904150/994610374/419706d2aab9949e9673b652c0284358",
+   "sha256": "f32fcf6150eaf7b3752af422ee80f31840775069c019984698467e431672b398",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 5615,
+   "file": "MaxOf4-3000-steps-0087f80ccff75f7edf54138a6c931f9e-2024-07-18_06-14-13.pth",
+   "created": "2024-07-18T06:20:58Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0087f80ccff75f7edf54138a6c931f9e:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284933262/994642577/57bb81732bb02011f7d252f466a6fc9d",
+   "sha256": "940cf661b1eb8180b6cb29cae7233ca61267e497f1c07bd8b7bc54e2320f99f5",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 5781,
+   "file": "MaxOf4-3000-steps-00ab8061cfd9e8e2274bf8e1269724e6-2024-07-18_06-21-05.pth",
+   "created": "2024-07-18T06:26:49Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00ab8061cfd9e8e2274bf8e1269724e6:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284951683/994663712/fd1b4480cd7a78833413b9fba9e9ba20",
+   "sha256": "ddc18a2e9164de714e86ccd1e6dc7b7bc055273bc69571e849ec6f585a6e782c",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 5928,
+   "file": "MaxOf4-3000-steps-00d4706b9fd8704c8509e9217eac77e0-2024-07-18_06-26-54.pth",
+   "created": "2024-07-18T06:30:41Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00d4706b9fd8704c8509e9217eac77e0:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284966696/994680543/f77270a137fde1657b14392f4f36cdd8",
+   "sha256": "c8855a711d52098918175492b99e0472c0a1d28b090a4938adf6813855007966",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 6082,
+   "file": "MaxOf4-3000-steps-00de8c9aa4f52bc16eee7d11d7b32149-2024-07-18_06-30-47.pth",
+   "created": "2024-07-18T06:34:27Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00de8c9aa4f52bc16eee7d11d7b32149:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284980726/994696006/c040c3aa7abc89344186fde51c76a068",
+   "sha256": "cf4cf414829bfc0c15290042e47e1523195dccbc60eea77cbd3d9f760bbe4d95",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 6155,
+   "file": "MaxOf4-3000-steps-00c00d55e3dd340ccbb0a7848f02321e-2024-07-18_06-34-32.pth",
+   "created": "2024-07-18T06:38:24Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00c00d55e3dd340ccbb0a7848f02321e:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/284996933/994713787/c7c9964246bdb7dc8aaea222fae8b51d",
+   "sha256": "35908b49fbbc13ed29bfb1dbcccf058f3118f18583044623e01167347b2d0503",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 6159,
+   "file": "MaxOf4-3000-steps-008aa007f97d41fb9adf801966d64346-2024-07-18_06-38-31.pth",
+   "created": "2024-07-18T06:41:53Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-008aa007f97d41fb9adf801966d64346:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285009177/994727367/8df055c0f73b15f5a6db61f3ac699078",
+   "sha256": "6069b630ba50ab99db72c2d300fa2bdcea636be8ea1ac6294c769706722aeea8",
+   "test_acc_reported": 0.994140625
+  },
+  {
+   "seed": 6204,
+   "file": "MaxOf4-3000-steps-00bb9bae65e7ab37afaad39fa1631daa-2024-07-18_06-41-59.pth",
+   "created": "2024-07-18T06:45:23Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00bb9bae65e7ab37afaad39fa1631daa:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285019051/994738539/6aa18aaa205c1af073f450d16760caf0",
+   "sha256": "d0d29a7d087675d47cedee5dd652c622234dd6f3f53b889c19a2b0fc97dd3a18",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 6532,
+   "file": "MaxOf4-3000-steps-0088849f17d08ef0bec7347e5e7d068a-2024-07-18_06-45-28.pth",
+   "created": "2024-07-18T06:48:51Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0088849f17d08ef0bec7347e5e7d068a:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285032296/994753047/2bd108871202db9ea0bb9143554d0912",
+   "sha256": "278c968e8dc1a5c48e8e7aa4cc3eaca04f9cfba9c6c76da2b1cb68a977bca958",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 6549,
+   "file": "MaxOf4-3000-steps-006a2fc0a310094c25025a735ab30dc8-2024-07-18_06-48-55.pth",
+   "created": "2024-07-18T06:52:19Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-006a2fc0a310094c25025a735ab30dc8:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285044690/994766759/cc3fd7a998f0c2ca62a13c5cc246e28d",
+   "sha256": "c2db5746984dd3758c2ad88241df97e931f3d777ae6556521742011c66eb9427",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 6589,
+   "file": "MaxOf4-3000-steps-00a5ac46dbc3c5af032c2ed22724c399-2024-07-18_06-52-25.pth",
+   "created": "2024-07-18T06:55:48Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00a5ac46dbc3c5af032c2ed22724c399:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285057519/994780972/c50a587beda3cf26e2e85a8ba2fb66b4",
+   "sha256": "5f50f54b9921c9750eee6896eba078ea9c47323ac716440e0556315235d65e97",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 6910,
+   "file": "MaxOf4-3000-steps-00412304fdae1a3f1fdde9167e6f4391-2024-07-18_06-55-53.pth",
+   "created": "2024-07-18T06:59:17Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00412304fdae1a3f1fdde9167e6f4391:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285070162/994794840/96551d5fd41fb11f3f268be65b57b5a8",
+   "sha256": "1dc6e0e4d2ea329c7f6e2e081beae545f533dc409b96d812b9911cec17145b4a",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 7098,
+   "file": "MaxOf4-3000-steps-0091326823ec78cad8acbd9c08f00560-2024-07-18_06-59-23.pth",
+   "created": "2024-07-18T07:03:17Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0091326823ec78cad8acbd9c08f00560:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285082380/994808508/42260dab739c30c5089186d2e9ef8118",
+   "sha256": "7caad4a863b6b0be65961db5fbfe19c01562d58d829a84b19be3eb98f404c0ff",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 7238,
+   "file": "MaxOf4-3000-steps-002ed8dea49989bd9abc580f4b0ff5e5-2024-07-18_07-03-23.pth",
+   "created": "2024-07-18T07:07:19Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-002ed8dea49989bd9abc580f4b0ff5e5:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285095495/994823127/5f7363a4cbdfe5c2df6894674164ba4e",
+   "sha256": "e7d363825685795c0aa17e959a0a084eded6a36bdb3693ed16e1f679270bc082",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 7310,
+   "file": "MaxOf4-3000-steps-00726ba47ef3db9b9ab3cc40b597635b-2024-07-18_07-07-25.pth",
+   "created": "2024-07-18T07:11:06Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00726ba47ef3db9b9ab3cc40b597635b:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285110323/994839305/bc97d522502913d37444abb10e020e9d",
+   "sha256": "c8789fb14279b7a60c7503b51794489dbeedd528d357d1536d91a219adaf2717",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 7467,
+   "file": "MaxOf4-3000-steps-00fc4f0d980cd79e6f1aca00f33d454e-2024-07-18_07-11-14.pth",
+   "created": "2024-07-18T07:15:07Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00fc4f0d980cd79e6f1aca00f33d454e:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285127014/994857630/23e879379941b225967f3b008e7a84b1",
+   "sha256": "bbbc7d0b5ddf5440af80a3d66f89e715ac38b2881575520d044dcfa64652bfcc",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 7790,
+   "file": "MaxOf4-3000-steps-0050b8394a5ff4d9b60135757c9ecab1-2024-07-18_07-15-12.pth",
+   "created": "2024-07-18T07:19:10Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0050b8394a5ff4d9b60135757c9ecab1:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285144299/994876549/5dc38ff5437a25da8ae92c2e396ffffb",
+   "sha256": "b1265d85c89d543b77c4c3e0b302bca55e8b704b176e77883b67aa208675b8e7",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 7884,
+   "file": "MaxOf4-3000-steps-00d2b4322f7822dff668219c0484fab2-2024-07-18_07-19-16.pth",
+   "created": "2024-07-18T07:23:10Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00d2b4322f7822dff668219c0484fab2:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285158082/994891752/97f9e9d8085fbc16f8115550f2be3314",
+   "sha256": "af9e9e2492b8ba1a3872b29500237e0d529675ae61c3000c27fd7a081774aae1",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 8048,
+   "file": "MaxOf4-3000-steps-00ebe4bec8281514b7299dcf01924d66-2024-07-18_07-23-16.pth",
+   "created": "2024-07-18T07:26:47Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00ebe4bec8281514b7299dcf01924d66:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285170745/994905730/9db6eed08b0279f24ba7c9046ae5d94a",
+   "sha256": "0ca56e3add1e99443f5994694bd4496ee3cbd4cc9388ff7998cb38281fd31b3f",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 8299,
+   "file": "MaxOf4-3000-steps-00b09be939ed90943aef193e28c61126-2024-07-18_07-26-55.pth",
+   "created": "2024-07-18T07:30:14Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00b09be939ed90943aef193e28c61126:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285184044/994920411/27ec8ae13ff2f069429f03bf0c3f3da5",
+   "sha256": "f9cec8bff9d18b6f26dee08187d594dc5a3a4118a6422b8a220fa1a8c8d5a075",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 8721,
+   "file": "MaxOf4-3000-steps-00300c369d15317cbd5b709a2ae9efec-2024-07-18_07-30-20.pth",
+   "created": "2024-07-18T07:33:39Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00300c369d15317cbd5b709a2ae9efec:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285199804/994937493/4fe2b9f64d617835aa0f499edd7a1500",
+   "sha256": "766dd5226dc684d877e3e59755a9da97362fef8ef97f5f3dc66d52a357f7efc6",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 8745,
+   "file": "MaxOf4-3000-steps-00ea2cdd7db520f833bfbee6008c4e15-2024-07-18_07-33-45.pth",
+   "created": "2024-07-18T07:37:12Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00ea2cdd7db520f833bfbee6008c4e15:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285216151/994955271/79f955a3a4a290a60051063e958a63e5",
+   "sha256": "9350494c48cc01493fe87e64d61dcce1220a6ee45afcfa666b9ace08ac0ad459",
+   "test_acc_reported": 0.998046875
+  },
+  {
+   "seed": 8840,
+   "file": "MaxOf4-3000-steps-006b5382426edaee40c11afa6474efad-2024-07-18_07-37-18.pth",
+   "created": "2024-07-18T07:41:02Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-006b5382426edaee40c11afa6474efad:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285232730/994973295/7960aa0e029a1e200bae1d6df7079347",
+   "sha256": "b1f21797da516f6c59fc8835ac1f32d698885838d27a36c8a94fccbf6046d00f",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 8893,
+   "file": "MaxOf4-3000-steps-003bd52ad9e748d4956041b02e2cd4fd-2024-07-18_07-41-08.pth",
+   "created": "2024-07-18T07:44:35Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-003bd52ad9e748d4956041b02e2cd4fd:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285243904/994986038/bd15d2282535560ac5247ca2a601f7b5",
+   "sha256": "45b6107db3e37222a0ae093a810621ccc3f52a73f689ca80c9d509a28b69e5f5",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 9132,
+   "file": "MaxOf4-3000-steps-006716523875c3e330004f97ad90aee0-2024-07-18_07-44-41.pth",
+   "created": "2024-07-18T07:48:04Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-006716523875c3e330004f97ad90aee0:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285255773/994999264/29c12445e837f9c868b5690b6234668c",
+   "sha256": "435f6e6b67a9b1ad8e51f353e58e7385daef96079ab390ae498281131416d8b9",
+   "test_acc_reported": 0.998046875
+  },
+  {
+   "seed": 9134,
+   "file": "MaxOf4-3000-steps-002aeb850f47885bf0c9eaeb9a355121-2024-07-18_07-48-11.pth",
+   "created": "2024-07-18T07:51:32Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-002aeb850f47885bf0c9eaeb9a355121:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285268371/995013249/ffb943b34cc1d7d3e6fe7effdb8f06e1",
+   "sha256": "99230ee7c8b0a9c163fd4a1f14a715030d6045e60a15897c36bca678df67312d",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 9504,
+   "file": "MaxOf4-3000-steps-009aaa07126510694c4c7cff679ee1af-2024-07-18_07-51-38.pth",
+   "created": "2024-07-18T07:55:06Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-009aaa07126510694c4c7cff679ee1af:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285281778/995028082/226e9568ff1eb4604f4714ba997b0da3",
+   "sha256": "101743c2920026880a186ac64850d7c5fce3d8167af049d2ccaafb832b2543a4",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 9816,
+   "file": "MaxOf4-3000-steps-008e80e2156feeb6cf12af21585ed8fb-2024-07-18_07-55-11.pth",
+   "created": "2024-07-18T07:58:36Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-008e80e2156feeb6cf12af21585ed8fb:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285295140/995042910/f5dc5368cc9712780f40d46486de9b7a",
+   "sha256": "326dd3d45c36ecfc61e9c993115079f279f6146ad0f36a60d94e52fbc3fc4a39",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 10248,
+   "file": "MaxOf4-3000-steps-00de248655dbc97e65a697e5aac50a80-2024-07-18_07-58-40.pth",
+   "created": "2024-07-18T08:02:09Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00de248655dbc97e65a697e5aac50a80:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285306128/995055538/4dcf19971ba05a2eec83527bc7893b77",
+   "sha256": "b55a1f85f3e0195b1a4bad8bb9446ee1a959b80f4a38932516401394856a491e",
+   "test_acc_reported": 0.9970703125
+  },
+  {
+   "seed": 11124,
+   "file": "MaxOf4-3000-steps-004feeb27756100d25e4a4852962926a-2024-07-18_08-02-21.pth",
+   "created": "2024-07-18T08:05:54Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-004feeb27756100d25e4a4852962926a:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285315721/995066910/b3bcdcf38549d5bf3538c3be7ff9d620",
+   "sha256": "4a82452787c9c8a3f26c0f1f64d94d17a9496e3e67edc8e00c2bc122487862a4",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 11130,
+   "file": "MaxOf4-3000-steps-00918f4e62e894f7ea06c8fcdcc87a88-2024-07-18_08-06-02.pth",
+   "created": "2024-07-18T08:09:34Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00918f4e62e894f7ea06c8fcdcc87a88:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285327064/995080073/c8166c2b154cb03944f0cb4ae759c9dc",
+   "sha256": "14b30b5bad3d059353da49c93037835b8b7bcc94357df691ec307d8d18e7fe76",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 11498,
+   "file": "MaxOf4-3000-steps-0081a7e476e76d1297c16edc598cd378-2024-07-18_08-09-39.pth",
+   "created": "2024-07-18T08:13:01Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0081a7e476e76d1297c16edc598cd378:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285338757/995093576/57828d78af62860162c349c94e3d4b8f",
+   "sha256": "a7a5dfaf095a736d70ac29e47b5f6bee34a8976867cc094cf5400608bb7f1eb4",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 11598,
+   "file": "MaxOf4-3000-steps-007476f433b0c9894e334fff22c8abaf-2024-07-18_08-13-06.pth",
+   "created": "2024-07-18T08:16:35Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-007476f433b0c9894e334fff22c8abaf:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285350112/995106807/dab2ba02f4471ee87d348e3cc0adff6b",
+   "sha256": "ffa96ef7fdad5518b2ba509e57ac3c09b9aba24eebb81863255eb6062d93e5f8",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 11611,
+   "file": "MaxOf4-3000-steps-00941086d0c62f712d580981fb582559-2024-07-18_08-16-42.pth",
+   "created": "2024-07-18T08:20:04Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00941086d0c62f712d580981fb582559:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285359702/995118304/8033bdd077532b1c0e259c559b3fcebd",
+   "sha256": "27467a438c8b553dc62ec09e77089537ed9fd76c76e9f710d653619dea187c22",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 12141,
+   "file": "MaxOf4-3000-steps-005a69bf834241e0c2993d3e69bec03e-2024-07-18_08-20-09.pth",
+   "created": "2024-07-18T08:23:40Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-005a69bf834241e0c2993d3e69bec03e:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285371302/995132005/7d91e05e0e2fa5e4e7e1f42b79b73cf8",
+   "sha256": "36209f2aeb7c7caa830e289e9f376c4b38a150812e3cdb07856b696d4945cb5f",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 12287,
+   "file": "MaxOf4-3000-steps-009df4c6fc85ec9269b12bae4a8ca734-2024-07-18_08-23-45.pth",
+   "created": "2024-07-18T08:27:13Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-009df4c6fc85ec9269b12bae4a8ca734:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285377429/995140438/77c3506f68b3a18e108101e4d1de64ff",
+   "sha256": "2a939ea83cf0df73c742bec3061c49e8663665f3dc59263a1bfd7274b523dabf",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 12457,
+   "file": "MaxOf4-3000-steps-0050900ccd4ee27d614ef80823af894f-2024-07-18_08-27-23.pth",
+   "created": "2024-07-18T08:30:57Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0050900ccd4ee27d614ef80823af894f:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285387971/995153098/35b7016d8bc427509355f915ff17b159",
+   "sha256": "38de071ceff73e70d922be6c57560a8cbfaf235cb5c21db34015261cb3c85ddb",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 12493,
+   "file": "MaxOf4-3000-steps-00ef7f92a5e8c00fece2fa3f3e94eb55-2024-07-18_08-31-03.pth",
+   "created": "2024-07-18T08:34:34Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00ef7f92a5e8c00fece2fa3f3e94eb55:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285399655/995167092/d1c33b988b33959befd579dc0330a9a8",
+   "sha256": "fbf24586053aaf55ace162aa794aca2ce119ace869003c5f5f4e5b6205891971",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 12552,
+   "file": "MaxOf4-3000-steps-00c75aa02e798da6262636749a812337-2024-07-18_08-34-38.pth",
+   "created": "2024-07-18T08:38:09Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00c75aa02e798da6262636749a812337:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285411068/995180894/ce46226d955af5459c57d0b28d595365",
+   "sha256": "c727ee207e874ad64998219c5e14874a7847a6d0e267abdb2efba1abbdc854df",
+   "test_acc_reported": 0.994140625
+  },
+  {
+   "seed": 12561,
+   "file": "MaxOf4-3000-steps-00b857dd5febb8f9ab48193e2b09de0d-2024-07-18_08-38-13.pth",
+   "created": "2024-07-18T08:41:40Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00b857dd5febb8f9ab48193e2b09de0d:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285423292/995195562/1dc6477589c7006edea2000822124749",
+   "sha256": "da72bc1d04bf69387db2bd3c29f0b30c2d61e7199b82461e454bed7481e946a7",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 13036,
+   "file": "MaxOf4-3000-steps-000c72d0c77937bff0121f73b9b562f9-2024-07-18_08-41-47.pth",
+   "created": "2024-07-18T08:45:07Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-000c72d0c77937bff0121f73b9b562f9:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285436140/995210814/34bd2b133b4c62025b4abd31484be6e5",
+   "sha256": "fa8501a7d0dc0ffaf414aa69300eb7a39e02878692f9376b1449d8737596ca21",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 13293,
+   "file": "MaxOf4-3000-steps-00131c72d01ae3e1975c6e1342bc71e0-2024-07-18_08-45-12.pth",
+   "created": "2024-07-18T08:48:42Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00131c72d01ae3e1975c6e1342bc71e0:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285443462/995220883/951fc23f5229bc3eeb1af1a2cd962c56",
+   "sha256": "c3717558b264b803e89c13452395a25ea34db59dc9f6f9c4d1aa6935c09d7e6f",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 13468,
+   "file": "MaxOf4-3000-steps-007b08c3024586405fd9ce8d316dadce-2024-07-18_08-48-50.pth",
+   "created": "2024-07-18T08:52:19Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-007b08c3024586405fd9ce8d316dadce:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285455437/995235474/fdc4e5ce6d80174d720bec634af3d3f3",
+   "sha256": "c1d0b18f66bb8d728ded333d74eaa3bd6a1f394570db3780542f5b25f891a634",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 13654,
+   "file": "MaxOf4-3000-steps-0050dbfd34e378faabaffeebd317d13e-2024-07-18_08-52-36.pth",
+   "created": "2024-07-18T08:56:04Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0050dbfd34e378faabaffeebd317d13e:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285468005/995250644/2618f35dbda1a07f28a7ddecc47a664e",
+   "sha256": "94792df1576c66f4ab49ecd79bbebfd528ea4ca407f6d84ff136ba81bbe3a4a5",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 13716,
+   "file": "MaxOf4-3000-steps-001f78350a172bbd71b53a9ae55689ec-2024-07-18_08-56-14.pth",
+   "created": "2024-07-18T08:59:58Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-001f78350a172bbd71b53a9ae55689ec:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285480410/995265644/a12f972b6c2ce7815937c4ec62e8cfb6",
+   "sha256": "5faf261c403664bd66bda8e327c0eb852f2fe9956496083ea96d0efd0906e344",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 14095,
+   "file": "MaxOf4-3000-steps-0013f117ce289a8f17937eab59a62b41-2024-07-18_09-00-09.pth",
+   "created": "2024-07-18T09:03:50Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0013f117ce289a8f17937eab59a62b41:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285493667/995281488/7b58d45ba5925787fa633d70dd6b3017",
+   "sha256": "ab76d8838b796ee168bdf3045c045b6be315365fb67611555ff4e2077d481068",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 14929,
+   "file": "MaxOf4-3000-steps-00915102cc2b882c5fab30afac2c156c-2024-07-18_09-04-02.pth",
+   "created": "2024-07-18T09:07:42Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00915102cc2b882c5fab30afac2c156c:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285503137/995293539/5a2a349dbe6f65bb1a9df86327ace0c5",
+   "sha256": "c79675cc64502e65b2aca360127900491484a5e988f8f5691d01e92e897862e1",
+   "test_acc_reported": 0.998046875
+  },
+  {
+   "seed": 15043,
+   "file": "MaxOf4-3000-steps-000eab686473a99de52496b0bb2068c5-2024-07-18_09-07-47.pth",
+   "created": "2024-07-18T09:11:27Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-000eab686473a99de52496b0bb2068c5:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285515255/995308015/a1fb070eb73058eb88dc2ffd268257f2",
+   "sha256": "b99e2054e635a59f0459970b63a20276f01add1e7b6bebffc5b841f181afc8b1",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 15399,
+   "file": "MaxOf4-3000-steps-006de1c87bb5ee68b9fa71590a27a436-2024-07-18_09-11-33.pth",
+   "created": "2024-07-18T09:15:04Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-006de1c87bb5ee68b9fa71590a27a436:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285528297/995323609/1ad2e9801fd1ab980bada10a705746c6",
+   "sha256": "1e47924adbff9151309ccd8368a47b70dc229b3c69193058b7f48de219ebc562",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 15622,
+   "file": "MaxOf4-3000-steps-004107174810863a45c9728d151dcfc5-2024-07-18_09-15-09.pth",
+   "created": "2024-07-18T09:18:40Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-004107174810863a45c9728d151dcfc5:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285540441/995338037/ff108c27c659f42c1db1300d63bc9900",
+   "sha256": "2318d187608901098d184720b69a88ed423db9fb14fe7133b806ad850263384d",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 15662,
+   "file": "MaxOf4-3000-steps-001afe03f23306550ee001e058740c79-2024-07-18_09-18-47.pth",
+   "created": "2024-07-18T09:22:12Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-001afe03f23306550ee001e058740c79:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285553577/995353331/c96f001d18e111b0523f0daec15e0f1f",
+   "sha256": "8d638a649c70268d1377696b67969ef65fac580203fa2e6fba54204e479a83e7",
+   "test_acc_reported": 0.99609375
+  },
+  {
+   "seed": 16069,
+   "file": "MaxOf4-3000-steps-00f9ac340c21bb1ef7a92d51e27d36c7-2024-07-18_09-22-19.pth",
+   "created": "2024-07-18T09:25:46Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00f9ac340c21bb1ef7a92d51e27d36c7:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285567141/995369049/80fc886c09822071ea35cbaec74a0221",
+   "sha256": "031985a0c8eb5b4a6414ea3eb2c35b2705105490345f3b76d84003bc9413534b",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 16149,
+   "file": "MaxOf4-3000-steps-00e9002686655dbd4bc5c22d858e430b-2024-07-18_09-25-52.pth",
+   "created": "2024-07-18T09:29:21Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00e9002686655dbd4bc5c22d858e430b:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285576133/995380044/d2d97ab54af728aaa2cced1da737a5e7",
+   "sha256": "a2e1d275efb8a0a92cb7a616ee83abc04b72af90039eab3e7b0ca9cf83b6b901",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 16197,
+   "file": "MaxOf4-3000-steps-00bfadcde8d829eacb417255037c5844-2024-07-18_09-29-28.pth",
+   "created": "2024-07-18T09:32:48Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00bfadcde8d829eacb417255037c5844:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285586991/995392874/e8901388e90a2ef4a317ccc2db45f055",
+   "sha256": "cd8073c36d855f94e923e7bbb5721b0d0f3385c3389c76035419fd3a5f94963b",
+   "test_acc_reported": 0.9912109375
+  },
+  {
+   "seed": 16284,
+   "file": "MaxOf4-3000-steps-0016499b8b785ffb2caa11b3b9b19082-2024-07-18_09-32-55.pth",
+   "created": "2024-07-18T09:36:27Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0016499b8b785ffb2caa11b3b9b19082:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285599181/995407365/2389e1f80b98504af4253b05b5046322",
+   "sha256": "ca8c84415d02c09f0a3e2944ff06a555baa17fc48f027244cbe40d6e191e336c",
+   "test_acc_reported": 0.998046875
+  },
+  {
+   "seed": 17080,
+   "file": "MaxOf4-3000-steps-00008320d911b79ccef1d6f4012e951f-2024-07-18_09-36-32.pth",
+   "created": "2024-07-18T09:40:00Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00008320d911b79ccef1d6f4012e951f:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285610091/995420364/582d1b17a64636acf603c72f691a1fa5",
+   "sha256": "61253cb27d75267357b42ba7c252e2a35c9397f12079e02f18ba3821cad8a42b",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 17096,
+   "file": "MaxOf4-3000-steps-00535dc11e7bd5546960138ec2cb109c-2024-07-18_09-40-06.pth",
+   "created": "2024-07-18T09:43:35Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00535dc11e7bd5546960138ec2cb109c:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285622005/995434313/c3a4d7937a7844a66c3f560a342d0823",
+   "sha256": "383b3257e4c24c01d19ceecc736ea521f86cd473d1420588b6a8ab4d08faae75",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 17194,
+   "file": "MaxOf4-3000-steps-0072208db1475ba5d3d4239285e75be4-2024-07-18_09-43-42.pth",
+   "created": "2024-07-18T09:47:16Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0072208db1475ba5d3d4239285e75be4:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285632657/995447165/2dbf7ecd3d527a27dbbe12b7f480547c",
+   "sha256": "6d3be043e0dbe0f30e47719a1ab79d1ee8df3afce02c76ba0655068d77358208",
+   "test_acc_reported": 0.998046875
+  },
+  {
+   "seed": 17197,
+   "file": "MaxOf4-3000-steps-00a6c68358f736070c1d26a04a4c11ce-2024-07-18_09-47-24.pth",
+   "created": "2024-07-18T09:51:03Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00a6c68358f736070c1d26a04a4c11ce:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285640743/995457631/2a6e72ea73d03c58c00126a56cceb1a5",
+   "sha256": "6c7c963f3de81ab6baad30ffb4d149ef872b465a07d127b8e7b276a20de77724",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 18146,
+   "file": "MaxOf4-3000-steps-003a8a7ca8d4a2e1a8b60b90fbe8fa1a-2024-07-18_09-51-10.pth",
+   "created": "2024-07-18T09:54:42Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-003a8a7ca8d4a2e1a8b60b90fbe8fa1a:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285652857/995471822/4c9ca9cceb19db22247375010f86d728",
+   "sha256": "4b18c36b9ba19778ccdfec51fde6b5f75f549c2b73724daac2fc9deef8577bde",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 18289,
+   "file": "MaxOf4-3000-steps-00a1ce58478c2c7b35d8274593f4a0d4-2024-07-18_09-54-47.pth",
+   "created": "2024-07-18T09:58:18Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00a1ce58478c2c7b35d8274593f4a0d4:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285663016/995484100/61450542db698ed0f7e4557eb6d5f909",
+   "sha256": "f1709bae36e891bcb418d476e22abd3be9123167077cd00d40b50fe5bd0f2958",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 18668,
+   "file": "MaxOf4-3000-steps-0024a6c5d44091c5259729f04aaec8d7-2024-07-18_09-58-29.pth",
+   "created": "2024-07-18T10:01:54Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0024a6c5d44091c5259729f04aaec8d7:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285675076/995498197/f0d648ff3b84def74760c8fada37538c",
+   "sha256": "94147f7149fb552f8cfd2fe3752aa9e65cf46722ad85cd613eb77e86f122dc35",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 19004,
+   "file": "MaxOf4-3000-steps-00a0dff815adaefa32a2480e8b009adf-2024-07-18_10-02-00.pth",
+   "created": "2024-07-18T10:05:34Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00a0dff815adaefa32a2480e8b009adf:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285687376/995512604/ec62f5793070c4908e3bc0184cf3bdfc",
+   "sha256": "d421843618a6e4b1a82d2c7384d1af067e4ce25f5582e4214fb5cf67a1eb3d31",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 19093,
+   "file": "MaxOf4-3000-steps-00bd5c214a44195fa3a7a0151b9f9edc-2024-07-18_10-05-40.pth",
+   "created": "2024-07-18T10:09:10Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00bd5c214a44195fa3a7a0151b9f9edc:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285696240/995523433/611854bb9036e18ed87ef9f4e14d87a7",
+   "sha256": "0b4bd6e80c4dbc16b583114e1e775134d9b25a8525f5cf8cff1d57f7f34c5301",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 19451,
+   "file": "MaxOf4-3000-steps-00bfe6a36ddec3eb4a10c747b720f7bb-2024-07-18_10-09-15.pth",
+   "created": "2024-07-18T10:12:48Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00bfe6a36ddec3eb4a10c747b720f7bb:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285703963/995533243/3393b9f45a43b205a1d763ed6bc5bb97",
+   "sha256": "0db64c35ebb86c8215d66f93d5a823245572f5a38bf78fd0860c0fdb1ba01b3f",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 19488,
+   "file": "MaxOf4-3000-steps-00b71a6ec4738dad5b74bf06d781d3c1-2024-07-18_10-12-53.pth",
+   "created": "2024-07-18T10:16:19Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00b71a6ec4738dad5b74bf06d781d3c1:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285714541/995545825/2e39e8df05775f1be7ae653eda50a41c",
+   "sha256": "02f453a89728bce2f1e2b179f0f5c851508b7e07df5fd22d8b4454d6b4aefe3a",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 19538,
+   "file": "MaxOf4-3000-steps-00f55db07a5f8ebd240c68c021e03528-2024-07-18_10-16-26.pth",
+   "created": "2024-07-18T10:19:53Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00f55db07a5f8ebd240c68c021e03528:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285726892/995560288/2532d577b5a48e2c0abd0ed6f1142671",
+   "sha256": "297b283b22fb4a95622faeaad59f457a0159aa961d66dade7ce4023df079dca1",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 19917,
+   "file": "MaxOf4-3000-steps-00b35ef66e88ff15d30dd675c42d127a-2024-07-18_10-19-59.pth",
+   "created": "2024-07-18T10:23:28Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00b35ef66e88ff15d30dd675c42d127a:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285740315/995575979/e8f26b04066781355992a420fe802a08",
+   "sha256": "7ca2b8d9d5af2573e47739c77328e51b99d55a57157a4e078e885ada3a2db69b",
+   "test_acc_reported": 0.998046875
+  },
+  {
+   "seed": 20013,
+   "file": "MaxOf4-3000-steps-00ccd36d8268b7177f048e453044f135-2024-07-18_10-23-35.pth",
+   "created": "2024-07-18T10:26:55Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00ccd36d8268b7177f048e453044f135:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285754703/995592602/7e2d83694a7cca16592d8465a439eeb6",
+   "sha256": "f524ae2008418041fc530f3787e06d5ba09e48518c46c83197ab8de5f58a40b8",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 20294,
+   "file": "MaxOf4-3000-steps-000077d55dbddda5db444c4a64dd34bc-2024-07-18_10-27-01.pth",
+   "created": "2024-07-18T10:30:41Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-000077d55dbddda5db444c4a64dd34bc:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285763460/995603592/568a587a359a3f9889b26306cfbd657a",
+   "sha256": "3e0fddd359341b6af708568310f437d536eca877e357326e886d470c346bef45",
+   "test_acc_reported": 0.9951171875
+  },
+  {
+   "seed": 20338,
+   "file": "MaxOf4-3000-steps-00664f33995f230f70461640673c86a9-2024-07-18_10-30-47.pth",
+   "created": "2024-07-18T10:34:20Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00664f33995f230f70461640673c86a9:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285773979/995616407/966dc8873b4342f3b0f7e19faa825626",
+   "sha256": "8a9d0f1796bd60b7edc8a33446bd22c78f1e5aef2ad0612d63774e6adba37b8e",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 20415,
+   "file": "MaxOf4-3000-steps-0098b36b647c189591477584a60fead0-2024-07-18_10-34-26.pth",
+   "created": "2024-07-18T10:37:58Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0098b36b647c189591477584a60fead0:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285787663/995632392/4e82e203fa511ca0e2c8471f105b2c38",
+   "sha256": "d8f94536cade4734f491151b363810e563bde0abe80bb43522fa3bb6e1332368",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 20539,
+   "file": "MaxOf4-3000-steps-00680065cfe1a6651c637a80ae2f6440-2024-07-18_10-38-04.pth",
+   "created": "2024-07-18T10:41:37Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00680065cfe1a6651c637a80ae2f6440:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285800408/995647299/b66d9c16a834eebb15bd04b10fe7d503",
+   "sha256": "b2cb3dc4935cc1746334be3fcb2e7bd0c7c16933cf5fe1de111aad3ec396fc08",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 20751,
+   "file": "MaxOf4-3000-steps-00dfe956ab5e290010e17da0d43a913c-2024-07-18_10-41-43.pth",
+   "created": "2024-07-18T10:45:06Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00dfe956ab5e290010e17da0d43a913c:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285814946/995663849/ead62ed009144639f288b4a4e4aceae9",
+   "sha256": "d8d1abdbec8dc2719d78a205d048719b82bf5940c268abd4c3fe745e00a07ec1",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 20754,
+   "file": "MaxOf4-3000-steps-002490bce09d7cc8b2be342dd64100fa-2024-07-18_10-45-13.pth",
+   "created": "2024-07-18T10:48:41Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-002490bce09d7cc8b2be342dd64100fa:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285827237/995677913/605416168385f45d8193196c3705bbf4",
+   "sha256": "c85098e8f573d8edefad57a25b012b03f5507c7225e8211420e4200a160f9bd2",
+   "test_acc_reported": 0.998046875
+  },
+  {
+   "seed": 20976,
+   "file": "MaxOf4-3000-steps-00210033070a6f61180382dcc9088897-2024-07-18_10-48-46.pth",
+   "created": "2024-07-18T10:52:19Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00210033070a6f61180382dcc9088897:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285836027/995688470/b742fa934be3c23e036f5eff1c187cf2",
+   "sha256": "2de8a1c942f5cd21bc5f5e7b3baa64b0338a5f58f2aa0ef1f19bb8224b4f35d2",
+   "test_acc_reported": 0.9970703125
+  },
+  {
+   "seed": 21317,
+   "file": "MaxOf4-3000-steps-00536719d7c11802ec6028be7c4405dc-2024-07-18_10-52-26.pth",
+   "created": "2024-07-18T10:56:01Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00536719d7c11802ec6028be7c4405dc:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285848230/995702486/0b5ef7caa269ae5537365ab5e2bc8212",
+   "sha256": "66c61ce14d5bdca7cade185f27c85aa869872821740f12909ed243580df38bf4",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 21598,
+   "file": "MaxOf4-3000-steps-0060814aea9aeed7e69193d51a8cc28b-2024-07-18_10-56-07.pth",
+   "created": "2024-07-18T10:59:39Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0060814aea9aeed7e69193d51a8cc28b:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285860328/995716255/67cf07b5bc06df8dffd95ff636dcd4ab",
+   "sha256": "ffc3e3e5177eb88313a0d60622bc1ac6639d3fad217fb6cdb51d8943905339d9",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 22261,
+   "file": "MaxOf4-3000-steps-009999e3a7af2af6d497fbd721d9be4b-2024-07-18_10-59-46.pth",
+   "created": "2024-07-18T11:03:19Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-009999e3a7af2af6d497fbd721d9be4b:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285873140/995731006/3254c4dce0d7882116b9d232d427d218",
+   "sha256": "2b32c77e58fc31d75816338113a5beb6750972f9876efe041cfbc3b469702388",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 22286,
+   "file": "MaxOf4-3000-steps-005fd11c1e1d2dca9330051b92717b1a-2024-07-18_11-03-25.pth",
+   "created": "2024-07-18T11:06:57Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-005fd11c1e1d2dca9330051b92717b1a:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285884003/995743618/a3e96deb2ebbcd951b153ccced04841d",
+   "sha256": "8b1b14932d609bcda5a3be1f85d3bf3dd9905fa1704de9c8f75ee5b720dcf67c",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 22401,
+   "file": "MaxOf4-3000-steps-00c606f24735264f567e41fe47513b12-2024-07-18_11-07-04.pth",
+   "created": "2024-07-18T11:10:53Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00c606f24735264f567e41fe47513b12:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285895937/995757535/d2f7c77a9d60fec638316c653b0b2066",
+   "sha256": "38920e17ab145e6db8de98351dded9a65b7fe7413a4d4c5ab2689c331043fc23",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 22545,
+   "file": "MaxOf4-3000-steps-00044d947fb799bc5589eacb7c47aa1f-2024-07-18_11-10-58.pth",
+   "created": "2024-07-18T11:14:34Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00044d947fb799bc5589eacb7c47aa1f:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285906628/995769970/487e9931d62ccb615cf016db764a106a",
+   "sha256": "0962725c5f88b1af52c58573f16c891c9044607b8e9360e27e51736daf6473e3",
+   "test_acc_reported": 0.9931640625
+  },
+  {
+   "seed": 23241,
+   "file": "MaxOf4-3000-steps-007a18da7bb509850415fb4eda5db275-2024-07-18_11-14-40.pth",
+   "created": "2024-07-18T11:19:32Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-007a18da7bb509850415fb4eda5db275:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285924288/995790179/d152b7fe810ac9054fbe927af1aabb82",
+   "sha256": "3dd845f2ea6b52cc97db3df54ddede0c190d9620ae09e141d35a275acfc40eb3",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 23367,
+   "file": "MaxOf4-3000-steps-00fc5ef515db02ced7137b147886da71-2024-07-18_11-19-38.pth",
+   "created": "2024-07-18T11:24:36Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00fc5ef515db02ced7137b147886da71:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285941297/995809892/8d148bf897acd73bce7ff7a6b12b365e",
+   "sha256": "bca0d0df7c87d4181718cbe80501e2098b7dd80f4dd334cc53db27ac9752f7a1",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 23447,
+   "file": "MaxOf4-3000-steps-00c324d309f844b4cf14e02c330fb08f-2024-07-18_11-24-43.pth",
+   "created": "2024-07-18T11:29:15Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00c324d309f844b4cf14e02c330fb08f:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285960720/995831941/3906b9a1d20a2639f9abb96adfe3ffbc",
+   "sha256": "e9fe0efeca551d94ae006fe0cf9c15460775656a8b84cf213c9202bccf612974",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 23633,
+   "file": "MaxOf4-3000-steps-00f05efd3473197ae0de0b6a3e417083-2024-07-18_11-29-21.pth",
+   "created": "2024-07-18T11:35:22Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00f05efd3473197ae0de0b6a3e417083:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285974554/995849073/ec96a0f96c2be210b438b7b736129212",
+   "sha256": "f4b145cb0da8bb7e229284f84dc95f4ee7af94aaca969363606e1f4b5ce8aca2",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 23696,
+   "file": "MaxOf4-3000-steps-009c759e682a74cb2f26a2e4e31a2110-2024-07-18_11-35-29.pth",
+   "created": "2024-07-18T11:39:46Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-009c759e682a74cb2f26a2e4e31a2110:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/285991406/995868078/4dff1e3d5e64e8c22b7c0aa604770f94",
+   "sha256": "100f300ac19e5764977923315b6fca789bae94384da4dcec2629b20d42619956",
+   "test_acc_reported": 0.9970703125
+  },
+  {
+   "seed": 24144,
+   "file": "MaxOf4-3000-steps-00b19a6f28f6cf448232d2c2b9deea00-2024-07-18_11-39-52.pth",
+   "created": "2024-07-18T11:43:44Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00b19a6f28f6cf448232d2c2b9deea00:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286005045/995883842/6431e2e6eb8d9fd9d7fff8a7f0935c10",
+   "sha256": "34582d14a767a8b1f74927413c3a67f80100735cc2a62a7b73da349f0827237f",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 24173,
+   "file": "MaxOf4-3000-steps-008c2fbcc4cba212335285ff4c5bf67d-2024-07-18_11-43-53.pth",
+   "created": "2024-07-18T11:48:03Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-008c2fbcc4cba212335285ff4c5bf67d:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286019120/995899977/e6fe2bbd6fff98f7aaf84f6e455ffee0",
+   "sha256": "cdc3cf8a556ffc290be808b86118fa02e6dd777773174e1100b1730341258f8d",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 24202,
+   "file": "MaxOf4-3000-steps-0052bc7f7d60a9412e0f07b4258c032e-2024-07-18_11-48-09.pth",
+   "created": "2024-07-18T11:52:05Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0052bc7f7d60a9412e0f07b4258c032e:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286034729/995917617/1a01dd370635e6daa846a0c634b138c4",
+   "sha256": "04e758ddc9176b6ad16139641a8603d3d0e7990051124f0022da93acf087bfb1",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 24262,
+   "file": "MaxOf4-3000-steps-007a59174f0aadf2267c54e42441d72d-2024-07-18_11-52-10.pth",
+   "created": "2024-07-18T11:55:50Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-007a59174f0aadf2267c54e42441d72d:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286042693/995927639/2147d4ccffb7ba1baa61ab92d3823ce4",
+   "sha256": "8628448a1503225a8059d804e8d52d6bb7b703b15d4d5348647caa82b9bf190e",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 24438,
+   "file": "MaxOf4-3000-steps-005b46781546553b8408f56ac71fa192-2024-07-18_11-55-57.pth",
+   "created": "2024-07-18T12:01:06Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-005b46781546553b8408f56ac71fa192:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286054780/995942725/e55b16c56ba1cd32264d7d0e0e277fa6",
+   "sha256": "e453c7dab310f5405747dc053f124bea79dfebe9dff8aee287d9bd073fc0c72d",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 24566,
+   "file": "MaxOf4-3000-steps-002ced2763e3383bbb0aff10f8c88033-2024-07-18_12-01-16.pth",
+   "created": "2024-07-18T12:05:36Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-002ced2763e3383bbb0aff10f8c88033:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286071242/995962305/3291fa51da262d6384ce8477e90b054c",
+   "sha256": "2bd23ded59c4d019c419e6d40af066ca43d79fb5c8285a63c2dcdfae50525e1f",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 25516,
+   "file": "MaxOf4-3000-steps-003ab5a51e94d0967485e1ca605b3f38-2024-07-18_12-05-43.pth",
+   "created": "2024-07-18T12:09:19Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-003ab5a51e94d0967485e1ca605b3f38:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286085488/995978684/e2bdeb8125a4cdb957d4074291f5c4ed",
+   "sha256": "75a3a1de71ed5b340e5aa91a27b1f08e526fe29b1f7b94e6127da170a0afec8c",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 26278,
+   "file": "MaxOf4-3000-steps-00611d9ddeaa12c3b54043ef859eb1ed-2024-07-18_12-09-27.pth",
+   "created": "2024-07-18T12:12:59Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00611d9ddeaa12c3b54043ef859eb1ed:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286097995/995993241/640a3ccf6a0b946f14b25723d88a009c",
+   "sha256": "d44fdeabb0b564db0ef345b6f5b6607be2c7ac94a960107d3a0a68cf65011bb7",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 26374,
+   "file": "MaxOf4-3000-steps-0020419773fe25624aba5c45f4a51b40-2024-07-18_12-13-05.pth",
+   "created": "2024-07-18T12:17:13Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0020419773fe25624aba5c45f4a51b40:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286109055/996006548/1aa5d7786a08076b4654b2c1737276d0",
+   "sha256": "5ad4c6be50eb1cf600631d9bbe36a6683196aad0be0453475ca981cd026fd974",
+   "test_acc_reported": 0.994140625
+  },
+  {
+   "seed": 26829,
+   "file": "MaxOf4-3000-steps-002df7d262f1de029d41f4661bdb6805-2024-07-18_12-17-20.pth",
+   "created": "2024-07-18T12:21:31Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-002df7d262f1de029d41f4661bdb6805:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286122659/996022567/bbce9139b6c0d013bacc01806c6062f5",
+   "sha256": "a969a97dd624da8e3a849fdbe909bc5a53020c649e81918719838829649d010e",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 26932,
+   "file": "MaxOf4-3000-steps-003f70cc90bba8d30a052801957cbfc0-2024-07-18_12-21-36.pth",
+   "created": "2024-07-18T12:25:34Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-003f70cc90bba8d30a052801957cbfc0:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286134402/996036703/4062e3fcd55730c6982ae0b230b42c9b",
+   "sha256": "69951ea3761931b2b32a6f652216a783af595537b9ee4c44f4c2eabd8d3ae1d2",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 27300,
+   "file": "MaxOf4-3000-steps-001d0e49708f79a4327c6bbc7d93cb33-2024-07-18_12-25-41.pth",
+   "created": "2024-07-18T12:29:36Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-001d0e49708f79a4327c6bbc7d93cb33:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286147794/996052369/eb18a931ca500c0a81e50d4d445bea50",
+   "sha256": "aa76c1d9ed80d4d6f1e9d3c669e9b1a41fa2ac50f7acbafcae1b69dd9f59817d",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 27484,
+   "file": "MaxOf4-3000-steps-0078465580113b735d383a28acdb5b4d-2024-07-18_12-29-43.pth",
+   "created": "2024-07-18T12:34:12Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0078465580113b735d383a28acdb5b4d:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286162205/996069291/b8ad78411ac5da9574f7bc6bf8a1f723",
+   "sha256": "71db72cb4f8733d063b2ab270632a508a88db1e058f65896f4ae7ef43481d03b",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 27584,
+   "file": "MaxOf4-3000-steps-00c3aa8c19ab4aae0ef6f4a5e543a847-2024-07-18_12-34-19.pth",
+   "created": "2024-07-18T12:38:27Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00c3aa8c19ab4aae0ef6f4a5e543a847:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286173002/996082276/158c418b1e20f3eaa4d192b5d5bb0c9e",
+   "sha256": "27c7e857c7844c6c2d29b3e2e98b38574eb3d5e03b4ae73000f443da5ae57249",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 27671,
+   "file": "MaxOf4-3000-steps-0077cbef6733563b627799107aa81f32-2024-07-18_12-38-34.pth",
+   "created": "2024-07-18T12:42:13Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0077cbef6733563b627799107aa81f32:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286182181/996093436/7e6d9c4ec44dcc0dd0c20d78d077ae48",
+   "sha256": "31ee8b2cfff41785536d204389714ac6f3af9fad37e712ed7e190be227ab0e16",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 27714,
+   "file": "MaxOf4-3000-steps-00e5f25e08517a2437d2c12910925483-2024-07-18_12-42-19.pth",
+   "created": "2024-07-18T12:46:33Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00e5f25e08517a2437d2c12910925483:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286197382/996111085/31de3ec7e08b13f6cd406e29b8565361",
+   "sha256": "74eb076c695901d1e4353774ed463196ea7209830a5f2a0431726c0acc2696a3",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 28090,
+   "file": "MaxOf4-3000-steps-0083c127dc70e44dd6ad3ef980a1a144-2024-07-18_12-46-39.pth",
+   "created": "2024-07-18T12:51:02Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0083c127dc70e44dd6ad3ef980a1a144:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286212471/996128806/e352233b08fdc9d616ff356b3b9f2b89",
+   "sha256": "f41db893a75e71a59d1e901cd6493d437a6718bab76be5042183b57f607a703e",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 28716,
+   "file": "MaxOf4-3000-steps-007b161dc3b30eae66c94b840c860555-2024-07-18_12-51-19.pth",
+   "created": "2024-07-18T12:55:31Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-007b161dc3b30eae66c94b840c860555:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286229326/996148312/851eb5d7920e0bd4b7b145e4e5dcc922",
+   "sha256": "0aae5039097eed7c431ad720bad6283a57d531f7f226ad417502c541122f89d9",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 28778,
+   "file": "MaxOf4-3000-steps-00bbf040258e1216be603d5f8382470e-2024-07-18_12-55-37.pth",
+   "created": "2024-07-18T12:59:24Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00bbf040258e1216be603d5f8382470e:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286243376/996164519/d8b654fe37558dfc5cfe32ea2c07934f",
+   "sha256": "c58c47d7702a55138232d7541d5d4d22281cc28f752a002b9de2dbed753c196a",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 29022,
+   "file": "MaxOf4-3000-steps-00d56d5de6dee02d8d774624c2dfe35a-2024-07-18_12-59-29.pth",
+   "created": "2024-07-18T13:04:38Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00d56d5de6dee02d8d774624c2dfe35a:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286258196/996182385/4d0de26906d8ac6df997b1cd6451c27f",
+   "sha256": "3fc3be5b52ecc7b1d1d9aea75dc8a2d57c185419a50a2deaec77b3b31acc250e",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 29052,
+   "file": "MaxOf4-3000-steps-00e215b7103570d37a55410b41e60193-2024-07-18_13-04-46.pth",
+   "created": "2024-07-18T13:08:55Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00e215b7103570d37a55410b41e60193:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286273829/996200570/339fa93687230829911c4f8766752aaa",
+   "sha256": "006589d4914ca549ba392a8fb12896ca50e286d535ffaa5915d41e2380e44ef1",
+   "test_acc_reported": 0.9990234375
+  },
+  {
+   "seed": 29110,
+   "file": "MaxOf4-3000-steps-00d591369916534d2d10285cd11fcb75-2024-07-18_13-09-01.pth",
+   "created": "2024-07-18T13:14:45Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00d591369916534d2d10285cd11fcb75:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286299555/996229832/dd0cc61127e520a7fc1572e0832f4c9b",
+   "sha256": "b31d2f9974ac57f4bb57a24ec3b73e758aafbbecb440181054899db66afc298b",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 29195,
+   "file": "MaxOf4-3000-steps-003c3efd08da9585911116ca924922a2-2024-07-18_13-14-55.pth",
+   "created": "2024-07-18T13:20:01Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-003c3efd08da9585911116ca924922a2:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286321194/996254994/ed09fff1e1baea8ab3db9a3d28545851",
+   "sha256": "e5d810f3c9662ed7515e1087d1b13f2d9cd800f6f7f14f304e31fad97c270881",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 29565,
+   "file": "MaxOf4-3000-steps-00726172c07a005a7a0786d229aac396-2024-07-18_13-20-06.pth",
+   "created": "2024-07-18T13:23:58Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00726172c07a005a7a0786d229aac396:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286334709/996271501/434ea26a1d68356cac21e46189ada620",
+   "sha256": "fc07e59c3c2145917131ea502fa783030f5d00fd4c59d43fd406ec640cc55b7a",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 29725,
+   "file": "MaxOf4-3000-steps-00d4eb7e6dce85bd0c53351b85934dc4-2024-07-18_13-24-04.pth",
+   "created": "2024-07-18T13:28:37Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00d4eb7e6dce85bd0c53351b85934dc4:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286358339/996298519/c0a17952275cd7727ac97a86fd223000",
+   "sha256": "f4854b61119b4252915df025fd0c8634af67a161e745ce20514321a1813925b6",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 29726,
+   "file": "MaxOf4-3000-steps-00a6e16a3b8e526b7eb925f2b7af6833-2024-07-18_13-28-43.pth",
+   "created": "2024-07-18T13:34:22Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00a6e16a3b8e526b7eb925f2b7af6833:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286387801/996332441/3a2a74e2b8e1cc3d50b6d6afcfa86d5b",
+   "sha256": "695d4f6b509b9d8229744c71a153d3f45efc4fc5e021c1f2e81e3f10b66bdce4",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 30371,
+   "file": "MaxOf4-3000-steps-004033b4441680ef424a4fc5b88cbf64-2024-07-18_13-34-28.pth",
+   "created": "2024-07-18T13:38:32Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-004033b4441680ef424a4fc5b88cbf64:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286402967/996350625/d88b23a4606bae04eccea5535191f193",
+   "sha256": "b955203133c64280011faff862511f3c0bd2eae6c6316a5ff8edc1728346c82c",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 30463,
+   "file": "MaxOf4-3000-steps-00fc06b0f66031ac92abad613d9c86c4-2024-07-18_13-38-38.pth",
+   "created": "2024-07-18T13:42:33Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00fc06b0f66031ac92abad613d9c86c4:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286420796/996371340/fdfa446d6ccde73df57e9c21fc0ea817",
+   "sha256": "7c9dad374518331c1de250c43394408657f900a83da0e7ad787b83eb76eb5c21",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 30684,
+   "file": "MaxOf4-3000-steps-007fadfb67a5f8b5073929527a79c57b-2024-07-18_13-42-40.pth",
+   "created": "2024-07-18T13:47:04Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-007fadfb67a5f8b5073929527a79c57b:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286445353/996399199/a6fd14ac3c51dbd7bd5e5cc48c8f2aa8",
+   "sha256": "ef68ce0840fd134e89d2e5aec37fe8884a2acb0f8cad04dd4f206bef87220c2e",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 30899,
+   "file": "MaxOf4-3000-steps-0076eee833d1866898c5a56070664b1c-2024-07-18_13-47-10.pth",
+   "created": "2024-07-18T13:51:59Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0076eee833d1866898c5a56070664b1c:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286470414/996427499/e79ece89ad0715922babe7e62e4b2ab3",
+   "sha256": "50b7100758813d63e3d1219c876827ab4fe354db5e66d06406bfae1577ceb0d0",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 31308,
+   "file": "MaxOf4-3000-steps-00075cb6227d9f8a404c15c6c02ddc8a-2024-07-18_13-52-07.pth",
+   "created": "2024-07-18T13:55:52Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00075cb6227d9f8a404c15c6c02ddc8a:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286480243/996440188/793d2a33df5591a195002dfd2c4e3d59",
+   "sha256": "bf8936835bd2ca39ad5a8ed2471b250f0d64e4c6a68030a44d1c72a19372c52f",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 32103,
+   "file": "MaxOf4-3000-steps-0062ab8dbd924530854626ae00e2674d-2024-07-18_13-55-57.pth",
+   "created": "2024-07-18T13:59:27Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-0062ab8dbd924530854626ae00e2674d:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286492609/996455062/39f10025c192a9fd92f01f9a4a0452dd",
+   "sha256": "5816a9651fbbc810b081c32bcd8a133970ae5a3685d666e13f52328900155ced",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 32374,
+   "file": "MaxOf4-3000-steps-00890d78b9a7060e28c464440445d2ca-2024-07-18_13-59-32.pth",
+   "created": "2024-07-18T14:03:21Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-00890d78b9a7060e28c464440445d2ca:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286506028/996471176/16120d089fa62d2cb6ee80ed0daeafe9",
+   "sha256": "a32e2908e7025af4e3442dd899df614094972f5c2c21edb89ac1d863417ef9d8",
+   "test_acc_reported": 1.0
+  },
+  {
+   "seed": 32382,
+   "file": "MaxOf4-3000-steps-007d599db3aa7a3a8366cd5369303313-2024-07-18_14-03-28.pth",
+   "created": "2024-07-18T14:07:17Z",
+   "wandb_id": "gbmi/MaxOf4-3000-steps/MaxOf4-3000-steps-007d599db3aa7a3a8366cd5369303313:latest",
+   "url": "https://storage.googleapis.com/wandb-artifacts-prod/wandb_artifacts/286520024/996488103/b5926861d3a7a049e2c551234e12770b",
+   "sha256": "6cf2cf5bbe9c91470080b4910473c8f9f1f2db1a16aa6c7a34a109bee5715597",
+   "test_acc_reported": 1.0
+  }
+ ]
+}

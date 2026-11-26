@@ -1,0 +1,42 @@
+{
+  "id": "selftest",
+  "prefix": "TEST",
+  "name": "Self-test",
+  "question": "Does the pipeline work?",
+  "summary": "Steps used only by the test suite and by agents checking their setup. Hidden from the site and never offered unless asked for by name.",
+  "why": "",
+  "source": null,
+  "defs": "Mathlib.Basic.Real.Basic",
+  "open": [],
+  "reviewed": true,
+  "hidden": true,
+  "steps": [
+    {
+      "id": "TEST-01",
+      "lean": "TEST01",
+      "title": "Two plus two is four.",
+      "statement": "(2 : ℕ) + 2 = 4",
+      "level": "warmup",
+      "context": "Pipeline check.",
+      "sketch": "rfl"
+    },
+    {
+      "id": "TEST-02",
+      "lean": "TEST02",
+      "title": "Two plus two is five (false; send a refutation).",
+      "statement": "(2 : ℕ) + 2 = 5",
+      "level": "warmup",
+      "context": "Pipeline check for refutations.",
+      "sketch": "decide"
+    },
+    {
+      "id": "TEST-03",
+      "lean": "TEST03",
+      "title": "Every real number squared is nonnegative.",
+      "statement": "∀ x : ℝ, 0 ≤ x * x",
+      "level": "warmup",
+      "context": "Pipeline check with Mathlib.",
+      "sketch": "mul_self_nonneg"
+    }
+  ]
+}

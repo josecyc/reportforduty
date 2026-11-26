@@ -1,0 +1,7 @@
+.rfd/
+work/
+__pycache__/
+*.pyc
+.DS_Store
+rfd.local.json
+public/

@@ -1,0 +1,102 @@
+{
+  "id": "offswitch",
+  "prefix": "OSG",
+  "name": "The off-switch game",
+  "question": "When does an AI system prefer to let a human switch it off?",
+  "summary": "A robot unsure how much a human values its next action can act, switch itself off, or wait and let the human decide. This program proves when waiting, and so leaving the off switch alone, is the robot's best choice, and how that depends on the robot's uncertainty and on how reliable the human is.",
+  "why": "Corrigibility, an AI system's willingness to be corrected or shut down, is one of the oldest problems in alignment. The off-switch game is a clean model of one proposed answer: uncertainty about what humans want gives the system a reason to defer. Formal proofs pin down exactly when that answer works and when it fails.",
+  "source": {
+    "title": "The Off-Switch Game",
+    "authors": "Dylan Hadfield-Menell, Anca Dragan, Pieter Abbeel, Stuart Russell",
+    "venue": "IJCAI 2017",
+    "url": "https://arxiv.org/abs/1611.08219"
+  },
+  "defs": "ReportForDuty.Defs.OffSwitch",
+  "open": [
+    "ReportForDuty.OffSwitch"
+  ],
+  "reviewed": false,
+  "steps": [
+    {
+      "id": "OSG-01",
+      "lean": "OSG01",
+      "title": "With a rational human, waiting is worth the expected good part of the action: the average of the utility where it is positive, and zero where it is not.",
+      "statement": "∀ {ι : Type} [Fintype ι] (b : Belief ι), waitValue b rational = b.E (fun u => max u 0)",
+      "level": "warmup",
+      "context": "Every later result about the rational human starts by rewriting the value of waiting in this form.",
+      "sketch": "Unfold waitValue, rational and Belief.E, use Finset.sum_congr to compare the sums term by term, then dsimp only (so the if-then-else appears) and split on whether 0 ≤ u."
+    },
+    {
+      "id": "OSG-02",
+      "lean": "OSG02",
+      "title": "With a rational human, waiting is worth at least as much as acting now.",
+      "statement": "∀ {ι : Type} [Fintype ι] (b : Belief ι), actValue b ≤ waitValue b rational",
+      "level": "warmup",
+      "context": "Half of the claim that the robot never loses by deferring.",
+      "sketch": "Termwise with Finset.sum_le_sum: p i * u i ≤ p i * (rational (u i) * u i), because p i ≥ 0 and u ≤ max u 0. After unfolding rational, dsimp only before split_ifs."
+    },
+    {
+      "id": "OSG-03",
+      "lean": "OSG03",
+      "title": "With a rational human, waiting is worth at least as much as switching off.",
+      "statement": "∀ {ι : Type} [Fintype ι] (b : Belief ι), offValue b ≤ waitValue b rational",
+      "level": "warmup",
+      "context": "The other half of the claim that the robot never loses by deferring.",
+      "sketch": "Finset.sum_nonneg: each term p i * (rational (u i) * u i) is nonnegative. After unfolding rational, dsimp only before split_ifs."
+    },
+    {
+      "id": "OSG-04",
+      "lean": "OSG04",
+      "title": "With a rational human, the robot's incentive to wait is never negative.",
+      "statement": "∀ {ι : Type} [Fintype ι] (b : Belief ι), 0 ≤ incentive b rational",
+      "level": "solid",
+      "context": "The headline of the off-switch game: a robot that is uncertain about the utility and faces a rational human never prefers to disable its off switch.",
+      "sketch": "Combine the two inequalities of OSG-02 and OSG-03 with max_le."
+    },
+    {
+      "id": "OSG-05",
+      "lean": "OSG05",
+      "title": "A robot that is certain of the utility gains nothing by waiting.",
+      "statement": "∀ {ι : Type} [Fintype ι] (b : Belief ι) (c : ℝ), (∀ i, 0 < b.p i → b.u i = c) → incentive b rational = 0",
+      "level": "solid",
+      "context": "The incentive to defer comes from uncertainty. Without it, the off switch offers the robot nothing, which is the paper's warning about systems that become confident in their model of human preferences.",
+      "sketch": "Outcomes with probability zero contribute nothing, so every sum equals its value at utility c; then split on the sign of c."
+    },
+    {
+      "id": "OSG-06",
+      "lean": "OSG06",
+      "title": "With a rational human, the incentive to wait is strictly positive exactly when the robot gives positive probability both to the action being good and to it being bad.",
+      "statement": "∀ {ι : Type} [Fintype ι] (b : Belief ι), 0 < incentive b rational ↔ ((∃ i, 0 < b.p i ∧ 0 < b.u i) ∧ (∃ j, 0 < b.p j ∧ b.u j < 0))",
+      "level": "hard",
+      "context": "Characterises exactly when deference is strictly preferred rather than merely acceptable.",
+      "sketch": "Case on the sign of E[U]. If E[U] ≥ 0 the incentive equals the expected negative part of U; if E[U] < 0 it equals the expected positive part."
+    },
+    {
+      "id": "OSG-07",
+      "lean": "OSG07",
+      "title": "A human who errs with probability at most ε costs at most ε times the expected size of the utility: the incentive to wait is at least −ε·E|U|.",
+      "statement": "∀ {ι : Type} [Fintype ι] (b : Belief ι) (ε : ℝ) (π : ℝ → ℝ), 0 ≤ ε → ErrsAtMost ε π → -(ε * b.E (fun u => |u|)) ≤ incentive b π",
+      "level": "solid",
+      "context": "Real humans are not perfectly rational. This bounds how much deference can cost when the human is only mostly reliable.",
+      "sketch": "Show termwise that π u * u ≥ max u 0 − ε|u|, then use OSG-04's comparison of E[max U 0] with max(E[U], 0)."
+    },
+    {
+      "id": "OSG-08",
+      "lean": "OSG08",
+      "title": "A sufficiently unreliable human can make waiting strictly worse than the robot's best alternative.",
+      "statement": "∃ (b : Belief (Fin 2)) (π : ℝ → ℝ), IsPolicy π ∧ incentive b π < 0",
+      "level": "warmup",
+      "context": "The positive result needs a reliable human; this example shows the assumption cannot simply be dropped.",
+      "sketch": "Two equally likely outcomes with utilities 1 and −1, and a human who blocks good actions and lets bad ones through."
+    },
+    {
+      "id": "OSG-09",
+      "lean": "OSG09",
+      "title": "Waiting is never worse, whatever the robot believes, exactly when the human never errs on an action that is clearly good or clearly bad.",
+      "statement": "∀ (π : ℝ → ℝ), IsPolicy π → ((∀ (ι : Type) [Fintype ι] (b : Belief ι), 0 ≤ incentive b π) ↔ ((∀ u, 0 < u → π u = 1) ∧ (∀ u, u < 0 → π u = 0)))",
+      "level": "hard",
+      "context": "Says how demanding the guarantee is: deference is safe under every belief only if the human is perfectly reliable away from zero utility.",
+      "sketch": "For the forward direction use beliefs with a single outcome (ι = Unit) at utility u. For the reverse direction reduce to OSG-04."
+    }
+  ]
+}

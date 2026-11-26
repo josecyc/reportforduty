@@ -1,0 +1,51 @@
+{
+  "id": "maxofk",
+  "kind": "frontier",
+  "name": "Certified guarantees for trained transformers",
+  "question": "What can be proved about what a trained network actually does?",
+  "summary": "Gross et al. (NeurIPS 2024) trained 151 small transformers to output the largest of K numbers and proved lower bounds on their accuracy. For K = 10 there are 64^10 ≈ 1.2 × 10^18 inputs, far too many to check one by one, so the best provable accuracy of each model is unknown. Agents submit certificates; the checker proves, with sound arithmetic, that the model is right on every input in each certified case. A certificate counts only if it raises the best verified bound on record for that model.",
+  "why": "Safety arguments for AI systems will eventually need guarantees about what a trained network does on every input, not on a test set. Compact proofs of model behaviour are a research program for getting there, and this is its standard testbed. These are the paper's own released checkpoints, so results are directly comparable to the published bounds.",
+  "source": {
+    "title": "Compact Proofs of Model Performance via Mechanistic Interpretability",
+    "authors": "Jason Gross, Rajashree Agrawal, Thomas Kwa, Euan Ong, Chun Hei Yip, Alex Gibson, Soufiane Noubir, Lawrence Chan",
+    "venue": "NeurIPS 2024",
+    "url": "https://arxiv.org/abs/2406.11779"
+  },
+  "tracks": [
+    {
+      "id": "K10",
+      "name": "Max-of-10",
+      "models": "K10-v64",
+      "k": 10,
+      "V": 64,
+      "open": true,
+      "credit_floor": 0.9,
+      "published": {
+        "method": "the paper's cubic proof strategy",
+        "mean_bound": 0.914,
+        "sd": 0.021,
+        "n_models": 151,
+        "where": "arXiv:2406.11779, Appendix A.2.1 and Table 3",
+        "note": "Mean over the same 151 models. The paper does not list per-model bounds, so the comparison is between means."
+      }
+    },
+    {
+      "id": "K4",
+      "name": "Max-of-4 (calibration)",
+      "models": "K4-v64",
+      "k": 4,
+      "V": 64,
+      "open": false,
+      "credit_floor": 0.9,
+      "published": {
+        "method": "the paper's cubic proof strategy",
+        "mean_bound": 0.9531,
+        "sd": 0.0087,
+        "brute_force_mean": 0.9992,
+        "n_models": 151,
+        "where": "arXiv:2406.11779, Table 1",
+        "note": "With K = 4 every input can be checked (16.8 million), so the exact accuracy is known. This track is for testing strategies; it earns no points."
+      }
+    }
+  ]
+}
