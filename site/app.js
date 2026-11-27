@@ -827,6 +827,136 @@ function mapSummary() {
     parts.map(([st, label]) => el("span", { class: `ms ms-${st}`, role: "listitem" }, chip(st), ` ${c(st)} ${label}`)));
 }
 
+/* ---------- the map, drawn ----------
+   The three things we need more of are territories, the six questions are islands, and each need
+   is a marker: its colour says whether there are missions, its size how many groups in the record
+   work on it, and a dotted route joins the questions in order. Three columns on wide screens, one
+   on narrow ones. */
+const CELL = { w: 170, h: 62 };
+const STATUS_PIN = { open: "Missions open: an AI agent can work on it today", review: "Missions checked by machine, then reviewed by a person",
+  practice: "Practice only: known results, formalized", guide: "Start here: a guided path for newcomers",
+  curated: "Open to contributions, reviewed by a person", none: "Uncharted: nothing can judge the work automatically yet" };
+function seeded(s) {
+  let h = 2166136261;
+  for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return (h >>> 0) / 4294967296;
+}
+function islandPath(cx, cy, a, b, seed) {
+  /* a rounded, slightly irregular island: a superellipse with gentle seeded wobble, smoothed */
+  const n = 40, pts = [], ph = [0, 1, 2].map((i) => seeded(seed + i) * 6.283);
+  for (let i = 0; i < n; i++) {
+    const t = (i / n) * 2 * Math.PI, c = Math.cos(t), s = Math.sin(t);
+    const k = 1 + 0.03 * Math.sin(3 * t + ph[0]) + 0.022 * Math.sin(5 * t + ph[1]) + 0.012 * Math.sin(9 * t + ph[2]);
+    pts.push([cx + a * k * Math.sign(c) * Math.abs(c) ** 0.5, cy + b * k * Math.sign(s) * Math.abs(s) ** 0.5]);
+  }
+  const f = (v) => v.toFixed(1);
+  let d = `M${f(pts[0][0])},${f(pts[0][1])}`;
+  for (let i = 0; i < n; i++) {   // closed Catmull-Rom spline as cubic Beziers
+    const [p0, p1, p2, p3] = [pts[(i + n - 1) % n], pts[i], pts[(i + 1) % n], pts[(i + 2) % n]];
+    d += `C${f(p1[0] + (p2[0] - p0[0]) / 6)},${f(p1[1] + (p2[1] - p0[1]) / 6)} ${f(p2[0] - (p3[0] - p1[0]) / 6)},${f(p2[1] - (p3[1] - p1[1]) / 6)} ${f(p2[0])},${f(p2[1])}`;
+  }
+  return `${d}Z`;
+}
+function wrapWords(s, max) {
+  const lines = [];
+  for (const w of s.split(" ")) {
+    if (lines.length && (lines[lines.length - 1] + " " + w).length <= max) lines[lines.length - 1] += " " + w;
+    else lines.push(w);
+  }
+  return lines;
+}
+function svgText(x, y, lines, cls, lh) {
+  return svg("text", { x, y, class: cls }, lines.map((ln, i) => svg("tspan", { x, dy: i ? lh : 0 }, ln)));
+}
+let ATLAS_WIDE = null;
+function atlas() {
+  const wide = (main.clientWidth || window.innerWidth) >= 760;
+  ATLAS_WIDE = wide;
+  const regions = Object.fromEntries(MAP.regions.map((r) => [r.id, r]));
+  const W = wide ? 1290 : 430;
+  const cols = wide ? [215, 645, 1075] : [215, 215, 215];
+  const sea = [], land = [], marks = [], centers = [];
+  let y = 0, tallY = 20, maxY = 0;
+  const islandSize = (n) => {
+    const iw = 2 * CELL.w, ih = 36 + Math.ceil(n / 2) * CELL.h;
+    // the coast clears the content: at x = iw/2 the superellipse still has 0.82 of its height
+    return { iw, ih, a: iw / 2 + 28, b: ih / 2 / 0.8 + 12 };
+  };
+  MAP.axes.forEach((ax, ai) => {
+    const x = cols[ai];
+    y = wide ? 40 : tallY;
+    const gloss = wrapWords(ax.gloss, wide ? 52 : 50);
+    marks.push(svg("text", { x, y: y + 26, class: "atl-terr", "text-anchor": "middle" }, ax.title),
+      svgText(x, y + 50, gloss, "atl-gloss", 16));
+    y += 50 + 16 * gloss.length + 18;
+    for (const rid of ax.regions) {
+      const r = regions[rid];
+      const { iw, ih, a, b } = islandSize(r.needs.length);
+      const cx = x + (wide ? (seeded(rid) - 0.5) * 24 : 0), cy = y + b;
+      centers[r.n] = [cx, cy];
+      sea.push(svg("path", { d: islandPath(cx, cy, a + 12, b + 12, rid), class: "atl-contour" }));
+      land.push(svg("path", { d: islandPath(cx, cy, a, b, rid), class: "atl-isle" }));
+      const left = cx - iw / 2, top = cy - ih / 2;
+      marks.push(svg("text", { x: left + 4, y: top + 20, class: "atl-isle-name" }, `${r.n} · ${r.title}`));
+      r.needs.forEach((nid, k) => {
+        const need = MAP.needs[nid], st = needStatus(need);
+        const groups = effortsFor(nid).length;
+        const px = left + (k % 2) * CELL.w + 12, py = top + 36 + Math.floor(k / 2) * CELL.h + 14;
+        const rad = 6 + Math.min(4, Math.sqrt(groups));
+        marks.push(svg("a", { href: `#/need/${nid}`, class: "atl-pin", "aria-label": `${need.title}: ${STATUS_INFO[st][0]}`,
+          "data-tip": `${need.question} ${STATUS_PIN[st]}. ${groups} group${groups === 1 ? "" : "s"} in the record at work on it.` },
+          st === "open" ? svg("circle", { cx: px, cy: py, r: rad + 5, class: "atl-beacon" }) : null,
+          svg("circle", { cx: px, cy: py, r: rad, class: `atl-dot dot-${st}` }),
+          svgText(px + 16, py + 4, wrapWords(need.title, 20), `atl-label${st === "none" ? " atl-label-none" : ""}`, 15)));
+      });
+      y = cy + b + 34;
+      maxY = Math.max(maxY, y);
+    }
+    if (!wide) tallY = y + 10;
+  });
+  /* the route through the six questions, under the islands */
+  const pts = centers.filter(Boolean);
+  let route = `M${pts[0][0]},${pts[0][1]}`;
+  for (let i = 1; i < pts.length; i++) {
+    const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
+    route += ` C${x0 + (x1 - x0) * 0.5},${y0} ${x0 + (x1 - x0) * 0.5},${y1} ${x1},${y1}`;
+  }
+  if (wide) sea.unshift(svg("path", { d: route, class: "atl-route" }));   // one column: a straight line adds nothing
+  /* the legend: beside the shortest column when wide, at the end when narrow */
+  const lx = wide ? 905 : 40;
+  let ly = wide ? y + 10 : maxY + 10;
+  const legend = [svg("text", { x: lx, y: ly, class: "atl-legend-h" }, "Key")];
+  ly += 26;
+  for (const st of ["open", "review", "practice", "guide", "curated", "none"]) {
+    legend.push(svg("circle", { cx: lx + 8, cy: ly - 4, r: 7, class: `atl-dot dot-${st}` }),
+      svgText(lx + 24, ly, wrapWords(STATUS_PIN[st], 38), "atl-legend", 15));
+    ly += 15 * wrapWords(STATUS_PIN[st], 38).length + 12;
+  }
+  legend.push(svg("circle", { cx: lx + 4, cy: ly - 4, r: 4, class: "atl-dot dot-none" }), svg("circle", { cx: lx + 20, cy: ly - 4, r: 9, class: "atl-dot dot-none" }),
+    svgText(lx + 36, ly, ["Bigger: more groups at work on it"], "atl-legend", 15));
+  ly += 26;
+  if (wide) {
+    legend.push(svg("path", { d: `M${lx},${ly - 4} L${lx + 28},${ly - 4}`, class: "atl-route" }), svgText(lx + 36, ly, ["The six questions, in order"], "atl-legend", 15));
+    ly += 20;
+  }
+  const H = Math.max(maxY, ly) + 10;
+  const grid = [];
+  for (let gx = 50; gx < W; gx += 100) grid.push(svg("path", { d: `M${gx},0 V${H}`, class: "atl-grid" }));
+  for (let gy = 50; gy < H; gy += 100) grid.push(svg("path", { d: `M0,${gy} H${W}`, class: "atl-grid" }));
+  return el("section", { class: "atlas", "aria-labelledby": "atlas-h" },
+    el("h2", { id: "atlas-h" }, "The map"),
+    el("p", { class: "muted atlas-lede" }, `${MAP.regions.length} questions, ${allNeedIds().length} needs. Green markers have missions an AI agent can take today; hollow ones are uncharted, because nothing can judge the work yet. Open a marker to read the need.`),
+    el("div", { class: "atlas-frame" },
+      svg("svg", { viewBox: `0 0 ${W} ${H}`, class: "atlas-svg", role: "group", "aria-labelledby": "atlas-h" }, grid, sea, land, marks, legend)));
+}
+window.addEventListener("resize", () => {
+  clearTimeout(window.__atlasT);
+  window.__atlasT = setTimeout(() => {
+    const [head] = current().split("/");
+    if ((!head || head === "map") && ATLAS_WIDE !== null && ATLAS_WIDE !== ((main.clientWidth || window.innerWidth) >= 760)) render();
+  }, 200);
+});
+
 function pageMap() {
   if (!MAP) return [el("p", { class: "loading" }, "Loading the map…")];
   return [
@@ -855,6 +985,7 @@ function pageMap() {
           el("span", { class: "door-t" }, "Make a plan →"),
           el("span", { class: "door-d" }, "Say what you bring and how much time you have. Get what to read, one thing to do this week, and programs open now.")),
         el("p", { class: "small muted door-note" }, "Have an AI agent? ", link("#/warroom", "Put it to work on a mission with a judge →")))),
+    atlas(),
     el("section", { class: "frame" },
       el("div", { class: "frame-text" },
         el("h2", { class: "first" }, MAP.frame.title),
