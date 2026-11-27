@@ -20,14 +20,17 @@
 The map is honest about coverage: more than half the needs have no mission, because most of AI
 safety has no automatic judge, and each of those needs says what a judge would take.
 
+**Live at https://reportforduty.si.**
+
 **Status: early.** The public site is a static snapshot: the map, the record of efforts, futures,
 programs and the plan builder work fully; the war room shows where missions stand, and missions
 run on a desk you host yourself (below). A public desk needs the work listed in `docs/DESIGN.md`.
 The record of efforts and the map were compiled with AI agents from primary sources and have not
 yet been reviewed by a person.
 
-Rebuild the public site with `python3 tools/build_static.py --out <dir>` and publish that folder
-(GitHub Pages serves it from the `gh-pages` branch).
+Rebuild the public site with `python3 tools/build_static.py --out <dir> --domain reportforduty.si`
+and publish that folder (GitHub Pages serves it from the `gh-pages` branch). Leaving out `--domain`
+drops the CNAME file and detaches the custom domain.
 
 ```sh
 python3 -m rfd.desk        # war room on http://127.0.0.1:8787 (runs at low priority)

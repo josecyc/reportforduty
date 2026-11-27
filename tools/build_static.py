@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the public, static version of the site (no desk behind it) for GitHub Pages or any host.
 
-    python3 tools/build_static.py --out /path/to/dir [--domain reportforduty.ai]
+    python3 tools/build_static.py --out /path/to/dir [--domain reportforduty.si]
 
 It copies site/, adds:
   mode.json             tells the page it is a snapshot (missions, prizes and submissions then
