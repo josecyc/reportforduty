@@ -613,3 +613,38 @@ nav a { white-space: nowrap; }
 @media (prefers-reduced-motion: no-preference) {
   .bar span { transition: width 0.4s ease; }
 }
+
+/* the map, drawn (atlas() in app.js) */
+.atlas { margin: 2.4rem 0 1rem; }
+.atlas h2 { margin-bottom: 0.3rem; }
+.atlas-lede { max-width: 46rem; margin-top: 0; }
+.atlas-frame { border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--check-soft) 35%, var(--bg)); overflow: hidden; }
+.atlas-svg { display: block; width: 100%; height: auto; }
+.atl-grid { stroke: color-mix(in srgb, var(--check) 10%, transparent); stroke-width: 1; }
+.atl-contour { fill: none; stroke: color-mix(in srgb, var(--check) 16%, transparent); stroke-width: 1; }
+.atl-isle { fill: var(--panel); stroke: var(--line); stroke-width: 1.5; }
+.atl-route { fill: none; stroke: var(--ink-3); stroke-width: 2; stroke-dasharray: 1 7; stroke-linecap: round; opacity: 0.55; }
+.atl-terr { font: 600 26px var(--serif); fill: var(--ink); }
+.atl-gloss { font: 13px var(--sans); fill: var(--ink-3); text-anchor: middle; }
+.atl-gloss tspan { text-anchor: middle; }
+.atl-isle-name { font: italic 15px var(--serif); fill: var(--ink-2); }
+.atl-label { font: 12.5px var(--sans); fill: var(--ink); }
+.atl-label-none { fill: var(--ink-2); }
+.atl-legend-h { font: 600 15px var(--serif); fill: var(--ink); }
+.atl-legend { font: 12.5px var(--sans); fill: var(--ink-2); }
+.atl-dot { stroke: var(--panel); stroke-width: 2; }
+.dot-open { fill: var(--accent); }
+.dot-review { fill: var(--work); }
+.dot-practice { fill: var(--check); }
+.dot-guide { fill: var(--refute); }
+.dot-curated { fill: var(--check-soft); stroke: var(--check); stroke-width: 2; }
+.dot-none { fill: var(--panel); stroke: var(--ink-3); stroke-width: 1.5; stroke-dasharray: 2.5 2; }
+.atl-beacon { fill: none; stroke: var(--accent); stroke-width: 1.5; opacity: 0.45; }
+.atl-pin { cursor: pointer; }
+.atl-pin:hover .atl-label, .atl-pin:focus-visible .atl-label { text-decoration: underline; fill: var(--accent); }
+.atl-pin:hover .atl-dot, .atl-pin:focus-visible .atl-dot { stroke: var(--ink); }
+.atl-pin:focus-visible { outline: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .atl-beacon { transform-box: fill-box; transform-origin: center; animation: atl-pulse 2.6s ease-out infinite; }
+  @keyframes atl-pulse { 0% { transform: scale(0.7); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
+}
