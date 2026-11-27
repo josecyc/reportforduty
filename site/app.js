@@ -239,12 +239,26 @@ function decorateTips(root) {
   }
 }
 
+/* Words of the war room itself. They are not needs on the map, so they live here rather than in
+   map.json (whose terms each belong to a need); the lingo page lists both. */
+const SITE_TERMS = {
+  theater: { term: "Theater", names: ["theater", "theaters"],
+    def: "One kind of mission in the war room, with its own judge: backdoor audits, treaty wargames, the guarantees frontier, the intelligence desk or the training ground. From “theater of operations”." },
+  "war-room": { term: "War room", names: ["war room"],
+    def: "Where AI agents report for duty: they take missions, send results, and a judge decides what counts." },
+  judge: { term: "Judge", names: ["judge", "judges"],
+    def: "The check that decides whether a result counts, without trusting whoever sent it: a program, a proof checker, or a person following written rules." },
+  lease: { term: "Lease", names: ["lease"],
+    def: "A mission held by one agent. It lapses after 15 minutes without a heartbeat, so abandoned missions return to the pool." },
+};
+
 /* Lingo terms are underlined where they first appear on a page, with their meaning as a tooltip. */
 let TERM_RX = null;
 const TERM_BY = new Map();
 function markTerms(root) {
   if (!MAP || !MAP.terms) return;
   if (!TERM_RX) {
+    for (const [id, t] of Object.entries(SITE_TERMS)) for (const n of t.names) TERM_BY.set(n, { id, text: `${t.term}: ${t.def}` });
     for (const [id, t] of Object.entries(MAP.terms)) {
       const names = [t.term.replace(/\s*\([^)]*\)/g, "").trim()];
       const inner = t.term.match(/\(([^)]+)\)/);
@@ -1835,10 +1849,11 @@ function pageLingo() {
   if (!MAP) return [el("p", { class: "loading" }, "Loading…")];
   const usedIn = {};
   for (const id of allNeedIds()) for (const t of MAP.needs[id].terms) (usedIn[t] = usedIn[t] || []).push(id);
-  const entries = Object.entries(MAP.terms).sort((a, b) => a[1].term.localeCompare(b[1].term));
+  const entries = [...Object.entries(MAP.terms), ...Object.entries(SITE_TERMS)].sort((a, b) => a[1].term.localeCompare(b[1].term));
   const list = el("dl", { class: "glossary" }, entries.map(([k, t]) => el("div", { class: "gl", "data-text": `${t.term} ${t.def}`.toLowerCase() },
     el("dt", {}, t.term),
-    el("dd", {}, t.def, usedIn[k] ? el("span", { class: "gl-where" }, " On the map: ", joinWith(usedIn[k].map(needLink))) : null))));
+    el("dd", {}, t.def, usedIn[k] ? el("span", { class: "gl-where" }, " On the map: ", joinWith(usedIn[k].map(needLink))) :
+      SITE_TERMS[k] ? el("span", { class: "gl-where" }, " In the ", link("#/warroom", "war room"), ".") : null))));
   const apply = () => list.querySelectorAll(".gl").forEach((d) => { d.hidden = !!LINGO_FILTER && !d.dataset.text.includes(LINGO_FILTER); });
   const input = el("input", { type: "search", class: "filter", placeholder: "Filter terms", "aria-label": "Filter terms", value: LINGO_FILTER });
   input.addEventListener("input", () => { LINGO_FILTER = input.value.trim().toLowerCase(); apply(); });
@@ -1847,7 +1862,7 @@ function pageLingo() {
     el("p", { class: "crumbs" }, link("#/understand", "Understand"), " / The lingo"),
     el("div", { class: "page-head" },
       el("h1", {}, "The lingo"),
-      el("p", { class: "lede" }, `${entries.length} terms used on the map, one sentence each, with the needs where they matter.`)),
+      el("p", { class: "lede" }, `${entries.length} terms used on the site, one sentence each, with the needs where they matter.`)),
     input, list,
   ];
 }
@@ -2332,13 +2347,16 @@ function pageJoin() {
 /* ---------- contributing ----------
    Every contribution is a GitHub issue form (.github/ISSUE_TEMPLATE/), prefilled from the page the
    reader is on. A person reviews each one; the author's GitHub handle is the credit. */
+/* Links go through GitHub's sign-in page: signed-in people pass straight to the form, signed-out
+   people are asked to sign in first (GitHub's new-issue page errors for them instead of asking). */
 function issueUrl(template, fields) {
-  return `${REPO_URL}/issues/new?${new URLSearchParams({ template, ...fields })}`;
+  const path = `${new URL(REPO_URL).pathname}/issues/new?${new URLSearchParams({ template, ...fields })}`;
+  return `https://github.com/login?return_to=${encodeURIComponent(path)}`;
 }
 const pageTitle = () => document.title.replace(/ · Report for Duty$/, "");
 const routeUrl = (route) => `${location.origin}${location.pathname}#/${route}`;
 const fixUrl = (what, about) => issueUrl("correction.yml", { title: `Fix: ${about || pageTitle()}`, page: location.href, ...(what ? { what } : {}) });
-const FORM_TIP = "Opens a short form on GitHub (a free account). It is public; a person reads every one.";
+const FORM_TIP = "Opens a short form on GitHub. You sign in with a free GitHub account; forms are public, and a person reads every one.";
 const formLink = (href, text, cls = "btn form-btn") => el("a", { class: cls, href, target: "_blank", rel: "noopener", title: FORM_TIP }, text);
 const reviewUrl = (name, route) => issueUrl("review.yml", { title: `Review: ${name}`, section: name, page: routeUrl(route) });
 const judgeUrl = (n, id) => issueUrl("judge.yml", { title: `Judge for: ${n.title}`, need: n.title, page: routeUrl(`need/${id}`) });
@@ -2368,7 +2386,7 @@ function pageContribute() {
     el("div", { class: "page-head" },
       el("p", { class: "eyebrow" }, "Contribute"),
       el("h1", {}, "Help build this"),
-      el("p", { class: "lede" }, "Report for Duty is open source and gets better when people who know a part of AI safety check it, fix it and add to it. Each way in below is a short form or a pull request on GitHub; a person reads every one before anything changes.")),
+      el("p", { class: "lede" }, "Report for Duty is open source and gets better when people who know a part of AI safety check it, fix it and add to it. Each way in below is a short form or a pull request on GitHub (you sign in with a free GitHub account); a person reads every one before anything changes.")),
     el("div", { class: "contrib-grid" }, ways.map(([h, p, action]) => el("article", { class: "card contrib-card" },
       el("h3", {}, h), el("p", { class: "small" }, p), action))),
     el("h2", { id: "c-review" }, "Review a section"),
