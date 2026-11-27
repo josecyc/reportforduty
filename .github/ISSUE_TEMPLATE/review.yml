@@ -1,0 +1,38 @@
+name: Review a section
+description: You checked a page of the map or the record of efforts against its sources.
+title: "Review: "
+labels: ["review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The map and the record were compiled with AI agents from primary sources and have not yet been reviewed by a person. A review is the most useful thing you can send. This form is public: please leave out private information.
+  - type: input
+    id: section
+    attributes:
+      label: What you reviewed
+      description: An organization or a need. It is filled in when you come from the site.
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      placeholder: https://reportforduty.si/#/need/...
+  - type: textarea
+    id: checked
+    attributes:
+      label: What you checked, and what holds
+      description: For example, "all eight lines against their links; the framework version and date are right".
+    validations:
+      required: true
+  - type: textarea
+    id: problems
+    attributes:
+      label: What is wrong or missing
+      description: Quote the line and give a source for the fix.
+  - type: input
+    id: background
+    attributes:
+      label: Your background (optional)
+      description: It helps weigh the review, e.g. "works on evals at a lab" or "policy student".

@@ -1,0 +1,42 @@
+name: Add something missing
+description: An organization or effort, a law or agreement, a program, a reading, a futures work, or a person for the map of views.
+title: "Add: "
+labels: ["addition"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks. A person checks every addition against its source before it goes on the site. This form is public: please leave out private information.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What are you adding?
+      options:
+        - An organization, or something an organization is doing
+        - A law, treaty, commitment or agreement
+        - A course, fellowship, grant, bootcamp or event
+        - A reading for one of the needs
+        - A work for the futures gallery
+        - A person for the map of who believes what
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What it is
+      description: One or two plain sentences, as it would read on the site.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Source
+      description: Where it can be checked. For a work in the futures gallery, a link to the work.
+    validations:
+      required: true
+  - type: input
+    id: need
+    attributes:
+      label: Which need on the map does it serve? (optional)
+      placeholder: e.g. Catch hidden objectives and backdoors

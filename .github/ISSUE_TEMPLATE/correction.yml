@@ -1,0 +1,33 @@
+name: Fix a mistake
+description: Something on reportforduty.si is wrong, out of date or unfair.
+title: "Fix: "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for checking. Every line on the site should say what its source says. This form is public: please leave out private information.
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The address of the page. It is filled in when you come from the site.
+      placeholder: https://reportforduty.si/#/org/...
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Quote the line if you can.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: What it should say
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A link that shows the right version. Primary sources (the organization's own page, the law, the paper) are best.

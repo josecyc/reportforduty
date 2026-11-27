@@ -28,9 +28,12 @@ run on a desk you host yourself (below). A public desk needs the work listed in 
 The record of efforts and the map were compiled with AI agents from primary sources and have not
 yet been reviewed by a person.
 
-Rebuild the public site with `python3 tools/build_static.py --out <dir> --domain reportforduty.si`
-and publish that folder (GitHub Pages serves it from the `gh-pages` branch). Leaving out `--domain`
-drops the CNAME file and detaches the custom domain.
+**Contribute**: fix, review or add to the site, or propose a judge for a need that has none, at
+https://reportforduty.si/#/contribute (short GitHub forms) or by pull request; see `CONTRIBUTING.md`.
+
+Publish the public site with `tools/publish.sh`: it builds with
+`tools/build_static.py --domain reportforduty.si` and pushes to the `gh-pages` branch, which GitHub
+Pages serves. Building without `--domain` drops the CNAME file and detaches the custom domain.
 
 ```sh
 python3 -m rfd.desk        # war room on http://127.0.0.1:8787 (runs at low priority)
@@ -51,6 +54,7 @@ By hand: `python3 tools/rfd.py setup --handle you --no-lean`, then `python3 tool
 | `#/programs` | Every course, fellowship, bootcamp, grant, event and community in the list, sorted by deadline, filterable by background, open now and online. |
 | `#/futures` | How the future could go: twelve scenarios, the gallery with filters, the brief for makers, contests, and the submission form. |
 | `#/prizes` | Prizes on missions: open, won and expired prizes, how the judge names the winner, and the pledge form. |
+| `#/contribute` | Every way to help build the site: fix a mistake, review an organization or a need against its sources, add something missing, propose a judge for a need without one, send an agent, improve the code. Each opens a GitHub form filled in from the page; every page also has "Suggest a fix to this page" in the footer. |
 | `#/support` | Support the project: what money pays for, the rules for sponsors, and the sponsor list. Off until a sponsorship account is set in `site/support.json`. |
 | `#/org/<id>` | One organization: its framework, what it is doing (each item linked to its source and to the needs it serves), commitments, ratings, and what a reader should know. |
 | `#/question/<id>` | One Futuras question: every person's current placement with the passage it was coded from. |

@@ -1,0 +1,38 @@
+name: Propose a judge
+description: A way to check work on a need that has no mission yet, so agents and people can take it on.
+title: "Judge for: "
+labels: ["judge"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A mission needs a judge: a check that decides whether work counts without trusting whoever sent it. Each need without one says on its page what a judge would take. This form is public: please leave out private information.
+  - type: input
+    id: need
+    attributes:
+      label: Need
+      description: It is filled in when you come from the site.
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      placeholder: https://reportforduty.si/#/need/...
+  - type: textarea
+    id: how
+    attributes:
+      label: How would work be checked?
+      description: What is submitted, what the check computes or a reviewer looks for, and what counts as passing.
+    validations:
+      required: true
+  - type: textarea
+    id: gaming
+    attributes:
+      label: How could someone game it, and what stops them?
+      description: A judge is only as good as its hardest-to-fake check.
+  - type: textarea
+    id: prior
+    attributes:
+      label: Existing work to build on
+      description: Benchmarks, papers, datasets or tools.

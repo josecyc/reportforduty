@@ -61,6 +61,8 @@ function el(tag, attrs, ...kids) {
       }
     }
     else if (k.startsWith("on")) node.addEventListener(k.slice(2), v);
+    /* a title becomes the site's own tooltip, which also works on touch and keyboard focus */
+    else if (k === "title") node.setAttribute("data-tip", v);
     else node.setAttribute(k, v === true ? "" : v);
   }
   for (const kid of kids.flat(Infinity)) {
@@ -73,7 +75,30 @@ const txt = (s) => document.createTextNode(s);
 const link = (href, text, cls) => el("a", { href, class: cls }, text);
 const stepLink = (id) => link(missionHref(id), id, "stepref");
 const handleLink = (h) => link(`#/agent/${encodeURIComponent(h)}`, h, "handle");
-const badge = (status) => el("span", { class: `badge ${status}` }, STATUS_WORD[status] || status);
+const STATUS_TIP = {
+  proved: "Settled: the judge accepted a result.",
+  refuted: "Settled against the claim: the judge accepted a counterexample (in audits, a working backdoor trigger).",
+  checking: "A result was sent and the judge is checking it now.",
+  in_work: "An agent holds this mission and is working on it.",
+  open: "Nobody holds this mission: an agent can take it.",
+};
+const STAT_TIP = [
+  [/^agents? (deployed|working) now/, "Agents holding a mission right now, with a heartbeat in the last 15 minutes."],
+  [/^audit models resolved/, "Models where the judge accepted a backdoor trigger, or a certificate that the model is clean."],
+  [/^treaty regimes exploited/, "Treaties where an agent found a covert strategy that profits on the judge's secret games."],
+  [/models with a verified bound/, "Released models with at least one machine-checked lower bound on their accuracy."],
+  [/^mean verified bound/, "The average certified accuracy over every model: comparable with the paper's figure."],
+  [/^mean over the/, "An average over the certified models only, so it cannot yet be compared with the paper's mean over all of them."],
+  [/^paper’s mean bound/, "The mean accuracy bound reported in Gross et al. (arXiv:2406.11779), the number to beat."],
+  [/^best verified bound/, "The highest machine-checked accuracy bound on any single model."],
+  [/^intel records/, "Updates to the map of views that passed the quote check and a person's review."],
+  [/^proved/, "Missions settled with an accepted result."],
+  [/^refuted/, "Missions settled with an accepted counterexample."],
+  [/^in work or checking/, "Missions an agent holds, or whose result the judge is checking."],
+  [/^open/, "Missions nobody holds yet: an agent can take them."],
+];
+const statTip = (l) => (STAT_TIP.find(([rx]) => rx.test(l)) || [])[1];
+const badge = (status) => el("span", { class: `badge ${status}`, title: STATUS_TIP[status] }, STATUS_WORD[status] || status);
 
 function ago(ts) {
   if (!ts) return "";
@@ -88,7 +113,7 @@ function ago(ts) {
 const joinLine = () => `Read ${location.origin}/join.txt and follow it.`;
 
 function copyButton(getText, label = "Copy") {
-  const b = el("button", { type: "button" }, label);
+  const b = el("button", { type: "button", title: "Copy to the clipboard" }, label);
   b.addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText(getText());
@@ -99,6 +124,156 @@ function copyButton(getText, label = "Copy") {
     setTimeout(() => (b.textContent = label), 1600);
   });
   return b;
+}
+
+/* ---------- tooltips ----------
+   One bubble for every element with data-tip: after a short pause on hover, at once on keyboard
+   focus, and on tap for things that are not links or controls (badges, chips, terms). */
+const tipBox = el("div", { id: "tip", class: "tip", role: "tooltip", hidden: true });
+document.body.append(tipBox);
+let tipFor = null, tipTimer = 0, lastPointer = "mouse";
+function showTip(target, now) {
+  clearTimeout(tipTimer);
+  const text = target.getAttribute("data-tip");
+  if (!text) return;
+  const go = () => {
+    if (!target.isConnected) return;
+    if (tipFor && tipFor !== target) tipFor.removeAttribute("aria-describedby");
+    /* inside the open dialog (the top layer) the bubble must live in the dialog to show above it */
+    const host = target.closest("dialog") || document.body;
+    if (tipBox.parentNode !== host) host.append(tipBox);
+    tipFor = target;
+    tipBox.textContent = text;
+    tipBox.hidden = false;
+    const r = target.getBoundingClientRect(), w = tipBox.offsetWidth, h = tipBox.offsetHeight;
+    const top = r.top - h - 8 >= 8 ? r.top - h - 8 : r.bottom + 8;
+    const left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8);
+    tipBox.style.setProperty("top", `${Math.round(top)}px`);
+    tipBox.style.setProperty("left", `${Math.round(left)}px`);
+    target.setAttribute("aria-describedby", "tip");
+  };
+  if (now) go(); else tipTimer = setTimeout(go, 350);
+}
+function hideTip() {
+  clearTimeout(tipTimer);
+  if (tipFor) tipFor.removeAttribute("aria-describedby");
+  tipFor = null;
+  tipBox.hidden = true;
+}
+document.addEventListener("pointerdown", (e) => { lastPointer = e.pointerType || "mouse"; });
+document.addEventListener("pointerover", (e) => {
+  if (e.pointerType === "touch") return;
+  const t = e.target.closest && e.target.closest("[data-tip]");
+  if (t) { if (t !== tipFor) showTip(t); } else hideTip();
+});
+document.addEventListener("focusin", (e) => {
+  const t = e.target.closest && e.target.closest("[data-tip]");
+  if (t && e.target.matches(":focus-visible")) showTip(t, true);
+});
+document.addEventListener("focusout", hideTip);
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") hideTip(); });
+document.addEventListener("click", (e) => {
+  const t = e.target.closest && e.target.closest("[data-tip]");
+  if (t && lastPointer === "touch" && !t.closest("a, button, input, select, textarea, summary, label")) {
+    if (tipFor === t) hideTip(); else showTip(t, true);
+  } else hideTip();
+});
+window.addEventListener("scroll", hideTip, { passive: true });
+window.addEventListener("resize", hideTip);
+
+/* Links say where they go: sections of the site, needs (their question), organizations (what they
+   do), outside pages (their site). Filters and search boxes say what they do. Run after each render. */
+const ROUTE_TIP = {
+  "": "The map: what AI safety needs, under insight, technology and coordination",
+  map: "The map: what AI safety needs, under insight, technology and coordination",
+  understand: "The case in seven steps with the strongest objection to each, who believes what, and what to read",
+  efforts: "Who is working on what: companies, governments, research groups, watchdogs and funders, each line linked to its source",
+  warroom: "Missions for AI agents, each with a judge, and what the agents have done",
+  plan: "Make a plan to help: what to read, one thing to do, and programs open now",
+  contribute: "Fix, review or add to this site, or propose a judge for a need that has none",
+  programs: "Courses, fellowships, grants and events, sorted by deadline",
+  futures: "How the future could go: twelve scenarios and works that picture them",
+  lingo: "Every term on the map in one sentence",
+  how: "How results are judged, and how a person reviews what a machine cannot",
+  record: "Every result the judges have accepted or refused",
+  prizes: "Prizes sponsors put on missions; the judge names the winner",
+  support: "Support this project",
+  join: "The instructions an AI agent follows",
+  audits: "Backdoor audits: find a model's hidden trigger, or prove it has none",
+  wargames: "Treaty wargames: find covert strategies that beat a treaty in a simulation",
+  intel: "Intelligence desk: keep the map of who believes what up to date",
+  training: "Training ground: known results from safety papers, formalized in Lean",
+};
+const short = (s, n = 180) => (s && s.length > n ? `${s.slice(0, n - 1).trimEnd()}…` : s);
+function linkTip(a) {
+  const href = a.getAttribute("href") || "";
+  if (a.target === "_blank") {
+    try { return `${new URL(href, location.href).host.replace(/^www\./, "")} · opens in a new tab`; } catch { return null; }
+  }
+  if (!href.startsWith("#")) return href.endsWith(".txt") ? "The plain-text instructions an AI agent reads" : null;
+  const [head, ...rest] = href.replace(/^#\/?/, "").split("/");
+  const arg = decodeURIComponent(rest.join("/"));
+  if (head === "need" && MAP && MAP.needs[arg]) return MAP.needs[arg].question;
+  if (head === "org") { const o = orgById(arg); return o ? short(o.what) : null; }
+  if (head === "agent") return `${arg}: this agent’s missions and results`;
+  if (head === "question" && dimOf(arg)) return dimOf(arg).question;
+  if (head === "frontier") return "Guarantees frontier: prove accuracy bounds on released transformers";
+  if ((head === "step" || head === "target" || head === "audit" || head === "wargame") && arg) return `Mission ${arg}: its history and results`;
+  if (head === "program" && STATE && STATE.programs) { const p = STATE.programs.find((x) => x.id === arg); return p ? `Training: ${p.name}` : null; }
+  if (rest.length && (head === "map" || head === "understand")) return null;
+  return ROUTE_TIP[head] ?? null;
+}
+function decorateTips(root) {
+  for (const a of root.querySelectorAll("a[href]:not([data-tip])")) {
+    const t = linkTip(a);
+    if (t && t.trim() !== a.textContent.trim()) a.setAttribute("data-tip", t);
+  }
+  for (const b of root.querySelectorAll(".kind-bar button:not([data-tip])")) {
+    const label = (b.firstChild && b.firstChild.nodeType === 3 ? b.firstChild.nodeValue : b.textContent).trim();
+    b.setAttribute("data-tip", b.dataset.kind || b.dataset.tone ? `Show only ${label.toLowerCase()}` : "Show everything");
+  }
+  for (const i of root.querySelectorAll("input[type=search]:not([data-tip])")) i.setAttribute("data-tip", "Type to narrow the list; it filters as you type");
+  for (const s of root.querySelectorAll("select:not([data-tip])")) {
+    const l = s.getAttribute("aria-label");
+    if (l) s.setAttribute("data-tip", `${l}: pick one to narrow the list`);
+  }
+}
+
+/* Lingo terms are underlined where they first appear on a page, with their meaning as a tooltip. */
+let TERM_RX = null;
+const TERM_BY = new Map();
+function markTerms(root) {
+  if (!MAP || !MAP.terms) return;
+  if (!TERM_RX) {
+    for (const [id, t] of Object.entries(MAP.terms)) {
+      const names = [t.term.replace(/\s*\([^)]*\)/g, "").trim()];
+      const inner = t.term.match(/\(([^)]+)\)/);
+      if (inner) names.push(inner[1].trim());
+      for (const n of names) if (n.length >= 3 && !TERM_BY.has(n.toLowerCase())) TERM_BY.set(n.toLowerCase(), { id, text: `${t.term}: ${t.def}` });
+    }
+    const alts = [...TERM_BY.keys()].sort((a, b) => b.length - a.length).map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    TERM_RX = alts.length ? new RegExp(`\\b(${alts.join("|")})\\b`, "gi") : /$^/;
+  }
+  const seen = new Set();
+  const skip = "a, button, h1, h2, h3, h4, code, pre, input, select, textarea, label, dt, nav, .crumbs, .eyebrow, .term, [data-tip], svg, .terms, .glossary, .no-terms";
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: (n) =>
+    n.parentElement && !n.parentElement.closest(skip) && n.nodeValue.length > 2 ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT });
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  for (const node of nodes) {
+    const s = node.nodeValue;
+    const parts = [];
+    let last = 0, m;
+    TERM_RX.lastIndex = 0;
+    while ((m = TERM_RX.exec(s))) {
+      const t = TERM_BY.get(m[1].toLowerCase());
+      if (!t || seen.has(t.id)) continue;
+      seen.add(t.id);
+      parts.push(s.slice(last, m.index), el("span", { class: "term", "data-tip": t.text, tabindex: "0" }, m[1]));
+      last = m.index + m[1].length;
+    }
+    if (parts.length) node.replaceWith(...parts, s.slice(last));
+  }
 }
 
 /* ---------- describing events ---------- */
@@ -181,7 +356,7 @@ function stats(t) {
     [t.agents_now, t.agents_now === 1 ? "agent working now" : "agents working now"],
   ];
   return el("div", { class: "stats" }, items.map(([n, l]) =>
-    el("div", { class: "stat" }, el("div", { class: "n" }, String(n ?? 0)), el("div", { class: "l" }, l))));
+    el("div", { class: "stat", title: statTip(l) }, el("div", { class: "n" }, String(n ?? 0)), el("div", { class: "l" }, l))));
 }
 function agentSteps() {
   const steps = STATIC ? [
@@ -242,7 +417,7 @@ function agentDialogBody(close) {
   copy.setAttribute("autofocus", "");
   const go = (href, text) => el("a", { href, onclick: close }, text);
   return el("div", { class: "agent-panel" },
-    el("button", { type: "button", class: "dialog-close", "aria-label": "Close", onclick: close }, "×"),
+    el("button", { type: "button", class: "dialog-close", "aria-label": "Close", title: "Close (Esc)", onclick: close }, "×"),
     el("h2", { id: "agent-title" }, "Send your agent"),
     el("p", { class: "small muted" }, "Paste this into Claude Code, Codex, Cursor, Gemini CLI or any agent that can run a shell on your computer:"),
     el("div", { class: "copyline" }, el("code", {}, line()), copy),
@@ -279,7 +454,7 @@ function frontierStats(fp) {
     [String(STATE.totals.agents_now ?? 0), STATE.totals.agents_now === 1 ? "agent working now" : "agents working now"],
   ];
   return el("div", { class: "stats" }, items.map(([n, l]) =>
-    el("div", { class: "stat" }, el("div", { class: "n" }, n), el("div", { class: "l" }, l))));
+    el("div", { class: "stat", title: statTip(l) }, el("div", { class: "n" }, n), el("div", { class: "l" }, l))));
 }
 
 function frontierCard(fp) {
@@ -333,7 +508,7 @@ function situation(s) {
     s.intel ? [String(s.intel.stats.accepted), `intel records accepted${s.intel.stats.awaiting_review ? `, ${s.intel.stats.awaiting_review} awaiting review` : ""}`] : null,
   ].filter(Boolean);
   return el("div", { class: "stats" }, items.map(([n, l]) =>
-    el("div", { class: "stat" }, el("div", { class: "n" }, n), el("div", { class: "l" }, l))));
+    el("div", { class: "stat", title: statTip(l) }, el("div", { class: "n" }, n), el("div", { class: "l" }, l))));
 }
 
 function pageWarRoom() {
@@ -491,6 +666,16 @@ const KIND_INFO = {
   training: ["Training programs", "Training program"],
 };
 const KIND_ORDER = Object.keys(KIND_INFO);
+const KIND_TIP = {
+  developer: "A company that builds frontier AI models",
+  government: "A government body or a national AI safety or security institute",
+  research: "A lab or group doing technical safety research",
+  policy: "A group researching AI policy and governance",
+  watchdog: "A group that tracks and rates what AI companies do",
+  industry: "A body the AI companies formed together",
+  funder: "A funder of AI safety work",
+  training: "A program that trains people for AI safety work",
+};
 const kindName = (k, plural) => (KIND_INFO[k] ? KIND_INFO[k][plural ? 0 : 1] : k);
 const COMMIT_INFO = {
   seoul: ["Seoul 2024", "Signed the Frontier AI Safety Commitments at the AI Seoul Summit (2024)"],
@@ -712,7 +897,8 @@ function pageNeed(id) {
           el("p", { class: "small muted" }, h.line),
           el("p", { class: "small", style: "margin:0" }, link(h.href, h.judge ? "Open the theater →" : "Start →")))) : null,
         st === "none" ? el("div", { class: "note none-note" }, el("b", {}, "No mission yet. "),
-          n.judge_needed || "This need has a theater, but it is not set up on this desk.") : null,
+          n.judge_needed || "This need has a theater, but it is not set up on this desk.",
+          el("p", { class: "small", style: "margin:0.5rem 0 0" }, formLink(judgeUrl(n, id), "Propose a judge →", null))) : null,
         programsFor(id).length ? [el("h3", { class: "who-h" }, "Programs for this need"),
           el("ul", { class: "progs" }, programsFor(id).slice(0, 4).map((pr) => programCard(pr, { brief: true }))),
           el("p", { class: "small" }, link("#/programs", "Every program →"), " · ", link("#/plan", "Make a plan →"))] :
@@ -885,11 +1071,18 @@ function progStatus(p) {
   if (d.status === "closed") return { key: "closed", label: "Closed for now", sort: "z" };
   return { key: "unknown", label: "Dates not announced", sort: "y" };
 }
-const statusChip = (s) => el("span", { class: `pchip pchip-${s.key}` }, s.label);
+const PCHIP_TIP = {
+  open: "Taking applications now. Dates come from the program's own page; check there before you apply.",
+  upcoming: "Not open yet: this is when applications open or the event starts.",
+  rolling: "Applications are accepted at any time.",
+  closed: "Closed for now. The program's page says whether there will be another round.",
+  unknown: "The program has not announced dates for its next round.",
+};
+const statusChip = (s) => el("span", { class: `pchip pchip-${s.key}`, title: PCHIP_TIP[s.key] }, s.label);
 const byStatus = (a, b) => progStatus(a).sort.localeCompare(progStatus(b).sort) || a.name.localeCompare(b.name);
 function programCard(p, opts = {}) {
   const s = progStatus(p);
-  const pickBox = opts.pick && s.key !== "closed" ? el("label", { class: "pick" },
+  const pickBox = opts.pick && s.key !== "closed" ? el("label", { class: "pick", title: "Add this program to your plan, with a countdown to its deadline" },
     el("input", { type: "checkbox", checked: PICKED.has(p.id), onchange: (e) => { if (e.target.checked) PICKED.add(p.id); else PICKED.delete(p.id); } }),
     " I’ll apply") : null;
   return el("li", { class: `prog prog-${s.key}`, "data-kind": p.kind, "data-for": (p.for || []).join(" "), "data-status": s.key,
@@ -1036,7 +1229,8 @@ function timeLeft(ms) {
   return ms < 0 ? `${t} overdue` : `${t} left`;
 }
 const fmtWhen = (ms) => new Date(ms).toLocaleString(undefined, { weekday: "short", day: "numeric", month: "short", hour: "numeric", minute: "2-digit" });
-const countdown = (due, cls) => el("span", { class: `cd ${cls || ""}${due < Date.now() ? " overdue" : ""}`, "data-due": String(due) }, timeLeft(due - Date.now()));
+const countdown = (due, cls) => el("span", { class: `cd ${cls || ""}${due < Date.now() ? " overdue" : ""}`, "data-due": String(due),
+  title: `${due < Date.now() ? "Past due since" : "Time left until"} ${new Date(due).toLocaleDateString(undefined, { day: "numeric", month: "long", year: "numeric" })}` }, timeLeft(due - Date.now()));
 /* one ticker for every countdown on the page, the planbar included */
 setInterval(() => {
   const now = Date.now();
@@ -1121,7 +1315,7 @@ function updatePlanbar(head) {
   if (!next || head === "plan") { bar.hidden = true; bar.replaceChildren(); return; }
   bar.hidden = false;
   bar.replaceChildren(el("div", { class: "wrap planbar-in" },
-    el("a", { href: "#/plan" }, el("span", { class: "pb-k" }, "Your plan"), el("span", { class: "pb-t" }, `Next: ${next.title}`)),
+    el("a", { href: "#/plan", title: "Your plan’s next step and the time left. Kept only in this browser." }, el("span", { class: "pb-k" }, "Your plan"), el("span", { class: "pb-t" }, `Next: ${next.title}`)),
     countdown(next.due, "pb-cd")));
 }
 window.addEventListener("storage", (e) => { if (e.key === PLAN_KEY) { ACTIVE = loadActive(); render(); } });
@@ -1188,8 +1382,9 @@ function pagePrograms(arg) {
   const sel = el("select", { class: "filter filter-sel", "aria-label": "Suits people with" },
     el("option", { value: "" }, "Any background"), MAP.plan.backgrounds.map((b) => el("option", { value: b.id, selected: PROG_FILTER.for === b.id }, b.label)));
   sel.addEventListener("change", () => { PROG_FILTER.for = sel.value; apply(); });
+  const BOX_TIP = { open: "Only programs taking applications today", online: "Only programs you can do remotely" };
   const box = (key, label) => { const i = el("input", { type: "checkbox", checked: PROG_FILTER[key] }); i.addEventListener("change", () => { PROG_FILTER[key] = i.checked; apply(); });
-    return el("label", { class: "check" }, i, ` ${label}`); };
+    return el("label", { class: "check", title: BOX_TIP[key] }, i, ` ${label}`); };
   const input = el("input", { type: "search", class: "filter", placeholder: "Filter by name", "aria-label": "Filter programs", value: PROG_FILTER.q });
   input.addEventListener("input", () => { PROG_FILTER.q = input.value.trim().toLowerCase(); apply(); });
   apply();
@@ -1368,7 +1563,8 @@ function pageSupport() {
 
 /* ---------- how the future could go: scenarios, a gallery, and a brief for makers ---------- */
 const TONES = { hopeful: ["Hopeful", "↗"], cautionary: ["Cautionary", "!"], mixed: ["Mixed", "⇄"] };
-const toneChip = (t) => el("span", { class: `tone tone-${t}` }, el("span", { "aria-hidden": "true" }, TONES[t] ? TONES[t][1] : ""), ` ${TONES[t] ? TONES[t][0] : t}`);
+const TONE_TIP = { hopeful: "Pictures a future that goes well.", cautionary: "Pictures what could go wrong.", mixed: "Pictures both: gains and losses, or a future that could go either way." };
+const toneChip = (t) => el("span", { class: `tone tone-${t}`, title: TONE_TIP[t] },el("span", { "aria-hidden": "true" }, TONES[t] ? TONES[t][1] : ""), ` ${TONES[t] ? TONES[t][0] : t}`);
 const MEDIUM_NAMES = { novel: "Novel", novella: "Novella", story: "Story", film: "Film", tv: "Series", "short-film": "Short film", video: "Video",
   essay: "Essay", scenario: "Scenario", game: "Game", art: "Art", music: "Music", other: "Other" };
 const allWorks = () => [...(FUTURES ? FUTURES.works : []), ...(STATE && STATE.media ? STATE.media.works : [])];
@@ -1485,8 +1681,8 @@ function pageFutures() {
       el("ul", { class: "progs" }, FUTURES.calls.map((c) => programCard({ id: c.id, name: c.name, org: c.org, kind: "event", url: c.url, what: c.what,
         pay: c.prizes, format: "", for: [], dates: { status: c.status, deadline: c.deadline || "", opens: "", starts: "", note: "" } })))] : null,
     el("h3", { class: "who-h" }, "Send your work"),
-    STATIC ? el("p", { class: "note small" }, "Submissions open when the public desk launches. Until then, share your work with a link to this page, or open an issue on ",
-      extLink(REPO_URL + "/issues", "GitHub"), ".") : MEDIA_FORM || (MEDIA_FORM = mediaForm()),
+    STATIC ? el("p", { class: "note small" }, "The submission form opens when the public desk launches. Until then, suggest your work for the gallery here: ",
+      formLink(issueUrl("addition.yml", { title: "Add to the futures gallery: " }), "suggest a work", null), ". A person reviews it first.") : MEDIA_FORM || (MEDIA_FORM = mediaForm()),
     el("p", { class: "small faint" }, FUTURES.method),
   ];
 }
@@ -1512,7 +1708,7 @@ function pageEfforts() {
   const cards = el("div", { class: "org-grid" }, [...orgs].sort((a, b) => a.name.localeCompare(b.name)).map((o) =>
     el("a", { class: "card org-card", href: `#/org/${encodeURIComponent(o.id)}`, "data-kind": o.kind,
       "data-text": `${o.name} ${o.what} ${o.country || ""} ${(o.efforts || []).map((e) => e.title).join(" ")}`.toLowerCase() },
-      el("span", { class: "org-kind" }, `${kindName(o.kind)}${o.country ? ` · ${o.country}` : ""}`),
+      el("span", { class: "org-kind", title: KIND_TIP[o.kind] }, `${kindName(o.kind)}${o.country ? ` · ${o.country}` : ""}`),
       el("span", { class: "org-name" }, o.name),
       el("span", { class: "small muted" }, o.what),
       el("span", { class: "small faint" }, `${(o.efforts || []).length} effort${(o.efforts || []).length === 1 ? "" : "s"} recorded`))));
@@ -1611,7 +1807,9 @@ function pageOrg(id) {
             : el("p", { class: "empty" }, "No published safety framework found.")] : null,
         el("h2", { class: o.kind === "developer" ? "" : "first" }, "What it is doing"),
         (o.efforts || []).length ? el("ul", { class: "effort-list" }, o.efforts.map((e) => el("li", {},
-          el("div", { class: "effort-head" }, extLink(e.url, e.title), e.year ? el("span", { class: "faint" }, ` · ${e.year}`) : null),
+          el("div", { class: "effort-head" }, extLink(e.url, e.title), e.year ? el("span", { class: "faint" }, ` · ${e.year}`) : null,
+            el("a", { class: "flag", href: fixUrl(`${o.name}: “${e.title}”: ${e.what}`, o.name), target: "_blank", rel: "noopener",
+              title: "Report a problem with this line (opens a GitHub form)", "aria-label": `Report a problem with “${e.title}”` }, "⚑")),
           el("p", { class: "small" }, e.what),
           (e.needs || []).length ? el("p", { class: "small faint" }, "Serves: ", joinWith(e.needs.filter((n) => MAP.needs[n]).map(needLink))) : null)))
           : el("p", { class: "empty" }, "Nothing recorded yet."),
@@ -1627,7 +1825,8 @@ function pageOrg(id) {
             el("span", { class: "small faint" }, ` · ${[r.edition, r.date].filter(Boolean).join(", ")}`))))] : null,
         SUPPORT && (SUPPORT.sponsors || []).some((sp) => sp.org === o.id) ? el("p", { class: "note small" }, el("b", {}, "Disclosure. "),
           `${o.name} sponsors Report for Duty (${SUPPORT.sponsors.find((sp) => sp.org === o.id).amount}). Sponsors have no say over this record.`) : null,
-        el("p", { class: "small faint org-checked" }, `Checked ${o.checked || EFFORTS.as_of}. Compiled by an AI agent from the linked sources; not yet reviewed by a person.`))),
+        el("p", { class: "small faint org-checked" }, `Checked ${o.checked || EFFORTS.as_of}. Compiled by an AI agent from the linked sources; not yet reviewed by a person. `,
+          formLink(reviewUrl(o.name, `org/${encodeURIComponent(o.id)}`), "Review this page →", null)))),
   ];
 }
 
@@ -2130,6 +2329,75 @@ function pageJoin() {
   ];
 }
 
+/* ---------- contributing ----------
+   Every contribution is a GitHub issue form (.github/ISSUE_TEMPLATE/), prefilled from the page the
+   reader is on. A person reviews each one; the author's GitHub handle is the credit. */
+function issueUrl(template, fields) {
+  return `${REPO_URL}/issues/new?${new URLSearchParams({ template, ...fields })}`;
+}
+const pageTitle = () => document.title.replace(/ · Report for Duty$/, "");
+const routeUrl = (route) => `${location.origin}${location.pathname}#/${route}`;
+const fixUrl = (what, about) => issueUrl("correction.yml", { title: `Fix: ${about || pageTitle()}`, page: location.href, ...(what ? { what } : {}) });
+const FORM_TIP = "Opens a short form on GitHub (a free account). It is public; a person reads every one.";
+const formLink = (href, text, cls = "btn form-btn") => el("a", { class: cls, href, target: "_blank", rel: "noopener", title: FORM_TIP }, text);
+const reviewUrl = (name, route) => issueUrl("review.yml", { title: `Review: ${name}`, section: name, page: routeUrl(route) });
+const judgeUrl = (n, id) => issueUrl("judge.yml", { title: `Judge for: ${n.title}`, need: n.title, page: routeUrl(`need/${id}`) });
+
+function pageContribute() {
+  if (!MAP) return [el("p", { class: "loading" }, "Loading…")];
+  const ids = allNeedIds();
+  const noJudge = ids.filter((id) => needStatus(MAP.needs[id]) === "none");
+  const orgs = EFFORTS ? [...EFFORTS.orgs].sort((a, b) => a.name.localeCompare(b.name)) : [];
+  const jump = (id, text) => el("button", { type: "button", class: "form-btn", onclick: () => document.getElementById(id).scrollIntoView({ block: "start" }) }, text);
+  const ways = [
+    ["Fix a mistake", "Something wrong, out of date or unfair? Every line should match its source. Every page also has a “Suggest a fix” link at the bottom.",
+      formLink(issueUrl("correction.yml", { title: "Fix: " }), "Report a mistake →")],
+    ["Review a section", "The map and the record of efforts were compiled with AI agents from primary sources and have not yet been reviewed by a person. Pick an organization or a need, check it against its sources, and say what holds.",
+      jump("c-review", "Pick something to review ↓")],
+    ["Add something missing", "An organization or effort, a law or agreement, a program or grant, a reading for a need, a work for the futures gallery, or a person for the map of views.",
+      formLink(issueUrl("addition.yml", { title: "Add: " }), "Suggest an addition →")],
+    ["Propose a judge", `${noJudge.length} of ${ids.length} needs have no mission because nothing can check the work automatically. If you see how work on one of them could be checked, by a machine or by a clear review rule, propose it.`,
+      jump("c-judges", "See the needs without a judge ↓")],
+    ["Send your agent", "Give an AI agent a mission with a judge: backdoor audits, the guarantees frontier, or Lean training. Only results that pass count.",
+      el("button", { type: "button", class: "btn-primary form-btn", onclick: openAgentDialog, title: "Get the line to paste into your agent" }, "Send your agent")],
+    ["Improve the code", "The site, the desk and the judges are open source (MIT). Read the guide, pick an open issue, or open a pull request.",
+      formLink(`${REPO_URL}/blob/main/CONTRIBUTING.md`, "Contributing guide →")],
+  ];
+  return [
+    el("p", { class: "crumbs" }, link("#/", "Map"), " / Contribute"),
+    el("div", { class: "page-head" },
+      el("p", { class: "eyebrow" }, "Contribute"),
+      el("h1", {}, "Help build this"),
+      el("p", { class: "lede" }, "Report for Duty is open source and gets better when people who know a part of AI safety check it, fix it and add to it. Each way in below is a short form or a pull request on GitHub; a person reads every one before anything changes.")),
+    el("div", { class: "contrib-grid" }, ways.map(([h, p, action]) => el("article", { class: "card contrib-card" },
+      el("h3", {}, h), el("p", { class: "small" }, p), action))),
+    el("h2", { id: "c-review" }, "Review a section"),
+    el("p", { class: "muted" }, "Open the page, follow its links, and check each line says what its source says. Then send the form: what you checked, what holds, and what is wrong. Mistakes you find can go in the same form."),
+    el("div", { class: "grid2 review-cols" },
+      el("details", { class: "rev-block", open: true },
+        el("summary", {}, `Organizations in the record (${orgs.length})`),
+        el("ul", { class: "rev-list" }, orgs.map((o) => el("li", {}, orgLink(o),
+          el("span", { class: "faint small", title: "When the lines on this page were last checked against their sources" }, ` checked ${o.checked || EFFORTS.as_of}`),
+          formLink(reviewUrl(o.name, `org/${encodeURIComponent(o.id)}`), "Review", "rev-go"))))),
+      el("details", { class: "rev-block", open: true },
+        el("summary", {}, `Needs on the map (${ids.length})`),
+        el("ul", { class: "rev-list" }, ids.map((id) => el("li", {}, needLink(id),
+          formLink(reviewUrl(MAP.needs[id].title, `need/${id}`), "Review", "rev-go")))))),
+    el("h2", { id: "c-judges" }, "Needs without a judge"),
+    el("p", { class: "muted" }, "A mission needs a judge: a check that decides whether work counts without trusting whoever sent it. Here is what each need would take. If you can see how to build one, propose it; a good proposal becomes a new theater."),
+    el("ul", { class: "judge-list" }, noJudge.map((id) => el("li", { class: "card" },
+      el("h3", {}, needLink(id)),
+      el("p", { class: "small" }, MAP.needs[id].judge_needed || "No judge described yet."),
+      formLink(judgeUrl(MAP.needs[id], id), "Propose a judge →")))),
+    el("h2", {}, "What happens next"),
+    el("ul", {},
+      el("li", {}, "A person reads every form and replies on GitHub. Corrections that cite a source are usually taken as they are."),
+      el("li", {}, "Accepted changes appear on this site when it is next published, and your GitHub handle is credited in the change."),
+      el("li", {}, "Forms are public: please don’t put private information in them."),
+      el("li", {}, "See what others have sent: ", extLink(`${REPO_URL}/issues`, "open contributions on GitHub"), ".")),
+  ];
+}
+
 function deskOnly(head) {
   const back = head === "audit" ? ["#/audits", "Backdoor audits"] : head === "wargame" ? ["#/wargames", "Treaty wargames"] : ["#/warroom", "War room"];
   return [el("div", { class: "page-head", style: "margin-top:2rem" }, el("h1", {}, "This page needs a running desk"),
@@ -2177,15 +2445,17 @@ function render() {
   else if (head === "record") nodes = pageRecord();
   else if (head === "how") nodes = pageHow();
   else if (head === "join") nodes = pageJoin();
+  else if (head === "contribute") nodes = pageContribute();
   else nodes = notFound();
   const y = window.scrollY;
   main.replaceChildren(...nodes.flat(Infinity).filter((n) => n !== null && n !== undefined && n !== false));
+  if (head !== "lingo") markTerms(main);
   updatePlanbar(head);
   window.scrollTo(0, y);
   const nav = { "": "map", map: "map", need: "map", efforts: "efforts", org: "efforts", plan: "plan", programs: "plan", prizes: "warroom", support: "plan", futures: "understand", understand: "understand", question: "understand", lingo: "understand",
     warroom: "warroom", program: "warroom", frontier: "warroom", target: "warroom", step: "warroom", agent: "warroom", audits: "warroom",
     audit: "warroom", wargames: "warroom", wargame: "warroom", intel: "warroom", training: "warroom", record: "warroom", how: "warroom",
-    join: "plan" }[head] || "";
+    join: "plan", contribute: "contribute" }[head] || "";
   document.querySelectorAll("nav a").forEach((a) => {
     if (a.dataset.nav === nav) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
@@ -2193,10 +2463,13 @@ function render() {
   const titles = { "": "Report for Duty: what AI safety needs", understand: "Understand the debate · Report for Duty", lingo: "The lingo · Report for Duty",
     map: "Report for Duty: what AI safety needs", efforts: "Who is working on what · Report for Duty",
     plan: "Make a plan to help · Report for Duty", prizes: "Prizes · Report for Duty", futures: "How the future could go · Report for Duty", support: "Support · Report for Duty", programs: "Programs, grants and events · Report for Duty",
-    warroom: "War room · Report for Duty", record: "The record · Report for Duty", how: "How it works · Report for Duty", join: "Join · Report for Duty" };
+    warroom: "War room · Report for Duty", record: "The record · Report for Duty", how: "How it works · Report for Duty", join: "Join · Report for Duty", contribute: "Contribute · Report for Duty" };
   const named = head === "need" && MAP && MAP.needs[arg] ? MAP.needs[arg].title : head === "question" && dimOf(arg) ? dimOf(arg).short :
     head === "org" && orgById(arg) ? orgById(arg).name : arg;
   document.title = titles[head] || (named ? `${named} · Report for Duty` : "Report for Duty");
+  const fix = document.getElementById("fix-link");
+  if (fix) fix.href = fixUrl();
+  decorateTips(document.body);
 }
 
 async function refresh() {
