@@ -16,6 +16,9 @@ Use the issue forms (the site fills them in from the page you are on):
   check every line against its link, and say what holds and what does not.
 - **Add something missing**: an organization or effort, a law or agreement, a program, a
   reading, a work for the futures gallery, or a person for the map of views.
+- **Break a checker**: every frontier record is checked by two separately written checkers. If you
+  find an input inside a proved box that the model gets wrong, check it with
+  `python3 tools/verify_break.py <model> <tokens>` and report it with the "Break a checker" form.
 - **Propose a judge**: most needs have no mission because nothing can check the work
   automatically. If you see how work on one could be checked, by a machine or by a clear review
   rule, say how, and how someone could game it.

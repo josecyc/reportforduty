@@ -1,0 +1,29 @@
+name: Break a checker
+description: An input inside a proved box of a frontier record that the model gets wrong.
+title: "Break: "
+labels: ["break"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every frontier record is checked by two separately written checkers. If you found an input inside a box they proved that the model answers wrongly, both are wrong, and this is the most useful report there is. Check it first with `python3 tools/verify_break.py <model> <tokens>`. This form is public.
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      placeholder: K10-v64/seed123
+    validations:
+      required: true
+  - type: input
+    id: tokens
+    attributes:
+      label: The input
+      description: The tokens, comma-separated, first position first.
+      placeholder: 63,12,40,...
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: What tools/verify_break.py printed
+      render: text

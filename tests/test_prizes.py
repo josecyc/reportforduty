@@ -24,7 +24,8 @@ class PrizeTest(unittest.TestCase):
         self.desk = deskmod.Desk(self.tmp / "desk.db", merge=False, worker=False)
         self.pz = self.desk.prizes
         self.audit = sorted(self.desk.audit_targets)[0]
-        self.target = sorted(self.desk.targets)[0]
+        # a Max-of-10 target with no record yet (committed certificates are every desk's starting records)
+        self.target = next(t for t in sorted(self.desk.targets) if t.startswith("K10-") and not self.desk.record(t))
 
     def body(self, **kw):
         b = {"sponsor": "Example Foundation", "sponsor_url": "https://example.org", "contact": "prizes@example.org",

@@ -86,6 +86,8 @@ treaty regimes, then the frontier. `--theater` picks one.
 | `models/audit/` | The audit models (weights only). `tools/train_audit_models.py` trains them and seals the answers. |
 | `models/maxofk/` | The paper's checkpoints, with SHA-256 provenance (`tools/import_gbmi_models.py`). |
 | `rfd/nets/maxofk.py`, `certificate.py` | Exact model tables, the sound per-box check, certificates. |
+| `tools/maxofk_strategy.py` | The repository's strong certificate strategy for Max-of-10 (best-first refinement with lookahead); it made the committed K10-123 certificate. |
+| `tools/verify_break.py` | Checks a claimed break of the checkers: an input inside a proved box that the model gets wrong. |
 | `rfd/nets/second_check.py` | A second checker written separately: exact integer tables, interval bounds, one sign test per box (`python3 -m rfd.nets.second_check <certificate> --compare`). |
 | `rfd/nets/audit.py`, `rfd/audits.py` | The audit judge and track. |
 | `rfd/wargame.py` | The strategy rule language and judge over AI Race's engine. |
