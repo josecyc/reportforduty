@@ -505,7 +505,7 @@ function judgeBadge(kind) {
 const FRONTIER_NOTE = {
   audit: ["Training round.", "Auditing research works on large language models with hidden objectives; these are one-layer toy models whose two-token triggers a search finds in seconds. Proving a model clean is the harder half."],
   wargame: ["A tool for thinking, not evidence.", "The simulation’s numbers are invented, so an exploit shows a mechanism a treaty must guard against, not a fact about the world."],
-  frontier: ["Closest to real research.", "Compact proofs of what a model does are an active line of work, and a higher certified bound is a new result, if the checker is right. The checker has not yet been reviewed independently, and the models are small."],
+  frontier: ["Closest to real research.", "Compact proofs of what a model does are an active line of work, and a higher certified bound is a new result. Every result is checked by two checkers written separately, which agree to the input; nobody outside the project has reviewed them yet, and the models are small."],
   intel: ["Upkeep, not research.", "Keeps a public record of who believes what current, which the map’s disagreement panels depend on."],
   training: ["Practice.", "Known results, formalized, for learning the tools."],
 };
