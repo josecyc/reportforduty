@@ -199,6 +199,10 @@ forward and every credited submission is a result that did not exist before.
   reproduce the enumerated count exactly.
 - **Points.** One per 0.1 percentage point a record rises above 90%. The reference strategy's
   handle is never credited.
+- **Starting records.** The certificates committed to `certificates/` are every desk's starting
+  records, under the reserved handle `repository` (never credited), checked when the desk starts
+  by the second checker. Sending one of them again earns nothing; before 2026-11-27 a fresh desk
+  had no records, so it would have credited a resent committed certificate as new.
 
 ### What can and cannot be claimed against the paper
 

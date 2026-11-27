@@ -109,7 +109,9 @@ def targets() -> dict[str, Target]:
     return out
 
 
-RESERVED_HANDLES = {"reference-baseline"}   # the repository's own reference strategy: never credited
+# the repository's own work, never credited: the reference strategy, and the certificates committed
+# to certificates/, which every desk starts from as records (Desk.seed_committed_records)
+RESERVED_HANDLES = {"reference-baseline", "repository"}
 
 
 def points_for(old: float, new: float, track: Track) -> int:

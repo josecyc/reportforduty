@@ -178,17 +178,20 @@ def check(cert: dict, model: Model | None = None) -> dict:
     t0 = time.time()
     name = cert["model"]
     model = model or Model(ROOT / "models" / "maxofk" / f"{name}.npz")
-    proved = checked = n_proved = 0
+    proved = checked = n_proved = work = 0
     for m, lo, hi, claimed in leaves(cert, model.k, model.V):
         if not claimed:
             continue
         checked += 1
+        # the same machine-independent cost the first checker reports
+        work += (hi[-1] - lo[-1] + 1) * sum(h - l + 1 for l, h in zip(lo[:-1], hi[:-1])) * (model.V - 1)
         if model.proves(m, lo, hi):
             n_proved += 1
             proved += math.prod(h - l + 1 for l, h in zip(lo, hi))
     total = model.V ** model.k
     return {"model": name, "checker": "second", "proved_inputs": proved, "total_inputs": total,
-            "bound": proved / total, "leaves_checked": checked, "leaves_proved": n_proved, "seconds": round(time.time() - t0, 1)}
+            "bound": proved / total, "leaves_checked": checked, "leaves_proved": n_proved, "work": work,
+            "seconds": round(time.time() - t0, 1)}
 
 
 def main() -> int:

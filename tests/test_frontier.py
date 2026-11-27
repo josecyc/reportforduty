@@ -212,6 +212,22 @@ class DeskFrontier(unittest.TestCase):
         self.assertEqual(len(d["submissions"]), 2)
         self.assertEqual(self.call("GET", "/desk/next?handle=x&target=K4-nope")[0], 404)
 
+    def test_committed_certificates_are_the_starting_records(self):
+        r = self.desk.record("K4-123")
+        self.assertIsNotNone(r, "a fresh desk starts from the certificates in certificates/")
+        self.assertEqual(r["handle"], "repository")
+        self.assertEqual(int(r["proved"]), 16032514)
+        # sending the committed certificate again is checked but earns nothing
+        code, out = self.call("GET", "/desk/next?handle=dora&target=K4-123")
+        self.assertEqual(code, 200, out)
+        cert = json.loads((ROOT / "certificates" / "K4-123.json").read_text())
+        code, out = self.call("POST", f"/desk/submit?lease={out['lease']['id']}", json.dumps(cert).encode())
+        self.assertEqual(code, 202, out)
+        v = self.verdict(out["submission"])
+        self.assertFalse(v["result"]["advanced"])
+        self.assertEqual(v["points"], 0)
+        self.assertEqual(self.desk.record("K4-123")["handle"], "repository")
+
     def test_open_track_points_and_state(self):
         t, lease = self.take("cara", "K10")
         # one class only: a tiny but valid certificate (below the floor, so 0 points)

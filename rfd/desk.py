@@ -38,6 +38,7 @@ RELEASE_REASONS = ["hypothesis_too_weak", "missing_lemma", "statement_seems_fals
                    "does_not_elaborate", "out_of_time", "other", "submitted"]
 CERT_TIME_LIMIT = 15 * 60    # seconds of checking per certificate
 SITE_DIR = registry.ROOT / "site"
+_COMMITTED: dict = {}   # second-checker results for committed certificates, once per process
 DATA_DIR = registry.ROOT / ".rfd"
 
 SCHEMA = """
@@ -95,6 +96,7 @@ class Desk:
         self.prizes = prizes.Prizes(self)
         self.media = media.Media(self)
         self.started = time.time()
+        self.seed_committed_records()
         if not worker:
             return    # tools such as tools/review.py open the database without checking anything
         # requeue anything left unfinished by a previous run
@@ -213,6 +215,30 @@ class Desk:
                                                "lapses_after_seconds": LEASE_TTL}}
 
     # ---- frontier targets ------------------------------------------------------------------
+    def seed_committed_records(self):
+        """Certificates committed to certificates/ are every desk's starting records, so sending one
+        of them again earns nothing. Each is checked here by the second checker (seconds, not
+        minutes) and recorded under the reserved handle "repository"."""
+        from .nets import second_check
+        for path in sorted((registry.ROOT / "certificates").glob("*.json")):
+            t = self.targets.get(path.stem)
+            if not t or self.record(t.id):
+                continue
+            try:
+                cert = json.loads(path.read_text(encoding="utf-8"))
+                if cert.get("model") != t.model:
+                    continue
+                key = (str(path), path.stat().st_mtime_ns, path.stat().st_size)
+                out = _COMMITTED.get(key) or _COMMITTED.setdefault(key, second_check.check(cert))
+            except (OSError, ValueError, KeyError) as e:
+                print(f"skipped committed certificate {path.name}: {e}")
+                continue
+            if out["proved_inputs"]:
+                self.db.execute(
+                    "INSERT OR REPLACE INTO frontier(target,proved,total,bound,work,leaves,handle,submission,ts) VALUES(?,?,?,?,?,?,?,?,?)",
+                    (t.id, str(out["proved_inputs"]), str(out["total_inputs"]), float(out["bound"]), str(out["work"]),
+                     out["leaves_checked"], "repository", f"committed:{path.name}", path.stat().st_mtime))
+
     def record(self, target_id: str):
         return self.db.execute("SELECT * FROM frontier WHERE target=?", (target_id,)).fetchone()
 
