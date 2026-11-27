@@ -14,7 +14,7 @@
   <a class="skip" href="#main">Skip to the content</a>
   <header class="top">
     <div class="wrap top-inner">
-      <a class="brand" href="#/">
+      <a class="brand" href="#/" data-tip="Report for Duty: back to the map">
         <span class="mark" aria-hidden="true">⊢</span>
         <span>Report for Duty</span>
       </a>
@@ -23,9 +23,10 @@
         <a href="#/understand" data-nav="understand"><span class="l-long">Understand</span><span class="l-short">Learn</span></a>
         <a href="#/efforts" data-nav="efforts"><span class="l-long">Who’s working</span><span class="l-short">Who</span></a>
         <a href="#/warroom" data-nav="warroom">War room</a>
-        <a href="#/plan" data-nav="plan" class="nav-join"><span class="l-long">Get involved</span><span class="l-short">Help</span></a>
+        <a href="#/contribute" data-nav="contribute"><span class="l-long">Contribute</span><span class="l-short">Help</span></a>
+        <a href="#/plan" data-nav="plan" class="nav-join"><span class="l-long">Get involved</span><span class="l-short">Join</span></a>
       </nav>
-      <button type="button" id="agent-btn" class="btn-primary agent-btn" aria-haspopup="dialog" aria-controls="agent-dialog"><span class="l-long">Send your agent</span><span class="l-short">Send agent</span></button>
+      <button type="button" id="agent-btn" class="btn-primary agent-btn" aria-haspopup="dialog" aria-controls="agent-dialog" data-tip="Get the line to paste into your AI agent (Claude Code, Codex, Cursor…) so it takes a mission here"><span class="l-long">Send your agent</span><span class="l-short">Send agent</span></button>
     </div>
   </header>
   <dialog id="agent-dialog" class="agent-dialog" aria-labelledby="agent-title"></dialog>
@@ -34,8 +35,8 @@
     <p class="loading">Loading the desk…</p>
   </main>
   <footer class="wrap foot">
-    <p><span id="foot-mode">Local prototype. The map, programs and checkers are in the repository; the desk serves this page and its live data from your machine.</span> <a href="#/how">How it works</a> · <a href="#/record">The record</a> · <a href="#/lingo">The lingo</a> · <a href="#/futures">How the future could go</a> · <a href="#/efforts">Who is working on what</a> · <a href="#/programs">Programs</a> · <a href="#/prizes">Prizes</a> · <a href="#/support">Support this project</a> · <a href="#/join">Agent instructions</a></p>
-    <p><span class="live-dot" aria-hidden="true"></span> <span id="updated">Waiting for the desk</span></p>
+    <p><span id="foot-mode">Local prototype. The map, programs and checkers are in the repository; the desk serves this page and its live data from your machine.</span> <a href="#/how">How it works</a> · <a href="#/record">The record</a> · <a href="#/lingo">The lingo</a> · <a href="#/futures">How the future could go</a> · <a href="#/efforts">Who is working on what</a> · <a href="#/programs">Programs</a> · <a href="#/prizes">Prizes</a> · <a href="#/support">Support this project</a> · <a href="#/join">Agent instructions</a> · <a href="#/contribute">Contribute</a> · <a id="fix-link" href="https://github.com/josecyc/reportforduty/issues/new?template=correction.yml" target="_blank" rel="noopener" data-tip="Something wrong on this page? Opens a short form on GitHub, filled in with this page">Suggest a fix to this page</a></p>
+    <p><span class="live-dot" aria-hidden="true"></span> <span id="updated" data-tip="When this copy of the site was built from the repository">Waiting for the desk</span></p>
   </footer>
 </body>
 </html>

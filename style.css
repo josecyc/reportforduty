@@ -87,6 +87,38 @@ nav .nav-join { color: var(--accent); font-weight: 600; }
 .top-inner nav { margin-left: auto; }
 .agent-btn { flex: none; white-space: nowrap; border-radius: 999px; padding: 0.4rem 0.9rem; }
 
+/* tooltips (one bubble, placed by app.js) and lingo terms */
+.tip { position: fixed; z-index: 60; max-width: min(19rem, calc(100vw - 16px)); padding: 6px 9px; border-radius: 7px;
+  background: var(--ink); color: var(--bg); font: 500 0.8rem/1.4 var(--sans); pointer-events: none;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.18); overflow-wrap: anywhere; }
+.tip[hidden] { display: none; }
+.term { text-decoration: underline dotted color-mix(in srgb, var(--ink-3) 70%, transparent); text-underline-offset: 3px; cursor: help; }
+.term:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-radius: 2px; }
+[data-tip]:not(a):not(button):not(input):not(select):not(label):not(.term) { cursor: help; }
+
+/* contributing */
+.contrib-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 1.2rem 0 0.6rem; }
+.contrib-card { display: flex; flex-direction: column; gap: 0.2rem; }
+.contrib-card h3 { margin: 0; font-size: 1.05rem; }
+.contrib-card p { margin: 0.2rem 0 0.8rem; color: var(--ink-2); flex: 1; }
+.form-btn { align-self: flex-start; text-decoration: none; font-size: 0.9rem; }
+a.form-btn:hover { border-color: var(--accent); color: var(--accent); }
+.review-cols { align-items: start; }
+.rev-block summary { cursor: pointer; font-weight: 600; margin-bottom: 0.4rem; }
+.rev-list { list-style: none; margin: 0; padding: 0; max-height: 26rem; overflow-y: auto; border-top: 1px solid var(--line-2); }
+.rev-list li { display: flex; align-items: baseline; gap: 6px; padding: 0.35rem 0.2rem; border-bottom: 1px solid var(--line-2); }
+.rev-list li > a:first-child { flex: 0 1 auto; min-width: 0; }
+.rev-go { margin-left: auto; flex: none; font-size: 0.85rem; }
+.judge-list { list-style: none; margin: 0.8rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.judge-list li { display: flex; flex-direction: column; }
+.judge-list h3 { margin: 0 0 0.3rem; font-size: 1rem; }
+.judge-list p { flex: 1; color: var(--ink-2); }
+.flag { margin-left: 6px; color: var(--ink-3); text-decoration: none; font-size: 0.85rem; opacity: 0.55; }
+.effort-list li:hover .flag, .flag:focus-visible { opacity: 1; }
+.flag:hover { color: var(--accent); opacity: 1; }
+@media (max-width: 860px) { .contrib-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .contrib-grid, .judge-list { grid-template-columns: 1fr; } }
+
 /* the "Send your agent" panel */
 .agent-dialog { border: 1px solid var(--line); border-radius: 14px; padding: 0; background: var(--panel); color: var(--ink);
   width: min(34rem, calc(100vw - 32px)); max-height: calc(100dvh - 32px); box-shadow: 0 18px 50px rgb(0 0 0 / 0.22); }
