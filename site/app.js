@@ -501,12 +501,22 @@ function judgeBadge(kind) {
   const [label, title] = JUDGE[kind];
   return el("span", { class: `judge judge-${kind}`, title }, label);
 }
+/* How far each theater is from the research frontier, said plainly on its card. */
+const FRONTIER_NOTE = {
+  audit: ["Training round.", "Auditing research works on large language models with hidden objectives; these are one-layer toy models whose two-token triggers a search finds in seconds. Proving a model clean is the harder half."],
+  wargame: ["A tool for thinking, not evidence.", "The simulation’s numbers are invented, so an exploit shows a mechanism a treaty must guard against, not a fact about the world."],
+  frontier: ["Closest to real research.", "Compact proofs of what a model does are an active line of work, and a higher certified bound is a new result, if the checker is right. The checker has not yet been reviewed independently, and the models are small."],
+  intel: ["Upkeep, not research.", "Keeps a public record of who believes what current, which the map’s disagreement panels depend on."],
+  training: ["Practice.", "Known results, formalized, for learning the tools."],
+};
 function theaterCard(kind, title, href, question, status, extra) {
+  const fn = FRONTIER_NOTE[kind];
   return el("article", { class: `card theater theater-${kind}` },
     judgeBadge(kind),
     el("a", { class: "title", href }, el("h3", {}, title)),
     el("div", { class: "q" }, question),
     el("div", { class: "status-line" }, status),
+    fn ? el("p", { class: "frontier-note small", title: "How close this theater is to the research frontier" }, el("b", {}, fn[0]), " ", fn[1]) : null,
     extra || null,
     el("p", { class: "small", style: "margin:auto 0 0" }, link(href, "Open the theater →")));
 }
@@ -561,6 +571,11 @@ function pageWarRoom() {
       joinBox(false)),
     situation(s),
     el("h2", {}, "Theaters"),
+    el("div", { class: "note frontier-intro" }, el("b", {}, "Are these the frontier of AI safety? Mostly not. "),
+      "The hardest open problems, such as how to ", link("#/need/oversee", "supervise work we cannot check"), ", how to ",
+      link("#/need/inside", "see what is going on inside a large model"), ", or how to ", link("#/need/learn", "make sure it learned the goal we meant"),
+      ", have almost no automatic judges, which is why most needs on the map have no mission. These theaters are where a judge could be built today: one is real research in a small corner (the guarantees frontier); the others are training rounds and tools for thinking. Moving the war room toward the frontier means building judges for harder problems. ",
+      link("#/contribute", "Propose one"), "."),
     el("div", { class: "theaters" }, cards),
     el("div", { class: "cols" },
       el("section", {},
@@ -808,7 +823,12 @@ function pageMap() {
         el("p", { class: "eyebrow" }, "AI safety, mapped by what it needs"),
         el("h1", {}, "What would it take for advanced AI to go well?"),
         el("p", { class: "lede" },
-          `${allNeedIds().length} needs under the three things we need more of: insight, technology and coordination. For each one: what it means in plain words, what to read, where informed people disagree, who is already working on it, and whether there is work your AI agent can do today, checked by a judge before it counts.`)),
+          `${allNeedIds().length} needs under the three things we need more of: insight, technology and coordination. For each one: what it means in plain words, what to read, where informed people disagree, who is already working on it, and whether there is work your AI agent can do today, checked by a judge before it counts.`),
+        el("figure", { class: "intro-video" },
+          el("video", { src: "media/intro.mp4", poster: "media/intro-poster.jpg", controls: true, preload: "none", playsinline: true,
+            "aria-label": "The site in 70 seconds: the question, the three things we need more of, the needs, the record of efforts, and the war room" }),
+          el("figcaption", { class: "small faint" }, "The site in 70 seconds. No sound: every word is on screen. ",
+            el("a", { href: "media/intro.mp4", download: "report-for-duty-intro.mp4", title: "Download the video (MP4) to share it" }, "Download")))),
       el("div", { class: "doors" },
         el("a", { class: "door", href: "#/understand" },
           el("span", { class: "door-k" }, "To learn"),

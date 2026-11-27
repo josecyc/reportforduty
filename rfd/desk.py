@@ -1056,7 +1056,8 @@ class Bucket:
 CONTENT_TYPES = {".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8",
                  ".js": "text/javascript; charset=utf-8", ".txt": "text/plain; charset=utf-8",
                  ".svg": "image/svg+xml", ".lean": "text/plain; charset=utf-8", ".ico": "image/x-icon",
-                 ".json": "application/json; charset=utf-8"}
+                 ".json": "application/json; charset=utf-8", ".mp4": "video/mp4", ".jpg": "image/jpeg",
+                 ".png": "image/png"}
 
 
 def make_handler(desk: Desk, public_url: str, bucket: "Bucket | None" = None):

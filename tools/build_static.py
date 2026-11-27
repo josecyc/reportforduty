@@ -44,6 +44,8 @@ def main() -> int:
     for f in (ROOT / "site").iterdir():
         if f.is_file() and f.name != "join.txt":
             shutil.copy2(f, out / f.name)
+        elif f.is_dir() and f.name == "media":   # the video and its poster (tools/make_intro_video.py)
+            shutil.copytree(f, out / f.name, dirs_exist_ok=True)
     join = (ROOT / "site" / "join.txt").read_text(encoding="utf-8").replace("{{DESK}}", "http://127.0.0.1:8787")
     where = f"the public site, https://{a.domain}" if a.domain else "the public snapshot of Report for Duty"
     (out / "join.txt").write_text(
