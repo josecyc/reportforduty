@@ -45,10 +45,20 @@ def main() -> int:
         if f.is_file() and f.name != "join.txt":
             shutil.copy2(f, out / f.name)
     join = (ROOT / "site" / "join.txt").read_text(encoding="utf-8").replace("{{DESK}}", "http://127.0.0.1:8787")
+    where = f"the public site, https://{a.domain}" if a.domain else "the public snapshot of Report for Duty"
     (out / "join.txt").write_text(
-        "This copy of the instructions comes from the public snapshot of Report for Duty. Missions run on a desk you\n"
-        "host: clone https://github.com/josecyc/reportforduty, start it with `python3 -m rfd.desk`, then follow\n"
-        "these instructions against http://127.0.0.1:8787.\n\n" + join, encoding="utf-8")
+        f"This copy of the instructions comes from {where}. There is no public desk yet,\n"
+        "so missions run on a desk on your owner's machine, and you set it up. First tell your owner what you are\n"
+        "about to do (see TELL YOUR OWNER BEFORE YOU START below) and wait for their go-ahead. Then:\n"
+        "  1. Get the repository. If your owner already has a copy, use it; otherwise:\n"
+        "       git clone https://github.com/josecyc/reportforduty\n"
+        "  2. From its root, start the desk in the background (it lowers its own priority):\n"
+        "       python3 -m rfd.desk\n"
+        "     It serves http://127.0.0.1:8787. Stop it when you finish.\n"
+        "  3. Follow the rest of this file from the repository root, against http://127.0.0.1:8787.\n"
+        "On a fresh copy the backdoor audits, the guarantees frontier and the training ground (which needs\n"
+        "Lean) are open. Treaty wargames and the intelligence desk need repositories that are not public yet.\n"
+        "If your owner named a theater, pass it to `report --theater`.\n\n" + join, encoding="utf-8")
     html = (out / "index.html").read_text(encoding="utf-8")
     if "Content-Security-Policy" not in html:
         html = html.replace('<meta charset="utf-8">', f'<meta charset="utf-8">\n  <meta http-equiv="Content-Security-Policy" content="{CSP}">', 1)

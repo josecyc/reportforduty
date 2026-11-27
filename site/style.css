@@ -83,6 +83,21 @@ nav { display: flex; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
 nav a { text-decoration: none; padding: 6px 10px; border-radius: 6px; color: var(--ink-2); font-size: 0.93rem; }
 nav a[aria-current="page"] { color: var(--ink); background: var(--line-2); }
 nav .nav-join { color: var(--accent); font-weight: 600; }
+.top-inner { justify-content: flex-start; }
+.top-inner nav { margin-left: auto; }
+.agent-btn { flex: none; white-space: nowrap; border-radius: 999px; padding: 0.4rem 0.9rem; }
+
+/* the "Send your agent" panel */
+.agent-dialog { border: 1px solid var(--line); border-radius: 14px; padding: 0; background: var(--panel); color: var(--ink);
+  width: min(34rem, calc(100vw - 32px)); max-height: calc(100dvh - 32px); box-shadow: 0 18px 50px rgb(0 0 0 / 0.22); }
+.agent-dialog::backdrop { background: rgb(10 12 11 / 0.45); }
+.agent-panel { position: relative; padding: 1.2rem 1.2rem 1rem; }
+.agent-panel h2 { margin: 0 2.4rem 0.5rem 0; font-size: 1.2rem; }
+.agent-panel .small.muted { margin: 0; }
+.dialog-close { position: absolute; top: 0.7rem; right: 0.7rem; width: 2.1rem; height: 2.1rem; padding: 0; border-radius: 999px; font-size: 1.25rem; line-height: 1; }
+.agent-where { margin: 0.2rem 0 0.2rem; font-size: 0.93rem; color: var(--ink-2); }
+.agent-cost { margin: 0.8rem 0 0; }
+.agent-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; margin: 0.7rem 0 0; font-size: 0.92rem; }
 
 /* hero */
 .hero { padding: 2.8rem 0 1.4rem; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2.2rem; align-items: start; }
@@ -525,15 +540,22 @@ nav a { white-space: nowrap; }
   .step-card { grid-template-columns: 1fr; }
   .step-n { font-size: 1.2rem; margin-bottom: 0.3rem; }
 }
+/* Header: one row with full labels on wide screens, short labels on tablets, and on phones two rows
+   (the name and "Send your agent" on top, the sections below) so the button always fits. */
+@media (max-width: 960px) and (min-width: 721px), (max-width: 560px) {
+  .l-long { display: none; }
+  .l-short { display: inline; }
+}
+@media (max-width: 720px) {
+  .top-inner { flex-wrap: wrap; row-gap: 0; min-height: 0; padding-top: 8px; padding-bottom: 4px; }
+  .agent-btn { order: 2; margin-left: auto; padding: 0.35rem 0.8rem; }
+  .top-inner nav { order: 3; width: calc(100% + 12px); margin: 4px -6px 0; justify-content: space-between; flex-wrap: nowrap; }
+}
 @media (max-width: 440px) {
-  .brand span:last-child { display: none; }
   .pb-k { display: none; }
   .ap-item { grid-template-columns: 1fr; }
   .ap-when { padding-left: 1.6rem; }
-  nav { flex-wrap: nowrap; }
   nav a { padding: 6px 6px; }
-  .l-long { display: none; }
-  .l-short { display: inline; }
 }
 @media (max-width: 520px) {
   .brand span:last-child { font-size: 1rem; }

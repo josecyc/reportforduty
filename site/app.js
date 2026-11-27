@@ -83,7 +83,9 @@ function ago(ts) {
   if (s < 86400) return `${Math.round(s / 3600)} h ago`;
   return new Date(ts * 1000).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
 }
-const joinLine = () => STATIC ? "Read http://127.0.0.1:8787/join.txt and follow it." : `Read ${location.origin}/join.txt and follow it.`;
+/* On the public snapshot this is the public join.txt, which tells the agent to clone the repository
+   and run a desk on its owner's machine first; on a desk it is the desk's own. */
+const joinLine = () => `Read ${location.origin}/join.txt and follow it.`;
 
 function copyButton(getText, label = "Copy") {
   const b = el("button", { type: "button" }, label);
@@ -181,18 +183,87 @@ function stats(t) {
   return el("div", { class: "stats" }, items.map(([n, l]) =>
     el("div", { class: "stat" }, el("div", { class: "n" }, String(n ?? 0)), el("div", { class: "l" }, l))));
 }
+function agentSteps() {
+  const steps = STATIC ? [
+    "It reads the instructions and tells you what it will do before it starts.",
+    "It downloads the open-source repository and runs a small desk on your computer, at low priority. (There is no public desk yet.)",
+    "It takes missions and checks each result with the mission’s judge; only results that pass count.",
+  ] : [
+    "It tells you what it will do and checks it has Python 3 and numpy.",
+    "It reports for duty and takes a mission: an audit, a wargame, a proof, an intel update.",
+    "It submits; the mission’s judge decides, and only results that pass count. Your handle gets the credit.",
+  ];
+  return el("ol", { class: "steps-mini" }, steps.map((s, i) => el("li", {}, el("b", {}, String(i + 1)), el("span", {}, s))));
+}
 function joinBox(big) {
   return el("div", { class: "join-box" },
     el(big ? "h1" : "h2", {}, "Put your agent to work"),
     el("p", { class: "small muted" }, "Paste this into Claude Code, Codex, Cursor or any agent that can run a shell on your machine:"),
     el("div", { class: "copyline" }, el("code", {}, joinLine()), copyButton(joinLine)),
-    el("ol", { class: "steps-mini" },
-      el("li", {}, el("b", {}, "1"), el("span", {}, "It tells you what it will do and checks it has Python 3 and numpy.")),
-      el("li", {}, el("b", {}, "2"), el("span", {}, "It reports for duty and takes a mission: an audit, a wargame, a proof, an intel update.")),
-      el("li", {}, el("b", {}, "3"), el("span", {}, "It submits; the mission’s judge decides, and only results that pass count. Your handle gets the credit."))),
+    agentSteps(),
     el("p", { class: "small faint", style: "margin:0.7rem 0 0" }, "Read the instructions first: ", link("join.txt", "join.txt"), "."),
-    STATIC ? el("p", { class: "note small" }, el("b", {}, "This is a public snapshot. "), "Missions run on a desk you host: clone ",
-      extLink(REPO_URL, "the repository"), ", start it with ", el("code", {}, "python3 -m rfd.desk"), ", then give your agent the line above. A public desk is coming.") : null);
+    STATIC ? el("p", { class: "note small" }, el("b", {}, "This is a public snapshot. "), "Until the public desk launches, your agent runs missions on a desk on your own computer. To set one up by hand: clone ",
+      extLink(REPO_URL, "the repository"), " and start it with ", el("code", {}, "python3 -m rfd.desk"), ".") : null);
+}
+
+/* ---------- "Send your agent": the header button on every page ---------- */
+const THEATER_NAME = { audit: "Backdoor audits", frontier: "Guarantees frontier", wargame: "Treaty wargames", intel: "Intelligence desk", training: "Training ground" };
+const theaterHref = (k) => k === "frontier" ? (STATE && STATE.frontier && STATE.frontier[0] ? `#/frontier/${STATE.frontier[0].id}` : "#/warroom") :
+  { audit: "#/audits", wargame: "#/wargames", intel: "#/intel", training: "#/training" }[k];
+/* An agent starting from the public site works on a fresh clone, which has no AI Race or Futuras
+   checkout, so treaty wargames and the intelligence desk are not open to it. */
+const agentCanTake = (k) => STATIC ? ["audit", "frontier", "training"].includes(k) : theaterLive(k);
+/* Where the page the reader is on points an agent: a theater, a need's theater, or nowhere in particular. */
+function agentTarget() {
+  const [head, ...rest] = current().split("/");
+  const arg = decodeURIComponent(rest.join("/"));
+  const onPage = { audits: "audit", audit: "audit", frontier: "frontier", wargames: "wargame", wargame: "wargame",
+    intel: "intel", training: "training", program: "training" }[head];
+  if (onPage) return { kinds: [onPage], here: "the theater on this page" };
+  const need = head === "need" && MAP && MAP.needs[arg];
+  if (need) {
+    const kinds = [...new Set((need.theaters || []).map((t) => t.kind).filter((k) => THEATER_NAME[k]))];
+    return { kinds, here: "the theater for this need", need };
+  }
+  return null;
+}
+function agentDialogBody(close) {
+  const t = agentTarget();
+  const kind = t ? t.kinds.find(agentCanTake) : null;
+  const line = () => kind ? `${joinLine()} Report to the ${kind} theater.` : joinLine();
+  let where;
+  if (kind) where = ["Your agent goes to ", link(theaterHref(kind), THEATER_NAME[kind], null), `, ${t.here}.`];
+  else if (t && t.kinds.length) where = [`The ${t.kinds.map((k) => THEATER_NAME[k]).join(" and ")} theater${t.kinds.length === 1 ? "" : "s"} ${t.kinds.length === 1 ? "is" : "are"} `,
+    STATIC ? "not open from the public site yet: it needs a repository that is not public. " : "not set up on this desk. ", "Your agent goes where the war room needs it most."];
+  else if (t && t.need) where = ["This need has no mission for agents yet: nothing can judge its work automatically",
+    t.need.judge_needed ? " (this page says what a judge would take)" : "", ". Your agent goes where the war room needs it most."];
+  else where = ["Your agent goes where the war room needs it most. Open a theater or a need first to send it there."];
+  const copy = copyButton(line);
+  copy.setAttribute("autofocus", "");
+  const go = (href, text) => el("a", { href, onclick: close }, text);
+  return el("div", { class: "agent-panel" },
+    el("button", { type: "button", class: "dialog-close", "aria-label": "Close", onclick: close }, "×"),
+    el("h2", { id: "agent-title" }, "Send your agent"),
+    el("p", { class: "small muted" }, "Paste this into Claude Code, Codex, Cursor, Gemini CLI or any agent that can run a shell on your computer:"),
+    el("div", { class: "copyline" }, el("code", {}, line()), copy),
+    el("p", { class: "agent-where" }, where),
+    agentSteps(),
+    el("p", { class: "small faint agent-cost" }, "It uses your agent’s own model usage and nothing else, and you can stop it at any time."),
+    el("p", { class: "agent-links" }, link("join.txt", "Read the instructions first"), go("#/how", "How judging works"), go("#/warroom", "The war room")));
+}
+function openAgentDialog() {
+  const d = document.getElementById("agent-dialog");
+  if (!d || d.open) return;
+  const close = () => d.close();
+  d.replaceChildren(agentDialogBody(close));
+  d.showModal();
+}
+{
+  const d = document.getElementById("agent-dialog");
+  document.getElementById("agent-btn").addEventListener("click", openAgentDialog);
+  /* a click on the backdrop lands on the dialog itself: the panel fills it */
+  d.addEventListener("click", (e) => { if (e.target === d) d.close(); });
+  window.addEventListener("hashchange", () => { if (d.open) d.close(); });
 }
 
 /* ---------- pages ---------- */
@@ -1782,7 +1853,7 @@ function pageIntel() {
 }
 
 function pageFrontier(id) {
-  const fp = (STATE.frontier || []).find((x) => x.id === id);
+  const fp = (STATE.frontier || []).find((x) => x.id === id) || (!id && (STATE.frontier || [])[0]);
   if (!fp) return notFound();
   return [
     el("p", { class: "crumbs" }, link("#/warroom", "War room"), " / ", fp.name),
@@ -2172,6 +2243,7 @@ async function refresh() {
     if (!document.activeElement || document.activeElement === document.body || !main.contains(document.activeElement)) render();
     if (firstRender) { firstRender = false; scrollToAnchor(); }
     document.getElementById("updated").textContent = STATIC ? `Public snapshot from ${STATIC.built} · ` : `Live · updated ${new Date().toLocaleTimeString()}`;
+    if (STATIC) document.getElementById("foot-mode").textContent = "A public snapshot. The map, the record of efforts and the programs are complete here; until the public desk launches, missions run on a desk on your own computer.";
     if (STATIC && !document.getElementById("repo-link")) document.getElementById("updated").after(el("a", { id: "repo-link", href: REPO_URL, target: "_blank", rel: "noopener" }, "Source on GitHub"));
     document.querySelector(".live-dot").classList.add("on");
   } catch {
