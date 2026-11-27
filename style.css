@@ -105,6 +105,9 @@ nav .nav-join { color: var(--accent); font-weight: 600; }
 .frontier-note { margin: 0.5rem 0 0.6rem; padding: 0.45rem 0.6rem; border-radius: 6px; background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink-2); }
 .frontier-note b { color: var(--ink); }
 .frontier-intro { max-width: 52rem; }
+.nearer { max-width: 52rem; margin: -0.4rem 0 1.2rem; font-size: 0.93rem; }
+.nearer summary { cursor: pointer; font-weight: 600; color: var(--ink-2); }
+.nearer li { margin: 0.45rem 0; color: var(--ink-2); }
 
 /* contributing */
 .contrib-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 1.2rem 0 0.6rem; }
