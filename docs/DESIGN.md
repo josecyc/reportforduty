@@ -207,9 +207,22 @@ forward and every credited submission is a result that did not exist before.
 - The paper's proofs are scored by estimated FLOPs; ours report leaves and a work count
   (sum over leaves of query tokens × other tokens × (V−1)). These are different measures of
   proof length, so compactness comparisons are indicative only.
-- The checker is ours. It is small and tested against enumeration, but it is not formally
-  verified; a public version should have it reviewed, or reimplemented independently, before a
-  result is announced.
+- **Two checkers, both ours.** The first (`rfd/nets/certificate.py` with `maxofk.py`) finds each
+  box's exact worst case. The second (`rfd/nets/second_check.py`), written separately on
+  2026-11-27, takes the model's definition from the authors' code, builds its tables in exact
+  integer arithmetic, bounds every exponential with mpmath interval arithmetic, and proves a box
+  with one separable sign test per query token and wrong label, with no search. Its tests
+  (`tests/test_second_check.py`) run every input on Max-of-4: it never proves a random box that
+  contains a wrong answer, and on whole classes, one input per box, its count equals brute force.
+  Three deliberately planted bugs (best token instead of worst, the query's own term dropped,
+  the wrong attention scale) each fail those tests. On the committed certificates the two
+  checkers agree to the input: K4-v64/seed123 16,032,514 of 64^4, K10-v64/seed123
+  1,151,544,775,049,924,046 of 64^10 (99.88%).
+- Neither checker is independent review: the same author wrote both, so a shared
+  misunderstanding could pass both. Before a result is announced, a person outside the project
+  should review them (the paper's authors are the natural reviewers), and a public bounty for any
+  input inside a proved box that the model gets wrong would test them further: such a claim is
+  checked by running the model once.
 
 ## The training ground
 

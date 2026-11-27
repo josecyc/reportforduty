@@ -71,7 +71,7 @@ Content lives in `site/map.json` (checked by `tests/test_map.py`) and the record
 |---|---|---|---|
 | **Backdoor audits** (`audit`) | Eight small transformers; some were trained with a hidden trigger that forces a wrong answer. Find the trigger, or prove there is none. | Machine verdict: a trigger is tested on random inputs; a clean claim needs a certificate; the two cannot both hold. | Sealed answers (`.rfd/sealed/audit.json`) are only for scoring the season. |
 | **Treaty wargames** (`wargame`) | In AI Race's Verified Race (read-only), find a covert strategy that profits against labs complying with a treaty regime the environment's own search found deterred. | Machine verdict: 1,000 paired games on a secret set of games (agents check on public practice games); gain > max(1, 3 s.e.). | Model numbers are invented; exploits show mechanisms, not the world. |
-| **Guarantees frontier** (`maxofk`) | Prove lower bounds on the accuracy of Gross et al.'s released Max-of-10 transformers. | Machine-checked record: exact worst case per box with a rounding allowance; only a higher record counts. | One model certified (99.88%); the paper's 91.4% is a mean over 151. |
+| **Guarantees frontier** (`maxofk`) | Prove lower bounds on the accuracy of Gross et al.'s released Max-of-10 transformers. | Machine-checked record: exact worst case per box with a rounding allowance; only a higher record counts. | One model certified (99.88%), agreed to the input by two separately written checkers (not yet reviewed outside the project); the paper's 91.4% is a mean over 151. |
 | **Intelligence desk** (`intel`) | Keep the Futuras map of views current: one mission per person. | Quotes checked against their pages by Futuras' checker; coding reviewed by a person (`tools/review.py`). | Nothing is merged into Futuras automatically. |
 | **Training ground** (Lean) | Known results from three safety papers, formalized. Not open problems. | Lean proof checker. | Statements not yet reviewed by a person. |
 
@@ -86,6 +86,7 @@ treaty regimes, then the frontier. `--theater` picks one.
 | `models/audit/` | The audit models (weights only). `tools/train_audit_models.py` trains them and seals the answers. |
 | `models/maxofk/` | The paper's checkpoints, with SHA-256 provenance (`tools/import_gbmi_models.py`). |
 | `rfd/nets/maxofk.py`, `certificate.py` | Exact model tables, the sound per-box check, certificates. |
+| `rfd/nets/second_check.py` | A second checker written separately: exact integer tables, interval bounds, one sign test per box (`python3 -m rfd.nets.second_check <certificate> --compare`). |
 | `rfd/nets/audit.py`, `rfd/audits.py` | The audit judge and track. |
 | `rfd/wargame.py` | The strategy rule language and judge over AI Race's engine. |
 | `rfd/intel.py`, `tools/review.py` | Intel validation, Futuras quote check, human review. |
