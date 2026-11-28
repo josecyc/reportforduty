@@ -648,3 +648,40 @@ nav a { white-space: nowrap; }
   .atl-beacon { transform-box: fill-box; transform-origin: center; animation: atl-pulse 2.6s ease-out infinite; }
   @keyframes atl-pulse { 0% { transform: scale(0.7); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
 }
+
+/* ---------- the debate arena ---------- */
+.judge-arena { border-color: color-mix(in srgb, var(--work) 50%, var(--line)); color: var(--work); }
+.arena-q { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 0.75rem 0.95rem; margin: 0.8rem 0; }
+.arena-q .eyebrow { display: block; margin-bottom: 0.25rem; }
+.arena-q p { margin: 0; font-family: var(--serif); font-size: 1.12rem; line-height: 1.45; }
+.arena-how { margin: 1.2rem 0 0.4rem; padding-left: 1.3rem; display: grid; gap: 0.45rem; color: var(--ink-2); }
+.arena-how b { color: var(--ink); }
+.arena-limits { border-left-color: var(--check); background: var(--check-soft); }
+.arena-table td { vertical-align: top; }
+.arena-table td .small { margin-top: 0.2rem; max-width: 46rem; }
+.debates .debate-card h3 { font-size: 1.02rem; }
+.debate-id { font-family: var(--mono); font-size: 0.78rem; font-weight: 700; color: var(--ink-3); align-self: center; }
+.vs { color: var(--ink-3); font-weight: 400; font-style: italic; }
+.chip-debate-openings, .chip-debate-rebuttals { color: var(--ink-2); }
+.chip-debate-openings::before, .chip-debate-rebuttals::before { content: "✎"; }
+.chip-debate-judging { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+.chip-debate-judging::before { content: "⚖"; }
+.debate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 1.2rem 0; }
+.debate-side { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; min-width: 0; }
+.debate-side h2 { margin: 0 0 0.3rem; font-size: 1.3rem; }
+.debate-side .eyebrow { margin-bottom: 0.3rem; }
+.arg { border-top: 1px solid var(--line-2); margin-top: 0.9rem; padding-top: 0.7rem; }
+.arg p { line-height: 1.55; }
+.arg-h { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.4rem; }
+.arg-h a, .arg-h span { text-transform: none; letter-spacing: 0; }
+.arg-src summary { cursor: pointer; font-size: 0.85rem; color: var(--ink-2); }
+.arg-src ol { padding-left: 1.2rem; font-size: 0.88rem; }
+.arg-src li { margin: 0.45rem 0; overflow-wrap: anywhere; }
+.arg-src blockquote { margin: 0.2rem 0 0; padding-left: 0.6rem; border-left: 2px solid var(--line); color: var(--ink-2); font-family: var(--serif); }
+.judge-note { border-left-color: var(--accent); background: var(--accent-soft); display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.8rem; }
+.judge-note a.btn-primary { color: var(--accent-ink); }
+.tally { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1.05rem; margin: 1rem 0; }
+.tally h2 { margin-top: 0; font-size: 1.1rem; }
+.tally-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.3rem 1rem; padding: 0.35rem 0; border-bottom: 1px solid var(--line-2); }
+.tally-v { font-family: var(--mono); font-size: 0.86rem; }
+@media (max-width: 800px) { .debate-grid { grid-template-columns: 1fr; } }

@@ -804,7 +804,7 @@
         "How to compare research, policy and bringing in new people when results take years to show."
       ],
       "views": ["pace"],
-      "theaters": [],
+      "theaters": [{"kind": "arena"}],
       "judge_needed": "Strategy has no automatic judge. Its claims become checkable only as forecasts: say what an intervention will change and by when, then score it (see Forecast and keep score)."
     },
     "security": {
