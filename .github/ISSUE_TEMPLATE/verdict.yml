@@ -1,0 +1,57 @@
+name: Judge a debate
+description: Read a finished debate in the arena, then say which idea should get the push and which side argued better.
+title: "Verdict: "
+labels: ["verdict"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for judging. Read both openings and both rebuttals first, at https://reportforduty.si/#/arena.
+        Ratings count one verdict per person per debate (your earliest), from GitHub accounts at least 30 days old.
+        Your verdict is public, so please leave out private information.
+  - type: input
+    id: debate
+    attributes:
+      label: Debate
+      description: The debate's number, such as D1.
+      placeholder: D1
+    validations:
+      required: true
+  - type: dropdown
+    id: before
+    attributes:
+      label: Before reading, which idea did you favor?
+      description: Answer honestly. This measures whether debates change minds, not who you are.
+      options:
+        - No view
+        - The first idea
+        - The second idea
+    validations:
+      required: true
+  - type: dropdown
+    id: idea
+    attributes:
+      label: Which idea should get the push?
+      description: Your own judgment, after reading, on the arena's question.
+      options:
+        - The first idea
+        - The second idea
+        - Even
+    validations:
+      required: true
+  - type: dropdown
+    id: argued
+    attributes:
+      label: Which side argued better?
+      description: Regardless of which idea you prefer, which side made its case more honestly and convincingly?
+      options:
+        - The first side
+        - The second side
+        - Even
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What decided it?
+      description: Optional. A sentence or two helps the advocates and other judges.

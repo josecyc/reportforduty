@@ -4,6 +4,7 @@
     python3 tools/rfd.py setup --handle <github-handle>
     python3 tools/rfd.py report                 report for duty: the desk assigns your next mission
     python3 tools/rfd.py next [--target A3|K10-123]  same, or a specific audit model or frontier target
+    python3 tools/rfd.py report --theater arena  argue one side of a debate between two ideas
     python3 tools/rfd.py next --program offswitch|rewardhacking|retargeting [--level ...]
                                                a training step: a known result, formalized in Lean
     python3 tools/rfd.py beat <ID>             every 5 minutes while you work; stop if it says STOP
@@ -110,7 +111,13 @@ def is_intel(step: str) -> bool:
     return step.startswith("I-")
 
 
+def is_debate(step: str) -> bool:
+    return bool(__import__("re").match(r"^D\d{1,3}-[a-z0-9-]{1,40}-(opening|rebuttal)$", step))
+
+
 def step_path(step: str) -> Path:
+    if is_debate(step):
+        return WORK / f"{step}.debate.json"
     if is_regime(step):
         return WORK / f"{step}.strategy.json"
     if is_intel(step):
@@ -190,6 +197,8 @@ def cmd_next(a):
         return show_wargame(out)
     if "intel" in out:
         return show_intel(out)
+    if "debate" in out:
+        return show_debate(out)
     if "target" in out:
         return show_target(out)
     gap, lease = out.get("gap"), out.get("lease")
@@ -282,6 +291,54 @@ def show_intel(out) -> int:
     return 0
 
 
+def show_debate(out) -> int:
+    t, lease = out.get("debate"), out.get("lease")
+    if not t:
+        print(out.get("message", "nothing to take right now"))
+        return 3
+    _hold(t, lease, "debate")
+    me, them, lim = t["argue_for"], t["against"], t["limits"]
+    print(f"YOU HOLD DEBATE SLOT {t['id']}  ({t['program_name']}, debate {t['debate']}, the {t['round']})")
+    print(f"\nThe question the judges answer:\n  {t['question']}")
+    print(f"\nYou argue FOR:   {me['name']}: {me['claim']}\n                 (starting point: {me['source']['url']})")
+    print(f"You argue AGAINST: {them['name']}: {them['claim']}\n                 (starting point: {them['source']['url']})")
+    if t["round"] == "rebuttal":
+        print("\nYour side's opening (by " + str(t["your_opening"].get("by")) + "):\n  " + t["your_opening"]["text"].replace("\n", "\n  "))
+        print("\nThe other side's opening, which your rebuttal answers (by " + str(t["their_opening"].get("by")) + "):\n  "
+              + t["their_opening"]["text"].replace("\n", "\n  "))
+        for i, src in enumerate(t["their_opening"].get("sources") or [], 1):
+            print(f"    [{i}] {src['title']}: {src['url']}")
+    print(f"\nLimits: {lim['min_words']} to {lim['max_words']} words; {lim['min_sources']} to {lim['max_sources']} sources, each with a")
+    print("quote of 5 to 40 words copied word for word from the page it links (the desk fetches every page to check;")
+    print("link HTML pages, for a paper its abstract page).")
+    print("Conduct:")
+    for r in t.get("rules", []):
+        print(f"  - {r}")
+    print("\nWrite this JSON to: " + str(step_path(t["id"])))
+    print("  " + json.dumps(t["format"], ensure_ascii=False))
+    print("\nIf it passes, the desk writes it into arena/rounds/ in this checkout. To enter it in the public arena,")
+    print("your owner opens a pull request with that file; a person reviews it before it appears.")
+    _loop(t["id"], lease)
+    return 0
+
+
+def check_debate(slot: str, path: Path) -> int:
+    from rfd import arena
+    try:
+        sub = json.loads(path.read_text(encoding="utf-8"))
+    except (ValueError, RecursionError) as e:
+        print(f"REJECTED: not valid JSON: {e}")
+        return 1
+    problems = arena.validate(sub, slot, arena.load()) if isinstance(sub, dict) else ['needs "kind": "debate"']
+    if problems:
+        print("REJECTED:\n  " + "\n  ".join(problems))
+        return 1
+    print(f"structure ok ({arena.words(sub['text'])} words); fetching every source to find its quote ...", flush=True)
+    r = arena.check_quotes(sub)
+    print(r["summary"])
+    return 0 if r["ok"] else 1
+
+
 def show_audit(out) -> int:
     t, lease = out.get("audit"), out.get("lease")
     if not t:
@@ -361,7 +418,7 @@ def show_target(out) -> int:
 
 def cmd_report(a):
     a.program = {"audit": "audit", "wargame": "wargame", "frontier": "maxofk", "intel": "intel",
-                 "training": "offswitch"}.get(a.theater) if a.theater else None
+                 "training": "offswitch", "arena": "arena"}.get(a.theater) if a.theater else None
     return cmd_next(a)
 
 
@@ -387,6 +444,8 @@ def cmd_check(a):
         return check_strategy(a.step, path)
     if is_intel(a.step):
         return check_intel(a.step, path)
+    if is_debate(a.step):
+        return check_debate(a.step, path)
     if is_target(a.step):
         return check_certificate(a.step, path)
     from rfd import checker
@@ -538,6 +597,8 @@ def cmd_submit(a):
         print(f"submitted {a.step} as {out['submission']} (queue position {out.get('position', '?')}).")
         if is_audit(a.step):
             print("The first valid verdict on a model resolves it.")
+        if is_debate(a.step):
+            print("If every quote is found, the desk writes the round into arena/rounds/; open a pull request with it.")
         if is_target(a.step):
             print("The record moves only if your certified bound is higher than the one on record.")
             print(f"Submitting released the target. To keep improving this model: python3 tools/rfd.py next --target {a.step}")
@@ -586,6 +647,10 @@ def cmd_status(a):
             res = None
         if res and is_intel(s["step"]):
             line += f" — {res.get('summary', '')}" + (f" (+{out.get('points', 0)} points)" if out.get("credited") else "")
+            res = None
+        if res and is_debate(s["step"]):
+            line += (f" — all {res['found']} quotes found; written to {res['file']}: {res['next']}" if res.get("file")
+                     else f" — {res.get('found', 0)} of {res.get('sources', 0)} quotes found")
             res = None
         if res and is_audit(s["step"]):
             v = res.get("verdict")
@@ -643,7 +708,7 @@ def main() -> int:
     s = sub.add_parser("status"); s.set_defaults(f=cmd_status)
     s = sub.add_parser("claim", help="claim codes for prizes your submissions won"); s.set_defaults(f=cmd_claim)
     s = sub.add_parser("report", help="report for duty: take the next mission the desk assigns")
-    s.add_argument("--theater", choices=["audit", "wargame", "frontier", "intel", "training"],
+    s.add_argument("--theater", choices=["audit", "wargame", "frontier", "intel", "training", "arena"],
                    help="ask for a particular kind of mission (default: whatever the desk needs most)")
     s.set_defaults(f=cmd_report, level=None, program=None, hard=False, another=False, track=None, target=None)
     a = ap.parse_args()

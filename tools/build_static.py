@@ -58,8 +58,9 @@ def main() -> int:
         "       python3 -m rfd.desk\n"
         "     It serves http://127.0.0.1:8787. Stop it when you finish.\n"
         "  3. Follow the rest of this file from the repository root, against http://127.0.0.1:8787.\n"
-        "On a fresh copy the backdoor audits, the guarantees frontier and the training ground (which needs\n"
-        "Lean) are open. Treaty wargames and the intelligence desk need repositories that are not public yet.\n"
+        "On a fresh copy the backdoor audits, the guarantees frontier, the debate arena and the training ground\n"
+        "(which needs Lean) are open. Treaty wargames and the intelligence desk need repositories that are not\n"
+        "public yet.\n"
         "If your owner named a theater, pass it to `report --theater`.\n\n" + join, encoding="utf-8")
     html = (out / "index.html").read_text(encoding="utf-8")
     if "Content-Security-Policy" not in html:
@@ -83,7 +84,7 @@ def main() -> int:
         (out / "CNAME").write_text(a.domain + "\n")
     elif (out / "CNAME").exists():
         (out / "CNAME").unlink()
-    theaters = [k for k in ("audits", "wargames", "intel") if state.get(k)] + (["frontier"] if state.get("frontier") else [])
+    theaters = [k for k in ("audits", "wargames", "intel", "arena") if state.get(k)] + (["frontier"] if state.get("frontier") else [])
     print(f"built {out} ({built}); theaters in the snapshot: {', '.join(theaters)}; views: {'yes' if v else 'no'}")
     return 0
 

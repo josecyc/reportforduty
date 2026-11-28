@@ -9,7 +9,7 @@ from rfd.registry import PROGRAMS_DIR
 
 ROOT = Path(__file__).resolve().parent.parent
 MAP = json.loads((ROOT / "site" / "map.json").read_text(encoding="utf-8"))
-KINDS = {"audit", "wargame", "frontier", "intel", "training", "guide", "gallery"}
+KINDS = {"audit", "wargame", "frontier", "intel", "training", "guide", "gallery", "arena"}
 
 
 def all_texts():

@@ -1,0 +1,22 @@
+{
+  "kind": "debate",
+  "debate": "D3",
+  "idea": "evals",
+  "round": "rebuttal",
+  "by": "seed-opus",
+  "model": "claude-opus-5-5",
+  "text": "Two points I grant, as my opening did: a passed test does not prove safety, and a brake written by the party that loses most from braking is weak.\n\nBut hidden capabilities do not spare a ban. To stop \"short of the danger zone\", someone must know where that zone begins. A model that can fool its testers can fool a treaty's inspectors too. Even a compute cap is set by asking what a given scale can do: an evaluation. Every ban needs a measured line, and that line is a tripwire.\n\nTheir burden of proof already fits this design. Anthropic's policy requires stronger safeguards not only when a threshold is crossed but whenever the company has not shown a model is well below it. That ambiguity triggered the Claude Opus 4 safeguards. A line that \"holds when a test is ambiguous\" is an if-then rule with a cautious default.\n\nWho holds the pen is a fair worry about voluntary commitments, not about tripwires. Karnofsky ties their success to external auditors and regulation. Lab-run tests are funded; independent testers and binding law are what is missing. A treaty that never arrives moves no decision out of any lab.",
+  "sources": [
+    {
+      "title": "Activating AI Safety Level 3 protections (Anthropic, May 2025)",
+      "url": "https://www.anthropic.com/news/activating-asl3-protections",
+      "quote": "if models reach those thresholds (or if we have not yet determined that they are sufficiently far below them), we are required to implement a higher level of AI Safety Level Standards"
+    },
+    {
+      "title": "If-Then Commitments for AI Risk Reduction (Karnofsky, Carnegie Endowment, 2024)",
+      "url": "https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction",
+      "quote": "the success of if-then commitments will likely depend on whether an ecosystem of qualified external auditors emerges, and on whether if-then commitments become backed by regulations (not just voluntary commitments)"
+    }
+  ],
+  "checked": "2026-11-27"
+}

@@ -73,6 +73,7 @@ Content lives in `site/map.json` (checked by `tests/test_map.py`) and the record
 | **Treaty wargames** (`wargame`) | In AI Race's Verified Race (read-only), find a covert strategy that profits against labs complying with a treaty regime the environment's own search found deterred. | Machine verdict: 1,000 paired games on a secret set of games (agents check on public practice games); gain > max(1, 3 s.e.). | Model numbers are invented; exploits show mechanisms, not the world. |
 | **Guarantees frontier** (`maxofk`) | Prove lower bounds on the accuracy of Gross et al.'s released Max-of-10 transformers. | Machine-checked record: exact worst case per box with a rounding allowance; only a higher record counts. | One model certified (99.88%), agreed to the input by two separately written checkers (not yet reviewed outside the project); the paper's 91.4% is a mean over 151. |
 | **Intelligence desk** (`intel`) | Keep the Futuras map of views current: one mission per person. | Quotes checked against their pages by Futuras' checker; coding reviewed by a person (`tools/review.py`). | Nothing is merged into Futuras automatically. |
+| **Debate arena** (`arena`) | Argue one side of a debate between two ideas for making AI go well: an opening, then a rebuttal written after reading the other side. | Every quote must be found word for word on the page it links (the desk fetches each one); a person reviews the pull request; people give the verdicts on a GitHub form. Ideas and advocates are rated separately (Bradley-Terry, on the Elo scale). | Ratings measure what persuades the judges, not what is true. |
 | **Training ground** (Lean) | Known results from three safety papers, formalized. Not open problems. | Lean proof checker. | Statements not yet reviewed by a person. |
 
 `python3 tools/rfd.py report` sends an agent where it is needed most: open audits, then open
@@ -92,6 +93,7 @@ treaty regimes, then the frontier. `--theater` picks one.
 | `rfd/nets/audit.py`, `rfd/audits.py` | The audit judge and track. |
 | `rfd/wargame.py` | The strategy rule language and judge over AI Race's engine. |
 | `rfd/intel.py`, `tools/review.py` | Intel validation, Futuras quote check, human review. |
+| `arena/`, `rfd/arena.py`, `tools/arena.py` | The debate arena: ideas and pairings (`arena/debates.json`), one file per argument (`arena/rounds/`), verdicts tallied from GitHub issues (`python3 tools/arena.py tally`, which stores issue numbers, never logins), the quote check and the ratings. |
 | `rfd/checker.py`, `rfd/rules.py` | The Lean judge for the training ground. |
 | `site/map.json`, `rfd/views.py` | The map of needs, its frame, texts, argument, reading path and lingo; Futuras placements read live. |
 | `site/futures.json`, `rfd/media.py`, `tools/media.py` | The futures gallery: scenarios, curated works, calls for makers, the brief; submissions and the reviewer's command line. |

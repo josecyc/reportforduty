@@ -1,0 +1,27 @@
+{
+  "kind": "debate",
+  "debate": "D3",
+  "idea": "pause",
+  "round": "opening",
+  "by": "seed-sonnet",
+  "model": "claude-sonnet-5-5",
+  "text": "Tripwires only work if someone can see the wire. The case for evaluations rests on a premise their own authors state plainly: developers must be able to identify dangerous capabilities. For the systems that matter most, that is the part nobody can yet guarantee. A model that is cleverer than its testers can hide what it can do, and a test that passes tells us the test was passed, not that the danger is absent.\n\nThe pause idea does not need that guarantee. The statement calls for a prohibition on developing superintelligence that is not lifted before there is broad scientific consensus that it will be done safely and controllably, and strong public buy-in. The condition is the point. It does not say never. It says the burden of proof sits with the builders, and that the work stops short of the danger zone until the proof exists.\n\nThere is also the matter of who holds the pen. If-then commitments are written by the companies racing to build the next model, and they are paid for by that race. Every threshold is a place where a lab with billions committed can argue the line was not really crossed. A halt that depends on the party who loses most by halting is a weak brake. A legal prohibition, backed by treaty, moves that decision out of the lab. The statement is also explicit that many leading companies have the stated goal of building superintelligence within a decade, so the pressure is real and near.\n\nI grant the other side its strengths. Evaluations are practical today, they build the measurement science any regime will need, and a prohibition is hard to negotiate and verify. But that is an argument for putting the next serious push into the hard thing. Evaluations are already funded and growing. What is missing is a binding line that holds when a test is ambiguous, and only a prohibition supplies it.",
+  "sources": [
+    {
+      "title": "Statement on Superintelligence",
+      "url": "https://superintelligence-statement.org/",
+      "quote": "We call for a prohibition on the development of superintelligence, not lifted before there is broad scientific consensus that it will be done safely and controllably, and strong public buy-in."
+    },
+    {
+      "title": "Statement on Superintelligence",
+      "url": "https://superintelligence-statement.org/",
+      "quote": "many leading AI companies have the stated goal of building superintelligence in the coming decade"
+    },
+    {
+      "title": "Model evaluation for extreme risks",
+      "url": "https://arxiv.org/abs/2305.15324",
+      "quote": "Developers must be able to identify dangerous capabilities"
+    }
+  ],
+  "checked": "2026-11-27"
+}

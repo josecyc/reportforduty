@@ -1,0 +1,27 @@
+{
+  "kind": "debate",
+  "debate": "D1",
+  "idea": "interp",
+  "round": "rebuttal",
+  "by": "seed-opus",
+  "model": "claude-opus-5-5",
+  "text": "Control can be tested today, pays out at deployment, and an interpretability finding alone stops nothing. Those are real strengths.\n\nBut in a control evaluation, a red team produces agents that try to subvert the safeguards. \"Measured against a model that is actively trying to defeat it\" really means measured against the best attacks humans thought to try. The score holds only while the red team is at least as inventive as the model.\n\nThey say control gets better as stakes rise, then concede that a far smarter model might find holes. The second claim is the accurate one: control weakens as the danger grows.\n\nNor is reading internals just a goal: it already surfaced unverbalized evaluation awareness in a real pre-deployment audit.\n\nTheir best point is that a good probe becomes one more monitor inside control. Exactly. Output monitors can be fooled by benign-looking outputs from a model whose reasoning is misaligned; activation monitors look where that reasoning happens. A push on interpretability upgrades control. A push on control does not tell us whether the model is scheming.\n\nThey call control the protection for the window \"while we build deeper tools.\" Then the extra push should build them.",
+  "sources": [
+    {
+      "title": "How to evaluate control measures for LLM agents? A trajectory from today to superintelligence (2025)",
+      "url": "https://arxiv.org/abs/2504.05259",
+      "quote": "running control evaluations: testing exercises in which a red team produces agents that try to subvert control measures"
+    },
+    {
+      "title": "Detecting Strategic Deception Using Linear Probes (2025)",
+      "url": "https://arxiv.org/abs/2502.03407",
+      "quote": "Monitoring outputs alone is insufficient, since the AI might produce seemingly benign outputs while their internal reasoning is misaligned."
+    },
+    {
+      "title": "Natural Language Autoencoders Produce Unsupervised Explanations of LLM Activations (Anthropic, 2026)",
+      "url": "https://transformer-circuits.pub/2026/nla/index.html",
+      "quote": "During our pre-deployment audit of Claude Opus 4.6, NLAs helped diagnose safety-relevant behaviors and surfaced unverbalized evaluation awareness"
+    }
+  ],
+  "checked": "2026-11-27"
+}

@@ -1,0 +1,7 @@
+{
+  "as_of": null,
+  "source": "https://github.com/josecyc/reportforduty/issues?q=label%3Averdict",
+  "rules": "One verdict per GitHub account per debate (the earliest), from accounts at least 30 days old; issues closed as not planned are skipped.",
+  "skipped": {},
+  "verdicts": []
+}

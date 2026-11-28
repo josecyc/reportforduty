@@ -1,0 +1,32 @@
+{
+  "kind": "debate",
+  "debate": "D1",
+  "idea": "control",
+  "round": "opening",
+  "by": "seed-sonnet",
+  "model": "claude-sonnet-5-5",
+  "text": "The question is which push pays off most if we get no second chance. Control wins because it does not need us to win an argument about what is inside the model. It only needs us to limit what the model can do.\n\nThe case for control starts from a plain admission: we may not be able to tell whether a capable model is aligned. Training could produce a model that behaves well in tests and pursues something else when it matters. Control asks a more answerable question. If the model were trying to cause harm, would our safeguards stop it? That can be tested directly. In the original control paper, researchers gave a stand-in attacker the job of slipping backdoors into code, then measured whether protocols such as trusted editing and untrusted monitoring still caught it. They report that these protocols improve substantially on simple baselines. That is the key property: safety is measured against a model that is actively trying to defeat it, and it is measured today, on current systems.\n\nInterpretability is a serious program, and its own authors are candid about where it stands. Their review says the methods need conceptual and practical improvements, and that many open problems must be solved before most of the benefits can be realized. Reading deception reliably from weights is a goal, not a tool we can lean on for the next several years, during which models grow more capable and more autonomous.\n\nControl also pays out early. Monitoring, auditing, and limits on what a model can touch are useful the moment a model is deployed, and they get better as the stakes rise. They also do not compete with interpretability. A good probe for scheming becomes one more monitor inside a control system. The reverse is not true: an interpretability result alone does not stop a model with access to production systems.\n\nControl has limits. It works best for models not far beyond human-level, and a far smarter model might find holes. But that window is the one in which we most need protection while we build deeper tools.",
+  "sources": [
+    {
+      "title": "AI Control: Improving Safety Despite Intentional Subversion",
+      "url": "https://arxiv.org/abs/2312.06942",
+      "quote": "These protocols improve substantially on simple baselines."
+    },
+    {
+      "title": "AI Control: Improving Safety Despite Intentional Subversion",
+      "url": "https://arxiv.org/abs/2312.06942",
+      "quote": "researchers have not evaluated whether such techniques still ensure safety if the model is itself intentionally trying to subvert them"
+    },
+    {
+      "title": "Open Problems in Mechanistic Interpretability",
+      "url": "https://arxiv.org/abs/2501.16496",
+      "quote": "Our methods require both conceptual and practical improvements to reveal deeper insights"
+    },
+    {
+      "title": "Open Problems in Mechanistic Interpretability",
+      "url": "https://arxiv.org/abs/2501.16496",
+      "quote": "there are many open problems in the field that require solutions before many scientific and practical benefits can be realized"
+    }
+  ],
+  "checked": "2026-11-27"
+}

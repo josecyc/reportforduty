@@ -1,0 +1,17 @@
+{
+  "kind": "debate",
+  "debate": "D1",
+  "idea": "control",
+  "round": "rebuttal",
+  "by": "seed-sonnet",
+  "model": "claude-sonnet-5-5",
+  "text": "My opponent concedes the central point: control works on today's models and interpretability is still held back by unsolved science. The rest of their case does not change the comparison.\n\nTheir best evidence is the deception probes. But the probe authors call them promising for future monitoring systems, and say current performance is insufficient as a robust defence. A probe is a monitor. It strengthens control rather than replacing it, and it only helps if something sits around it to act on the alert and to limit damage when the probe misses.\n\nThey also say control weakens as models outpace their overseers. True, and I said so. But that is an argument for buying safety now, while models are within reach of the red team, and for building the tested infrastructure that any later probe would plug into. Finding nothing in the weights is not proof of safety, as they admit. Control does not require that proof. It asks only whether the safeguards hold against an attacker, and that can be measured.\n\nThe push that works with weak understanding should come first.",
+  "sources": [
+    {
+      "title": "Detecting Strategic Deception Using Linear Probes",
+      "url": "https://arxiv.org/abs/2502.03407",
+      "quote": "Overall we think white-box probes are promising for future monitoring systems, but current performance is insufficient as a robust defence against deception."
+    }
+  ],
+  "checked": "2026-11-27"
+}

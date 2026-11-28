@@ -18,6 +18,7 @@ body:
         - A reading for one of the needs
         - A work for the futures gallery
         - A person for the map of who believes what
+        - An idea or a pairing for the debate arena
         - Something else
     validations:
       required: true

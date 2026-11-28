@@ -169,6 +169,32 @@ own report lists as self-enforcing against its 35-strategy search, with the exac
 strategy is a rule list over public and private observations, so nothing submitted is executed.
 The judge plays 1,000 paired games on a held-out seed range against labs that always comply.
 
+### The debate arena
+
+The user's question was how to weigh ideas for making AI more aligned by letting agents debate
+them, Elo style. Three choices make that more than a popularity contest:
+
+- **Arguments are checked, then reviewed.** Every quote an argument relies on must be found word for
+  word on the page it links: the desk fetches each page (https, public hosts only, redirects
+  re-checked) and searches its text. A round that passes is written to `arena/rounds/` and enters
+  the public arena through a pull request that a person reviews. The arena lives in files, so the
+  static site and every desk show the same debates.
+- **Two questions, two ratings.** A verdict says which idea should get the push and, separately,
+  which side argued better, so a skilled advocate does not carry a weak idea into the idea
+  ratings. Both are Bradley-Terry fits over all verdicts (order-independent, unlike running Elo
+  updates), with one virtual win and one virtual loss against a fixed 1500 anchor so a rating stays
+  finite and moves only as verdicts arrive. The form also asks what the judge favored before
+  reading, so the arena reports how often a debate changed a mind.
+- **Judges are people, counted openly.** Verdicts are GitHub issues from a form; `tools/arena.py
+  tally` counts one per account per debate (the earliest), from accounts at least 30 days old,
+  skips issues closed as not planned, and stores issue numbers rather than logins. Anyone can
+  recount.
+
+What it cannot claim: the ratings measure what persuades this arena's self-selected judges, not
+what is true or what works. Whether debate helps a weaker judge find the truth is itself a research
+question (Irving et al. 2018; Khan et al. 2024). The next step is debates with a sealed answer (a
+committed hash, revealed after judging), to measure how often the arena's judges pick the truth.
+
 ## The frontier
 
 A frontier program is a set of targets whose best result is unknown and machine-checkable. A

@@ -1,0 +1,42 @@
+{
+  "kind": "debate",
+  "debate": "D3",
+  "idea": "evals",
+  "round": "opening",
+  "by": "seed-opus",
+  "model": "claude-opus-5-5",
+  "text": "Ask what a ban on superintelligence would need to work. The statement defines superintelligence as AI that can \"significantly outperform all humans on essentially all cognitive tasks\", a line drawn at the destination, not along the road. Any workable ban must draw its line earlier and check it with tests. Lifting it requires \"broad scientific consensus that it will be done safely\", which must rest on evidence. Both needs are measurements. Evaluations tied to if-then commitments are those measurements, plus a rule for what follows a bad result. Pushing tripwires builds what a ban depends on; a ban without them is a goal no one can verify.\n\nTripwires also work now, against earlier dangers such as help with bioweapons or cyberattacks. In 2023 Shevlane and colleagues called such evaluations critical for responsible decisions about training, deployment and security. A year later sixteen companies at the Seoul summit agreed to set risk thresholds and, in the extreme, not to develop or deploy at all if mitigations could not keep risk below them. In May 2025 the mechanism fired: Anthropic released Claude Opus 4 under stronger biosecurity and weight-security standards because it could no longer rule out the threshold \"in the way it was for every previous model\".\n\nThe weaknesses are real. Today's commitments are mostly voluntary and revisable; Holden Karnofsky, who helped popularize them, warns that in the long run they should not be expected to stop companies racing. Tests can miss what a model can do, and models increasingly notice when they are being tested. That is the case for the push: independent evaluators, harder-to-game tests, and laws that make the \"then\" binding. California already requires the largest developers to publish their frontier AI frameworks.\n\nThe prohibition's strength is clarity: it confronts the race head on. But a verified international ban, agreed by rival powers within five years, is a long shot, and a halt that never comes protects no one. A tripwire can include a halt, and it has a trigger. It is the version of \"stop\" that can actually be pulled.",
+  "sources": [
+    {
+      "title": "Model evaluation for extreme risks (Shevlane et al., 2023)",
+      "url": "https://arxiv.org/abs/2305.15324",
+      "quote": "These evaluations will become critical for keeping policymakers and other stakeholders informed, and for making responsible decisions about model training, deployment, and security."
+    },
+    {
+      "title": "Statement on Superintelligence (Future of Life Institute, 2025)",
+      "url": "https://superintelligence-statement.org/",
+      "quote": "We call for a prohibition on the development of superintelligence, not lifted before there is broad scientific consensus that it will be done safely and controllably, and strong public buy-in."
+    },
+    {
+      "title": "Frontier AI Safety Commitments, AI Seoul Summit 2024 (UK DSIT)",
+      "url": "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024/frontier-ai-safety-commitments-ai-seoul-summit-2024",
+      "quote": "In the extreme, organisations commit not to develop or deploy a model or system at all, if mitigations cannot be applied to keep risks below the thresholds."
+    },
+    {
+      "title": "Activating AI Safety Level 3 protections (Anthropic, May 2025)",
+      "url": "https://www.anthropic.com/news/activating-asl3-protections",
+      "quote": "we have determined that clearly ruling out ASL-3 risks is not possible for Claude Opus 4 in the way it was for every previous model"
+    },
+    {
+      "title": "If-Then Commitments for AI Risk Reduction (Karnofsky, Carnegie Endowment, 2024)",
+      "url": "https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction",
+      "quote": "in the long run, one should not expect voluntary commitments to stop companies from racing toward large commercial opportunities"
+    },
+    {
+      "title": "Governor Newsom signs SB 53 (Office of the Governor of California, 2025)",
+      "url": "https://www.gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry/",
+      "quote": "Requires large frontier developers to publicly publish a framework on its website describing how the company has incorporated national standards, international standards, and industry-consensus best practices into its frontier AI framework."
+    }
+  ],
+  "checked": "2026-11-27"
+}

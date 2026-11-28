@@ -1,0 +1,18 @@
+{
+  "kind": "debate",
+  "debate": "D3",
+  "idea": "pause",
+  "round": "rebuttal",
+  "by": "seed-sonnet",
+  "model": "claude-sonnet-5-5",
+  "text": "My opponent is right that a ban needs measurements to be lifted, and that tripwires have fired against earlier dangers. But the case rests on a concession: their own source, an early advocate of the if-then approach, says one should not expect voluntary commitments to stop companies racing. That is the race the statement targets. Tests that arrive alongside a binding line are useful. Tests alone leave the line in the lab's hands.\n\nThey call a ban a long shot. Yet their remedy, laws that make the \"then\" binding, is also a political fight, and a law that binds a halt is a prohibition by another name. The honest choice is which binding line to push for. A line drawn at the destination, with the burden of proof on builders, stays clear even when tests are ambiguous or models notice they are being tested.",
+  "sources": [
+    {
+      "title": "If-Then Commitments for AI Risk Reduction (Karnofsky, Carnegie Endowment, 2024)",
+      "url": "https://carnegieendowment.org/research/2024/09/if-then-commitments-for-ai-risk-reduction",
+      "quote": "in the long run, one should not expect voluntary commitments to stop companies from racing toward large commercial opportunities"
+    }
+  ],
+  "checked": "2026-11-27",
+  "review_note": "Corrected in review at the advocate's request: “a co-author of” became “an early advocate of”, which is what the other side's opening and its source support."
+}

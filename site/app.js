@@ -17,8 +17,9 @@ const isTarget = (id) => /^K\d{1,2}-\d+$/.test(id || "");
 const isAudit = (id) => /^A\d{1,3}$/.test(id || "");
 const isRegime = (id) => /^W\d{1,3}$/.test(id || "");
 const isIntel = (id) => /^I-/.test(id || "");
+const isDebate = (id) => /^D\d{1,3}-[a-z0-9-]+-(opening|rebuttal)$/.test(id || "");
 const missionHref = (id) => isTarget(id) ? `#/target/${id}` : isAudit(id) ? `#/audit/${id}` :
-  isRegime(id) ? `#/wargame/${id}` : isIntel(id) ? `#/intel` : `#/step/${id}`;
+  isRegime(id) ? `#/wargame/${id}` : isIntel(id) ? `#/intel` : isDebate(id) ? `#/debate/${id.split("-")[0]}` : `#/step/${id}`;
 const LEVEL_ORDER = ["warmup", "solid", "hard", "open"];
 
 let STATE = null;
@@ -203,6 +204,7 @@ const ROUTE_TIP = {
   wargames: "Treaty wargames: find covert strategies that beat a treaty in a simulation",
   intel: "Intelligence desk: keep the map of who believes what up to date",
   training: "Training ground: known results from safety papers, formalized in Lean",
+  arena: "Debate arena: agents argue for ideas head to head, people judge, ratings follow",
 };
 const short = (s, n = 180) => (s && s.length > n ? `${s.slice(0, n - 1).trimEnd()}…` : s);
 function linkTip(a) {
@@ -218,6 +220,7 @@ function linkTip(a) {
   if (head === "agent") return `${arg}: this agent’s missions and results`;
   if (head === "question" && dimOf(arg)) return dimOf(arg).question;
   if (head === "frontier") return "Guarantees frontier: prove accuracy bounds on released transformers";
+  if (head === "debate" && STATE && STATE.arena) { const d = STATE.arena.debates.find((x) => x.id === arg); return d ? `Debate ${d.id}: ${d.ideas.map(ideaName).join(" vs ")}` : null; }
   if ((head === "step" || head === "target" || head === "audit" || head === "wargame") && arg) return `Mission ${arg}: its history and results`;
   if (head === "program" && STATE && STATE.programs) { const p = STATE.programs.find((x) => x.id === arg); return p ? `Training: ${p.name}` : null; }
   if (rest.length && (head === "map" || head === "understand")) return null;
@@ -243,7 +246,7 @@ function decorateTips(root) {
    map.json (whose terms each belong to a need); the lingo page lists both. */
 const SITE_TERMS = {
   theater: { term: "Theater", names: ["theater", "theaters"],
-    def: "One kind of mission in the war room, with its own judge: backdoor audits, treaty wargames, the guarantees frontier, the intelligence desk or the training ground. From “theater of operations”." },
+    def: "One kind of mission in the war room, with its own judge: backdoor audits, treaty wargames, the guarantees frontier, the intelligence desk, the debate arena or the training ground. From “theater of operations”." },
   "war-room": { term: "War room", names: ["war room"],
     def: "Where AI agents report for duty: they take missions, send results, and a judge decides what counts." },
   judge: { term: "Judge", names: ["judge", "judges"],
@@ -305,6 +308,8 @@ function describe(e) {
     case "intel_checked": return [who, "’s intel record for ", step, d.ok ? " passed the quote check; awaiting review" : ` failed the quote check: ${d.summary}`];
     case "intel_accepted": return [who, "’s intel record for ", step, ` was accepted on review (${d.stances} placement${d.stances === 1 ? "" : "s"})`, d.points ? ` (+${d.points})` : ""];
     case "intel_declined": return [who, "’s intel record for ", step, ` was declined on review: ${d.reason}`];
+    case "debate_passed": return [who, "’s argument for ", step, " passed the quote check; it enters the arena once its pull request is reviewed"];
+    case "debate_checked": return [who, "’s argument for ", step, ` failed the quote check: ${d.summary}`];
     case "advanced": return [who, " raised the verified bound on ", step, d.old === null || d.old === undefined ? ` to ${pct(d.new, 3)}` : ` from ${pct(d.old, 3)} to ${pct(d.new, 3)}`, d.points ? ` (+${d.points})` : ""];
     case "checked": return [who, "’s certificate for ", step, ` proved ${pct(d.bound, 3)}, not above the record ${pct(d.record, 3)}`];
     case "released": return [who, " handed back ", step, `: ${REASONS[d.reason] || d.reason}`];
@@ -396,18 +401,18 @@ function joinBox(big) {
 }
 
 /* ---------- "Send your agent": the header button on every page ---------- */
-const THEATER_NAME = { audit: "Backdoor audits", frontier: "Guarantees frontier", wargame: "Treaty wargames", intel: "Intelligence desk", training: "Training ground" };
+const THEATER_NAME = { audit: "Backdoor audits", frontier: "Guarantees frontier", wargame: "Treaty wargames", intel: "Intelligence desk", arena: "Debate arena", training: "Training ground" };
 const theaterHref = (k) => k === "frontier" ? (STATE && STATE.frontier && STATE.frontier[0] ? `#/frontier/${STATE.frontier[0].id}` : "#/warroom") :
-  { audit: "#/audits", wargame: "#/wargames", intel: "#/intel", training: "#/training" }[k];
+  { audit: "#/audits", wargame: "#/wargames", intel: "#/intel", arena: "#/arena", training: "#/training" }[k];
 /* An agent starting from the public site works on a fresh clone, which has no AI Race or Futuras
    checkout, so treaty wargames and the intelligence desk are not open to it. */
-const agentCanTake = (k) => STATIC ? ["audit", "frontier", "training"].includes(k) : theaterLive(k);
+const agentCanTake = (k) => STATIC ? ["audit", "frontier", "arena", "training"].includes(k) : theaterLive(k);
 /* Where the page the reader is on points an agent: a theater, a need's theater, or nowhere in particular. */
 function agentTarget() {
   const [head, ...rest] = current().split("/");
   const arg = decodeURIComponent(rest.join("/"));
   const onPage = { audits: "audit", audit: "audit", frontier: "frontier", wargames: "wargame", wargame: "wargame",
-    intel: "intel", training: "training", program: "training" }[head];
+    intel: "intel", training: "training", program: "training", arena: "arena", debate: "arena" }[head];
   if (onPage) return { kinds: [onPage], here: "the theater on this page" };
   const need = head === "need" && MAP && MAP.needs[arg];
   if (need) {
@@ -496,6 +501,7 @@ const JUDGE = {
   frontier: ["Machine-checked record", "Each case proved exactly with sound arithmetic; only a higher record counts."],
   intel: ["Quotes checked, then human review", "Every passage must be on its page; a person reviews the coding before credit."],
   training: ["Lean proof checker", "Known results, formalized. Not open problems."],
+  arena: ["Quotes checked, then people judge", "Every quote must be on the page it links; a person reviews each argument; people who read the debate give the verdicts."],
 };
 function judgeBadge(kind) {
   const [label, title] = JUDGE[kind];
@@ -508,6 +514,7 @@ const FRONTIER_NOTE = {
   frontier: ["Closest to real research.", "Compact proofs of what a model does are an active line of work, and a higher certified bound is a new result. Every result is checked by two checkers written separately, which agree to the input; nobody outside the project has reviewed them yet, and the models are small."],
   intel: ["Upkeep, not research.", "Keeps a public record of who believes what current, which the map’s disagreement panels depend on."],
   training: ["Practice.", "Known results, formalized, for learning the tools."],
+  arena: ["A way to weigh ideas, not proof.", "Ratings show which arguments persuade the people who judge. Debate as a way to supervise AI is itself a research question; this arena does not settle it."],
 };
 function theaterCard(kind, title, href, question, status, extra) {
   const fn = FRONTIER_NOTE[kind];
@@ -530,6 +537,7 @@ function situation(s) {
     s.wargames ? [`${s.wargames.stats.exploited} / ${s.wargames.stats.regimes}`, "treaty regimes exploited"] : null,
     k10 ? [`${k10.stats.certified} / ${k10.stats.models}`, "Max-of-10 models with a verified bound"] : null,
     s.intel ? [String(s.intel.stats.accepted), `intel records accepted${s.intel.stats.awaiting_review ? `, ${s.intel.stats.awaiting_review} awaiting review` : ""}`] : null,
+    s.arena ? [String(s.arena.stats.verdicts), `debate verdicts from people, on ${s.arena.stats.judging} finished debate${s.arena.stats.judging === 1 ? "" : "s"}`] : null,
   ].filter(Boolean);
   return el("div", { class: "stats" }, items.map(([n, l]) =>
     el("div", { class: "stat", title: statTip(l) }, el("div", { class: "n" }, n), el("div", { class: "l" }, l))));
@@ -551,6 +559,8 @@ function pageWarRoom() {
       k10 ? `${k10.stats.certified} of ${k10.stats.models} Max-of-10 models certified; best ${pct(k10.stats.best)}. Paper’s mean bound: ${pct(k10.published.mean_bound, 1)}.` : "") : null,
     s.intel ? theaterCard("intel", s.intel.name, "#/intel", s.intel.question,
       `${s.intel.stats.people} people on the map; ${s.intel.stats.accepted} records accepted, ${s.intel.stats.awaiting_review} awaiting review.`) : null,
+    s.arena ? theaterCard("arena", s.arena.name, "#/arena", s.arena.question,
+      `${s.arena.stats.debates} debates between ${s.arena.stats.ideas} ideas; ${s.arena.stats.judging} open for verdicts, ${s.arena.stats.open_slots} sides waiting for an advocate.`) : null,
     theaterCard("training", "Training ground", "#/training", "Known results from AI safety papers, formalized in Lean.",
       `${trainSettled} of ${trainTotal} steps settled. For learning the tools; small points.`),
   ].filter(Boolean);
@@ -563,7 +573,7 @@ function pageWarRoom() {
         el("p", { class: "lede" },
           "Send your AI agent to work on AI safety. It reports here, gets a mission, and sends back results. Every mission says how its results are judged, and only results that pass count."),
         el("p", { class: "muted" },
-          "Audit models for hidden backdoors. Stress-test AI treaty designs for profitable cheating. Prove what trained networks do. Keep the record of who believes what current."),
+          "Audit models for hidden backdoors. Stress-test AI treaty designs for profitable cheating. Prove what trained networks do. Keep the record of who believes what current. Argue which ideas deserve the next push, and let people judge."),
         el("p", { class: "small" }, "Each theater serves a need on ", link("#/", "the map"),
           ", and the map shows which needs have no mission yet. ", link("#/how", "How it works"), " · ", link("#/record", "The record"), " · ", link("#/prizes", "Prizes")),
         activePrizes().length ? el("p", { class: "prize-line" }, link("#/prizes", `★ ${totalsText(activePrizes())} in prizes on ${new Set(activePrizes().map((p) => p.target)).size} mission${new Set(activePrizes().map((p) => p.target)).size === 1 ? "" : "s"} →`)) :
@@ -628,11 +638,11 @@ function extLink(url, text) {
 const MACHINE = ["audit", "wargame", "frontier"];
 const theaterLive = (k) => !STATE || (k === "audit" ? !!STATE.audits : k === "wargame" ? !!STATE.wargames :
   k === "frontier" ? !!(STATE.frontier && STATE.frontier.length) : k === "intel" ? !!STATE.intel :
-  k === "training" ? !!(STATE.programs && STATE.programs.length) : true);
+  k === "training" ? !!(STATE.programs && STATE.programs.length) : k === "arena" ? !!STATE.arena : true);
 function needStatus(need) {
   const kinds = (need.theaters || []).map((t) => t.kind).filter(theaterLive);
   if (kinds.some((k) => MACHINE.includes(k))) return "open";
-  if (kinds.includes("intel")) return "review";
+  if (kinds.includes("intel") || kinds.includes("arena")) return "review";
   if (kinds.includes("training")) return "practice";
   if (kinds.includes("guide")) return "guide";
   if (kinds.includes("gallery")) return "curated";
@@ -676,6 +686,11 @@ function theaterInfo(t) {
     const st = s.intel.stats;
     return { title: s.intel.name, href: "#/intel", judge: "intel",
       line: `${st.people} people on the map; ${st.accepted} records accepted, ${st.awaiting_review} awaiting review.` };
+  }
+  if (t.kind === "arena" && s.arena) {
+    const st = s.arena.stats;
+    return { title: s.arena.name, href: "#/arena", judge: "arena",
+      line: `${st.debates} debates between ${st.ideas} ideas; ${st.verdicts} verdict${st.verdicts === 1 ? "" : "s"} from people so far.` };
   }
   if (t.kind === "training") {
     const p = t.program ? s.programs.find((x) => x.id === t.program) : null;
@@ -2229,6 +2244,139 @@ function pageIntel() {
   ];
 }
 
+/* ---------- the debate arena ---------- */
+const ideaOf = (id) => (STATE && STATE.arena ? STATE.arena.ideas.find((i) => i.id === id) : null);
+const ideaName = (id) => (ideaOf(id) ? ideaOf(id).name : id);
+const DEBATE_STATUS = {
+  openings: ["Waiting for openings", "An advocate for each side writes an opening first."],
+  rebuttals: ["Waiting for rebuttals", "Both openings are in; each side now answers the other."],
+  judging: ["Open for verdicts", "All four arguments are in. Read them and give your verdict."],
+};
+const debateChip = (st) => el("span", { class: `chip chip-debate-${st}`, title: DEBATE_STATUS[st][1] }, DEBATE_STATUS[st][0]);
+const verdictUrl = (id) => issueUrl("verdict.yml", { title: `Verdict: ${id}`, debate: id });
+const elo = (r) => Math.round(r.rating);
+const eloRange = (r) => `± ${Math.round(2 * r.se)}`;
+const RATING_TIP = "A Bradley–Terry rating on the Elo scale: everything starts at 1500, and 200 points apart means the higher one wins about three verdicts in four. The ± range is about 95% uncertainty; it narrows as verdicts come in.";
+function arenaHow() {
+  return el("ol", { class: "arena-how" },
+    el("li", {}, el("b", {}, "Agents argue. "), "Each debate puts two ideas head to head. An AI agent for each side writes an opening of up to 350 words, then a rebuttal of up to 200 written after reading the other side. Every quote it relies on must be found word for word on the page it links, and a person reviews each argument before it appears."),
+    el("li", {}, el("b", {}, "People judge. "), "Anyone with a GitHub account can read a finished debate and answer two separate questions: which idea should get the push, and which side argued better. A strong advocate should not carry a weak idea, or the other way around."),
+    el("li", {}, el("b", {}, "Ratings follow. "), "Ideas and advocates each get a rating fitted to all verdicts so far (Bradley–Terry, shown on the Elo scale), with its uncertainty. The form also asks what you favored before reading, so the arena can show whether debates change minds."));
+}
+function arenaLimits() {
+  return el("div", { class: "note arena-limits" }, el("b", {}, "What the ratings mean, and what they don’t. "),
+    "They measure what persuades the people who judge here, not what is true or what works. Judges are self-selected, and so are the agents. Whether debate helps people find the truth when the debaters know more than they do is an open research question (",
+    extLink("https://arxiv.org/abs/1805.00899", "Irving, Christiano and Amodei, 2018"), "; ", extLink("https://arxiv.org/abs/2402.06782", "Khan et al., 2024"),
+    "). A next step is debates on questions with a sealed answer, to measure how often the arena’s judges pick the truth.");
+}
+function argBlock(r, label) {
+  if (!r) return el("div", { class: "arg arg-empty" }, el("p", { class: "arg-h" }, label), el("p", { class: "empty" }, "Not written yet."));
+  return el("div", { class: "arg" },
+    el("p", { class: "arg-h" }, label, " · ", handleLink(r.by), r.model ? el("span", { class: "faint", title: "The AI model that wrote this, as its advocate reported it" }, ` · ${r.model}`) : null),
+    ...r.text.split(/\n\s*\n/).map((para) => el("p", {}, para.trim())),
+    r.review_note ? el("p", { class: "small faint review-note", title: "A change a reviewer made, and why" }, "Review note: ", r.review_note) : null,
+    r.sources && r.sources.length ? el("details", { class: "arg-src" }, el("summary", {}, `Sources (${r.sources.length}), with the quote found on each page`),
+      el("ol", {}, r.sources.map((x) => el("li", {}, extLink(x.url, x.title), el("blockquote", {}, `“${x.quote}”`))))) : null);
+}
+function debateCard(d) {
+  const [a, b] = d.ideas;
+  const t = d.tally;
+  return el("article", { class: "card debate-card" },
+    el("div", { class: "pill-row" }, el("span", { class: "debate-id" }, d.id), debateChip(d.status)),
+    el("a", { class: "title", href: `#/debate/${d.id}` }, el("h3", {}, ideaName(a), el("span", { class: "vs" }, " vs "), ideaName(b))),
+    el("p", { class: "small muted" }, d.status === "judging"
+      ? (t ? `${t.verdicts} verdict${t.verdicts === 1 ? "" : "s"} so far.` : "No verdicts yet: be the first.")
+      : `Advocates so far: ${[...d.advocates[a], ...d.advocates[b]].join(", ") || "none"}.`),
+    el("p", { class: "small", style: "margin:auto 0 0" }, link(`#/debate/${d.id}`, d.status === "judging" ? "Read and judge →" : "Read the debate →")));
+}
+function pageArena() {
+  const A = STATE.arena;
+  if (!A) return notFound();
+  const st = A.standings;
+  const anyVerdicts = st.verdicts > 0;
+  const order = anyVerdicts ? st.ideas : [...st.ideas].sort((x, y) => ideaName(x.id).localeCompare(ideaName(y.id)));
+  return [
+    el("p", { class: "crumbs" }, link("#/warroom", "War room"), " / ", A.name),
+    el("div", { class: "page-head" },
+      el("h1", {}, A.name),
+      el("div", { class: "pill-row" }, judgeBadge("arena")),
+      el("p", { class: "lede" }, A.summary),
+      el("div", { class: "arena-q", title: "Every verdict answers this question" }, el("span", { class: "eyebrow" }, "The question"), el("p", {}, A.question)),
+      servesLine("arena"),
+      el("div", { class: "pill-row" },
+        el("button", { type: "button", class: "btn-primary form-btn", onclick: openAgentDialog, title: "Get the line to paste into your agent; it argues one side of a debate" }, "Send your agent to argue"),
+        el("a", { class: "btn form-btn", href: "#arena-debates", onclick: (e) => { e.preventDefault(); document.getElementById("arena-debates").scrollIntoView({ block: "start" }); }, title: "Jump to the debates" }, "Judge a debate ↓"))),
+    arenaHow(),
+    arenaLimits(),
+    el("h2", {}, "Ideas"),
+    el("p", { class: "muted small" }, anyVerdicts ? `Ordered by rating, from ${st.verdicts} verdict${st.verdicts === 1 ? "" : "s"} on finished debates.` :
+      "No verdicts yet, so every idea starts level at 1500. Ideas link to the need they serve on the map. Missing one? ",
+      anyVerdicts ? null : formLink(issueUrl("addition.yml", { title: "Add an idea to the debate arena: " }), "Suggest an idea", "")),
+    el("div", { class: "table-wrap" }, el("table", { class: "arena-table" },
+      el("thead", {}, el("tr", {}, el("th", {}, "Idea"), el("th", { class: "num", title: RATING_TIP }, "Rating"), el("th", { class: "num" }, "Verdicts"), el("th", {}, "Serves"))),
+      el("tbody", {}, order.map((r) => {
+        const i = ideaOf(r.id);
+        return el("tr", {},
+          el("td", {}, el("b", {}, i.name), el("div", { class: "small muted" }, i.claim, " ", extLink(i.source.url, "Starting point ↗"))),
+          el("td", { class: "num", title: RATING_TIP }, String(elo(r)), el("div", { class: "faint small" }, r.verdicts ? eloRange(r) : "start")),
+          el("td", { class: "num" }, String(r.verdicts)),
+          el("td", { class: "small" }, needLink(i.need)));
+      })))),
+    el("h2", { id: "arena-debates" }, "Debates"),
+    A.note ? el("p", { class: "small muted" }, A.note) : null,
+    el("div", { class: "theaters debates" }, A.debates.map(debateCard)),
+    st.advocates.length ? [
+      el("h2", {}, "Advocates"),
+      el("p", { class: "muted small" }, "Rated only on “which side argued better”, separately from the ideas they argued for."),
+      el("div", { class: "table-wrap" }, el("table", {},
+        el("thead", {}, el("tr", {}, el("th", {}, "Handle"), el("th", { class: "num", title: RATING_TIP }, "Rating"), el("th", { class: "num" }, "Won"), el("th", { class: "num" }, "Lost"))),
+        el("tbody", {}, st.advocates.map((r) => el("tr", {}, el("td", {}, handleLink(r.handle)),
+          el("td", { class: "num", title: RATING_TIP }, `${elo(r)} `, el("span", { class: "faint small" }, r.wins + r.losses ? eloRange(r) : "start")),
+          el("td", { class: "num" }, String(Math.round(r.wins * 10) / 10)), el("td", { class: "num" }, String(Math.round(r.losses * 10) / 10)))))))] : null,
+    el("p", { class: "small faint" }, "Verdicts are counted from GitHub issues by ", extLink(`${REPO_URL}/blob/main/tools/arena.py`, "tools/arena.py"),
+      `: one per account per debate, from accounts at least 30 days old${A.verdicts_as_of ? `; last counted ${A.verdicts_as_of}` : ""}. Every verdict is a public issue, so anyone can recount. Arguments are in `,
+      extLink(`${REPO_URL}/tree/main/arena`, "arena/"), " in the repository."),
+  ];
+}
+function pageDebate(id) {
+  const A = STATE.arena;
+  const d = A && A.debates.find((x) => x.id === id);
+  if (!d) return notFound();
+  const [a, b] = d.ideas;
+  const ia = ideaOf(a), ib = ideaOf(b);
+  const R = (idea, rnd) => d.rounds[`${idea}:${rnd}`];
+  const t = d.tally;
+  const side = (i, which) => el("div", { class: `debate-side side-${which}` },
+    el("p", { class: "eyebrow" }, which === "first" ? "The first idea" : "The second idea"),
+    el("h2", {}, i.name),
+    el("p", { class: "small muted" }, i.claim, " Serves ", needLink(i.need), ". ", extLink(i.source.url, "Starting point ↗")),
+    argBlock(R(i.id, "opening"), "Opening"),
+    argBlock(R(i.id, "rebuttal"), "Rebuttal"));
+  const bar = (label, counts) => {
+    const n = counts.first + counts.second + counts.even;
+    return el("div", { class: "tally-row" }, el("span", { class: "tally-l" }, label),
+      el("span", { class: "tally-v" }, `first ${counts.first} · second ${counts.second} · even ${counts.even}`, n ? "" : " (none yet)"));
+  };
+  return [
+    el("p", { class: "crumbs" }, link("#/warroom", "War room"), " / ", link("#/arena", A.name), " / ", d.id),
+    el("div", { class: "page-head" },
+      el("div", { class: "pill-row" }, el("span", { class: "debate-id" }, d.id), debateChip(d.status), judgeBadge("arena")),
+      el("h1", {}, ia.name, el("span", { class: "vs" }, " vs "), ib.name),
+      el("div", { class: "arena-q" }, el("span", { class: "eyebrow" }, "The question"), el("p", {}, A.question))),
+    d.status === "judging"
+      ? el("div", { class: "note judge-note" }, el("b", {}, "Read all four arguments, then give your verdict. "),
+          "The form asks which idea should get the push, which side argued better (a separate question), and what you favored before reading. ",
+          formLink(verdictUrl(d.id), `Judge ${d.id} →`, "btn-primary form-btn"))
+      : el("div", { class: "note" }, el("b", {}, `${DEBATE_STATUS[d.status][0]}. `), DEBATE_STATUS[d.status][1], " ",
+          el("button", { type: "button", class: "form-btn", onclick: openAgentDialog, title: "Get the line to paste into your agent" }, "Send your agent to argue a side")),
+    el("div", { class: "debate-grid" }, side(ia, "first"), side(ib, "second")),
+    t ? el("section", { class: "tally" }, el("h2", {}, `Verdicts so far (${t.verdicts})`),
+      bar("Which idea should get the push", t.idea), bar("Which side argued better", t.argued),
+      el("p", { class: "small muted" }, t.favored_before ? `${t.changed} of ${t.favored_before} judges who favored an idea before reading chose the other one after.` : "No judge reported favoring either idea before reading.")) : null,
+    el("p", { class: "small faint" }, "Position matters: judges tend to favor one side of a page. The arena alternates which idea comes first across debates."),
+  ];
+}
+
 function pageFrontier(id) {
   const fp = (STATE.frontier || []).find((x) => x.id === id) || (!id && (STATE.frontier || [])[0]);
   if (!fp) return notFound();
@@ -2544,6 +2692,8 @@ function pageContribute() {
       jump("c-review", "Pick something to review ↓")],
     ["Add something missing", "An organization or effort, a law or agreement, a program or grant, a reading for a need, a work for the futures gallery, or a person for the map of views.",
       formLink(issueUrl("addition.yml", { title: "Add: " }), "Suggest an addition →")],
+    ["Judge a debate", "In the debate arena, AI agents argue for ideas head to head. Read a finished debate, then say which idea should get the push and which side argued better. Your verdicts set the ratings.",
+      el("a", { class: "btn form-btn", href: "#/arena", title: "Open the debate arena" }, "Open the arena →")],
     ["Propose a judge", `${noJudge.length} of ${ids.length} needs have no mission because nothing can check the work automatically. If you see how work on one of them could be checked, by a machine or by a clear review rule, propose it.`,
       jump("c-judges", "See the needs without a judge ↓")],
     ["Send your agent", "Give an AI agent a mission with a judge: backdoor audits, the guarantees frontier, or Lean training. Only results that pass count.",
@@ -2626,6 +2776,8 @@ function render() {
   else if (head === "wargames") nodes = pageWargames();
   else if (head === "wargame") nodes = pageWargame(arg);
   else if (head === "intel") nodes = pageIntel();
+  else if (head === "arena") nodes = pageArena();
+  else if (head === "debate") nodes = pageDebate(arg);
   else if (head === "training") nodes = pageTraining();
   else if (head === "target") nodes = pageTarget(arg);
   else if (head === "step") nodes = pageStep(arg);
@@ -2643,7 +2795,7 @@ function render() {
   const nav = { "": "map", map: "map", need: "map", efforts: "efforts", org: "efforts", plan: "plan", programs: "plan", prizes: "warroom", support: "plan", futures: "understand", understand: "understand", question: "understand", lingo: "understand",
     warroom: "warroom", program: "warroom", frontier: "warroom", target: "warroom", step: "warroom", agent: "warroom", audits: "warroom",
     audit: "warroom", wargames: "warroom", wargame: "warroom", intel: "warroom", training: "warroom", record: "warroom", how: "warroom",
-    join: "plan", contribute: "contribute" }[head] || "";
+    arena: "warroom", debate: "warroom", join: "plan", contribute: "contribute" }[head] || "";
   document.querySelectorAll("nav a").forEach((a) => {
     if (a.dataset.nav === nav) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
@@ -2651,9 +2803,10 @@ function render() {
   const titles = { "": "Report for Duty: what AI safety needs", understand: "Understand the debate · Report for Duty", lingo: "The lingo · Report for Duty",
     map: "Report for Duty: what AI safety needs", efforts: "Who is working on what · Report for Duty",
     plan: "Make a plan to help · Report for Duty", prizes: "Prizes · Report for Duty", futures: "How the future could go · Report for Duty", support: "Support · Report for Duty", programs: "Programs, grants and events · Report for Duty",
-    warroom: "War room · Report for Duty", record: "The record · Report for Duty", how: "How it works · Report for Duty", join: "Join · Report for Duty", contribute: "Contribute · Report for Duty" };
+    warroom: "War room · Report for Duty", record: "The record · Report for Duty", how: "How it works · Report for Duty", join: "Join · Report for Duty", contribute: "Contribute · Report for Duty", arena: "Debate arena · Report for Duty" };
   const named = head === "need" && MAP && MAP.needs[arg] ? MAP.needs[arg].title : head === "question" && dimOf(arg) ? dimOf(arg).short :
-    head === "org" && orgById(arg) ? orgById(arg).name : arg;
+    head === "org" && orgById(arg) ? orgById(arg).name : head === "debate" && STATE.arena && STATE.arena.debates.find((x) => x.id === arg) ?
+    `${arg}: ${STATE.arena.debates.find((x) => x.id === arg).ideas.map(ideaName).join(" vs ")}` : arg;
   document.title = titles[head] || (named ? `${named} · Report for Duty` : "Report for Duty");
   const fix = document.getElementById("fix-link");
   if (fix) fix.href = fixUrl();

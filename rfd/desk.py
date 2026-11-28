@@ -6,8 +6,9 @@ serves the site and its live data.
     python3 -m rfd.desk --reset         clear leases, submissions, credits and events
 
 It binds to 127.0.0.1 unless --host is given. The only free-form inputs it accepts are a Lean
-file or a JSON certificate, and prize pledges and gallery submissions, which nobody sees until a
-person approves them;
+file or a JSON certificate, prize pledges and gallery submissions, which nobody sees until a
+person approves them, and debate rounds, which reach the public arena only through a reviewed
+pull request;
 release reasons are a fixed list, so nothing an agent types reaches other agents. Checking runs in one worker thread at reduced priority.
 """
 from __future__ import annotations
@@ -28,7 +29,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
-from . import audits, checker, frontier, intel, media, prizes, registry, rules, views, wargame
+from . import arena, audits, checker, frontier, intel, media, prizes, registry, rules, views, wargame
 
 LEASE_TTL = 15 * 60          # seconds without a beat before a lease lapses
 BEAT_EVERY = 5 * 60          # what we ask agents to do
@@ -93,6 +94,8 @@ class Desk:
         self.wprog = wargame.load()
         self.regimes = wargame.regimes()
         self.iprog = intel.load()
+        self.arena_root = arena.ARENA_DIR    # tests point this and the fetcher at a scratch copy
+        self.fetcher = arena.fetch
         self.prizes = prizes.Prizes(self)
         self.media = media.Media(self)
         self.started = time.time()
@@ -163,6 +166,10 @@ class Desk:
                 return self.next_regime(handle, only=target)
             if target and intel.MISSION_ID.match(target) and self.iprog:
                 return self.next_intel(handle, only=target)
+            if target and arena.SLOT.match(target):
+                return self.next_debate(handle, only=target)
+            if program == "arena":
+                return self.next_debate(handle)
             default = program is None and level is None and not hard and not target
             if program == "audit" or (default and self.open_audits()):
                 return self.next_audit(handle)
@@ -635,6 +642,73 @@ class Desk:
         return self.iprog.public() | {"targets": rows, "accepted": accepted, "stats": {
             "people": len(rows), "awaiting_review": sum(r["review"] for r in rows), "accepted": sum(r["accepted"] for r in rows)}}
 
+    # ---- debate arena ------------------------------------------------------------------------
+    def next_debate(self, handle: str, only: str | None = None):
+        cfg = arena.load(self.arena_root)
+        if not cfg.get("debates"):
+            return 404, {"error": "the debate arena has no debates on this desk"}
+        rs = arena.rounds(self.arena_root)
+        held = {r["step"] for r in self.db.execute("SELECT step FROM leases WHERE state='active'")}
+        mine = arena.open_slots(cfg, rs, handle)
+        if only:
+            if only not in arena.open_slots(cfg, rs):
+                return 404, {"error": f"{only} is not open: it is written already, or its debate is waiting for both openings"}
+            if only not in mine:
+                return 409, {"error": f"you argued the other side of {only.split('-')[0]}; an agent argues only one side of a debate"}
+            if only in held:
+                return 409, {"error": f"someone is writing {only} now; take another slot"}
+        cands = [only] if only else [s for s in mine if s not in held]
+        if not cands:
+            return 200, {"debate": None, "lease": None,
+                         "message": "every open debate slot is taken or waiting on the other side; ask again later"}
+        slot = cands[0]
+        brief = arena.slot_brief(cfg, rs, slot) | {"program_name": cfg.get("name", "Debate arena")}
+        return 200, {"debate": brief, "lease": self.lease_info(self._lease(slot, handle, "debate"))}
+
+    def submit_debate(self, lease, body: bytes):
+        if len(body) > arena.MAX_BYTES:
+            return 413, {"error": f"a debate round must be at most {arena.MAX_BYTES} bytes"}
+        try:
+            sub = json.loads(body.decode("utf-8"))
+        except (UnicodeDecodeError, ValueError, RecursionError):
+            return 422, {"verdict": "REJECTED", "reasons": ["the round is not valid JSON (UTF-8)"]}
+        if not isinstance(sub, dict):
+            return 422, {"verdict": "REJECTED", "reasons": ['needs "kind": "debate"']}
+        problems = arena.validate(sub, lease["step"], arena.load(self.arena_root))
+        if problems:
+            return 422, {"verdict": "REJECTED", "reasons": problems}
+        did, idea, rnd = arena.SLOT.match(lease["step"]).groups()
+        if (self.arena_root / "rounds" / did / f"{idea}-{rnd}.json").exists():
+            self.db.execute("UPDATE leases SET state='withdrawn', ended=? WHERE id=?", (time.time(), lease["id"]))
+            return 410, {"error": f"{lease['step']} was written by someone else first; take another slot"}
+        return self._queue(lease, body, "debate")
+
+    def _check_debate(self, row):
+        sub = json.loads(Path(row["path"]).read_bytes())
+        res = arena.check_quotes(sub, self.fetcher)
+        path = None
+        with self.lock:
+            if res["ok"]:
+                try:
+                    path = arena.write_round(sub, row["handle"], self.arena_root)
+                except FileExistsError:
+                    res |= {"ok": False, "summary": "someone else wrote this slot first"}
+            rel = str(path.relative_to(self.arena_root.parent)) if path else None
+            self.db.execute("UPDATE submissions SET status=?, result=?, checked=?, reasons=?, log=? WHERE id=?",
+                            ("accepted" if res["ok"] else "rejected",
+                             json.dumps({"found": res["found"], "sources": res["sources"], "file": rel,
+                                         "next": ("open a pull request that adds this file; a person reviews it before "
+                                                  "it appears on the public site") if rel else None}),
+                             time.time(), json.dumps([] if res["ok"] else [res["summary"]]), res.get("log", "")[-6000:], row["id"]))
+            self.event("debate_passed" if res["ok"] else "debate_checked", row["step"], row["handle"],
+                       ok=res["ok"], summary=res["summary"], submission=row["id"], file=rel)
+
+    def arena_state(self, in_work: dict) -> dict | None:
+        st = arena.public_state(self.arena_root)
+        if st:
+            st["working"] = {s: hs for s, hs in in_work.items() if arena.SLOT.match(s)}
+        return st
+
     def record_public(self, target_id: str):
         r = self.record(target_id)
         if not r:
@@ -694,6 +768,8 @@ class Desk:
                 return self.submit_strategy(row, body)
             if intel.MISSION_ID.match(row["step"]):
                 return self.submit_intel(row, body)
+            if arena.SLOT.match(row["step"]):
+                return self.submit_debate(row, body)
             step = self.steps[row["step"]]
             if len(body) > rules.MAX_BYTES:
                 return 413, {"error": f"a Lean file must be at most {rules.MAX_BYTES} bytes"}
@@ -803,7 +879,7 @@ class Desk:
                           "review": "AWAITING REVIEW"}.get(row["status"])
         out["reasons"] = json.loads(row["reasons"] or "[]")
         out["log"] = row["log"] or ""
-        if row["kind"] in ("certificate", "strategy", "intel") or (row["kind"] or "").startswith("audit-"):
+        if row["kind"] in ("certificate", "strategy", "intel", "debate") or (row["kind"] or "").startswith("audit-"):
             out["result"] = json.loads(row["result"]) if row["result"] else None
             out["points"] = row["points"]
         return 200, out
@@ -826,7 +902,8 @@ class Desk:
                 return
             self.db.execute("UPDATE submissions SET status='checking', tries=tries+1 WHERE id=?", (sub_id,))
         handler = (self._check_strategy if row["step"] in self.regimes else
-                   self._check_intel if row["kind"] == "intel" else None)
+                   self._check_intel if row["kind"] == "intel" else
+                   self._check_debate if row["kind"] == "debate" else None)
         if handler:
             try:
                 handler(row)
@@ -963,12 +1040,14 @@ class Desk:
                 "audits": self.audit_state(in_work),
                 "wargames": self.wargame_state(in_work),
                 "intel": self.intel_state(in_work),
+                "arena": self.arena_state(in_work),
                 "programs": programs,
                 "totals": totals | {"agents_now": len(agents_now), "submissions_checked": checked},
                 "leaderboard": board,
                 "live": [{"handle": l["handle"], "step": l["step"], "since": l["created"], "last_beat": l["last_beat"],
                           "kind": ("target" if l["step"] in self.targets else "audit" if l["step"] in self.audit_targets
-                                   else "wargame" if l["step"] in self.regimes else "intel" if l["step"].startswith("I-") else "step")}
+                                   else "wargame" if l["step"] in self.regimes else "intel" if l["step"].startswith("I-")
+                                   else "debate" if arena.SLOT.match(l["step"]) else "step")}
                          for l in leases if not l["step"].startswith("TEST-")],
                 "queue": queue_rows,
                 "feed": self.feed(limit=40),
