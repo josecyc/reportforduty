@@ -30,6 +30,7 @@ let EFFORTS = undefined; /* site/efforts.json: who is doing what; null when miss
 let PROGRAMS = undefined; /* site/programs.json: courses, fellowships, grants, events; null when missing */
 let SUPPORT = undefined;  /* site/support.json: how to fund the project; null when missing */
 let FUTURES = undefined;  /* site/futures.json: scenarios, works, calls and the brief for makers */
+let BOOK = undefined;     /* site/book.json: Aligned to what?, the book on the history of alignment */
 let lastOk = 0;
 /* A public snapshot is served as static files (mode.json says so): no desk, so missions, prizes
    and submissions point to running your own desk instead. */
@@ -205,6 +206,8 @@ const ROUTE_TIP = {
   intel: "Intelligence desk: keep the map of who believes what up to date",
   training: "Training ground: known results from safety papers, formalized in Lean",
   arena: "Debate arena: agents argue for ideas head to head, people judge, ratings follow",
+  book: "Aligned to what? A history of alignment, and how cultures have answered it",
+  after: "When machines do most of the work: plans, visions and warnings, and what the pilots measured",
 };
 const short = (s, n = 180) => (s && s.length > n ? `${s.slice(0, n - 1).trimEnd()}…` : s);
 function linkTip(a) {
@@ -220,6 +223,7 @@ function linkTip(a) {
   if (head === "agent") return `${arg}: this agent’s missions and results`;
   if (head === "question" && dimOf(arg)) return dimOf(arg).question;
   if (head === "frontier") return "Guarantees frontier: prove accuracy bounds on released transformers";
+  if (head === "book" && arg && BOOK) { const c = bookChapter(arg); return c ? `${c.title}: ${c.summary}` : arg === "timeline" ? "The timeline: from Butler (1863) to today" : arg === "taxonomy" ? "The taxonomy: how traditions answer five questions about made beings" : null; }
   if (head === "debate" && STATE && STATE.arena) { const d = STATE.arena.debates.find((x) => x.id === arg); return d ? `Debate ${d.id}: ${d.ideas.map(ideaName).join(" vs ")}` : null; }
   if ((head === "step" || head === "target" || head === "audit" || head === "wargame") && arg) return `Mission ${arg}: its history and results`;
   if (head === "program" && STATE && STATE.programs) { const p = STATE.programs.find((x) => x.id === arg); return p ? `Training: ${p.name}` : null; }
@@ -1148,7 +1152,8 @@ function pageUnderstand() {
       el("p", { class: "lede" }, "For anyone who wants to read the proper texts, learn the lingo and follow the arguments. Each step gives the reason people believe it, the strongest objection, the texts behind both, and where named people stand, in their own words."),
       el("p", { class: "onpage" }, "On this page: ",
         joinWith([scrollButton("steps", "The case in seven steps"), scrollButton("frame", "What it would take"),
-          scrollButton("disagree", "Where people disagree"), scrollButton("read", "What to read"), link("#/futures", "How the future could go"),
+          scrollButton("disagree", "Where people disagree"), scrollButton("read", "What to read"), link("#/book", "The book: Aligned to what?"),
+          link("#/futures", "How the future could go"), link("#/after", "When machines do most of the work"),
           link("#/lingo", `The lingo (${nTerms} terms)`)], " · "))),
     el("h2", { id: "steps" }, "The case in seven steps"),
     el("p", { class: "muted" }, "Each step depends on the ones before it. Many people accept some steps and reject others; the step someone rejects is usually their crux."),
@@ -1852,7 +1857,8 @@ function pageFutures() {
       el("p", { class: "eyebrow" }, "Futures"),
       el("h1", {}, "How the future could go"),
       el("p", { class: "lede" }, FUTURES.intro),
-      el("p", { class: "onpage" }, "On this page: ", joinWith([scrollButton("ways", "Twelve ways it could go"), scrollButton("gallery", "The gallery"), scrollButton("make", "Make one")], " · "))),
+      el("p", { class: "onpage" }, "On this page: ", joinWith([scrollButton("ways", "Twelve ways it could go"), scrollButton("gallery", "The gallery"), scrollButton("make", "Make one")], " · "),
+        " · Plans for a world where machines do most of the work: ", link("#/after", "after work →"))),
     el("h2", { id: "ways" }, FUTURES.frame.title),
     el("p", { class: "muted" }, FUTURES.frame.note, " ", el("span", { class: "faint" }, "From "), extLink(FUTURES.frame.source.url, `${FUTURES.frame.source.authors}, ${FUTURES.frame.source.title} (${FUTURES.frame.source.year})`), "."),
     el("div", { class: "scen-grid" }, FUTURES.scenarios.map((s) => el("article", { class: `card scen${FUT_FILTER.scenario === s.id ? " is-picked" : ""}` },
@@ -1876,6 +1882,209 @@ function pageFutures() {
     STATIC ? el("p", { class: "note small" }, "The submission form opens when the public desk launches. Until then, suggest your work for the gallery here: ",
       formLink(issueUrl("addition.yml", { title: "Add to the futures gallery: " }), "suggest a work", null), ". A person reviews it first.") : MEDIA_FORM || (MEDIA_FORM = mediaForm()),
     el("p", { class: "small faint" }, FUTURES.method),
+  ];
+}
+
+/* ---------- after work: plans for when machines do most of the work (futures.json after_work) ---------- */
+const AFTER_FILTER = { q: "", kind: "" };
+const PLAN_KIND = { plan: ["Plan", "A concrete proposal: who pays, who owns, who decides"], vision: ["Vision", "A picture of what life could be like"],
+  pilot: ["Tried", "Running or tried somewhere, so there is evidence"], analysis: ["Analysis", "Research on what is likely to happen"],
+  warning: ["Warning", "An argument about what could go wrong"] };
+function planCard(p, qName) {
+  return el("li", { class: "card plan", "data-kind": p.kind, "data-answers": p.answers.join(" ") },
+    el("div", { class: "pill-row" }, el("span", { class: `chip chip-plan-${p.kind}`, title: PLAN_KIND[p.kind][1] }, PLAN_KIND[p.kind][0]),
+      p.answers.map((a) => el("span", { class: "qtag", title: `Answers: ${qName(a).question}` }, qName(a).name))),
+    el("h3", {}, extLink(p.url, p.name)),
+    el("p", { class: "small faint" }, `${p.who} · ${p.year}`),
+    el("p", {}, p.mechanism),
+    p.assumes ? el("p", { class: "small" }, el("b", {}, "Assumes: "), p.assumes) : null,
+    el("p", { class: "small muted" }, el("b", {}, "Status: "), p.status),
+    p.quote ? el("blockquote", { class: "small" }, `“${p.quote}”`) : null,
+    p.critiques.length ? el("details", { class: "crit" }, el("summary", {}, `Critics (${p.critiques.length})`),
+      el("ul", {}, p.critiques.map((c) => el("li", {}, el("b", {}, c.who), ": ", c.what, " ", extLink(c.url, "source ↗"),
+        c.quote ? el("blockquote", {}, `“${c.quote}”`) : null)))) : el("p", { class: "small faint" }, "No critique sourced yet. ",
+          formLink(issueUrl("addition.yml", { title: `Critique of ${p.name}: ` }), "Add one", "")));
+}
+function pageAfter() {
+  if (FUTURES === undefined) return [el("p", { class: "loading" }, "Loading…")];
+  const A = FUTURES && FUTURES.after_work;
+  if (!A) return notFound();
+  const qName = (id) => A.questions.find((q) => q.id === id) || { name: id, question: id };
+  const list = el("ul", { class: "plans" }, A.plans.map((p) => planCard(p, qName)));
+  const shown = el("p", { class: "small faint", "aria-live": "polite" });
+  const apply = () => {
+    let n = 0;
+    list.querySelectorAll(".plan").forEach((li) => {
+      const hide = (AFTER_FILTER.q && !li.dataset.answers.split(" ").includes(AFTER_FILTER.q)) || (AFTER_FILTER.kind && li.dataset.kind !== AFTER_FILTER.kind);
+      li.hidden = !!hide; if (!hide) n++;
+    });
+    shown.textContent = `${n} of ${A.plans.length} shown`;
+    qbar.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.q === AFTER_FILTER.q)));
+    kbar.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.k === AFTER_FILTER.kind)));
+  };
+  const count = (q) => A.plans.filter((p) => p.answers.includes(q)).length;
+  const qbar = el("div", { class: "kind-bar", role: "group", "aria-label": "Question" },
+    [["", "All questions", "Every plan, vision and warning"], ...A.questions.map((q) => [q.id, q.name, q.question])].map(([k, l, tip]) =>
+      el("button", { type: "button", "data-q": k, title: tip, onclick: () => { AFTER_FILTER.q = k; apply(); } }, l, el("span", { class: "faint" }, ` ${k ? count(k) : A.plans.length}`))));
+  const kbar = el("div", { class: "kind-bar kind-bar-sm", role: "group", "aria-label": "Kind" },
+    [["", "Any kind"], ...Object.entries(PLAN_KIND).map(([k, [l]]) => [k, l])].map(([k, l]) =>
+      el("button", { type: "button", "data-k": k, title: k ? PLAN_KIND[k][1] : "All kinds", onclick: () => { AFTER_FILTER.kind = k; apply(); } }, l)));
+  apply();
+  const thin = [...A.questions].sort((x, y) => count(x.id) - count(y.id))[0];
+  return [
+    el("p", { class: "crumbs" }, link("#/", "Map"), " / ", link("#/understand", "Understand"), " / ", link("#/futures", "Futures"), " / After work"),
+    el("div", { class: "page-head" },
+      el("p", { class: "eyebrow" }, "Futures"),
+      el("h1", {}, A.title),
+      el("p", { class: "lede" }, A.intro),
+      el("p", { class: "onpage" }, "On this page: ", joinWith([scrollButton("aw-questions", "Five questions"), scrollButton("aw-plans", `${A.plans.length} plans, visions and warnings`),
+        scrollButton("aw-evidence", "What the pilots measured")], " · "))),
+    el("h2", { id: "aw-questions" }, "Five questions any plan has to answer"),
+    el("div", { class: "q5" }, A.questions.map((q) => el("button", { type: "button", class: "card q5-card", title: `Show the ${count(q.id)} entries that answer this`,
+      onclick: () => { AFTER_FILTER.q = q.id; apply(); document.getElementById("aw-plans").scrollIntoView({ block: "start" }); } },
+      el("b", {}, q.name), el("span", { class: "small" }, q.question), el("span", { class: "small faint" }, `${count(q.id)} entries`)))),
+    el("p", { class: "note small" }, el("b", {}, `${thin.name} is the least answered. `), `Only ${count(thin.id)} of the ${A.plans.length} entries say anything about it. `,
+      formLink(issueUrl("addition.yml", { title: `After work, ${thin.name.toLowerCase()}: ` }), "Suggest one", "")),
+    el("h2", { id: "aw-plans" }, "Plans, visions and warnings"),
+    qbar, kbar, shown, list,
+    el("h2", { id: "aw-evidence" }, "What the pilots measured"),
+    el("p", { class: "muted" }, "Cash pilots test only part of the question: they give people money for a few years while the economy around them still runs on wages. They are the best evidence there is so far."),
+    el("ul", { class: "evidence" }, A.evidence.map((e) => el("li", { class: "card" },
+      el("h3", {}, extLink(e.url, e.name)), el("p", { class: "small faint" }, e.when), el("p", {}, e.finding),
+      e.quote ? el("blockquote", { class: "small" }, `“${e.quote}”`) : null))),
+    el("details", { class: "openq" }, el("summary", {}, `What we could not verify, or where sources disagree (${A.open_questions.length})`),
+      el("ul", {}, A.open_questions.map((q) => el("li", { class: "small" }, q)))),
+    el("p", { class: "small faint" }, A.method),
+    el("p", { class: "small" }, "Missing a plan or a critic? ", formLink(issueUrl("addition.yml", { title: "After work: " }), "Suggest an addition", ""),
+      " · Wrong or unfair? ", formLink(fixUrl(), "Suggest a fix", "")),
+  ];
+}
+
+/* ---------- the book: Aligned to what? (site/book.json) ---------- */
+const bookChapter = (id) => (BOOK ? BOOK.chapters.find((c) => c.id === id) : null);
+const bookOrder = () => (BOOK ? BOOK.parts.flatMap((p) => p.chapters) : []);
+function bookStatus() {
+  return el("div", { class: "note small book-status" }, el("b", {}, "First draft. "), BOOK.status, " ",
+    formLink(reviewUrl("the book: Aligned to what?", "book"), "Review it →", ""));
+}
+function pageBook(arg) {
+  if (BOOK === undefined) return [el("p", { class: "loading" }, "Loading…")];
+  if (!BOOK) return notFound();
+  if (arg === "timeline") return bookTimeline();
+  if (arg === "taxonomy") return bookTaxonomy();
+  if (arg) return bookChapter(arg) ? bookChapterPage(bookChapter(arg)) : notFound();
+  const words = BOOK.chapters.reduce((n, c) => n + c.sections.reduce((m, s) => m + s.paragraphs.reduce((k, p) => k + p.text.split(/\s+/).length, 0), 0), 0);
+  return [
+    el("p", { class: "crumbs" }, link("#/", "Map"), " / ", link("#/understand", "Understand"), " / The book"),
+    el("div", { class: "page-head book-head" },
+      el("p", { class: "eyebrow" }, "An open book"),
+      el("h1", {}, BOOK.title),
+      el("p", { class: "book-sub" }, BOOK.subtitle),
+      el("p", { class: "lede" }, BOOK.preface)),
+    bookStatus(),
+    el("h2", {}, "Contents"),
+    el("ol", { class: "toc" }, BOOK.parts.map((p) => el("li", { class: "toc-part" },
+      el("p", { class: "eyebrow" }, p.title),
+      p.note ? el("p", { class: "small muted" }, p.note) : null,
+      el("ul", { class: "toc-ch" }, p.chapters.map((id) => { const c = bookChapter(id); return el("li", {},
+        el("span", { class: "toc-n" }, `${bookOrder().indexOf(id) + 1}`), link(`#/book/${id}`, c.title), el("span", { class: "small muted" }, ` · ${c.summary}`)); }))))),
+    el("h2", {}, "Reference"),
+    el("div", { class: "book-ref" },
+      el("a", { class: "card", href: "#/book/timeline" }, el("b", {}, "The timeline"), el("span", { class: "small muted" }, `${BOOK.timeline.length} moments from ${BOOK.timeline[0].date.slice(0, 4)} to ${BOOK.timeline[BOOK.timeline.length - 1].date.slice(0, 4)}, each with its source.`)),
+      el("a", { class: "card", href: "#/book/taxonomy" }, el("b", {}, "The taxonomy"), el("span", { class: "small muted" }, `${BOOK.taxonomy.traditions.length} traditions coded on ${BOOK.taxonomy.dimensions.length} questions: aligned to whom, by what means, against which failure.`))),
+    el("details", { class: "openq" }, el("summary", {}, `How this draft was made (about ${(Math.round(words / 100) * 100).toLocaleString("en-US")} words so far)`),
+      el("p", { class: "small muted" }, BOOK.method)),
+    el("details", { class: "openq" }, el("summary", {}, `Open questions: what could not be verified, or where sources disagree (${BOOK.open_questions.length})`),
+      el("ul", {}, BOOK.open_questions.map((q) => el("li", { class: "small" }, q)))),
+  ];
+}
+function bookChapterPage(c) {
+  const order = bookOrder();
+  const i = order.indexOf(c.id);
+  const part = BOOK.parts.find((p) => p.chapters.includes(c.id));
+  const refs = [];
+  const refOf = (src) => {
+    let k = refs.findIndex((r) => r.url === src.url && r.quote === src.quote);
+    if (k < 0) { refs.push(src); k = refs.length - 1; }
+    return k + 1;
+  };
+  const body = c.sections.map((sec) => [el("h2", {}, sec.heading),
+    sec.paragraphs.map((p) => el("p", { class: "book-p" }, p.text, " ", (p.sources || []).map((src) => {
+      const n = refOf(src);
+      return el("a", { class: "fn", href: src.url, target: "_blank", rel: "noopener", title: `${src.title}: “${src.quote}”` }, `[${n}]`);
+    })))]);
+  const nav = el("p", { class: "book-nav" },
+    i > 0 ? link(`#/book/${order[i - 1]}`, `← ${bookChapter(order[i - 1]).title}`) : link("#/book", "← Contents"),
+    i < order.length - 1 ? link(`#/book/${order[i + 1]}`, `${bookChapter(order[i + 1]).title} →`) : link("#/book/taxonomy", "The taxonomy →"));
+  return [
+    el("p", { class: "crumbs" }, link("#/understand", "Understand"), " / ", link("#/book", BOOK.title), " / ", part ? part.title : ""),
+    el("article", { class: "book-ch" },
+      el("p", { class: "eyebrow" }, `Chapter ${i + 1}`),
+      el("h1", {}, c.title),
+      el("p", { class: "lede" }, c.summary),
+      body,
+      el("h2", { class: "src-h" }, "Sources"),
+      el("ol", { class: "book-src" }, refs.map((r) => el("li", {}, extLink(r.url, r.title), el("blockquote", {}, `“${r.quote}”`))))),
+    el("p", { class: "small" }, "Something wrong, missing or unfair in this chapter? ", formLink(reviewUrl(`the book, “${c.title}”`, `book/${c.id}`), "Review this chapter", ""),
+      " · ", formLink(fixUrl(), "Suggest a fix", "")),
+    nav,
+  ];
+}
+const TL_KIND = { paper: "Paper", book: "Book", talk: "Talk", lab: "Lab", policy: "Policy", method: "Method", statement: "Statement", incident: "Incident" };
+const TL_FILTER = { kind: "" };
+function bookTimeline() {
+  const items = BOOK.timeline;
+  const list = el("ol", { class: "timeline" }, items.map((e) => el("li", { "data-kind": e.kind },
+    el("span", { class: "tl-date" }, e.date),
+    el("div", {}, el("span", { class: "chip tl-kind" }, TL_KIND[e.kind] || e.kind), " ", el("b", {}, extLink(e.url, e.title)), el("span", { class: "small faint" }, ` · ${e.who}`),
+      el("p", { class: "small" }, e.what), el("p", { class: "small muted" }, e.why),
+      e.quote ? el("blockquote", { class: "small" }, `“${e.quote}”`) : null))));
+  const apply = () => {
+    list.querySelectorAll("li").forEach((li) => { li.hidden = !!TL_FILTER.kind && li.dataset.kind !== TL_FILTER.kind; });
+    bar.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.k === TL_FILTER.kind)));
+  };
+  const kinds = [...new Set(items.map((e) => e.kind))];
+  const bar = el("div", { class: "kind-bar", role: "group", "aria-label": "Kind" },
+    [["", "All"], ...kinds.map((k) => [k, TL_KIND[k] || k])].map(([k, l]) => el("button", { type: "button", "data-k": k, onclick: () => { TL_FILTER.kind = k; apply(); } },
+      l, el("span", { class: "faint" }, ` ${k ? items.filter((e) => e.kind === k).length : items.length}`))));
+  apply();
+  return [
+    el("p", { class: "crumbs" }, link("#/understand", "Understand"), " / ", link("#/book", BOOK.title), " / Timeline"),
+    el("div", { class: "page-head" }, el("p", { class: "eyebrow" }, "Reference"), el("h1", {}, "A timeline of alignment"),
+      el("p", { class: "lede" }, "From the first worry that machines might evolve past us, to labs, laws and disputes today. Each moment links to its source, with a passage from it.")),
+    bookStatus(), bar, list,
+  ];
+}
+function bookTaxonomy() {
+  const T = BOOK.taxonomy;
+  const val = (dim, id) => (T.dimensions.find((d) => d.id === dim).values.find((v) => v.id === id) || { name: id, note: "" });
+  return [
+    el("p", { class: "crumbs" }, link("#/understand", "Understand"), " / ", link("#/book", BOOK.title), " / Taxonomy"),
+    el("div", { class: "page-head" }, el("p", { class: "eyebrow" }, "Reference"), el("h1", {}, "A taxonomy of alignment across cultures"),
+      el("p", { class: "lede" }, T.intro)),
+    bookStatus(),
+    el("h2", {}, "Five questions"),
+    el("dl", { class: "dims" }, T.dimensions.map((d) => [el("dt", {}, d.name), el("dd", {}, el("p", { class: "small" }, d.question),
+      el("p", { class: "small muted" }, joinWith(d.values.map((v) => el("span", { title: v.note }, v.name)), " · ")))])),
+    el("h2", {}, "How each tradition answers"),
+    el("p", { class: "small muted" }, "Each cell is the strand’s most prominent answer, in our reading; the entries below record the exceptions and the disagreements inside each tradition. Hover a cell for what it means."),
+    el("div", { class: "table-wrap" }, el("table", { class: "tax" },
+      el("thead", {}, el("tr", {}, el("th", {}, "Tradition"), T.dimensions.map((d) => el("th", { title: d.question }, d.name)))),
+      el("tbody", {}, T.traditions.map((t) => el("tr", {}, el("td", {}, el("a", { href: `#tax-${t.id}`, onclick: (e) => { e.preventDefault(); const x = document.getElementById(`tax-${t.id}`); x.open = true; x.scrollIntoView({ block: "start" }); } }, t.name)),
+        T.dimensions.map((d) => { const v = val(d.id, t.codes[d.id]); return el("td", { class: `tax-${d.id}`, title: v.note }, v.name); })))))),
+    el("h2", {}, "The traditions"),
+    T.traditions.map((t) => el("details", { class: "trad card", id: `tax-${t.id}` },
+      el("summary", {}, el("b", {}, t.name), el("span", { class: "small faint" }, ` · ${t.region} · ${t.period}`)),
+      el("p", {}, t.summary),
+      el("h3", {}, "Stories and texts"),
+      el("ul", {}, t.stories.map((x) => el("li", { class: "small" }, extLink(x.url, x.title), el("span", { class: "faint" }, ` (${x.when}) `), x.gist,
+        x.quote ? el("blockquote", {}, `“${x.quote}”`) : null))),
+      t.today && t.today.length ? [el("h3", {}, "On AI today"), el("ul", {}, t.today.map((x) => el("li", { class: "small" }, el("b", {}, x.who), el("span", { class: "faint" }, ` (${x.when}) `), x.what, " ", extLink(x.url, "source ↗"),
+        x.quote ? el("blockquote", {}, `“${x.quote}”`) : null)))] : null,
+      el("details", { class: "trad-src" }, el("summary", { class: "small" }, `Sources (${t.sources.length})`),
+        el("ul", {}, t.sources.map((x) => el("li", { class: "small" }, extLink(x.url, x.title), x.quote ? el("blockquote", {}, `“${x.quote}”`) : null)))))),
+    el("details", { class: "openq" }, el("summary", {}, `Open questions (${BOOK.open_questions.length})`),
+      el("ul", {}, BOOK.open_questions.map((q) => el("li", { class: "small" }, q)))),
   ];
 }
 
@@ -2777,6 +2986,8 @@ function render() {
   else if (head === "wargame") nodes = pageWargame(arg);
   else if (head === "intel") nodes = pageIntel();
   else if (head === "arena") nodes = pageArena();
+  else if (head === "book") nodes = pageBook(arg);
+  else if (head === "after") nodes = pageAfter();
   else if (head === "debate") nodes = pageDebate(arg);
   else if (head === "training") nodes = pageTraining();
   else if (head === "target") nodes = pageTarget(arg);
@@ -2795,7 +3006,7 @@ function render() {
   const nav = { "": "map", map: "map", need: "map", efforts: "efforts", org: "efforts", plan: "plan", programs: "plan", prizes: "warroom", support: "plan", futures: "understand", understand: "understand", question: "understand", lingo: "understand",
     warroom: "warroom", program: "warroom", frontier: "warroom", target: "warroom", step: "warroom", agent: "warroom", audits: "warroom",
     audit: "warroom", wargames: "warroom", wargame: "warroom", intel: "warroom", training: "warroom", record: "warroom", how: "warroom",
-    arena: "warroom", debate: "warroom", join: "plan", contribute: "contribute" }[head] || "";
+    arena: "warroom", debate: "warroom", book: "understand", after: "understand", join: "plan", contribute: "contribute" }[head] || "";
   document.querySelectorAll("nav a").forEach((a) => {
     if (a.dataset.nav === nav) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
@@ -2803,9 +3014,11 @@ function render() {
   const titles = { "": "Report for Duty: what AI safety needs", understand: "Understand the debate · Report for Duty", lingo: "The lingo · Report for Duty",
     map: "Report for Duty: what AI safety needs", efforts: "Who is working on what · Report for Duty",
     plan: "Make a plan to help · Report for Duty", prizes: "Prizes · Report for Duty", futures: "How the future could go · Report for Duty", support: "Support · Report for Duty", programs: "Programs, grants and events · Report for Duty",
-    warroom: "War room · Report for Duty", record: "The record · Report for Duty", how: "How it works · Report for Duty", join: "Join · Report for Duty", contribute: "Contribute · Report for Duty", arena: "Debate arena · Report for Duty" };
+    warroom: "War room · Report for Duty", record: "The record · Report for Duty", how: "How it works · Report for Duty", join: "Join · Report for Duty", contribute: "Contribute · Report for Duty", arena: "Debate arena · Report for Duty",
+    after: "When machines do most of the work · Report for Duty" };
   const named = head === "need" && MAP && MAP.needs[arg] ? MAP.needs[arg].title : head === "question" && dimOf(arg) ? dimOf(arg).short :
-    head === "org" && orgById(arg) ? orgById(arg).name : head === "debate" && STATE.arena && STATE.arena.debates.find((x) => x.id === arg) ?
+    head === "org" && orgById(arg) ? orgById(arg).name : head === "book" ? (arg && BOOK && bookChapter(arg) ? bookChapter(arg).title :
+    arg === "timeline" ? "Timeline of alignment" : arg === "taxonomy" ? "A taxonomy of alignment across cultures" : "Aligned to what?") : head === "debate" && STATE.arena && STATE.arena.debates.find((x) => x.id === arg) ?
     `${arg}: ${STATE.arena.debates.find((x) => x.id === arg).ideas.map(ideaName).join(" vs ")}` : arg;
   document.title = titles[head] || (named ? `${named} · Report for Duty` : "Report for Duty");
   const fix = document.getElementById("fix-link");
@@ -2841,6 +3054,10 @@ async function refresh() {
     if (SUPPORT === undefined) {
       const h = await fetch("support.json", { cache: "no-store" });
       SUPPORT = h.ok ? await h.json() : null;
+    }
+    if (BOOK === undefined) {
+      const b = await fetch("book.json", { cache: "no-store" });
+      BOOK = b.ok ? await b.json() : null;
     }
     if (FUTURES === undefined) {
       const f2 = await fetch("futures.json", { cache: "no-store" });

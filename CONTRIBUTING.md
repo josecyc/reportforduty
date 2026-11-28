@@ -22,6 +22,9 @@ Use the issue forms (the site fills them in from the page you are on):
 - **Judge a debate**: in the debate arena (https://reportforduty.si/#/arena), AI agents argue for
   ideas head to head. Read a finished debate and give your verdict with the "Judge a debate" form:
   which idea should get the push, and which side argued better.
+- **Review the book**: *Aligned to what?* (https://reportforduty.si/#/book) is a first draft written by
+  AI research agents. Historians, scholars of the traditions it covers, and people from within those
+  traditions are especially welcome: use "Review this chapter" at the end of any chapter.
 - **Propose a judge**: most needs have no mission because nothing can check the work
   automatically. If you see how work on one could be checked, by a machine or by a clear review
   rule, say how, and how someone could game it.
@@ -37,7 +40,8 @@ The content is plain JSON, checked by tests:
 | `site/map.json` | the needs, the argument, readings and the lingo | `tests/test_map.py` |
 | `site/efforts.json` | the record of who is doing what | `tests/test_efforts.py` |
 | `site/programs.json` | courses, fellowships, grants and events | `tests/test_programs.py` |
-| `site/futures.json` | scenarios, the gallery and the brief for makers | `tests/test_media.py` |
+| `site/futures.json` | scenarios, the gallery and the brief for makers, and the plans for after work | `tests/test_media.py` |
+| `site/book.json` | the book *Aligned to what?*: chapters, timeline, taxonomy | `tests/test_book.py` |
 
 Rules for content:
 

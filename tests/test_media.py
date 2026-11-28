@@ -38,6 +38,30 @@ class Gallery(unittest.TestCase):
         self.assertIn({"kind": "gallery"}, MAP["needs"]["imagine"]["theaters"])
 
 
+class AfterWork(unittest.TestCase):
+    A = FUT["after_work"]
+
+    def test_plans_are_well_formed(self):
+        qs = {q["id"] for q in self.A["questions"]}
+        self.assertEqual(qs, {"income", "ownership", "power", "meaning", "transition"})
+        seen = set()
+        for p in self.A["plans"]:
+            self.assertNotIn(p["id"], seen)
+            seen.add(p["id"])
+            self.assertIn(p["kind"], {"plan", "vision", "pilot", "analysis", "warning"}, p["id"])
+            self.assertTrue(p["answers"] and set(p["answers"]) <= qs, p["id"])
+            self.assertRegex(p["url"], r"^https?://", p["id"])
+            self.assertTrue(p["name"] and p["who"] and p["mechanism"] and p["status"], p["id"])
+            self.assertLessEqual(len(p["quote"].split()), 30, p["id"])
+            for c in p["critiques"]:
+                self.assertRegex(c["url"], r"^https?://", p["id"])
+                self.assertTrue(c["who"] and c["what"], p["id"])
+        for e in self.A["evidence"]:
+            self.assertRegex(e["url"], r"^https?://", e["id"])
+            self.assertTrue(e["finding"], e["id"])
+        self.assertGreaterEqual(len(self.A["plans"]), 25)
+
+
 class Submissions(unittest.TestCase):
     def setUp(self):
         self.desk = deskmod.Desk(Path(tempfile.mkdtemp(prefix="rfd-media-")) / "desk.db", merge=False, worker=False)

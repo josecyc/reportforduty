@@ -595,5 +595,867 @@
   }
  ],
  "rights_note": "Iain M. Banks's Culture is still in copyright, held by his estate (https://iainbanks.co.uk/faqs/). The estate does not allow fan fiction that is sold or used commercially and says nothing about non-commercial fan films, and Amazon MGM has been developing Consider Phlebas for television since February 2025. A Culture video would be fan work on the estate's copyright unless it is licensed. The gallery can link to fan work, but will not fund or award it. Original worlds that explore the same ideas, such as abundance and AI minds that care for people, are welcome.",
- "method": "Compiled on 2026-11-26 by an AI research agent from publishers', studios', authors' and organizations' pages, with encyclopedia pages for basic facts; every link was checked the same day. Tagging a work with one of Tegmark's scenarios is our reading, and is left empty when no scenario clearly fits. Submissions appear only after a person reviews them."
+ "method": "Compiled on 2026-11-26 by an AI research agent from publishers', studios', authors' and organizations' pages, with encyclopedia pages for basic facts; every link was checked the same day. Tagging a work with one of Tegmark's scenarios is our reading, and is left empty when no scenario clearly fits. Submissions appear only after a person reviews them.",
+  "after_work": {
+    "title": "When machines do most of the work",
+    "intro": "If AI and robots come to do most of the work that drives the economy, wages stop being the way most people get a living, a say and a reason to get up. These are the plans, visions and warnings people have written about that world, and what the cash pilots have actually measured. They are sorted by the five questions they try to answer. None is ranked, and critics speak in their own words.",
+    "as_of": "2026-11-27",
+    "questions": [
+      {
+        "id": "income",
+        "name": "Income",
+        "question": "How do people get what they need when wages shrink?"
+      },
+      {
+        "id": "ownership",
+        "name": "Ownership",
+        "question": "Who owns the machines and their output?"
+      },
+      {
+        "id": "power",
+        "name": "Power",
+        "question": "How do ordinary people keep leverage when their labor is not needed?"
+      },
+      {
+        "id": "meaning",
+        "name": "Meaning",
+        "question": "What do people do, and what gives life purpose?"
+      },
+      {
+        "id": "transition",
+        "name": "Transition",
+        "question": "How do we get there without a crisis?"
+      }
+    ],
+    "plans": [
+      {
+        "id": "keynes-grandchildren",
+        "name": "Economic Possibilities for our Grandchildren",
+        "who": "John Maynard Keynes",
+        "year": "1930",
+        "kind": "vision",
+        "answers": [
+          "meaning",
+          "income",
+          "transition"
+        ],
+        "mechanism": "Keynes predicted that compound growth and technical progress would make people in rich countries four to eight times better off within a hundred years, largely solving the struggle for subsistence. He called technological unemployment a temporary phase of maladjustment. He expected the remaining work to be spread thinly, and saw the lasting problem as how to use leisure wisely.",
+        "assumes": "No major wars or large rise in population, and human needs that are mostly absolute rather than relative.",
+        "status": "Essay; output per head has grown roughly as he forecast, but the 15-hour week has not arrived (checked 2026-11-27).",
+        "url": "http://www.econ.yale.edu/smith/econ116a/keynes1.pdf",
+        "quote": "Three-hour shifts or a fifteen-hour week may put off the problem for a great while.",
+        "critiques": [
+          {
+            "who": "Benjamin M. Friedman (NBER Working Paper 21713, 2015)",
+            "what": "Argues the working week did not shrink as predicted because widening inequality slowed the growth of median incomes.",
+            "url": "https://www.nber.org/papers/w21713",
+            "quote": "Keynes was right (so far) about output per capita, but wrong about the workweek. The key reason is that he failed to allow for changing distribution."
+          },
+          {
+            "who": "Nicholas Crafts (Warwick Economics Research Paper 1360, 2022)",
+            "what": "Agrees the 15-hour week will not come by 2030, but finds lifetime leisure grew more than Keynes expected, mainly through longer retirements.",
+            "url": "https://warwick.ac.uk/fac/soc/economics/research/workingpapers/2021/twerp_1360_-_crafts.pdf",
+            "quote": "expected lifetime hours of leisure and home production in the UK rose by 58 per cent between 1931 and 2011, rather more than Keynes would have expected"
+          }
+        ]
+      },
+      {
+        "id": "triple-revolution",
+        "name": "The Triple Revolution memorandum",
+        "who": "Ad Hoc Committee on the Triple Revolution (signers included Michael Harrington, Tom Hayden, Gunnar Myrdal, Linus Pauling and Robert Theobald)",
+        "year": "1964",
+        "kind": "plan",
+        "answers": [
+          "income",
+          "transition"
+        ],
+        "mechanism": "An open memorandum to President Lyndon Johnson arguing that 'cybernation', the pairing of computers with self-regulating machines, was breaking the link between jobs and incomes. It proposed that government guarantee every individual and family an adequate income as a right, replacing the patchwork of welfare measures. For the transition it listed large public works, low-cost housing and a tax overhaul to redistribute income.",
+        "assumes": "That automation would soon make much paid work unnecessary, so income could no longer flow mainly through jobs.",
+        "status": "Sent to President Johnson in March 1964; a White House reply dated April 6, 1964 said it would be considered; no guaranteed income was enacted (checked 2026-11-27).",
+        "url": "https://www.marxists.org/history/etol/newspape/isr/vol25/no03/adhoc.html",
+        "quote": "undertake an unqualified commitment to provide every individual and every family with an adequate income as a matter of right",
+        "critiques": [
+          {
+            "who": "US National Commission on Technology, Automation, and Economic Progress (1966 report, as transcribed by Timothy Taylor)",
+            "what": "Concluded that high unemployment came from weak demand rather than technology, which displaces particular workers but not work overall.",
+            "url": "https://conversableeconomist.com/2014/12/01/automation-and-job-loss-the-fears-of-1964/",
+            "quote": "The basic fact is that technology eliminates jobs, not work."
+          }
+        ]
+      },
+      {
+        "id": "automation-commission-1966",
+        "name": "Technology and the American Economy",
+        "who": "US National Commission on Technology, Automation, and Economic Progress",
+        "year": "1966",
+        "kind": "analysis",
+        "answers": [
+          "income",
+          "transition"
+        ],
+        "mechanism": "A presidential commission set up in 1964 concluded that technology displaces particular workers, while the overall level of unemployment depends on total demand. It recommended a floor under family income, the government as employer of last resort for the hard-core unemployed, 14 years of free public education, lifelong retraining, a national computerised job-matching system and relocation help.",
+        "assumes": "That fiscal policy can keep demand growing as fast as productive capacity.",
+        "status": "Report delivered February 1966; I found no enactment of the income floor it recommended (checked 2026-11-27). The original report text was not found online; quotes come from Timothy Taylor's transcription.",
+        "url": "https://conversableeconomist.com/2014/12/01/automation-and-job-loss-the-fears-of-1964/",
+        "quote": "We recommend that economic security be guaranteed by a floor under family income.",
+        "critiques": [
+          {
+            "who": "Timothy Taylor (Conversable Economist, 2014)",
+            "what": "Notes that the report's central claim held in the 1960s but is disputed for the future.",
+            "url": "https://conversableeconomist.com/2014/12/01/automation-and-job-loss-the-fears-of-1964/",
+            "quote": "proved true for the 1960s, but there is controversy over whether it will continue to be true."
+          }
+        ]
+      },
+      {
+        "id": "universal-basic-income",
+        "name": "Universal basic income",
+        "who": "Philippe Van Parijs and Yannick Vanderborght; Basic Income Earth Network (BIEN)",
+        "year": "2017 (Van Parijs and Vanderborght book); the idea is much older",
+        "kind": "plan",
+        "answers": [
+          "income",
+          "power",
+          "meaning"
+        ],
+        "mechanism": "A regular cash payment to every individual, with no means test and no work requirement. BIEN's definition requires it to be periodic, in cash, individual, universal and unconditional. Van Parijs and Vanderborght defend it as the most realistic answer to economic insecurity and social exclusion. Proposals differ on the amount, the funding and which existing benefits it replaces.",
+        "assumes": "That a payment large enough to matter can be funded without tax rises or benefit cuts that leave poorer people worse off.",
+        "status": "Proposal; tested in pilots listed under evidence and in partial form by the Alaska dividend (checked 2026-11-27).",
+        "url": "https://basicincome.org/about-basic-income/",
+        "quote": "A Basic Income is a periodic cash payment unconditionally delivered to all on an individual basis, without means-test or work requirement.",
+        "critiques": [
+          {
+            "who": "Daron Acemoglu (Project Syndicate, 2019; republished by Daily Maverick)",
+            "what": "Argues a truly universal payment is too expensive without deep cuts elsewhere, and favours a negative income tax, an expanded earned income tax credit, universal health care and policies that create good jobs.",
+            "url": "https://www.dailymaverick.co.za/opinionista/2019-06-10-why-universal-basic-income-is-a-bad-idea/",
+            "quote": "But UBI is a flawed idea, not least because it would be prohibitively expensive unless accompanied by deep cuts to the rest of the safety net."
+          }
+        ]
+      },
+      {
+        "id": "alaska-permanent-fund-dividend",
+        "name": "Alaska Permanent Fund Dividend",
+        "who": "State of Alaska (Alaska Permanent Fund Corporation; Permanent Fund Dividend Division)",
+        "year": "1976 (fund); 1982 (first dividend)",
+        "kind": "pilot",
+        "answers": [
+          "income",
+          "ownership"
+        ],
+        "mechanism": "Alaskan voters amended the state constitution in 1976 to place at least a quarter of mineral royalties into a permanent, invested fund. Since 1982 every eligible resident has received a yearly cash dividend paid from fund earnings. Since 2018 the legislature has drawn a percentage of the fund's market value each year to pay both dividends and general government costs.",
+        "assumes": "A large stream of public resource income, and a legislature willing to keep paying dividends rather than spend the money elsewhere.",
+        "status": "In operation under state law; the PFD Division set the 2026 dividend at $1,200, including a $200 energy relief payment (checked 2026-11-27).",
+        "url": "https://apfc.org/about/history/",
+        "quote": "Understanding that Alaska’s new oil wealth would not last forever, residents created the Alaska Permanent Fund in 1976.",
+        "critiques": [
+          {
+            "who": "Alaska Supreme Court, Chief Justice Daniel Winfree (2017), as reported by the Anchorage Daily News",
+            "what": "Upheld a governor's veto that roughly halved the 2016 dividend, ruling that dividends are not constitutionally protected and must win funding each year.",
+            "url": "https://www.adn.com/politics/2017/08/25/alaska-supreme-court-upholds-gov-walkers-2016-veto-of-half-of-permanent-fund-dividend/",
+            "quote": "Absent another constitutional amendment, the Permanent Fund dividend program must compete for annual legislative funding just as other state programs"
+          }
+        ]
+      },
+      {
+        "id": "norway-government-pension-fund-global",
+        "name": "Government Pension Fund Global (Norway's oil fund)",
+        "who": "Norwegian government and parliament (Storting); managed by Norges Bank Investment Management",
+        "year": "1990 (law); 1996 (first deposit)",
+        "kind": "pilot",
+        "answers": [
+          "ownership",
+          "income"
+        ],
+        "mechanism": "Norway puts oil and gas revenue into a fund invested only abroad, in shares, bonds, property and renewable energy infrastructure. A fiscal rule limits government spending from the fund to roughly its expected real return, estimated at about 3 percent a year, so the capital is kept for future generations. Citizens benefit through the state budget rather than through individual payments.",
+        "assumes": "Lasting political agreement to spend only the return, and continued growth in the value of global assets.",
+        "status": "In operation; NBIM says the fund owns almost 1.5 percent of shares in the world's listed companies and that spending from it equals almost 20 percent of the government budget (checked 2026-11-27).",
+        "url": "https://www.nbim.no/en/about-us/about-the-fund/",
+        "quote": "owning almost 1.5 percent of all shares in the world’s listed companies",
+        "critiques": []
+      },
+      {
+        "id": "american-equity-fund",
+        "name": "Moore's Law for Everything: the American Equity Fund",
+        "who": "Sam Altman",
+        "year": "2021",
+        "kind": "plan",
+        "answers": [
+          "income",
+          "ownership"
+        ],
+        "mechanism": "Altman argued that as AI makes labour less valuable, taxes should shift from labour to capital and ownership should be spread to citizens. An American Equity Fund would levy 2.5 percent a year of the market value of large companies, paid in shares, and 2.5 percent of the value of privately held land, paid in dollars. Every adult citizen would receive a yearly distribution of cash and shares, which he estimated at about $13,500 a decade on, phased in as GDP grows.",
+        "assumes": "That AI drives fast growth in company and land values, and that firms cannot easily avoid the levy by moving offshore or staying private.",
+        "status": "Essay proposal; no legislation found (checked 2026-11-27).",
+        "url": "https://moores.samaltman.com/",
+        "quote": "The American Equity Fund would be capitalized by taxing companies above a certain valuation 2.5% of their market value each year, payable in shares transferred to the fund",
+        "critiques": [
+          {
+            "who": "Daily Maverick, 'After the Bell' column (November 2023)",
+            "what": "Argues that paying the tax in new shares dilutes existing owners and works much like a cash tax, which at this rate would roughly halve company values over 20 years.",
+            "url": "https://www.dailymaverick.co.za/article/2023-11-28-after-the-bell-a-subtext-to-the-openai-debacle-sam-altmans-kooky-economics/",
+            "quote": "But every issue of shares technically reduces return on equity and, consequently, in the ultimate analysis, it’s really not that different from cash."
+          },
+          {
+            "who": "Dave Karpf (Substack)",
+            "what": "Argues the essay rests on faith in accelerating technology and has not been tested against criticism.",
+            "url": "https://davekarpf.substack.com/p/lets-tap-the-brakes-on-this-ai-hype",
+            "quote": "Sam Altman's \"Moore's Law for Everything\" manifesto is a mess."
+          }
+        ]
+      },
+      {
+        "id": "compute-budget",
+        "name": "A 'compute budget' for everyone",
+        "who": "Sam Altman (OpenAI)",
+        "year": "2025",
+        "kind": "vision",
+        "answers": [
+          "income",
+          "ownership",
+          "power"
+        ],
+        "mechanism": "In the essay 'Three Observations', Altman wrote that AI could upset the balance of power between capital and labour and that this might need early intervention. He floated giving everyone on Earth a budget of AI computing, while noting that simply driving down the cost of AI might achieve the same goal.",
+        "assumes": "That access to AI computing turns into income or bargaining power for ordinary people.",
+        "status": "A remark in a blog post; no programme announced that I could find (checked 2026-11-27).",
+        "url": "https://blog.samaltman.com/three-observations",
+        "quote": "We are open to strange-sounding ideas like giving some “compute budget” to enable everyone on Earth to use a lot of AI",
+        "critiques": []
+      },
+      {
+        "id": "windfall-clause",
+        "name": "The Windfall Clause",
+        "who": "Cullen O'Keefe, Peter Cihon, Ben Garfinkel, Carrick Flynn, Jade Leung and Allan Dafoe (Future of Humanity Institute / Centre for the Governance of AI)",
+        "year": "2020",
+        "kind": "plan",
+        "answers": [
+          "income",
+          "ownership"
+        ],
+        "mechanism": "AI firms would sign, in advance, a binding commitment to donate a rising share of any extremely large profits that come from transformative AI. In the suggested schedule nothing is owed until a firm's annual profit exceeds 0.1 percent of gross world product. The money would go to benefit humanity broadly, for example through an independent Windfall Trust acting as a form of global social security.",
+        "assumes": "That firms sign voluntarily and that the commitment holds up legally once very large sums are at stake.",
+        "status": "Proposal; no AI company had signed as of September 2024 (per Kevin Kohler); the related Windfall Trust now works as a policy-research group and previewed an AI exposure map at LSE in September 2026 (checked 2026-11-27).",
+        "url": "https://arxiv.org/abs/1912.11595",
+        "quote": "an ex ante commitment by AI firms to donate a significant amount of any eventual extremely large profits",
+        "critiques": [
+          {
+            "who": "Jan Leike (2020 note, posted with permission by Cullen O'Keefe on the EA Forum in 2022)",
+            "what": "Argues a firm facing a real windfall would have an overwhelming incentive to spend heavily on legal loopholes, far more than drafters can spend in advance.",
+            "url": "https://ea.greaterwrong.com/posts/wcFjCQhSsHar5Hehr/jan-leike-on-the-windfall-clause",
+            "quote": "A core challenge when trying to design a windfall clause is that there is an incredibly strong incentive to find a loophole once the clause takes effect."
+          },
+          {
+            "who": "Kevin Kohler (Machinocene, September 2024)",
+            "what": "Argues the thresholds are rarely reached, enforcement is unclear, and firms could shift profits to stay below them, so the clause cannot replace public social security.",
+            "url": "https://www.machinocene.com/p/can-a-windfall-trust-ensure-that",
+            "quote": "Even if a company sticks to its formal commitments, it seems fairly easy for a firm to shift or reduce book profits to stay below “Windfall Trust thresholds”."
+          }
+        ]
+      },
+      {
+        "id": "openai-capped-profit-and-recapitalization",
+        "name": "OpenAI's capped-profit structure and its 2025 recapitalization",
+        "who": "OpenAI",
+        "year": "2019; 2025",
+        "kind": "plan",
+        "answers": [
+          "ownership",
+          "power"
+        ],
+        "mechanism": "In 2019 OpenAI created a 'capped-profit' company controlled by its nonprofit: investor and employee returns were capped (at 100 times for the first round), and value above the caps would belong to the nonprofit. In October 2025 the for-profit became OpenAI Group PBC, a public benefit corporation. The nonprofit, renamed the OpenAI Foundation, keeps control through the right to appoint the board and holds about 26 percent of the equity plus a warrant, in place of the right to above-cap profits.",
+        "assumes": "That nonprofit control and a public-benefit charter keep the mission ahead of shareholder returns.",
+        "status": "Recapitalization completed October 28, 2025 after talks with the California and Delaware attorneys general; Microsoft holds roughly 27 percent and current and former employees and investors 47 percent (per OpenAI; 2019 terms from https://openai.com/index/openai-lp/; checked 2026-11-27).",
+        "url": "https://openai.com/our-structure/",
+        "quote": "the OpenAI Foundation holds a 26% equity stake in OpenAI Group, worth approximately $130B based on OpenAI Group’s current valuation",
+        "critiques": [
+          {
+            "who": "Not For Private Gain coalition (legal and governance experts, nonprofit representatives and former OpenAI employees), November 2025",
+            "what": "Judges the final structure an improvement on OpenAI's first proposal but still contrary to the charitable mission, and notes the nonprofit no longer has a claim on above-cap profits.",
+            "url": "https://notforprivategain.org/november-update",
+            "quote": "the outcome—while still inherently contrary to OpenAI’s charitable mission—is a substantial improvement over OpenAI’s original restructuring proposal"
+          }
+        ]
+      },
+      {
+        "id": "anthropic-long-term-benefit-trust",
+        "name": "Anthropic's Long-Term Benefit Trust",
+        "who": "Anthropic",
+        "year": "2023",
+        "kind": "plan",
+        "answers": [
+          "ownership",
+          "power"
+        ],
+        "mechanism": "Anthropic, a Delaware public benefit corporation, created a special class of stock held by an independent trust whose trustees have no financial stake in the company. The trust can elect and remove a growing share of board directors, reaching a majority within four years, and must use its powers to balance stockholder interests with the public benefit. Sufficiently large supermajorities of stockholders can change the trust's powers without the trustees' consent.",
+        "assumes": "That trustees stay independent and informed, and that stockholders do not use the override provisions to curb them.",
+        "status": "In place; as of October 2026 Anthropic's page lists four trustees, chaired by Neil Buddy Shah (checked 2026-11-27).",
+        "url": "https://www.anthropic.com/news/the-long-term-benefit-trust",
+        "quote": "The Trust is an independent body of five financially disinterested members with an authority to select and remove a portion of our Board that will grow over time",
+        "critiques": [
+          {
+            "who": "Zach Stein-Perlman (AI Lab Watch, May 2024)",
+            "what": "Argues outsiders cannot judge the trust's strength because the trust agreement and the stockholder supermajority thresholds are not published.",
+            "url": "https://www.lesswrong.com/posts/sdCcsTt9hRpbX6obP/maybe-anthropic-s-long-term-benefit-trust-is",
+            "quote": "Anthropic has not publicly demonstrated that the Trust would be able to actually do anything that stockholders don't like."
+          }
+        ]
+      },
+      {
+        "id": "robot-tax",
+        "name": "Robot taxes",
+        "who": "Bill Gates (February 2017 interview with Quartz); South Korean government (2017 tax plan)",
+        "year": "2017",
+        "kind": "plan",
+        "answers": [
+          "income",
+          "transition"
+        ],
+        "mechanism": "Gates argued that a robot replacing a worker should be taxed at a level similar to the income and payroll taxes the worker paid, with the money funding jobs such as elder care and work with children, and that slowing automation somewhat would give communities time to adjust. South Korea's 2017 tax plan, reported as a first step toward a robot tax, proposed shrinking corporate tax deductions for investment in automation equipment.",
+        "assumes": "That labour-replacing machines can be defined for tax purposes, and that slower automation costs less than the disruption it eases.",
+        "status": "The Korea Times reported in 2017 that no country had adopted a direct robot tax; South Korea reduced its automation tax credit (ITIF describes a 2018 cut from 7 to 3 percent for large firms; see evidence) (checked 2026-11-27).",
+        "url": "https://www.nextgov.com/artificial-intelligence/2017/02/robot-takes-your-job-should-pay-taxes-says-bill-gates/135547/",
+        "quote": "If a robot comes in to do the same thing, you’d think that we’d tax the robot at a similar level.",
+        "critiques": [
+          {
+            "who": "Lawrence Summers (op-ed, March 2017)",
+            "what": "Argues there is no logic in singling out robots among labour-saving technologies, and that taxing them shrinks output rather than sharing it more fairly.",
+            "url": "https://larrysummers.com/news-item/robots-are-wealth-creators-and-taxing-them-is-illogical/",
+            "quote": "First, I cannot see any logic to singling out robots as job destroyers."
+          }
+        ]
+      },
+      {
+        "id": "data-dividends-and-data-as-labor",
+        "name": "Data dividends and 'data as labor'",
+        "who": "Imanol Arrieta-Ibarra, Leonard Goff, Diego Jiménez-Hernández, Jaron Lanier and E. Glen Weyl (AEA Papers and Proceedings, 2018; the idea is also developed in Posner and Weyl's Radical Markets, 2018); Governor Gavin Newsom (2019)",
+        "year": "2018; 2019",
+        "kind": "plan",
+        "answers": [
+          "income",
+          "ownership",
+          "power"
+        ],
+        "mechanism": "Treat the data people generate as labour that should be paid, rather than as free raw material collected by platforms. The 2018 paper suggests countervailing power, through competition, a 'data labor movement' or regulation, to set a price on user contributions. In 2019 California's governor proposed a 'data dividend' so residents could share in the wealth made from their data, without specifying its form.",
+        "assumes": "That individual data contributions can be measured and priced, and that the resulting payments are large enough to matter.",
+        "status": "Academic proposal and a state-level idea; I found no enacted data dividend (checked 2026-11-27).",
+        "url": "https://www.aeaweb.org/articles?id=10.1257/pandp.20181003",
+        "quote": "treating data (at least partially) as labor could help resolve these issues and restore a functioning market for user contributions",
+        "critiques": [
+          {
+            "who": "Electronic Frontier Foundation (February 2019)",
+            "what": "Argues payments for data would leave surveillance unchecked and that any 'dividend' should take the form of stronger privacy law.",
+            "url": "https://www.eff.org/deeplinks/2019/02/payoff-californias-data-dividend-must-be-stronger-privacy-laws",
+            "quote": "It is not a good deal for consumers to get a handful of dollars from companies in exchange for surveillance capitalism remaining unchecked."
+          }
+        ]
+      },
+      {
+        "id": "universal-basic-services",
+        "name": "Universal Basic Services",
+        "who": "UCL Institute for Global Prosperity, Social Prosperity Network (with Jonathan Portes, Howard Reed and Andrew Percy)",
+        "year": "2017",
+        "kind": "plan",
+        "answers": [
+          "income",
+          "transition"
+        ],
+        "mechanism": "Instead of cash, extend free public provision beyond health and education to shelter, food, transport and information (phone and internet access). The report argues this lowers the cost of a minimum living standard for the poorest more effectively than spending the same money on redistribution. It estimated the added cost for the UK at 2.3 percent of GDP.",
+        "assumes": "That public bodies can provide these services efficiently and that basic needs are similar enough to be met in kind.",
+        "status": "Proposal; the institute published a follow-up literature review in 2019; no national adoption found (checked 2026-11-27).",
+        "url": "https://basicincome.org/wp-content/uploads/2018/09/Social-prosperity-for-the-future.pdf",
+        "quote": "Basic services will reduce poverty because they will reduce the cost of a minimum living standard.",
+        "critiques": [
+          {
+            "who": "Guy Standing (openDemocracy, June 2019)",
+            "what": "Argues services and a basic income meet different needs, so presenting services as an alternative to cash is a false choice.",
+            "url": "https://www.opendemocracy.net/en/why-universal-basic-services-is-no-alternative-to-basic-income/",
+            "quote": "But improving public services is not in opposition to providing a basic income. They would fulfil different needs and purposes."
+          }
+        ]
+      },
+      {
+        "id": "public-ai",
+        "name": "Public AI and public compute",
+        "who": "Public AI Network; US National Science Foundation (NAIRR Pilot); EPFL, ETH Zurich and the Swiss National Supercomputing Centre (Apertus)",
+        "year": "2024–2025",
+        "kind": "plan",
+        "answers": [
+          "ownership",
+          "power"
+        ],
+        "mechanism": "Advocates argue that AI is becoming essential infrastructure, like roads and water, and that governments should build public capacity rather than depend on private labs. Examples include the US National AI Research Resource pilot, which gives researchers and educators access to computing and data, and Switzerland's Apertus, a model whose weights, training data and recipes are all published.",
+        "assumes": "That public bodies can fund and run competitive AI capacity, and that public access turns into public influence over the technology.",
+        "status": "NAIRR runs as a pilot and NSF has set up an operations center for it; Apertus was released on September 2, 2025 in 8-billion and 70-billion-parameter versions (checked 2026-11-27).",
+        "url": "https://publicai.network/",
+        "quote": "AI systems are growing in power and should reflect society’s values, not the values of shareholders.",
+        "critiques": [
+          {
+            "who": "Meredith Whittaker (AI Now Institute), quoted by FedScoop, October 2021",
+            "what": "Argues a national research resource built on licensed commercial cloud capacity would subsidise and entrench the largest tech firms.",
+            "url": "https://fedscoop.com/research-groups-nairr-big-tech/",
+            "quote": "What we’re looking at with the National AI Research Resource, unless it’s fundamentally transformed, is a large subsidy going directly to Big Tech"
+          }
+        ]
+      },
+      {
+        "id": "korinek-suh-agi-scenarios",
+        "name": "Scenarios for the Transition to AGI",
+        "who": "Anton Korinek and Donghyun Suh (NBER Working Paper 32255)",
+        "year": "2024",
+        "kind": "analysis",
+        "answers": [
+          "income",
+          "transition"
+        ],
+        "mechanism": "The paper models work as tasks of varying complexity and asks how output and wages change as automation reaches more complex tasks. Wages depend on a race between automation and capital accumulation: slow automation can let wages rise indefinitely, while full automation of a bounded set of human tasks makes wages collapse. Korinek has also, with Lee Lockwood, proposed studying taxes on AI tokens and on computing hardware as labour's share falls (described in Anthropic's October 2025 policy menu).",
+        "assumes": "That human work breaks down into tasks, and that it is unknown whether the complexity of tasks humans can do is bounded.",
+        "status": "Working paper, March 2024 (checked 2026-11-27).",
+        "url": "https://www.nber.org/papers/w32255",
+        "quote": "By contrast, if the complexity of tasks that humans can perform is bounded and full automation is reached, then wages collapse.",
+        "critiques": []
+      },
+      {
+        "id": "power-and-progress",
+        "name": "Power and Progress, and the pro-worker AI agenda",
+        "who": "Daron Acemoglu and Simon Johnson (book); Daron Acemoglu, David Autor and Simon Johnson (policy memo)",
+        "year": "2023",
+        "kind": "analysis",
+        "answers": [
+          "power",
+          "transition",
+          "income"
+        ],
+        "mechanism": "Acemoglu and Johnson's book reads a thousand years of history as showing that new technology spreads its gains widely only when power is shared. Their 2023 memo with David Autor says generative AI is being steered toward automation and workplace surveillance, and calls for a path that complements workers. Its proposals include equal tax rates on employing workers and on owning equipment or algorithms, limits on worker surveillance, and public funding for human-complementary research.",
+        "assumes": "That the direction of technology can be steered by policy and norms, and that augmenting and automating uses can be told apart.",
+        "status": "Book and policy memo; I found no enacted version of the tax-equalisation proposal (checked 2026-11-27).",
+        "url": "https://shapingwork.mit.edu/research/can-we-have-pro-worker-ai/",
+        "quote": "Nothing about the path of this (or any) technology is inevitable.",
+        "critiques": [
+          {
+            "who": "Daniel Sarewitz (review in Issues in Science and Technology)",
+            "what": "Argues that the book's claim that technology is a matter of choice is a truism that does not show which alternatives were actually possible.",
+            "url": "https://issues.org/power-progress-acemoglu-johnson-review-sarewitz/",
+            "quote": "To say that a particular social and economic arrangement of technology at a particular time was not inevitable is a truism if there ever was one."
+          }
+        ]
+      },
+      {
+        "id": "turing-trap",
+        "name": "The Turing Trap",
+        "who": "Erik Brynjolfsson (Stanford Digital Economy Lab)",
+        "year": "2022",
+        "kind": "analysis",
+        "answers": [
+          "power",
+          "income",
+          "transition"
+        ],
+        "mechanism": "Brynjolfsson argues that aiming AI at imitating humans pushes toward automation, which shifts income and bargaining power to those who own the technology. AI aimed at augmenting people keeps workers indispensable and so preserves their economic and political leverage. He proposes ending tax rules that favour capital over labour, since US effective tax rates are higher on wages than on equipment.",
+        "assumes": "That firms and engineers respond to incentives that favour augmentation, and that the two can be distinguished in practice.",
+        "status": "Essay, January 2022 (checked 2026-11-27).",
+        "url": "https://digitaleconomy.stanford.edu/news/the-turing-trap-the-promise-peril-of-human-like-artificial-intelligence/",
+        "quote": "As machines become better substitutes for human labor, workers lose economic and political bargaining power and become increasingly dependent on those who control the technology.",
+        "critiques": [
+          {
+            "who": "Lawrence Summers (March 2017, writing about robot taxes, before this essay)",
+            "what": "Questions whether any policymaker can tell labour-saving from labour-enhancing innovation, a distinction that tax rules favouring augmentation would rely on.",
+            "url": "https://larrysummers.com/news-item/robots-are-wealth-creators-and-taxing-them-is-illogical/",
+            "quote": "Does Mr Gates think anyone, let alone the US Congress, the Trump administration or a commission comprised of his fellow technocrats, can distinguish labour-saving activities from labour-enhancing ones?"
+          }
+        ]
+      },
+      {
+        "id": "intelligence-curse",
+        "name": "The Intelligence Curse",
+        "who": "Luke Drago and Rudolf Laine",
+        "year": "2025",
+        "kind": "warning",
+        "answers": [
+          "power",
+          "income",
+          "transition"
+        ],
+        "mechanism": "The essays compare a world of labour-replacing AI to resource-rich 'rentier' states: once states and companies draw their income from AI and capital rather than from people's work and taxes, they lose the incentive to invest in ordinary people. The authors propose to 'avert' AI catastrophes without centralising control, 'diffuse' AI that augments individuals and is aligned to its users, and 'democratize' institutions.",
+        "assumes": "That human labour becomes economically unnecessary and that powerful actors respond mainly to economic incentives.",
+        "status": "Essay series, April 2025 (checked 2026-11-27).",
+        "url": "https://intelligence-curse.ai/",
+        "quote": "Powerful actors—like states and companies—no longer have an incentive to care about regular people.",
+        "critiques": [
+          {
+            "who": "Noah Smith (Noahpinion, March 2024, written before the essays)",
+            "what": "Argues that comparative advantage could keep human work plentiful and well paid even when AI is better at most tasks.",
+            "url": "https://www.noahpinion.blog/p/plentiful-high-paying-jobs-in-the",
+            "quote": "it’s very possible that regular humans will have plentiful, high-paying jobs in the age of AI dominance"
+          }
+        ]
+      },
+      {
+        "id": "gradual-disempowerment",
+        "name": "Gradual Disempowerment",
+        "who": "Jan Kulveit, Raymond Douglas, Nora Ammann, Deger Turan, David Krueger and David Duvenaud",
+        "year": "2025",
+        "kind": "warning",
+        "answers": [
+          "power",
+          "transition"
+        ],
+        "mechanism": "The paper argues that even gradual, non-hostile AI progress can erode human influence over the economy, culture and states. These systems stay roughly aligned with people partly because they depend on human labour and participation; as AI replaces that, both formal controls such as voting and consumer choice and these implicit alignments weaken, and the effects can reinforce each other. The authors call for technical and governance work aimed at this incremental erosion.",
+        "assumes": "That institutions substitute AI for human participation wherever it is cheaper, and that competition rewards doing so.",
+        "status": "arXiv paper, January 2025 (checked 2026-11-27).",
+        "url": "https://arxiv.org/abs/2501.16946",
+        "quote": "As AI increasingly replaces human labor and cognition in these domains, it can weaken both explicit human control mechanisms (like voting and consumer choice)",
+        "critiques": [
+          {
+            "who": "Tom Davidson (AI Alignment Forum, August 2025)",
+            "what": "Argues the most convincing versions of the threat reduce to AI misalignment or to power concentrating among a few humans, rather than being a separate risk.",
+            "url": "https://www.alignmentforum.org/posts/ct6SMDuexe9uBwDoL/thoughts-on-gradual-disempowerment",
+            "quote": "I don’t think of “gradual disempowerment” as an important sui generis risk, but as a useful lens on the risks of power concentration and misalignment."
+          },
+          {
+            "who": "Tyler Cowen (Marginal Revolution, February 2025)",
+            "what": "Argues humans never fully controlled large systems, AI may stay decentralised, and AIs are unlikely to coordinate against people.",
+            "url": "https://marginalrevolution.com/marginalrevolution/2025/02/gradual-empowerment.html",
+            "quote": "This is one of the smarter arguments I have seen, but I am very far from convinced."
+          }
+        ]
+      },
+      {
+        "id": "machines-of-loving-grace",
+        "name": "Machines of Loving Grace",
+        "who": "Dario Amodei (Anthropic)",
+        "year": "2024",
+        "kind": "vision",
+        "answers": [
+          "meaning",
+          "income"
+        ],
+        "mechanism": "The essay describes what 'powerful AI', a 'country of geniuses in a datacenter', could do if things go well, such as compressing decades of biomedical progress into a few years. Amodei expects comparative advantage to keep humans employed for a while, but says that in the long run the economy will need reorganising, perhaps through a large basic income or AI systems allocating resources to people. He argues meaning comes mainly from relationships rather than paid work.",
+        "assumes": "That powerful AI is safely aligned and that its gains are widely shared.",
+        "status": "Essay, October 2024 (checked 2026-11-27).",
+        "url": "https://darioamodei.com/essay/machines-of-loving-grace",
+        "quote": "In any case I think meaning comes mostly from human relationships and connection, not from economic labor.",
+        "critiques": [
+          {
+            "who": "Boaz Barak (LessWrong, July 2026)",
+            "what": "Argues that an economy in which aligned AIs decide what to give humans resembles a benevolent dictatorship, and calls for power over AI to stay decentralised.",
+            "url": "https://www.lesswrong.com/posts/JBHgE2EWGmibM57qg/all-watched-over",
+            "quote": "To me, such an “AI parent” looks rather close to a benevolent dictator."
+          }
+        ]
+      },
+      {
+        "id": "adolescence-of-technology",
+        "name": "The Adolescence of Technology",
+        "who": "Dario Amodei (Anthropic)",
+        "year": "2026",
+        "kind": "warning",
+        "answers": [
+          "income",
+          "power",
+          "transition"
+        ],
+        "mechanism": "The essay names labour-market displacement and concentration of economic power as separate economic risks, repeating Amodei's forecast that AI could disrupt half of entry-level white-collar jobs within one to five years. Its proposed responses are real-time data on AI use, steering firms toward doing more rather than cutting staff, companies looking after employees, renewed philanthropy, and progressive taxation, either general or aimed at AI companies. Amodei describes these as ways to buy time.",
+        "assumes": "That the transition is fast but that governments can still tax and redistribute the gains.",
+        "status": "Essay, January 2026 (checked 2026-11-27).",
+        "url": "https://darioamodei.com/essay/the-adolescence-of-technology",
+        "quote": "Democracy is ultimately backstopped by the idea that the population as a whole is necessary for the operation of the economy.",
+        "critiques": []
+      },
+      {
+        "id": "deep-utopia",
+        "name": "Deep Utopia: Life and Meaning in a Solved World",
+        "who": "Nick Bostrom",
+        "year": "2024",
+        "kind": "vision",
+        "answers": [
+          "meaning"
+        ],
+        "mechanism": "A book of lectures and dialogues asking what would give life meaning if superintelligence were developed safely and human effort were no longer needed for any practical purpose. Bostrom considers whether games, sports, relationships and the appreciation of art and truth could supply purpose in a world where human nature itself can be modified.",
+        "assumes": "That alignment and material abundance have already been achieved.",
+        "status": "Book (checked 2026-11-27).",
+        "url": "https://nickbostrom.com/deep-utopia/",
+        "quote": "a “post-instrumental” condition in which human efforts are not needed for any practical purpose",
+        "critiques": [
+          {
+            "who": "Scott Alexander (Astral Codex Ten review)",
+            "what": "Says the book analyses meaning abstractly but never shows life in such a world, and that he cannot picture how it would work.",
+            "url": "https://www.astralcodexten.com/p/book-review-deep-utopia",
+            "quote": "I find myself boggling at the difficulty of imagining a world without limitations and how all of its parts would interact."
+          }
+        ]
+      },
+      {
+        "id": "fully-automated-luxury-communism",
+        "name": "Fully Automated Luxury Communism",
+        "who": "Aaron Bastani",
+        "year": "2019",
+        "kind": "vision",
+        "answers": [
+          "income",
+          "ownership",
+          "meaning"
+        ],
+        "mechanism": "Bastani argues that automation, renewable energy, asteroid mining and synthetic biology can push the cost of food, healthcare, housing and energy toward zero. Rather than defend an economy built on full employment, he treats automation as the route to a world free of work and scarcity, which he frames as a political project.",
+        "assumes": "That these technologies arrive and that political movements can direct their gains to everyone.",
+        "status": "Book (checked 2026-11-27).",
+        "url": "https://www.penguinrandomhouse.com/books/563958/fully-automated-luxury-communism-by-aaron-bastani/",
+        "quote": "Technological advance will reduce the value of commodities—food, healthcare and housing—towards zero.",
+        "critiques": [
+          {
+            "who": "Mark Featherstone (Theory, Culture & Society review)",
+            "what": "Argues the book relies on technology to deliver change and lacks an account of power, conflict and how the transition would happen.",
+            "url": "https://www.theoryculturesociety.org/blog/review-aaron-bastani-fully-automated-luxury-communism",
+            "quote": "He has no real theory of power or class struggle."
+          }
+        ]
+      },
+      {
+        "id": "automation-and-utopia",
+        "name": "Automation and Utopia: Human Flourishing in a World without Work",
+        "who": "John Danaher",
+        "year": "2019",
+        "kind": "vision",
+        "answers": [
+          "meaning",
+          "income"
+        ],
+        "mechanism": "Danaher argues that work is a source of misery for many people and that its automation should be welcomed. He rejects a 'cyborg' future in which humans upgrade themselves to stay economically useful, and favours a 'virtual utopia' in which people, freed from need, spend their time on games and absorbing virtual pursuits that support flourishing.",
+        "assumes": "That material needs are met without work and that low-stakes virtual activity can be meaningful.",
+        "status": "Book (checked 2026-11-27).",
+        "url": "https://www.hup.harvard.edu/books/9780674984240",
+        "quote": "The rise of automating technologies presents a utopian moment for humankind, providing both the motive and the means to build a better future.",
+        "critiques": [
+          {
+            "who": "Michael Pitts (review in Vector, British Science Fiction Association)",
+            "what": "Argues the virtual utopia raises ethical problems similar to those Danaher finds in the cyborg option, which the book treats only briefly.",
+            "url": "https://vector-bsfa.com/tag/simulation/",
+            "quote": "Yet as with the cyborg utopia, the virtual utopia is plagued with ethical complications."
+          }
+        ]
+      },
+      {
+        "id": "anthropic-economic-index",
+        "name": "Anthropic Economic Index",
+        "who": "Anthropic",
+        "year": "2025",
+        "kind": "analysis",
+        "answers": [
+          "transition"
+        ],
+        "mechanism": "Anthropic uses privacy-preserving analysis of millions of Claude conversations, mapped to US occupational task data, to track which tasks people use AI for and whether it augments or automates them. The first report found use concentrated in software development and technical writing, with about 36 percent of occupations using AI for at least a quarter of their tasks. The data are released openly.",
+        "assumes": "That conversations on one company's product are a usable signal of AI use across the economy.",
+        "status": "Ongoing; by October 2025 Anthropic reported that users were increasingly delegating whole tasks, and it announced an Economic Index Survey in April 2026 (checked 2026-11-27).",
+        "url": "https://www.anthropic.com/research/the-anthropic-economic-index",
+        "quote": "AI use leans more toward augmentation (57%), where AI collaborates with and enhances human capabilities, compared to automation (43%), where AI directly performs tasks.",
+        "critiques": [
+          {
+            "who": "Martha Gimbel, Molly Kinder, Joshua Kendall and Maddie Lee (Yale Budget Lab, October 2025)",
+            "what": "Note that Claude's users skew toward coding and writing, so its usage data may not represent AI use across the economy.",
+            "url": "https://budgetlab.yale.edu/research/evaluating-impact-ai-labor-market-current-state-affairs",
+            "quote": "It is clear from the data that Claude’s usage is heavily dominated by one occupational group — computer and mathematical, which includes coders"
+          }
+        ]
+      },
+      {
+        "id": "anthropic-economic-futures",
+        "name": "Anthropic Economic Futures Program and its policy menu",
+        "who": "Anthropic",
+        "year": "2025",
+        "kind": "plan",
+        "answers": [
+          "income",
+          "ownership",
+          "transition"
+        ],
+        "mechanism": "The program funds research grants of up to $50,000, API credits and policy symposia on AI's economic effects. In October 2025 Anthropic published a menu of outside policy ideas sorted by scenario: training grants, tax changes favouring retraining and faster permitting for nearly all scenarios; adjustment assistance for displaced workers and taxes on tokens or compute for moderate ones; and sovereign wealth funds with stakes in AI, value-added taxes and new business taxes for fast-moving ones. Anthropic says the ideas do not necessarily represent its own positions.",
+        "assumes": "That evidence gathered now will shape policy before large displacement occurs.",
+        "status": "Running; Anthropic announced a $10 million expansion in 2025, with symposia in Washington (September 2025) and London (planned for November 2025), and published a review of evidence on worker retraining in August 2026 (checked 2026-11-27).",
+        "url": "https://www.anthropic.com/research/economic-policy-responses",
+        "quote": "So far, ideas include using sovereign wealth funds to give citizens stakes in AI revenues, and finding new ways to generate government revenue.",
+        "critiques": []
+      },
+      {
+        "id": "imf-genai-future-of-work",
+        "name": "Gen-AI: Artificial Intelligence and the Future of Work",
+        "who": "IMF staff; blog by Managing Director Kristalina Georgieva",
+        "year": "2024",
+        "kind": "analysis",
+        "answers": [
+          "income",
+          "transition"
+        ],
+        "mechanism": "IMF staff estimated that almost 40 percent of global employment, and about 60 percent of jobs in advanced economies, is exposed to AI. Roughly half of exposed jobs may gain from higher productivity, while in the other half AI may take over key tasks, lowering labour demand, wages and hiring. The IMF urged comprehensive social safety nets and retraining for vulnerable workers.",
+        "assumes": "That exposure measures based on current tasks predict where effects will fall.",
+        "status": "Staff analysis, January 2024 (checked 2026-11-27).",
+        "url": "https://www.imf.org/en/Blogs/Articles/2024/01/14/ai-will-transform-the-global-economy-lets-make-sure-it-benefits-humanity",
+        "quote": "",
+        "critiques": []
+      },
+      {
+        "id": "ilo-generative-ai-jobs",
+        "name": "Generative AI and Jobs: A global analysis of potential effects on job quantity and quality",
+        "who": "Pawel Gmyrek, Janine Berg and David Bescond (ILO Working Paper 96)",
+        "year": "2023",
+        "kind": "analysis",
+        "answers": [
+          "transition",
+          "income"
+        ],
+        "mechanism": "The study scores occupations by how exposed their tasks are to GPT-4-class AI. It finds most jobs only partly exposed, so augmentation is more likely than replacement; clerical work is most exposed, which makes women and higher-income countries more affected (5.5 percent of employment in high-income countries versus about 0.4 percent in low-income countries). It calls for worker voice, skills training and social protection to manage the transition.",
+        "assumes": "That task-level exposure estimates translate into effects on employment.",
+        "status": "Working paper, August 21, 2023 (checked 2026-11-27).",
+        "url": "https://www.ilo.org/publications/generative-ai-and-jobs-global-analysis-potential-effects-job-quantity-and",
+        "quote": "This study assesses global occupational exposure to Generative AI, particularly GPT-4, finding that its main effect is likely to augment rather than automate jobs.",
+        "critiques": []
+      },
+      {
+        "id": "alignment-assemblies",
+        "name": "Alignment assemblies (citizen deliberation on AI)",
+        "who": "Collective Intelligence Project, with partners including Taiwan's vTaiwan process, Anthropic and Creative Commons",
+        "year": "2023 onward",
+        "kind": "pilot",
+        "answers": [
+          "power"
+        ],
+        "mechanism": "The project runs structured public deliberations, using tools such as wikisurveys, on questions like which AI risks matter most to the public and what principles models should follow. Pilots included a ranking of US public concerns about language-model risks, a Taiwanese process on generative AI policy, and a constitution co-written by about a thousand representative Americans that Anthropic used to train a model.",
+        "assumes": "That labs and governments act on the results.",
+        "status": "Pilots completed; CIP says the Taiwan results were to be incorporated into policy and the collective constitution was used in model training (checked 2026-11-27).",
+        "url": "https://www.cip.org/alignmentassemblies",
+        "quote": "By default, these decisions fall to a small percentage of those likely to be affected.",
+        "critiques": []
+      },
+      {
+        "id": "sanders-ai-jobs-report",
+        "name": "Sanders report on AI and jobs (US Senate HELP Committee)",
+        "who": "Senator Bernie Sanders and HELP Committee staff",
+        "year": "2025",
+        "kind": "plan",
+        "answers": [
+          "income",
+          "ownership",
+          "transition"
+        ],
+        "mechanism": "The report estimates that AI and automation could displace about 97 million US jobs over ten years. It proposes a 'robot tax' paid when workers are replaced, a 32-hour week without loss of pay, profit sharing and worker seats on corporate boards, a ban on union busting and a ban on stock buybacks.",
+        "assumes": "That job losses on this scale are likely and that firms can be taxed per job replaced.",
+        "status": "Report, October 2025; no enactment found. The Senate pages refused automated access, so this entry relies on The Register's account (checked 2026-11-27).",
+        "url": "https://www.theregister.com/software/2025/10/06/ai-to-take-97m-us-jobs-in-10-years-says-ai-aided-report/393576",
+        "quote": "he proposes that the government should institute a \"robot tax\" to be paid when workers are replaced, a 32-hour working week for everyone else without reducing pay",
+        "critiques": [
+          {
+            "who": "The Register (October 2025)",
+            "what": "Reports that the job-loss estimates were generated by asking ChatGPT and calls the figures unreliable.",
+            "url": "https://www.theregister.com/software/2025/10/06/ai-to-take-97m-us-jobs-in-10-years-says-ai-aided-report/393576",
+            "quote": "There's just one problem: it got those figures from ChatGPT."
+          }
+        ]
+      },
+      {
+        "id": "ai-related-job-impacts-clarity-act",
+        "name": "AI-Related Job Impacts Clarity Act (S. 3108)",
+        "who": "Senators Josh Hawley and Mark Warner",
+        "year": "2025",
+        "kind": "plan",
+        "answers": [
+          "transition",
+          "power"
+        ],
+        "mechanism": "The bill would require publicly traded companies and some private companies to report to the Labor Department, within 30 days of each quarter's end, layoffs and unfilled positions substantially due to AI, hires due to AI, and workers being retrained because of AI. The Labor Department would publish quarterly summaries.",
+        "assumes": "That firms can and will attribute job changes to AI accurately.",
+        "status": "Introduced November 5, 2025 and referred to the Senate HELP Committee; no enactment found (checked 2026-11-27).",
+        "url": "https://www.congress.gov/119/bills/s3108/BILLS-119s3108is.htm",
+        "quote": "To require reports regarding artificial intelligence-related job impacts, and for other purposes.",
+        "critiques": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "finland-basic-income-experiment",
+        "name": "Finland's basic income experiment",
+        "when": "2017–2018 (final results 2020)",
+        "finding": "2,000 randomly chosen unemployed people received €560 a month unconditionally in place of their unemployment benefit. Employment and earnings differed little from the control group; recipients reported clearly higher wellbeing, but without a baseline survey the researchers could not attribute this to the basic income.",
+        "url": "https://www.helsinki.fi/en/news/society-and-learning/basic-income-experiment-finland-yields-surprising-results",
+        "quote": "The verdict was that there was very little difference in employment or earned income between the groups."
+      },
+      {
+        "id": "givedirectly-kenya-ubi",
+        "name": "GiveDirectly universal basic income study in rural Kenya",
+        "when": "Paper dated September 15, 2023 (Banerjee, Faye, Krueger, Niehaus, Suri)",
+        "finding": "Villages were randomised to a basic income committed for 12 years, a two-year version, a lump sum of similar value, or no transfer. Villages with the long-term income saw more enterprises and higher revenues, and work shifted from wage jobs to self-employment rather than falling; lump sums had similar or larger effects.",
+        "url": "https://conference.nber.org/conf_papers/f192616.pdf",
+        "quote": "Labor supply did not change overall, but shifted out of wage employment and towards self-employment."
+      },
+      {
+        "id": "openresearch-unconditional-cash-study",
+        "name": "OpenResearch unconditional cash study",
+        "when": "Three years of transfers in two US states; NBER Working Paper 32719, July 2024",
+        "finding": "1,000 low-income people received $1,000 a month for three years, against 2,000 controls receiving $50. Recipients' earned income fell about $1,900 a year, labour force participation fell 4.2 points and work fell by 1–2 hours a week, mostly replaced by leisure; well-being rose in the first year and then returned to control levels.",
+        "url": "https://www.nber.org/papers/w32719",
+        "quote": "The transfer caused total individual income excluding the transfers to fall by about $1,900/year relative to the control group and a 4.2 percentage point decrease in labor market participation."
+      },
+      {
+        "id": "stockton-seed",
+        "name": "Stockton Economic Empowerment Demonstration (SEED)",
+        "when": "February 2019 onward, 24 months",
+        "finding": "125 randomly selected residents received $500 a month for two years with no conditions. SEED's preliminary findings report lower month-to-month income volatility, less depression and anxiety, and recipients moving into full-time work; the sample is small.",
+        "url": "https://www.stocktondemonstration.org/",
+        "quote": "Unconditional cash enabled recipients to find full-time employment."
+      },
+      {
+        "id": "alaska-dividend-labor-study",
+        "name": "Labour market effects of the Alaska Permanent Fund Dividend",
+        "when": "NBER Working Paper 24312, February 2018 (Damon Jones and Ioana Marinescu)",
+        "finding": "Using survey data and a synthetic control method, the authors find the universal yearly dividend had no effect on overall employment and raised part-time work, consistent with the cash boosting local demand.",
+        "url": "https://www.nber.org/papers/w24312",
+        "quote": "we show that the dividend had no effect on employment, and increased part-time work by 1.8 percentage points (17%)."
+      },
+      {
+        "id": "german-basic-income-pilot",
+        "name": "German basic income pilot (DIW Berlin with Mein Grundeinkommen)",
+        "when": "Started June 2021, three years; results published 2025",
+        "finding": "122 people received €1,200 a month unconditionally for three years, compared with 1,580 controls. Recipients kept working, about one hour less a week in paid work, changed jobs and enrolled in study more often, and showed significantly better mental health and life satisfaction.",
+        "url": "https://www.pilotprojekt-grundeinkommen.de/en/labour",
+        "quote": "On average, study participants receiving a basic income work 39 hours per week in paid employment—one hour less than those without a basic income."
+      },
+      {
+        "id": "south-korea-quasi-robot-tax",
+        "name": "Investment effects of South Korea's 'quasi-robot tax'",
+        "when": "2025 study by Svea Hotmann et al., summarised by ITIF in February 2026",
+        "finding": "After South Korea cut its tax credit for automation investment, affected industries installed 28 percent fewer robots than comparable Japanese industries. The average effect on employment was statistically insignificant; only financially unconstrained firms shifted investment toward hiring.",
+        "url": "https://itif.org/publications/2026/02/09/industries-impacted-by-quasi-robot-tax-south-korea-reduced-industrial-robot-installations/",
+        "quote": "Following this reduction in the tax credit, South Korean industries, on average, reduced robot installations by 28 percent compared with their Japanese counterparts."
+      },
+      {
+        "id": "canaries-in-the-coal-mine",
+        "name": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of AI",
+        "when": "First documented August 2025; revised August 12, 2026, using ADP payroll data through June 2026",
+        "finding": "Erik Brynjolfsson, Bharat Chandar and Ruyu Chen find no widespread economy-wide job displacement, but employment of 22- to 25-year-olds in AI-exposed occupations has fallen well behind less-exposed peers, mainly through reduced hiring and in jobs where AI substitutes for tasks. The authors describe the results as descriptive, not causal.",
+        "url": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/",
+        "quote": "employment of young workers (ages 22–25) in AI-exposed occupations now stands 19% below where it would be had it kept pace with that of their less-exposed peers"
+      },
+      {
+        "id": "yale-budget-lab-ai-labor",
+        "name": "Evaluating the Impact of AI on the Labor Market: Current State of Affairs (Yale Budget Lab)",
+        "when": "October 1, 2025, covering 33 months after ChatGPT's release",
+        "finding": "Martha Gimbel, Molly Kinder, Joshua Kendall and Maddie Lee find the occupational mix changing only slightly faster than in past technology waves, a trend that began before generative AI, and no link between AI exposure or usage measures and changes in employment or unemployment.",
+        "url": "https://budgetlab.yale.edu/research/evaluating-impact-ai-labor-market-current-state-affairs",
+        "quote": "Overall, our metrics indicate that the broader labor market has not experienced a discernible disruption since ChatGPT’s release 33 months ago"
+      }
+    ],
+    "open_questions": [
+      "Finland: the official evaluation pages (valtioneuvosto.fi, stm.fi, Kela) refused automated access, so the finding is taken from Heikki Hiilamo's University of Helsinki commentary on the final report.",
+      "South Korea: the 2017 Korea Times report describes a proposed cut of up to 2 percentage points in the automation deduction, while ITIF (2026) describes a 2018 cut from 7 to 3 percent for large firms. I did not check the enacted law or fetch the underlying 2025 study, only ITIF's summary.",
+      "The 1966 Commission report: I could not find the original text online; its quotes come from Timothy Taylor's transcription on Conversable Economist.",
+      "Sanders report: the senate.gov pages refused automated access; the entry relies on The Register, which disputes the report's ChatGPT-derived 97 million figure.",
+      "'Universal basic compute': I verified only Altman's written 2025 'compute budget' remark, not the spoken 2024 'universal basic compute' remarks often attributed to him.",
+      "Windfall Clause: Kevin Kohler reported no signatories as of September 2024; I could not confirm whether any firm has signed since.",
+      "Anthropic's Long-Term Benefit Trust: the trust agreement and stockholder override thresholds are not public, and I could not verify from public pages whether the trust now elects a majority of the board.",
+      "Evidence on AI and jobs disagrees in scope and timing: the Stanford ADP study (data through June 2026) finds a 19 percent employment gap for young workers in exposed jobs, while the Yale Budget Lab snapshot (October 2025) found no discernible economy-wide disruption. The Yale team planned regular updates that I did not fetch.",
+      "Cash pilots differ in design, population and size: OpenResearch found recipients worked 1–2 fewer hours a week, the German pilot about one hour less, Kenya and Alaska no fall in overall work, and Finland little change. They do not test a permanent, society-wide payment funded by taxes.",
+      "Stockton SEED: the program's site shows preliminary first-year findings; I did not fetch a final evaluation.",
+      "Norway: I found no critique I could fetch; OECD, IMF and Norwegian government pages that discuss growing reliance on the fund refused automated access.",
+      "Primary pages for Radical Markets (Princeton University Press), Fully Automated Luxury Communism (Verso), the OECD's 2017 basic income brief and AI Now's NAIRR comment refused automated access; other primary or secondary pages were used instead.",
+      "Data dividends: I found no enacted California data dividend, but that conclusion rests on the absence of evidence rather than an official statement.",
+      "The IMF blog refuses automated access, so its figures (almost 40 percent of global employment exposed to AI) are paraphrased from the agent's reading and not checked word for word."
+    ],
+    "method": "Compiled on 2026-11-27. Candidates came from the brief and from web searches; each page was downloaded with a command-line HTTP client, converted to plain text, and every quote was copied from that text and checked against it, except for the few pages noted in open_questions that could only be read through a summarising fetch tool. I preferred authors' own pages, the papers themselves, bill text and official program sites, and used news or review pages where primary pages were unavailable or for critiques. Kind labels (plan, vision, pilot, analysis, warning) and the question tags are my own classification; entries are not ranked. Critics are quoted in their own words, and items with no critique are those for which I found none I could source. This file was compiled by Claude, an AI model made by Anthropic; entries about Anthropic and OpenAI follow the same format and include outside critiques where found. On 2026-11-27 a second script fetched every page again and found 67 of the 68 quotes on their pages (PDFs read as text; punctuation and footnote marks ignored). The IMF blog refuses automated access, so its entry is paraphrased and carries no quote."
+  }
 }

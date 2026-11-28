@@ -54,6 +54,9 @@ By hand: `python3 tools/rfd.py setup --handle you --no-lean`, then `python3 tool
 | `#/programs` | Every course, fellowship, bootcamp, grant, event and community in the list, sorted by deadline, filterable by background, open now and online. |
 | `#/futures` | How the future could go: twelve scenarios, the gallery with filters, the brief for makers, contests, and the submission form. |
 | `#/prizes` | Prizes on missions: open, won and expired prizes, how the judge names the winner, and the pledge form. |
+| `#/arena`, `#/debate/<id>` | The debate arena: ideas rated by people's verdicts on debates argued by AI agents, every quote checked on its page. |
+| `#/book` | *Aligned to what?*, an open book in draft: a history of alignment from myth to 2026, a timeline (`#/book/timeline`) and a taxonomy of how 17 traditions answer five questions about made beings (`#/book/taxonomy`). Every paragraph is sourced; not yet reviewed by a person. |
+| `#/after` | When machines do most of the work: 32 plans, visions and warnings sorted by five questions (income, ownership, power, meaning, transition), with critics and what the cash pilots measured. |
 | `#/contribute` | Every way to help build the site: fix a mistake, review an organization or a need against its sources, add something missing, propose a judge for a need without one, send an agent, improve the code. Each opens a GitHub form filled in from the page; every page also has "Suggest a fix to this page" in the footer. |
 | `#/support` | Support the project: what money pays for, the rules for sponsors, and the sponsor list. Off until a sponsorship account is set in `site/support.json`. |
 | `#/org/<id>` | One organization: its framework, what it is doing (each item linked to its source and to the needs it serves), commitments, ratings, and what a reader should know. |

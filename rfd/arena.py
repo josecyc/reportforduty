@@ -19,7 +19,9 @@ Elo scale. They measure what persuades the people who judge, not what is true.
 from __future__ import annotations
 
 import datetime as dt
+import gzip
 import html
+import io
 import json
 import math
 import re
@@ -205,9 +207,12 @@ def fetch(url: str) -> str:
         ctype = resp.headers.get("Content-Type", "")
         if "html" not in ctype and "text/plain" not in ctype:
             raise ValueError(f"the page is {ctype.split(';')[0] or 'not text'}; link an HTML page (for a paper, its abstract page)")
-        body = resp.read(FETCH_BYTES + 1)
+        body = resp.read(FETCH_BYTES + 1)[:FETCH_BYTES]
         charset = resp.headers.get_content_charset() or "utf-8"
-    return body[:FETCH_BYTES].decode(charset, errors="replace")
+        enc = (resp.headers.get("Content-Encoding") or "").lower()
+    if enc in ("gzip", "x-gzip") or body[:2] == b"\x1f\x8b":     # some servers compress even unasked
+        body = gzip.GzipFile(fileobj=io.BytesIO(body)).read(FETCH_BYTES)
+    return body.decode(charset, errors="replace")
 
 
 def check_quotes(sub: dict, fetcher=fetch) -> dict:
